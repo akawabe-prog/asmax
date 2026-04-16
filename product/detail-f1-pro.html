@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Pro — Detail | ASMAX JAPAN</title>
+  <meta name="description" content="ASMAX F1 Pro の製品詳細。Bluetooth 5.3 デュアルチップ8コア、最大50人CloudTalk、3km Mesh通信、IPX7防水。写真で見る F1 Pro の魅力。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/shared-layout.css">
+  <style>
+    /* ═══════════════════════════════════════════
+       DESIGN TOKENS
+       ═══════════════════════════════════════════ */
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #101010;
+      --surface: #141414;
+      --surface-raised: #1c1c1c;
+      --border: rgba(255,255,255,0.07);
+      --border-mid: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #e0e0e0;
+      --muted: #6a6a6a;
+      --white: #f5f5f5;
+      --accent: #ff6b00;
+      --accent-soft: rgba(255,107,0,0.14);
+      --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+      --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+      --shadow-sm: 0 4px 16px rgba(0,0,0,0.2);
+      --shadow-md: 0 16px 48px rgba(0,0,0,0.3);
+      --shadow-lg: 0 32px 80px rgba(0,0,0,0.45);
+      --space-xs: 8px; --space-sm: 13px; --space-md: 21px;
+      --space-lg: 34px; --space-xl: 55px; --space-2xl: 89px;
+      --container: min(1280px, calc(100vw - 40px));
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: var(--container); margin: 0 auto; }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .img-placeholder {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px; width: 100%; height: 100%;
+      background: var(--surface);
+      border: 2px dashed var(--border-mid);
+      border-radius: 12px;
+      font-family: var(--font-en); color: var(--muted);
+      overflow: hidden;
+    }
+    .img-placeholder .ph-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .img-placeholder .ph-size {
+      font-size: 11px; font-weight: 400; opacity: 0.6;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-1: HERO
+       ═══════════════════════════════════════════ */
+    .detail-hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .detail-hero .hero-bg {
+      position: absolute; inset: 0;
+    }
+    .detail-hero .hero-bg .img-placeholder {
+      border-radius: 0; border: none;
+      height: 100%;
+    }
+    .detail-hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0.4) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 0 var(--space-2xl);
+      width: var(--container); margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-en); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: var(--space-sm);
+    }
+    .hero-title {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(40px, 7vw, 80px);
+      line-height: 1.0; color: var(--white);
+      letter-spacing: -0.03em;
+    }
+    .hero-catch {
+      margin-top: var(--space-md);
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text); max-width: 560px;
+      line-height: 1.7;
+    }
+    .scroll-hint {
+      position: absolute; bottom: var(--space-lg);
+      left: 50%; transform: translateX(-50%);
+      z-index: 2;
+      font-family: var(--font-en); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .scroll-hint::after {
+      content: ""; width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--muted), transparent);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-2: PRODUCT OVERVIEW
+       ═══════════════════════════════════════════ */
+    .sec-overview {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    .overview-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: center;
+    }
+    .overview-img {
+      aspect-ratio: 4/3;
+    }
+    .overview-text { padding: var(--space-lg) 0; }
+    .overview-eyebrow {
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: var(--space-sm);
+    }
+    .overview-heading {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(24px, 3.5vw, 36px);
+      line-height: 1.1; color: var(--white);
+      margin-bottom: var(--space-md);
+    }
+    .overview-desc {
+      font-size: 15px; color: var(--muted); line-height: 1.8;
+      margin-bottom: var(--space-lg);
+    }
+    .spec-pills {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .spec-pill {
+      padding: 10px 18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: var(--font-en); font-size: 13px; font-weight: 600;
+      color: var(--white); white-space: nowrap;
+    }
+    .spec-pill small {
+      font-weight: 400; color: var(--muted); margin-left: 6px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-3: FEATURE GALLERY (Bento)
+       ═══════════════════════════════════════════ */
+    .sec-features-gallery {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .bento-item { position: relative; overflow: hidden; border-radius: 12px; }
+    .bento-item.large {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+    }
+    .bento-item.small {
+      aspect-ratio: 1/1;
+    }
+    .bento-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--space-lg);
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      z-index: 2;
+    }
+    .bento-caption h3 {
+      font-family: var(--font-en); font-size: 16px; font-weight: 800;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .bento-caption p {
+      font-size: 13px; color: var(--text); opacity: 0.8;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-4: LIFESTYLE
+       ═══════════════════════════════════════════ */
+    .sec-lifestyle {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    .lifestyle-img {
+      aspect-ratio: 21/9;
+      border-radius: 12px; overflow: hidden;
+    }
+    .lifestyle-caption {
+      margin-top: var(--space-md);
+      text-align: center;
+    }
+    .lifestyle-caption p {
+      font-size: 18px; font-weight: 600; color: var(--white);
+    }
+    .lifestyle-caption small {
+      display: block; margin-top: var(--space-xs);
+      font-size: 14px; color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-5: TECH SPECS HIGHLIGHT
+       ═══════════════════════════════════════════ */
+    .sec-tech {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    .tech-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: center;
+    }
+    .tech-img {
+      aspect-ratio: 3/4;
+      border-radius: 12px; overflow: hidden;
+    }
+    .tech-numbers { display: grid; gap: var(--space-lg); }
+    .tech-stat { }
+    .tech-stat .stat-value {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(36px, 5vw, 56px);
+      color: var(--white); line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+    .tech-stat .stat-value span {
+      font-size: 0.5em; font-weight: 600; color: var(--accent);
+      margin-left: 4px;
+    }
+    .tech-stat .stat-label {
+      margin-top: 4px;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-6: DETAIL SHOTS
+       ═══════════════════════════════════════════ */
+    .sec-details {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+    .details-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-md); margin-top: var(--space-xl);
+    }
+    .detail-shot {
+      aspect-ratio: 1/1;
+      border-radius: 12px; overflow: hidden;
+      position: relative;
+    }
+    .detail-shot-label {
+      position: absolute; bottom: var(--space-md); left: var(--space-md);
+      font-family: var(--font-en); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white); z-index: 2;
+      padding: 6px 12px;
+      background: rgba(0,0,0,0.6); border-radius: 6px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-7: CTA
+       ═══════════════════════════════════════════ */
+    .sec-cta {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .cta-product-name {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--white); line-height: 1.1;
+    }
+    .cta-price {
+      margin-top: var(--space-sm);
+      font-family: var(--font-en); font-weight: 900;
+      font-size: 32px; color: var(--white);
+    }
+    .cta-price small {
+      font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 4px;
+    }
+    .cta-actions {
+      margin-top: var(--space-lg);
+      display: flex; justify-content: center; gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .btn-buy {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 18px 48px; background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 15px;
+      border: none; border-radius: 8px; letter-spacing: 0.06em;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn-buy:hover { background: #e65f00; transform: translateY(-2px); }
+    .link-spec {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 18px 32px;
+      font-size: 14px; font-weight: 600; color: var(--muted);
+      border: 1px solid var(--border-strong); border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .link-spec:hover { color: var(--white); border-color: var(--white); }
+    .link-spec::after {
+      content: "→"; font-size: 16px;
+    }
+
+    /* ── Shared heading ── */
+    .sec-heading {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(22px, 3vw, 32px); color: var(--white); line-height: 1.1;
+    }
+    .sec-sub { margin-top: var(--space-xs); font-size: 14px; color: var(--muted); }
+
+    /* ── Animation ── */
+    [data-animate] {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.6s cubic-bezier(0.22,1,0.36,1);
+      transition-delay: var(--d, 0s);
+    }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .overview-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .tech-grid { grid-template-columns: 1fr; }
+      .tech-img { max-width: 400px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-item.large { aspect-ratio: 16/10; }
+      .details-grid { grid-template-columns: 1fr; }
+      .detail-hero { min-height: 500px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: 36px; }
+      .cta-product-name { font-size: 28px; }
+      .cta-price { font-size: 26px; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <script>window.__asmax_base = '../';</script>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════
+         SEC-1: HERO
+         ═══════════════════════════════════════════ -->
+    <section class="detail-hero">
+      <div class="hero-bg">
+        <div class="img-placeholder">
+          <span class="ph-label">HERO IMAGE</span>
+          <span class="ph-size">1920 × 1080 — 16:9 Full Width</span>
+        </div>
+      </div>
+      <div class="hero-content" data-animate>
+        <div class="hero-eyebrow">All-Rounder Flagship</div>
+        <h1 class="hero-title">F1 Pro</h1>
+        <p class="hero-catch">全部入りフラッグシップ。<br>Bluetooth 5.3 デュアルチップ8コアが、ライドのすべてを変える。</p>
+      </div>
+      <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-2: PRODUCT OVERVIEW
+         ═══════════════════════════════════════════ -->
+    <section class="sec-overview">
+      <div class="container">
+        <div class="overview-grid">
+          <div class="overview-img" data-animate>
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">OVERVIEW</span>
+              <span class="ph-size">960 × 720 — 4:3</span>
+            </div>
+          </div>
+          <div class="overview-text" data-animate style="--d:0.1s;">
+            <div class="overview-eyebrow">Product Concept</div>
+            <h2 class="overview-heading">ツーリングの常識を<br>アップデートする</h2>
+            <p class="overview-desc">3km Mesh通信、50人CloudTalk、14時間連続通話。F1 Pro は「もう充分」を超えた全部入りインカム。マグネット脱着、Hi Max 音声AI、IPX7防水 — 妥協のない仕様で、すべてのライダーに応える。</p>
+            <div class="spec-pills">
+              <div class="spec-pill">3km<small>Mesh通信</small></div>
+              <div class="spec-pill">50人<small>CloudTalk</small></div>
+              <div class="spec-pill">14h<small>連続通話</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-3: FEATURE GALLERY (Bento)
+         ═══════════════════════════════════════════ -->
+    <section class="sec-features-gallery">
+      <div class="container">
+        <div data-animate>
+          <h2 class="sec-heading">Key Features</h2>
+          <p class="sec-sub">F1 Pro を選ぶ理由</p>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-item large" data-animate style="--d:0.05s;">
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">FEATURE 01</span>
+              <span class="ph-size">1280 × 720 — 16:9</span>
+            </div>
+            <div class="bento-caption">
+              <h3>Dual Chip Octa-Core</h3>
+              <p>Bluetooth 5.3 デュアルチップ・8コアで安定したマルチデバイス通信</p>
+            </div>
+          </div>
+          <div class="bento-item small" data-animate style="--d:0.1s;">
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">FEATURE 02</span>
+              <span class="ph-size">640 × 640 — 1:1</span>
+            </div>
+            <div class="bento-caption">
+              <h3>CloudTalk</h3>
+              <p>携帯回線で最大50人。距離無制限</p>
+            </div>
+          </div>
+          <div class="bento-item small" data-animate style="--d:0.15s;">
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">FEATURE 03</span>
+              <span class="ph-size">640 × 640 — 1:1</span>
+            </div>
+            <div class="bento-caption">
+              <h3>Hi Max AI</h3>
+              <p>オフライン音声アシスタントでハンズフリー操作</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-4: LIFESTYLE
+         ═══════════════════════════════════════════ -->
+    <section class="sec-lifestyle">
+      <div class="container">
+        <div class="lifestyle-img" data-animate>
+          <div class="img-placeholder" style="height:100%;">
+            <span class="ph-label">LIFESTYLE</span>
+            <span class="ph-size">1920 × 823 — 21:9 Wide</span>
+          </div>
+        </div>
+        <div class="lifestyle-caption" data-animate style="--d:0.08s;">
+          <p>Ride Together, Stay Connected.</p>
+          <small>仲間とのツーリングを、もっと自由に。</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-5: TECH SPECS HIGHLIGHT
+         ═══════════════════════════════════════════ -->
+    <section class="sec-tech">
+      <div class="container">
+        <div class="tech-grid">
+          <div class="tech-img" data-animate>
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">TECH VISUAL</span>
+              <span class="ph-size">720 × 960 — 3:4 Portrait</span>
+            </div>
+          </div>
+          <div class="tech-numbers" data-animate style="--d:0.1s;">
+            <div class="tech-stat">
+              <div class="stat-value">3<span>km</span></div>
+              <div class="stat-label">Mesh 通信距離</div>
+            </div>
+            <div class="tech-stat">
+              <div class="stat-value">14<span>h</span></div>
+              <div class="stat-label">連続通話時間</div>
+            </div>
+            <div class="tech-stat">
+              <div class="stat-value">10<span>→16 riders</span></div>
+              <div class="stat-label">Mesh グループ通話（FW更新で16人）</div>
+            </div>
+            <div class="tech-stat">
+              <div class="stat-value">IPX7</div>
+              <div class="stat-label">防水等級 — 突然の雨でも安心</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-6: DETAIL SHOTS
+         ═══════════════════════════════════════════ -->
+    <section class="sec-details">
+      <div class="container">
+        <div data-animate>
+          <h2 class="sec-heading">Closer Look</h2>
+          <p class="sec-sub">ディテールで見る F1 Pro</p>
+        </div>
+        <div class="details-grid">
+          <div class="detail-shot" data-animate style="--d:0.05s;">
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">DETAIL 01</span>
+              <span class="ph-size">800 × 800 — 1:1</span>
+            </div>
+            <div class="detail-shot-label">Magnetic Mount</div>
+          </div>
+          <div class="detail-shot" data-animate style="--d:0.1s;">
+            <div class="img-placeholder" style="height:100%;">
+              <span class="ph-label">DETAIL 02</span>
+              <span class="ph-size">800 × 800 — 1:1</span>
+            </div>
+            <div class="detail-shot-label">40mm Speaker</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-7: CTA
+         ═══════════════════════════════════════════ -->
+    <section class="sec-cta">
+      <div class="container" data-animate>
+        <div class="cta-product-name">F1 Pro</div>
+        <div class="cta-price">¥35,915<small>税込</small></div>
+        <div class="cta-actions">
+          <a class="btn-buy" href="f1-pro.html">Buy Now</a>
+          <a class="link-spec" href="f1-pro.html#spec">すべてのスペックを見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <div id="site-footer"></div>
+
+  <!-- ── SCRIPT ── -->
+  <script src="../assets/js/shared-components.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          animObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+  });
+  </script>
+
+</body>
+</html>

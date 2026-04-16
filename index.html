@@ -1,0 +1,2868 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASMAX JAPAN | CONNECT YOUR EVERY ADVENTURE</title>
+  <meta name="description" content="ASMAX JAPAN 公式 - EVA R / F1 Pro / S2。日本総代理店として正規取り扱い。2年間保証・日本語サポート。">
+  <meta property="og:title" content="ASMAX JAPAN | CONNECT YOUR EVERY ADVENTURE">
+  <meta property="og:description" content="ASMAX JAPAN 公式。EVA R / F1 Pro / S2 — 日本総代理店として正規取り扱い。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ASMAX JAPAN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       0. DESIGN TOKENS
+       ═══════════════════════════════════════════ */
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #101010;
+      --surface: #141414;
+      --surface-raised: #1c1c1c;
+      --border: rgba(255,255,255,0.07);
+      --border-mid: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #e0e0e0;
+      --muted: #6a6a6a;
+      --white: #f5f5f5;
+      --accent: #ff6b00;
+      --accent-soft: rgba(255,107,0,0.14);
+      --eva01: #7b2d8e;
+      --eva01-accent: #00c853;
+      --eva02: #c82828;
+      --eva02-accent: #ff6d00;
+
+      --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+      --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+
+      /* Shadow hierarchy */
+      --shadow-sm: 0 4px 16px rgba(0,0,0,0.2);
+      --shadow-md: 0 16px 48px rgba(0,0,0,0.3);
+      --shadow-lg: 0 32px 80px rgba(0,0,0,0.45);
+
+      /* Spacing rhythm (golden-ratio-ish) */
+      --space-xs: 8px;
+      --space-sm: 13px;
+      --space-md: 21px;
+      --space-lg: 34px;
+      --space-xl: 55px;
+      --space-2xl: 89px;
+
+      /* Section spacing: 3 tiers */
+      --space-section-lg: 160px;
+      --space-section-md: 96px;
+      --space-section-sm: 64px;
+
+      --container: min(1280px, calc(100vw - 40px));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.1), transparent 35%),
+        radial-gradient(circle at 85% 8%, rgba(123,45,142,0.12), transparent 22%),
+        linear-gradient(180deg, #0f0f0f 0%, #090909 40%, #0a0a0a 100%);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+
+    /* Subtle grid texture — page shell */
+    .page-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════
+       1. TYPOGRAPHY
+       ═══════════════════════════════════════════ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-family: var(--font-en);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    /* ═══════════════════════════════════════════
+       2. HEADER
+       ═══════════════════════════════════════════ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(0px);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+    }
+    .site-header.scrolled {
+      backdrop-filter: blur(18px);
+      background: rgba(10,10,10,0.82);
+      border-bottom-color: var(--border);
+    }
+
+    .site-header-inner {
+      width: var(--container);
+      min-height: 84px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .logo-mark img {
+      display: block;
+      width: clamp(110px, 10vw, 156px);
+      height: auto;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .site-nav a,
+    .header-actions a {
+      color: var(--muted);
+      transition: color 0.15s ease-out;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible,
+    .header-actions a:hover,
+    .header-actions a:focus-visible {
+      color: var(--white);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      margin: 0 auto;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      content: "";
+    }
+
+    .menu-toggle span::before { transform: translateY(-6px); }
+    .menu-toggle span::after  { transform: translateY(4.5px); }
+
+    .menu-toggle[aria-expanded="true"] span { background: transparent; }
+    .menu-toggle[aria-expanded="true"] span::before { transform: translateY(0) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] span::after  { transform: translateY(-1.5px) rotate(-45deg); }
+
+    .mobile-drawer { display: none; }
+
+    /* ═══════════════════════════════════════════
+       3. BUTTONS — varied radii & transitions
+       ═══════════════════════════════════════════ */
+    .btn,
+    .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 28px;
+      border: 1px solid transparent;
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn {
+      border-radius: 12px;
+      background: var(--white);
+      color: #0a0a0a;
+      transition: transform 0.18s ease-out, box-shadow 0.25s ease-out;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+    }
+
+    .btn.accent {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 12px 40px rgba(255,107,0,0.25);
+      border-radius: 14px;
+    }
+
+    .btn.accent:hover {
+      background: #ff7f24;
+      box-shadow: 0 16px 48px rgba(255,107,0,0.38);
+    }
+
+    .ghost-btn {
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      border-color: var(--border-mid);
+      transition: border-color 0.2s ease-out, background 0.2s ease-out, transform 0.18s ease-out;
+    }
+
+    .ghost-btn:hover {
+      border-color: var(--border-strong);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-2px);
+    }
+
+    .cart-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      color: var(--muted);
+      transition: color 0.15s ease-out;
+    }
+    .cart-icon:hover { color: var(--white); }
+
+    .mall-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 22px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: color 0.15s ease-out, border-color 0.2s ease;
+    }
+
+    .mall-link:hover {
+      color: var(--white);
+      border-color: var(--border-strong);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-01: HERO — 85vh, text + space only
+       ═══════════════════════════════════════════ */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 var(--space-section-lg);
+      overflow: clip;
+    }
+
+    .hero-copy { max-width: 800px; }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      letter-spacing: -0.02em;
+      line-height: 0.88;
+      color: var(--white);
+      text-transform: uppercase;
+      max-width: 14ch;
+    }
+
+    .hero .subcopy {
+      margin: var(--space-lg) 0 0;
+      max-width: 32em;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+    }
+
+    .scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: var(--space-xl);
+      margin-inline: auto;
+      width: fit-content;
+      color: var(--muted);
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-right: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+      transform: rotate(45deg);
+      opacity: 0.7;
+      animation: scroll-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.4; transform: rotate(45deg) translateY(0); }
+      50%      { opacity: 0.9; transform: rotate(45deg) translateY(4px); }
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-02 & SEC-03: EVA R — spotlight + cards
+       ═══════════════════════════════════════════ */
+    .eva-spotlight {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent),
+        linear-gradient(135deg, #0d0018 0%, #19000d 45%, #1a0000 100%);
+      overflow: clip;
+      padding: 0;
+      position: relative;
+    }
+
+    .eva-spotlight::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--eva01), transparent 30%, transparent 70%, var(--eva02));
+      filter: blur(0.5px);
+      box-shadow: 0 0 20px rgba(123,45,142,0.5), 0 0 20px rgba(200,40,40,0.5);
+      z-index: 2;
+    }
+
+    .eva-spotlight::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 800px 500px at 20% 30%, rgba(123,45,142,0.12), transparent),
+        radial-gradient(ellipse 800px 500px at 80% 60%, rgba(200,40,40,0.12), transparent);
+      pointer-events: none;
+      opacity: var(--eva-after-opacity, 0.3);
+    }
+
+    /* eva-pulse removed — replaced by GSAP ScrollTrigger scrub */
+
+    /* EVA Intro — fullscreen centered type */
+    .eva-intro {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .eva-intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8,8,8,0.48) 0%, rgba(8,8,8,0.62) 100%),
+        radial-gradient(ellipse 820px 420px at 18% 22%, rgba(123,45,142,0.22), transparent 62%),
+        radial-gradient(ellipse 820px 420px at 82% 70%, rgba(200,40,40,0.2), transparent 62%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .eva-intro-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.56;
+      filter: saturate(1.06) contrast(1.04);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .eva-heading {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eva-brand-logo {
+      display: block;
+      width: min(360px, 78vw);
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    .eva-heading h2 {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .eva-heading .duo {
+      display: inline-flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .eva-heading .unit01 { color: var(--eva01); }
+    .eva-heading .unit02 { color: var(--eva02); }
+
+    .eva-heading .lede {
+      margin: var(--space-lg) auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 480px;
+    }
+
+    /* EVA Cards — fullbleed 2-col */
+    .eva-grid-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eva-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0;
+    }
+
+    .eva-card {
+      position: relative;
+      padding: var(--space-lg) 32px var(--space-xl);
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: background 0.6s cubic-bezier(0.25,1,0.5,1);
+    }
+
+    .eva-card:last-child { border-right: none; }
+
+    .eva-card.unit01:hover { background: rgba(123,45,142,0.04); }
+    .eva-card.unit02:hover { background: rgba(200,40,40,0.04); }
+
+    .eva-poster-link {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.5s cubic-bezier(0.25,1,0.5,1);
+    }
+
+    .eva-poster-link:hover { transform: scale(1.02); }
+
+    .eva-card-footer { display: flex; flex-direction: column; gap: 16px; }
+
+    .eva-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(8px);
+    }
+
+    .eva-card.unit01::before { background: radial-gradient(circle, rgba(123,45,142,0.4), transparent 70%); }
+    .eva-card.unit02::before { background: radial-gradient(circle, rgba(200,40,40,0.4), transparent 70%); }
+
+    .eva-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eva-device {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: var(--space-md) 0;
+    }
+
+    .eva-device-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .eva-device-image {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.5);
+      background: #0a0a0a;
+      display: block;
+    }
+
+    .device-solo {
+      width: 220px;
+      height: 280px;
+      border-radius: 52px 52px 64px 64px;
+      border: 1px solid currentColor;
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .device-solo::before,
+    .device-solo::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.86;
+    }
+
+    .device-solo::before {
+      width: 14px; height: 14px;
+      top: 24px; left: 24px;
+    }
+
+    .device-solo::after {
+      width: 34px; height: 34px;
+      right: 24px; bottom: 24px;
+      box-shadow: 0 0 0 14px rgba(255,255,255,0.04);
+    }
+
+    .device-solo.unit01 { color: var(--eva01); }
+    .device-solo.unit01b { color: var(--eva01); border-color: var(--eva01-accent); }
+    .device-solo.unit01b::after { background: var(--eva01-accent); }
+    .device-solo.unit02 { color: var(--eva02); }
+    .device-solo.unit02b { color: var(--eva02); border-color: var(--eva02-accent); }
+    .device-solo.unit02b::after { background: var(--eva02-accent); }
+
+    .eva-copy h3 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.05;
+      color: var(--white);
+    }
+
+    .eva-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .price strong {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: var(--space-md);
+    }
+
+    .spec-meta {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-04: LINEUP — 2-col, featured larger
+       ═══════════════════════════════════════════ */
+    .sec-lineup { padding: var(--space-section-md) 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .section-heading .section-desc {
+      margin: 0;
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1), box-shadow 0.45s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-card.featured {
+      min-height: 420px;
+      border-color: rgba(255,107,0,0.3);
+      border-radius: 28px;
+    }
+
+    .product-card.featured:hover {
+      border-color: rgba(255,107,0,0.5);
+      box-shadow: var(--shadow-lg), 0 0 40px rgba(255,107,0,0.06);
+    }
+
+    .product-role {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .product-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;
+      margin: 16px 0 18px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+    }
+
+    .product-visual .device-solo {
+      width: 120px;
+      height: 158px;
+    }
+
+    .product-device-image {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 0;
+      border: none;
+      background: none;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
+      mix-blend-mode: lighten;
+    }
+
+    .product-card.featured .product-visual {
+      min-height: 0;
+    }
+
+    .product-card.featured .product-visual .device-solo {
+      width: 120px;
+      height: 156px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 23px;
+      line-height: 1.1;
+    }
+    .product-card h3 a { transition: color 0.2s; }
+    .product-card h3 a:hover { color: var(--accent); }
+
+    .product-card.featured h3 { font-size: 22px; }
+
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .product-price {
+      margin-top: 18px;
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .product-card.featured .product-price { font-size: 24px; }
+
+    .product-price small {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .product-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: var(--space-lg);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-05: COMPARE — table, minimal decoration
+       ═══════════════════════════════════════════ */
+    .sec-compare {
+      padding: var(--space-section-sm) 0 var(--space-section-md);
+      border-top: 1px solid var(--border);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      background: rgba(255,255,255,0.015);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    td:first-child { white-space: nowrap; font-weight: 600; color: var(--muted); }
+    td:not(:first-child) { white-space: normal; min-width: 140px; }
+
+    th {
+      font-family: var(--font-en);
+      font-size: 12px;
+      color: var(--white);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.025);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    td:first-child,
+    th:first-child {
+      position: sticky;
+      left: 0;
+      background: var(--surface);
+      z-index: 1;
+      min-width: 190px;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-06: YOUR MATCH — 3-col, center larger
+       ═══════════════════════════════════════════ */
+    .sec-match {
+      padding: var(--space-section-md) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .match-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 22px;
+    }
+
+    .match-card {
+      padding: var(--space-lg) 28px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1), border-color 0.3s ease;
+    }
+
+    .match-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-mid);
+    }
+
+    .match-card strong {
+      display: block;
+      color: var(--white);
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+    }
+
+    .match-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .match-target {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .match-target a {
+      transition: opacity 0.15s ease-out;
+    }
+
+    .match-target a:hover { opacity: 0.75; }
+
+    /* ═══════════════════════════════════════════
+       SEC-07: WHY ASMAX — list style, bottom border
+       ═══════════════════════════════════════════ */
+    .sec-why {
+      padding: var(--space-section-md) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 0;
+    }
+
+    .why-item {
+      padding: var(--space-lg) var(--space-lg) var(--space-lg) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .why-item:nth-child(3n+2) { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+    .why-item:nth-child(3n)   { padding-left: var(--space-lg); }
+
+    .why-item:nth-child(n+4) { border-bottom: none; }
+
+    .why-index {
+      display: block;
+      margin-bottom: var(--space-sm);
+      color: rgba(255,255,255,0.1);
+      font-family: var(--font-en);
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .why-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 18px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .why-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-08: BRAND STORY — fullscreen 2-col
+       ═══════════════════════════════════════════ */
+    .sec-story {
+      border-top: 1px solid var(--border);
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      background:
+        radial-gradient(circle at 16% 24%, rgba(255,107,0,0.12), transparent 38%),
+        linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+
+    .sec-story .container {
+      width: 100%;
+      margin: 0;
+    }
+
+    .story-grid {
+      width: 100%;
+      max-width: none;
+      padding-left: clamp(22px, 4.2vw, 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0;
+      align-items: stretch;
+      min-height: 100vh;
+    }
+
+    .story-copy {
+      max-width: 560px;
+      padding: clamp(80px, 9vw, 140px) clamp(18px, 3vw, 48px) clamp(64px, 8vw, 120px) 0;
+      margin: auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-copy h2 {
+      margin: 0 0 var(--space-md);
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      letter-spacing: -0.01em;
+      line-height: 0.92;
+      color: var(--white);
+    }
+
+    .story-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .story-copy p + p { margin-top: 16px; }
+
+    .story-visual {
+      position: relative;
+      min-height: 100%;
+      border-left: 1px solid var(--border);
+      overflow: hidden;
+      background: #0f0f0f;
+    }
+
+    .story-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.2) 36%, rgba(10,10,10,0.1) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .story-image {
+      width: 100%;
+      height: min(72vh, 760px);
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.95) contrast(1.06);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-09: RIDERS VOICE — compact cards
+       ═══════════════════════════════════════════ */
+    .sec-voice {
+      padding: var(--space-section-sm) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .voice-card {
+      padding: 24px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.4s cubic-bezier(0.25,1,0.5,1), border-color 0.25s ease;
+    }
+
+    .voice-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-mid);
+    }
+
+    .voice-source {
+      display: inline-flex;
+      padding: 5px 10px;
+      margin-bottom: var(--space-sm);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .voice-card strong {
+      display: block;
+      margin-bottom: var(--space-xs);
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    .voice-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-10: APP — fullscreen bg image + overlay text
+       ═══════════════════════════════════════════ */
+    .sec-app {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .sec-app .app-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .sec-app .app-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 65% center;
+    }
+
+    .sec-app .app-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(10,10,10,0.8) 0%,
+          rgba(10,10,10,0.55) 35%,
+          rgba(10,10,10,0.5) 60%,
+          rgba(10,10,10,0.9) 100%),
+        linear-gradient(90deg,
+          rgba(10,10,10,0.7) 0%,
+          rgba(10,10,10,0.2) 50%,
+          rgba(10,10,10,0.3) 100%);
+    }
+
+    .sec-app .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px;
+    }
+
+    .app-copy {
+      max-width: 680px;
+    }
+
+    .app-copy h2 {
+      margin: 0 0 var(--space-md);
+      font-family: var(--font-ja);
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--white);
+      text-shadow: 0 2px 30px rgba(0,0,0,0.5);
+    }
+
+    .app-copy .app-desc {
+      margin: 0 auto var(--space-lg);
+      color: rgba(255,255,255,0.85);
+      font-size: 16px;
+      max-width: 520px;
+      line-height: 1.8;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-badges a {
+      display: inline-block;
+      transition: transform 0.25s ease-out, opacity 0.2s ease;
+    }
+
+    .app-badges a:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    .app-badges img { height: 48px; width: auto; }
+
+    /* ═══════════════════════════════════════════
+       SEC-11: FAQ — centered, accordion
+       ═══════════════════════════════════════════ */
+    .sec-faq {
+      padding: var(--space-section-sm) 0 var(--space-section-md);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-shell {
+      max-width: 840px;
+      margin: 0 auto;
+      border-radius: 0;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 24px 28px;
+      border: none;
+      background: transparent;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s ease-out;
+    }
+
+    .faq-trigger:hover { background: rgba(255,255,255,0.015); }
+
+    .faq-trigger span:first-child {
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      position: relative;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 18px;
+      height: 1.5px;
+      background: var(--muted);
+      transform: translate(-50%,-50%);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
+
+    .faq-trigger[aria-expanded="true"] .faq-icon::after { opacity: 0; }
+
+    .faq-panel {
+      padding: 0 28px 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      display: none;
+    }
+
+    .faq-trigger[aria-expanded="true"] + .faq-panel { display: block; }
+
+    /* ═══════════════════════════════════════════
+       SEC-12: CTA BAND — radial glow
+       ═══════════════════════════════════════════ */
+    .cta-band {
+      padding: var(--space-section-lg) 0 var(--space-section-md);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,107,0,0.12), transparent 40%),
+        linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    }
+
+    .cta-inner {
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.92;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-band .cta-sub {
+      max-width: 600px;
+      margin: var(--space-md) auto 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cta-actions,
+    .mall-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: var(--space-lg);
+    }
+
+    .cta-meta {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      color: var(--muted);
+      font-size: 13px;
+      transition: color 0.15s ease-out;
+    }
+
+    .cta-meta:hover { color: var(--white); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════ */
+    .site-footer {
+      padding: 72px 0 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .footer-brand { max-width: 360px; }
+    .footer-brand p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      margin-bottom: 18px;
+      color: var(--white);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .footer-column {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-column a { transition: color 0.15s ease-out; }
+    .footer-column a:hover { color: var(--white); }
+
+    .footer-bottom {
+      margin-top: var(--space-lg);
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom a {
+      transition: color 0.15s ease-out;
+    }
+
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ═══════════════════════════════════════════
+       ANIMATIONS — varied easings & delays
+       ═══════════════════════════════════════════ */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 0.85s cubic-bezier(0.16,1,0.3,1),
+        transform 0.85s cubic-bezier(0.16,1,0.3,1);
+      transition-delay: var(--d, 0s);
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-animate="scale"] {
+      opacity: 0;
+      transform: scale(0.96);
+      transition:
+        opacity 1s cubic-bezier(0.16,1,0.3,1),
+        transform 1s cubic-bezier(0.16,1,0.3,1);
+      transition-delay: var(--d, 0s);
+    }
+
+    [data-animate="scale"].is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    [data-animate="slide-left"] {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition:
+        opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+        transform 0.9s cubic-bezier(0.16,1,0.3,1);
+      transition-delay: var(--d, 0s);
+    }
+
+    [data-animate="slide-left"].is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE — desktop-first
+       ═══════════════════════════════════════════ */
+    @media (max-width: 1279px) {
+      .voice-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .lineup-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .product-card.featured { min-height: 380px; }
+    }
+
+    @media (max-width: 1023px) {
+      .site-nav { display: none; }
+
+      .menu-toggle { display: inline-flex; }
+
+      .mobile-drawer.open { display: block; }
+
+      .mobile-drawer {
+        display: none;
+        border-top: 1px solid var(--border);
+        background: rgba(10,10,10,0.95);
+      }
+
+      .mobile-drawer .container {
+        padding: 18px 0 24px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .mobile-drawer a {
+        display: block;
+        padding: 12px 4px;
+        color: var(--muted);
+        font-family: var(--font-en);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: color 0.15s ease-out;
+      }
+
+      .mobile-drawer a:hover { color: var(--white); }
+
+      .eva-grid { grid-template-columns: 1fr; }
+
+      .eva-card {
+        min-height: auto;
+        border-right: none !important;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .eva-card:last-child { border-bottom: none; }
+
+      .sec-story { min-height: auto; }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+
+      .story-copy {
+        max-width: none;
+        padding: var(--space-section-sm) 0 var(--space-lg);
+      }
+
+      .story-visual {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .story-image { height: 40vh; }
+
+      .match-grid,
+      .why-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .why-item {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+
+      .why-item:last-child { border-bottom: none !important; }
+
+      .sec-app { min-height: 80vh; }
+      .sec-app .container { padding: 80px 20px; }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --container: calc(100vw - 28px);
+        --space-section-lg: 100px;
+        --space-section-md: 72px;
+        --space-section-sm: 56px;
+      }
+
+      .site-header-inner { min-height: 72px; }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero {
+        min-height: 70vh;
+        padding: 80px 0 60px;
+      }
+
+      .hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
+      .hero .subcopy { font-size: 16px; }
+
+      .eva-intro {
+        min-height: 60vh;
+        padding: 80px 20px 60px;
+      }
+
+      .eva-heading h2 { font-size: clamp(2.4rem, 10vw, 4rem); }
+      .eva-card { padding: 32px 20px; }
+
+      .eva-device-image { width: 130px; }
+
+      .lineup-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .voice-grid { grid-template-columns: 1fr; }
+
+      .faq-trigger { padding: 22px 20px; }
+      .faq-panel { padding: 0 20px 22px; }
+
+      .sec-app { min-height: 60vh; }
+
+      .footer-bottom { flex-direction: column; }
+    }
+
+    /* ═══════════════════════════════════════════
+       ACCESSIBILITY
+       ═══════════════════════════════════════════ */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .scroll-progress { display: none !important; }
+    }
+
+    /* ═══════════════════════════════════════════
+       JS-DRIVEN ANIMATION STATES
+       ═══════════════════════════════════════════ */
+
+    /* Scroll progress bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0.5;
+      width: 100%;
+    }
+
+    /* Hero text split — word wrappers */
+    .hero-copy h1 .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* Hero sub-elements initial state (hidden by JS) */
+    .hero-copy.js-init .subcopy,
+    .hero-copy.js-init .hero-actions,
+    .hero-copy.js-init .hero-note,
+    .hero-copy.js-init .scroll-indicator {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .hero-copy.js-init .hero-note {
+      transform: none;
+    }
+
+    /* EVA heading character wrappers */
+    .eva-heading.js-init h2 .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .eva-heading.js-init .lede {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .eva-heading.js-init .eyebrow {
+      opacity: 0;
+    }
+
+    /* EVA spotlight — CSS-var driven glow positions */
+    .eva-spotlight::after {
+      background:
+        radial-gradient(ellipse 800px 500px at var(--eva-glow-x1, 20%) 30%, rgba(123,45,142,0.12), transparent),
+        radial-gradient(ellipse 800px 500px at var(--eva-glow-x2, 80%) 60%, rgba(200,40,40,0.12), transparent) !important;
+    }
+
+    /* EVA spotlight glow line — shimmer */
+    .eva-spotlight::before {
+      background:
+        radial-gradient(circle 60px at var(--shimmer-x, -60px) 50%, rgba(255,255,255,0.6), transparent 70%),
+        linear-gradient(90deg, var(--eva01), transparent 30%, transparent 70%, var(--eva02)) !important;
+    }
+
+    /* EVA cursor glow */
+    .eva-cursor-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(50px);
+      opacity: 0;
+      z-index: 1;
+      will-change: transform, opacity;
+      transition: opacity 0.4s ease;
+    }
+
+    /* EVA card mouse-follow glow */
+    .eva-card {
+      --glow-x: 50%;
+      --glow-y: 50%;
+    }
+
+    .eva-card .card-glow-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 0;
+    }
+
+    .eva-card:hover .card-glow-layer {
+      opacity: 1;
+    }
+
+    .eva-card.unit01 .card-glow-layer {
+      background: radial-gradient(circle 300px at var(--glow-x) var(--glow-y), rgba(123,45,142,0.06), transparent);
+    }
+
+    .eva-card.unit02 .card-glow-layer {
+      background: radial-gradient(circle 300px at var(--glow-x) var(--glow-y), rgba(200,40,40,0.06), transparent);
+    }
+
+    /* WHY numbers reveal */
+    .why-index {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      transition-delay: var(--d, 0s);
+    }
+
+    [data-animate].is-visible .why-index {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card 3D tilt glare */
+    .has-tilt {
+      transform-style: preserve-3d;
+    }
+
+    .tilt-glare {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,0.025) 45%,
+        rgba(255,255,255,0.04) 50%,
+        rgba(255,255,255,0.025) 55%,
+        transparent 60%
+      );
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
+
+    .has-tilt:hover .tilt-glare {
+      opacity: 1;
+    }
+
+    /* Pointer coarse — disable mouse effects */
+    @media (pointer: coarse) {
+      .eva-cursor-glow { display: none !important; }
+      .card-glow-layer { display: none !important; }
+      .tilt-glare { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+
+    <!-- ── HEADER ── -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN">
+          <img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="eager">
+        </a>
+
+        <nav class="site-nav" aria-label="グローバルナビゲーション">
+          <a href="product/detail-eva-r-unit01.html">EVA R</a>
+          <a href="product/detail-f1-pro.html">F1 Pro</a>
+          <a href="product/detail-s2.html">S2</a>
+          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <a href="about.html">About</a>
+          <a href="stores.html">Stores</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="cart-icon" href="/cart?site=asmax" aria-label="カート">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="メニューを開閉">
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-drawer" id="mobile-drawer">
+        <div class="container">
+          <a href="product/detail-eva-r-unit01.html">EVA R</a>
+          <a href="product/detail-f1-pro.html">F1 Pro</a>
+          <a href="product/detail-s2.html">S2</a>
+          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <a href="about.html">About</a>
+          <a href="stores.html">Stores</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── MAIN ── -->
+    <main id="top">
+
+      <!-- SEC-01: HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-copy" id="hero-copy">
+            <div class="eyebrow">ASMAX JAPAN Official</div>
+            <h1>Connect Your<br>Every Adventure</h1>
+            <p class="subcopy">ライドから生まれた。ライドのために作られた。<br>日本市場向けの4機種を、ブランドの温度感そのままに。</p>
+
+            <div class="hero-actions">
+              <a class="ghost-btn" href="#eva-r">EVA R コラボを見る</a>
+            </div>
+
+            <a class="scroll-indicator" href="#eva-r">Scroll</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-02 & SEC-03: EVA R SPOTLIGHT -->
+      <section class="eva-spotlight" id="eva-r">
+        <!-- EVA Intro — fullscreen centered type -->
+        <div class="eva-intro" id="eva-intro">
+          <video class="eva-intro-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="assets/251113_宣伝動画_日本語.mp4" type="video/mp4">
+          </video>
+          <div class="eva-heading">
+            <img class="eva-brand-logo" src="assets/ASMAX_EVA_LOGO_WHITE.svg" alt="ASMAX × EVA RACING ロゴ" loading="lazy">
+            <h2><span class="duo"><span class="unit01">初号機</span> <span style="color:var(--muted);font-weight:400;">×</span> <span class="unit02">2号機</span></span></h2>
+            <p class="lede">二機、参戦中。ASMAX の技術とエヴァンゲリオンの世界観が融合した、日本限定のアイコンモデル。</p>
+          </div>
+        </div>
+
+        <!-- EVA Cards — fullbleed 2-col poster -->
+        <div class="eva-grid-wrap">
+          <div class="eva-grid">
+            <article class="eva-card unit01" id="eva-card-01">
+              <div class="card-glow-layer"></div>
+              <a href="product/detail-eva-r-unit01.html" class="eva-poster-link">
+                <img class="eva-device-image" src="assets/画板 11-100.jpg" alt="EVA R 初号機" loading="lazy">
+              </a>
+              <div class="eva-card-footer">
+                <div class="eva-copy">
+                  <h3>Future 1 EVA R 初号機</h3>
+                  <p>A パープル / B パープル×グリーン — 各2色展開</p>
+                </div>
+                <div class="price-row">
+                  <div class="price" data-sku="eva-r-unit01a">
+                    <strong data-price>¥35,000</strong>
+                    <span>税込</span>
+                  </div>
+                  <span class="spec-meta">Icon Model</span>
+                </div>
+                <div class="card-actions">
+                  <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
+                  <a class="ghost-btn" href="product/detail-eva-r-unit01.html">詳しく見る</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="eva-card unit02" id="eva-card-02">
+              <div class="card-glow-layer"></div>
+              <a href="product/detail-eva-r-unit02.html" class="eva-poster-link">
+                <img class="eva-device-image" src="assets/画板 12-100.jpg" alt="EVA R 2号機" loading="lazy">
+              </a>
+              <div class="eva-card-footer">
+                <div class="eva-copy">
+                  <h3>Future 1 EVA R 2号機</h3>
+                  <p>A レッド / B レッド×オレンジ — 各2色展開</p>
+                </div>
+                <div class="price-row">
+                  <div class="price" data-sku="eva-r-unit02a">
+                    <strong data-price>¥35,000</strong>
+                    <span>税込</span>
+                  </div>
+                  <span class="spec-meta">Icon Model</span>
+                </div>
+                <div class="card-actions">
+                  <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
+                  <a class="ghost-btn" href="product/detail-eva-r-unit02.html">詳しく見る</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-04: JAPAN LINEUP -->
+      <section class="sec-lineup" id="lineup" style="border-top:1px solid var(--border);">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Japan Lineup</div>
+              <h2>取り扱い4機種</h2>
+            </div>
+            <p class="section-desc">ASMAX JAPAN が正規取り扱いする全モデル。</p>
+          </div>
+
+          <div class="lineup-grid">
+            <article class="product-card featured has-tilt" data-animate style="--d:0.04s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 初号機-A パープル.jpg" alt="EVA R 初号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">EVA R 初号機-A</a></h3>
+              <p>パープル｜WS10 EVA-01A</p>
+              <div class="product-price" data-sku="eva-r-unit01a">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card featured has-tilt" data-animate style="--d:0.08s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 初号機-B パープル:グリーン.jpg" alt="EVA R 初号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">EVA R 初号機-B</a></h3>
+              <p>パープル/グリーン｜WS10 EVA-01B</p>
+              <div class="product-price" data-sku="eva-r-unit01b">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card featured has-tilt" data-animate style="--d:0.12s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 2号機-A レッド.jpg" alt="EVA R 2号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">EVA R 2号機-A</a></h3>
+              <p>レッド｜WS10 EVA-02A</p>
+              <div class="product-price" data-sku="eva-r-unit02a">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card featured has-tilt" data-animate style="--d:0.16s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 2号機-B レッド:オレンジ.jpg" alt="EVA R 2号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">EVA R 2号機-B</a></h3>
+              <p>レッド/オレンジ｜WS10 EVA-02B</p>
+              <div class="product-price" data-sku="eva-r-unit02b">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.2s;">
+              <span class="product-role">All-Rounder</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/F1 Pro インカム シャイニーグレー.jpg" alt="F1 Pro シャイニーグレー" loading="lazy"></div>
+              <h3><a href="product/detail-f1-pro.html">F1 Pro シャイニーグレー</a></h3>
+              <p>全部入りフラッグシップ｜08WS03AFIN017</p>
+              <div class="product-price" data-sku="f1-pro-shiny">¥35,915<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
+                <a class="btn" href="product/f1-pro.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.24s;">
+              <span class="product-role">All-Rounder</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/F1 Pro インカム ステラーグレー.jpg" alt="F1 Pro ステラーグレー" loading="lazy"></div>
+              <h3><a href="product/detail-f1-pro.html">F1 Pro ステラーグレー</a></h3>
+              <p>全部入りフラッグシップ｜08WS03AFIN033</p>
+              <div class="product-price" data-sku="f1-pro-stellar">¥35,915<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
+                <a class="btn" href="product/f1-pro.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.28s;">
+              <span class="product-role">Entry</span>
+              <div class="product-visual"><img class="product-device-image" src="assets/S2 インカム グレー.jpg" alt="S2 グレー" loading="lazy"></div>
+              <h3><a href="product/detail-s2.html">S2</a></h3>
+              <p>はじめての一台に最適｜08WS04AFIN017</p>
+              <div class="product-price" data-sku="s2">¥15,899<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-s2.html">View Details</a>
+                <a class="btn" href="product/s2.html">Buy Now</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-05: COMPARE -->
+      <section class="sec-compare" id="compare">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <h2>4機種、すべて並べる。</h2>
+            </div>
+            <p class="section-desc">ひと目で違いがわかるスペック比較。カラー違いのモデルはスペック共通です。</p>
+          </div>
+
+          <div class="table-wrap" data-animate="scale" style="--d:0.08s;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Spec</th>
+                  <th>EVA R<br><small style="opacity:0.5;">初号機A/B・2号機A/B</small></th>
+                  <th>F1 Pro<br><small style="opacity:0.5;">シャイニー・ステラー</small></th>
+                  <th>S2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>品番</td><td>WS10 EVA-01A/01B/02A/02B</td><td>08WS03AFIN017/033</td><td>08WS04AFIN017</td></tr>
+                <tr><td>カラー展開</td><td>4色</td><td>2色</td><td>1色</td></tr>
+                <tr><td>Bluetooth</td><td>5.4 デュアルチップ・8コア</td><td>5.3 デュアルチップ・8コア</td><td>5.4 デュアルチップ・4コア</td></tr>
+                <tr><td>Mesh通話</td><td>最大10〜16人</td><td>最大10人（FW更新で16人）</td><td>最大8人</td></tr>
+                <tr><td>CloudTalk</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td></tr>
+                <tr><td>通信距離</td><td>約3km</td><td>約3km</td><td>約2km</td></tr>
+                <tr><td>連続通話</td><td>約14時間</td><td>約14時間</td><td>約13時間</td></tr>
+                <tr><td>バッテリー</td><td>1,350mAh</td><td>1,350mAh</td><td>980mAh</td></tr>
+                <tr><td>急速充電</td><td>10分→3時間通話</td><td>10分→3時間通話</td><td>10分→3時間 / 60分フル充電</td></tr>
+                <tr><td>スピーカー</td><td>40mmネオジウム</td><td>40mm</td><td>40mm</td></tr>
+                <tr><td>音声操作</td><td>Hi Max（AIアシスタント）</td><td>Hi Max（AIアシスタント）</td><td>—</td></tr>
+                <tr><td>ノイズキャンセル</td><td>ENC</td><td>ENC</td><td>ENC</td></tr>
+                <tr><td>防水</td><td>IPX7</td><td>IPX7</td><td>IPX7</td></tr>
+                <tr><td>本体寸法</td><td>86×27×23mm</td><td>86×27×23mm</td><td>86.1×39.2×24mm</td></tr>
+                <tr><td>重量</td><td>50g</td><td>50g</td><td>41g</td></tr>
+                <tr><td>マウント</td><td>マグネット式（3秒着脱）</td><td>マグネット式</td><td>ロック式（バッククリップ）</td></tr>
+                <tr><td>充電端子</td><td>USB Type-C</td><td>USB Type-C</td><td>USB Type-C</td></tr>
+                <tr><td>保証</td><td>2年</td><td>2年</td><td>2年</td></tr>
+                <tr><td>価格（税込）</td><td>¥35,000</td><td>¥35,915</td><td>¥15,899</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-10: APP -->
+      <section class="sec-app" id="app">
+        <div class="app-bg">
+          <img src="assets/ASMAXworld_app.webp" alt="ASMAX World App 画面イメージ" loading="lazy">
+        </div>
+        <div class="container">
+          <div class="app-copy" data-animate>
+            <div class="eyebrow">ASMAX World App</div>
+            <h2>1つのアプリで、<br>すべてを管理。</h2>
+            <p class="app-desc">LED、グループインターコム、通話、音楽EQなど、すべて指先で操作可能。スマートフォンからライドをコントロールしましょう。</p>
+            <div class="app-badges">
+              <a href="https://apps.apple.com/us/app/asmax-world/id6476167600" target="_blank" rel="noopener">
+                <img src="https://www.asmaxworld.com/cdn/shop/files/ASMAX_APP_LPGO.png?v=1774882084" alt="App Store からダウンロード">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-06: YOUR MATCH -->
+      <section class="sec-match">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Your Match</div>
+              <h2>こんな人におすすめ</h2>
+            </div>
+            <p class="section-desc">目的と使い方で、あなたに合った一台を。</p>
+          </div>
+
+          <div class="match-grid">
+            <article class="match-card" data-animate style="--d:0.05s;">
+              <strong>エヴァファン / コレクター</strong>
+              <p>限定コラボモデルで所有する喜びを。ツーリング仲間との話題にもつながる象徴的な一台。</p>
+              <div class="match-target"><a href="#eva-r">EVA R 全4色を見る</a></div>
+            </article>
+            <article class="match-card" data-animate style="--d:0.12s;">
+              <strong>ツーリング好き / 複数人通話</strong>
+              <p>長距離ライドやグループツーリングへ。Mesh と CloudTalk を軸にした、途切れにくいコミュニケーション向け。</p>
+              <div class="match-target"><a href="/product/f1-pro">F1 Proを見る</a></div>
+            </article>
+            <article class="match-card" data-animate style="--d:0.2s;">
+              <strong>インカム初心者 / コスパ重視</strong>
+              <p>まずは一台から始めたいライダーに。価格と必要十分な機能のバランスを重視した入口モデル。</p>
+              <div class="match-target"><a href="/product/s2">S2を見る</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-07: WHY ASMAX JAPAN -->
+      <section class="sec-why">
+        <div class="container">
+          <div style="margin-bottom:var(--space-xl);" data-animate>
+            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">日本総代理店の安心</h2>
+            <p style="margin:var(--space-sm) 0 0;color:var(--muted);font-size:15px;">正規品だからこその安心をお届けします。</p>
+          </div>
+
+          <div class="why-grid">
+            <div class="why-item" data-animate style="--d:0s;">
+              <span class="why-index">01</span>
+              <strong>正規品保証</strong>
+              <p>ASMAX JAPAN 正規取扱品のみを販売。全品検品済みで、安心してお使いいただけます。</p>
+            </div>
+            <div class="why-item" data-animate style="--d:0.06s;">
+              <span class="why-index">02</span>
+              <strong>日本語サポート</strong>
+              <p>日本語対応のカスタマーサポート窓口を完備。設定・接続・トラブル、すべて日本語で対応。</p>
+            </div>
+            <div class="why-item" data-animate style="--d:0.15s;">
+              <span class="why-index">03</span>
+              <strong>2年間保証 / 30日返品</strong>
+              <p>グローバルと同条件の長期保証。万が一の場合も、30日間の返品ポリシーで安心。</p>
+            </div>
+            <div class="why-item" data-animate style="--d:0s;">
+              <span class="why-index">04</span>
+              <strong>技適マーク取得</strong>
+              <p>日本の電波法に適合した正規品。国内で安心してご利用いただけます。</p>
+            </div>
+            <div class="why-item" data-animate style="--d:0.08s;">
+              <span class="why-index">05</span>
+              <strong>日本のヘルメット対応</strong>
+              <p>Arai / SHOEI 等、国内主要メーカーのヘルメットでの装着を確認済み。</p>
+            </div>
+            <div class="why-item" data-animate style="--d:0.18s;">
+              <span class="why-index">06</span>
+              <strong>全国の取扱店</strong>
+              <p>オンラインだけでなく、全国の取扱店で実機の体験・購入が可能です。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-08: BRAND STORY -->
+      <section class="sec-story" id="about">
+        <div class="container story-grid">
+          <div class="story-copy" data-animate style="--d:0.1s;">
+            <h2>Born From<br>The Ride.</h2>
+            <p>2004年、ライダー同士のつながりを変えるために。ライダーによるライダーのためのヘルメットインターコムづくりからASMAXは始まりました。</p>
+            <p>それから20年以上。世界中のあらゆる道で、ASMAXは仲間との通信を支え続けています。日本市場でも、その哲学は変わりません。</p>
+            <div class="card-actions" style="margin-top:var(--space-lg);">
+              <a class="ghost-btn" href="about.html">Read More</a>
+            </div>
+          </div>
+
+          <div class="story-visual" data-animate="slide-left">
+            <img
+              class="story-image"
+              src="https://www.asmaxworld.com/cdn/shop/files/maozi.png?v=1773277857"
+              alt="ASMAX ブランドストーリーイメージ"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-09: RIDERS VOICE -->
+      <section class="sec-voice">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Riders Voice</div>
+              <h2>日本のライダーの声</h2>
+            </div>
+          </div>
+
+          <div class="voice-grid">
+            <article class="voice-card" data-animate style="--d:0s;">
+              <div class="voice-source">Instagram</div>
+              <strong>@rider_japan_01</strong>
+              <p>EVA R 初号機で箱根ツーリング。グループ10人でも接続が途切れない。見た目も最高。</p>
+            </article>
+            <article class="voice-card" data-animate style="--d:0.07s;">
+              <div class="voice-source">YouTube</div>
+              <strong>バイク系YouTuber A</strong>
+              <p>F1 Proレビュー。SHOEIヘルメットへの取り付けから音質テストまで徹底検証しました。</p>
+            </article>
+            <article class="voice-card" data-animate style="--d:0.16s;">
+              <div class="voice-source">Media</div>
+              <strong>バイク雑誌 B</strong>
+              <p>2026年注目のバイク用インカム。ASMAX F1 Proがグループツーリングの新定番になるか。</p>
+            </article>
+            <article class="voice-card" data-animate style="--d:0.22s;">
+              <div class="voice-source">X</div>
+              <strong>@rider_japan_02</strong>
+              <p>S2コスパ最強。初めてのインカムにこれ買っておけば間違いない。1万円台でこの品質はすごい。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-11: FAQ -->
+      <section class="sec-faq" id="support">
+        <div class="container">
+          <div style="text-align:center;margin-bottom:var(--space-xl);" data-animate>
+            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">FAQ</h2>
+            <p style="margin:var(--space-sm) auto 0;color:var(--muted);font-size:15px;max-width:400px;">お問い合わせの多いご質問にお答えします。</p>
+          </div>
+
+          <div class="faq-shell" data-animate style="--d:0.08s;">
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="true">
+                <span>EVA Rモデルはどこで購入できますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">当サイトの各製品ページ「Buy Now」ボタンからご注文いただけます。楽天市場・Yahoo!ショッピングからもお求めいただけます。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>並行輸入品との違いは何ですか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">ASMAX JAPAN の正規取扱品は、日本語サポート・2年間保証・技適取得済みの正規品です。並行輸入品ではこれらの保証やサポートが受けられない場合があります。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>技適マークは取得していますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、ASMAX JAPAN で取り扱う全製品は技適マークを取得しており、日本国内で安心してご利用いただけます。技適番号は各製品ページに記載しています。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>Arai / SHOEI のヘルメットに取り付けられますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、Arai・SHOEI をはじめとする国内主要メーカーのヘルメットに対応しています。詳しい取り付け方法は各製品ページのインストールガイドをご覧ください。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>Bluetooth Mesh と CloudTalk の違いは?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">Bluetooth Mesh はスマートフォン不要で最大10人と直接通信できるライダー間通話です。CloudTalk はモバイルデータ通信を利用し、距離無制限で世界中のライダーと通話できます。どちらもEVA R・F1 Proに搭載しています。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>保証期間と返品ポリシーについて教えてください。</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">ASMAX JAPAN 正規取扱品はすべて購入日から2年間の製品保証が付きます。また、お届けから30日以内であれば返品を承ります。詳細は特定商取引法に基づく表記をご確認ください。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>楽天市場・Yahoo!ショッピングでも購入できますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、楽天市場・Yahoo!ショッピングでもASMAX JAPAN 正規品をお求めいただけます。各製品ページおよびページ下部のリンクからアクセスできます。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEC-12: CTA BAND -->
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-inner" data-animate>
+            <h2>Ready to Ride?</h2>
+            <p class="cta-sub">ASMAX JAPAN 正規取扱品を、お好みの方法でご購入いただけます。</p>
+            <div class="cta-actions">
+              <a class="btn accent" href="#lineup">オンラインで購入</a>
+              <a class="ghost-btn" href="stores.html">取扱店を探す</a>
+            </div>
+            <div class="mall-links">
+              <a class="mall-link" href="#">楽天市場</a>
+              <a class="mall-link" href="#">Yahoo!ショッピング</a>
+            </div>
+            <a class="cta-meta" href="/contact">法人・メディアのお問い合わせ &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN">
+              <img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="lazy">
+            </a>
+            <p>日本総代理店 ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年間保証。</p>
+          </div>
+
+          <div>
+            <div class="footer-title">Products</div>
+            <div class="footer-column">
+              <a href="product/detail-eva-r-unit01.html">EVA R 初号機</a>
+              <a href="product/detail-eva-r-unit02.html">EVA R 2号機</a>
+              <a href="product/f1-pro.html">F1 Pro</a>
+              <a href="product/s2.html">S2</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Brand</div>
+            <div class="footer-column">
+              <a href="about.html">About ASMAX</a>
+              <a href="/news">News</a>
+              <a href="stores.html">Partner</a>
+              <a href="/affiliate">Affiliate</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Support</div>
+            <div class="footer-column">
+              <a href="/support">FAQ</a>
+              <a href="/contact">Contact</a>
+              <a href="#">User Manual</a>
+              <a href="#">ASMAXWorld App</a>
+              <a href="#">延長保証</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 ASMAX JAPAN. All rights reserved.<br>日本総代理店：カスタムジャパン</span>
+          <span>
+            <a href="#">特定商取引法に基づく表記</a> /
+            <a href="#">プライバシーポリシー</a> /
+            <a href="#">利用規約</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ── CDN LIBRARIES ── -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" defer></script>
+
+  <!-- ── MAIN SCRIPT ── -->
+  <script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    /* ───────────────────────────────────────────
+       UTILS & FEATURE DETECTION
+       ─────────────────────────────────────────── */
+    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = matchMedia('(pointer: fine)').matches;
+
+    /* ───────────────────────────────────────────
+       MOBILE MENU
+       ─────────────────────────────────────────── */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    if (menuToggle && mobileDrawer) {
+      menuToggle.addEventListener('click', () => {
+        const open = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!open));
+        mobileDrawer.classList.toggle('open', !open);
+      });
+      mobileDrawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          mobileDrawer.classList.remove('open');
+        });
+      });
+    }
+
+    /* ───────────────────────────────────────────
+       HEADER SCROLL — 背景はHERO通過後に表示
+       ─────────────────────────────────────────── */
+    const siteHeader = document.querySelector('.site-header');
+    const heroSection = document.querySelector('.hero');
+    if (siteHeader && heroSection) {
+      const headerObs = new IntersectionObserver(([entry]) => {
+        siteHeader.classList.toggle('scrolled', !entry.isIntersecting);
+      }, { threshold: 0 });
+      headerObs.observe(heroSection);
+    }
+
+    /* ───────────────────────────────────────────
+       FAQ ACCORDION
+       ─────────────────────────────────────────── */
+    document.querySelectorAll('.faq-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const exp = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!exp));
+      });
+    });
+
+    /* ───────────────────────────────────────────
+       INTERSECTION OBSERVER (non-GSAP elements)
+       ─────────────────────────────────────────── */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+
+    /* ───────────────────────────────────────────
+       SCROLL PROGRESS BAR (vanilla)
+       ─────────────────────────────────────────── */
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    let ticking = false;
+    function updateProgress() {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = h > 0 ? window.scrollY / h : 0;
+      progressBar.style.transform = `scaleX(${pct})`;
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); }
+    }, { passive: true });
+
+    /* ═══════════════════════════════════════════
+       REDUCED MOTION — bail out of rich anims
+       ═══════════════════════════════════════════ */
+    if (prefersReduced) return;
+
+    /* ───────────────────────────────────────────
+       PHASE 1: GSAP FOUNDATION (Lenis removed — caused ticker freeze)
+       ─────────────────────────────────────────── */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ───────────────────────────────────────────
+       PHASE 2: HERO ANIMATION
+       ─────────────────────────────────────────── */
+    const heroCopy = document.getElementById('hero-copy');
+    if (heroCopy) {
+      heroCopy.classList.add('js-init');
+      const h1 = heroCopy.querySelector('h1');
+
+      // SplitType — word-level split
+      const split = new SplitType(h1, { types: 'words', tagName: 'span' });
+
+      // Word reveal timeline — opacity + translateY (clip-path not supported in GSAP free)
+      const heroTl = gsap.timeline({ delay: 0.35 });
+
+      // Stagger per word: non-uniform
+      split.words.forEach((word, i) => {
+        const delays = [0, 0.07, 0.14, 0.23]; // "Every" (index 2) has a wider gap
+        heroTl.to(word, {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+        }, delays[i] || i * 0.07);
+      });
+
+      // Sub-elements stagger (non-uniform gaps: 0.20, 0.15, 0.30)
+      const heroSubs = [
+        { el: heroCopy.querySelector('.subcopy'), d: 0.45 },
+        { el: heroCopy.querySelector('.hero-actions'), d: 0.65 },
+        { el: heroCopy.querySelector('.hero-note'), d: 0.8 },
+        { el: heroCopy.querySelector('.scroll-indicator'), d: 1.1 },
+      ];
+      heroSubs.forEach(({ el, d }) => {
+        if (!el) return;
+        heroTl.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: el.classList.contains('hero-note') ? 0.45 : 0.7,
+          ease: el.classList.contains('hero-note') ? 'power1.out' : 'power3.out',
+        }, d);
+      });
+    }
+
+    /* ───────────────────────────────────────────
+       PHASE 3: EVA SECTION
+       ─────────────────────────────────────────── */
+    const evaSpotlight = document.querySelector('.eva-spotlight');
+    const evaIntro = document.getElementById('eva-intro');
+    const evaHeading = document.querySelector('.eva-heading');
+
+    /* 3-1: EVA Intro text reveal */
+    if (evaHeading) {
+      evaHeading.classList.add('js-init');
+
+      // Split unit01 and unit02 text into characters
+      const unit01Span = evaHeading.querySelector('.unit01');
+      const unit02Span = evaHeading.querySelector('.unit02');
+      const splitU01 = new SplitType(unit01Span, { types: 'chars', tagName: 'span' });
+      const splitU02 = new SplitType(unit02Span, { types: 'chars', tagName: 'span' });
+
+      const evaTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.eva-intro',
+          start: 'top 75%',
+          once: true,
+        }
+      });
+
+      // Eyebrow fade in
+      evaTl.to(evaHeading.querySelector('.eyebrow'), {
+        opacity: 1, duration: 0.5, ease: 'power2.out',
+      });
+
+      // Unit-01 characters — stagger 0.04s
+      evaTl.to(splitU01.chars, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+        stagger: 0.04,
+        onStart() {
+          // Brief purple glow per character
+          splitU01.chars.forEach((c, i) => {
+            setTimeout(() => {
+              c.style.textShadow = '0 0 24px rgba(123,45,142,0.7)';
+              setTimeout(() => { c.style.textShadow = 'none'; }, 600);
+            }, i * 40);
+          });
+        }
+      }, '-=0.15');
+
+      // "x" symbol (middle span)
+      const xSpan = evaHeading.querySelector('.duo > span:nth-child(2)');
+      if (xSpan) {
+        // Set initial state
+        gsap.set(xSpan, { opacity: 0, scale: 0.8 });
+        evaTl.to(xSpan, {
+          opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.4)',
+        }, '-=0.3');
+      }
+
+      // Unit-02 characters — stagger 0.05s (different rhythm)
+      evaTl.to(splitU02.chars, {
+        opacity: 1, y: 0, duration: 0.55, ease: 'power3.out',
+        stagger: 0.05,
+        onStart() {
+          splitU02.chars.forEach((c, i) => {
+            setTimeout(() => {
+              c.style.textShadow = '0 0 24px rgba(200,40,40,0.7)';
+              setTimeout(() => { c.style.textShadow = 'none'; }, 600);
+            }, i * 50);
+          });
+        }
+      }, '-=0.2');
+
+      // Lede paragraph
+      evaTl.to(evaHeading.querySelector('.lede'), {
+        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+      }, '-=0.1');
+    }
+
+    /* 3-2: EVA gradient background — scroll-linked scrub */
+    if (evaSpotlight) {
+      gsap.to(evaSpotlight, {
+        '--eva-glow-x1': '25%',
+        '--eva-glow-x2': '75%',
+        scrollTrigger: {
+          trigger: evaSpotlight,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.8,
+        }
+      });
+
+      // Opacity scrub on the ::after pseudo (via the parent element)
+      const afterProxy = { opacity: 0.3 };
+      gsap.to(afterProxy, {
+        opacity: 1,
+        scrollTrigger: {
+          trigger: evaSpotlight,
+          start: 'top 80%',
+          end: 'center center',
+          scrub: 0.8,
+          onUpdate(self) {
+            const v = 0.3 + 0.7 * self.progress;
+            evaSpotlight.style.setProperty('--eva-after-opacity', v);
+          }
+        }
+      });
+
+      // Fade back down on exit
+      gsap.to(afterProxy, {
+        opacity: 0.4,
+        scrollTrigger: {
+          trigger: evaSpotlight,
+          start: 'center center',
+          end: 'bottom top',
+          scrub: 0.8,
+          onUpdate(self) {
+            const v = 1 - 0.6 * self.progress;
+            evaSpotlight.style.setProperty('--eva-after-opacity', v);
+          }
+        }
+      });
+
+      /* 3-4: Glow line shimmer */
+      gsap.to(evaSpotlight, {
+        '--shimmer-x': 'calc(100% + 60px)',
+        scrollTrigger: {
+          trigger: evaSpotlight,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
+        }
+      });
+    }
+
+    /* 3-3: EVA Cards — staggered content reveal + device parallax */
+    ['eva-card-01', 'eva-card-02'].forEach((id, cardIdx) => {
+      const card = document.getElementById(id);
+      if (!card) return;
+
+      const elements = [
+        { sel: '.eva-poster-link', y: 0, scale: 0.94, dur: 0.9 },
+        { sel: '.eva-copy h3', y: 16, dur: 0.55 },
+        { sel: '.eva-copy p', y: 12, dur: 0.45 },
+        { sel: '.price-row', y: 12, dur: 0.4 },
+        { sel: '.card-actions .btn', y: 0, scale: 0.95, dur: 0.3 },
+        { sel: '.card-actions .ghost-btn', y: 0, scale: 0.95, dur: 0.3 },
+      ];
+
+      // Set initial states
+      elements.forEach(({ sel, y, x, scale }) => {
+        const el = card.querySelector(sel);
+        if (!el) return;
+        gsap.set(el, {
+          opacity: 0,
+          y: y || 0,
+          x: x || 0,
+          scale: scale || 1,
+        });
+      });
+
+      // Staggered timeline — gaps: 0.1, 0.2, 0.08, 0.15, 0.06, 0.1
+      const gaps = [0, 0.1, 0.3, 0.38, 0.53, 0.59, 0.69];
+      const cardTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          once: true,
+        },
+        delay: cardIdx * 0.2, // second card starts 0.2s after first
+      });
+
+      elements.forEach(({ sel, dur, from }, i) => {
+        const el = card.querySelector(sel);
+        if (!el) return;
+        cardTl.to(el, {
+          opacity: 1,
+          y: 0,
+          x: 0,
+          scale: 1,
+          duration: dur,
+          ease: from === 'left' ? 'power2.out' : 'power3.out',
+        }, gaps[i]);
+      });
+
+      // Poster parallax
+      const device = card.querySelector('.eva-poster-link');
+      if (device) {
+        const rotRange = cardIdx === 0 ? [-1, 1] : [1, -1];
+        gsap.fromTo(device, {
+          y: 40,
+          rotation: rotRange[0],
+        }, {
+          y: -40,
+          rotation: rotRange[1],
+          ease: 'none',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+      }
+    });
+
+    /* 3-5: EVA cursor glow (pointer:fine only) */
+    if (hasFinePointer && evaSpotlight) {
+      const cursorGlow = document.createElement('div');
+      cursorGlow.className = 'eva-cursor-glow';
+      evaSpotlight.appendChild(cursorGlow);
+
+      let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
+      let glowActive = false;
+      const lerpFactor = 0.08;
+
+      function animateGlow() {
+        if (!glowActive) return;
+        glowX += (targetX - glowX) * lerpFactor;
+        glowY += (targetY - glowY) * lerpFactor;
+        cursorGlow.style.transform = `translate(${glowX - 120}px, ${glowY - 120}px)`;
+        requestAnimationFrame(animateGlow);
+      }
+
+      evaSpotlight.addEventListener('mouseenter', () => {
+        glowActive = true;
+        cursorGlow.style.opacity = '1';
+        animateGlow();
+      }, { passive: true });
+
+      evaSpotlight.addEventListener('mouseleave', () => {
+        glowActive = false;
+        cursorGlow.style.opacity = '0';
+      }, { passive: true });
+
+      evaSpotlight.addEventListener('mousemove', e => {
+        const rect = evaSpotlight.getBoundingClientRect();
+        targetX = e.clientX - rect.left;
+        targetY = e.clientY - rect.top + evaSpotlight.scrollTop;
+        // Interpolate color: purple (left) → red (right)
+        const t = Math.min(1, Math.max(0, targetX / rect.width));
+        const r = Math.round(123 + (200 - 123) * t);
+        const g = Math.round(45 + (40 - 45) * t);
+        const b = Math.round(142 + (40 - 142) * t);
+        cursorGlow.style.background = `radial-gradient(circle, rgba(${r},${g},${b},0.1), transparent 70%)`;
+      }, { passive: true });
+
+      // EVA card mouse-follow glow
+      document.querySelectorAll('.eva-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--glow-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+          card.style.setProperty('--glow-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+        }, { passive: true });
+      });
+    }
+
+    /* ───────────────────────────────────────────
+       PHASE 4: GLOBAL ENHANCEMENTS
+       ─────────────────────────────────────────── */
+
+    /* Parallax — story visual */
+    const storyVisual = document.querySelector('.story-visual');
+    if (storyVisual) {
+      gsap.fromTo(storyVisual, { y: 30 }, {
+        y: -30, ease: 'none',
+        scrollTrigger: { trigger: storyVisual, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    }
+
+    /* Parallax — app background image */
+    const appBgImg = document.querySelector('.app-bg img');
+    if (appBgImg) {
+      gsap.fromTo(appBgImg, { scale: 1.15, y: '-8%' }, {
+        scale: 1, y: '0%', ease: 'none',
+        scrollTrigger: { trigger: '.sec-app', start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    }
+
+    /* Parallax — CTA band gradient shift */
+    const ctaBand = document.querySelector('.cta-band');
+    if (ctaBand) {
+      gsap.fromTo(ctaBand, { backgroundPosition: '50% 20%' }, {
+        backgroundPosition: '50% -10%', ease: 'none',
+        scrollTrigger: { trigger: ctaBand, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    }
+
+    /* Price counter animation (vanilla) */
+    const priceObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        priceObserver.unobserve(el);
+
+        const text = el.textContent.trim();
+        const match = text.match(/[\d,]+/);
+        if (!match) return;
+
+        const target = parseInt(match[0].replace(/,/g, ''), 10);
+        const prefix = text.slice(0, text.indexOf(match[0]));
+        // Slightly varied duration per element
+        const idx = [...document.querySelectorAll('[data-price]')].indexOf(el);
+        const duration = 1200 + (idx % 3 === 1 ? 150 : idx % 3 === 2 ? -100 : 0);
+        const start = performance.now();
+
+        function tick(now) {
+          const elapsed = now - start;
+          const t = Math.min(1, elapsed / duration);
+          const eased = 1 - Math.pow(1 - t, 3); // deceleration
+          const current = Math.round(target * eased);
+          el.textContent = prefix + new Intl.NumberFormat('ja-JP').format(current);
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('[data-price]').forEach(el => priceObserver.observe(el));
+
+    /* ───────────────────────────────────────────
+       PHASE 5: MICRO-INTERACTIONS
+       ─────────────────────────────────────────── */
+    if (!hasFinePointer) return;
+
+    /* Magnetic hover on buttons */
+    const magneticBtns = document.querySelectorAll('.btn, .ghost-btn');
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = Math.max(-8, Math.min(8, (e.clientX - cx) * 0.15));
+        const dy = Math.max(-8, Math.min(8, (e.clientY - cy) * 0.15));
+        btn.style.transform = `translate(${dx}px, ${dy}px)`;
+      }, { passive: true });
+
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transition = 'transform 0.3s cubic-bezier(0.25,1,0.5,1)';
+        btn.style.transform = 'translate(0,0)';
+        setTimeout(() => { btn.style.transition = ''; }, 300);
+      }, { passive: true });
+    });
+
+    /* Card 3D tilt */
+    const tiltCards = document.querySelectorAll('.product-card, .match-card');
+    tiltCards.forEach(card => {
+      // Add glare element
+      card.classList.add('has-tilt');
+      const glare = document.createElement('div');
+      glare.className = 'tilt-glare';
+      card.appendChild(glare);
+
+      card.addEventListener('mouseenter', () => {
+        card.style.willChange = 'transform';
+      }, { passive: true });
+
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const rx = y * -6;  // max ±3deg
+        const ry = x * 6;
+        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        // Shift glare
+        glare.style.backgroundPosition = `${50 + x * 30}% ${50 + y * 30}%`;
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.25,1,0.5,1)';
+        card.style.transform = '';
+        setTimeout(() => {
+          card.style.transition = '';
+          card.style.willChange = '';
+        }, 500);
+      }, { passive: true });
+    });
+
+  }); // end DOMContentLoaded
+  </script>
+</body>
+</html>
