@@ -24,17 +24,23 @@
   const headerHTML = `
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="logo-mark" href="${base}index.html" aria-label="ASMAX JAPAN">
+      <a class="logo-mark" href="${base}index.html#top" aria-label="ASMAX JAPAN">
         <img src="${base}assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="eager">
       </a>
 
       <nav class="site-nav" aria-label="グローバルナビゲーション">
-        <a href="${base}product/detail-eva-r-unit01.html">EVA R</a>
-        <a href="${base}product/detail-f1-pro.html">F1 Pro</a>
-        <a href="${base}product/detail-s2.html">S2</a>
-        <a href="${base}cloudtalk-mode.html">CloudTalk</a>
+        <div class="nav-item">
+          <a href="${base}index.html#lineup" aria-haspopup="true">Products</a>
+          <div class="product-dropdown" aria-label="Products submenu">
+            <a href="${base}product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
+            <a href="${base}product/detail-f1-pro.html">F1 Pro</a>
+            <a href="${base}product/detail-s2.html">S2</a>
+          </div>
+        </div>
         <a href="${base}about.html">About</a>
-        <a href="${base}stores.html">Stores</a>
+        <a href="${base}cloudtalk-mode.html">CloudTalk</a>
+        <a href="${base}stores.html">Shop</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -49,12 +55,16 @@
 
     <div class="mobile-drawer" id="mobile-drawer">
       <div class="container">
-        <a href="${base}product/detail-eva-r-unit01.html">EVA R</a>
-        <a href="${base}product/detail-f1-pro.html">F1 Pro</a>
-        <a href="${base}product/detail-s2.html">S2</a>
-        <a href="${base}cloudtalk-mode.html">CloudTalk</a>
+        <div class="mobile-products">
+          <div class="mobile-products-label">Products</div>
+          <a href="${base}product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
+          <a href="${base}product/detail-f1-pro.html">F1 Pro</a>
+          <a href="${base}product/detail-s2.html">S2</a>
+        </div>
         <a href="${base}about.html">About</a>
-        <a href="${base}stores.html">Stores</a>
+        <a href="${base}cloudtalk-mode.html">CloudTalk</a>
+        <a href="${base}stores.html">Shop</a>
+        <a href="/contact">Contact</a>
       </div>
     </div>
   </header>`;
@@ -67,10 +77,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="logo-mark" href="${base}index.html" aria-label="ASMAX JAPAN">
+          <a class="logo-mark" href="${base}index.html#top" aria-label="ASMAX JAPAN">
             <img src="${base}assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="lazy">
           </a>
-          <p>ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年間保証。</p>
+          <p>日本総代理店 ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年間保証。</p>
         </div>
 
         <div>
@@ -78,8 +88,8 @@
           <div class="footer-column">
             <a href="${base}product/detail-eva-r-unit01.html">EVA R 初号機</a>
             <a href="${base}product/detail-eva-r-unit02.html">EVA R 2号機</a>
-            <a href="${base}product/detail-f1-pro.html">F1 Pro</a>
-            <a href="${base}product/detail-s2.html">S2</a>
+            <a href="${base}product/f1-pro.html">F1 Pro</a>
+            <a href="${base}product/s2.html">S2</a>
           </div>
         </div>
 
@@ -87,17 +97,20 @@
           <div class="footer-title">Brand</div>
           <div class="footer-column">
             <a href="${base}about.html">About ASMAX</a>
-            <a href="${base}cloudtalk-mode.html">CloudTalk Mode</a>
-            <a href="${base}stores.html">Stores</a>
+            <a href="/news">News</a>
+            <a href="${base}stores.html">Partner</a>
+            <a href="/affiliate">Affiliate</a>
           </div>
         </div>
 
         <div>
           <div class="footer-title">Support</div>
           <div class="footer-column">
-            <a href="${base}index.html#support">FAQ</a>
+            <a href="/support">FAQ</a>
+            <a href="/contact">Contact</a>
             <a href="#">User Manual</a>
-            <a href="#">ASMAX App</a>
+            <a href="#">ASMAXWorld App</a>
+            <a href="#">延長保証</a>
           </div>
         </div>
       </div>

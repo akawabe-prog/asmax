@@ -46,7 +46,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--white);
 }
 .site-nav a { transition: color 0.2s; }
 .site-nav a:hover { color: var(--white); }
@@ -58,7 +58,7 @@
 }
 
 .cart-icon {
-  color: var(--muted);
+  color: var(--white);
   transition: color 0.2s;
   display: flex;
   align-items: center;

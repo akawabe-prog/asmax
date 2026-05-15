@@ -51,9 +51,9 @@
       --space-2xl: 89px;
 
       /* Section spacing: 3 tiers */
-      --space-section-lg: 160px;
-      --space-section-md: 96px;
-      --space-section-sm: 64px;
+      --space-section-lg: 180px;
+      --space-section-md: 118px;
+      --space-section-sm: 82px;
 
       --container: min(1280px, calc(100vw - 40px));
     }
@@ -164,7 +164,7 @@
     .site-nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 26px;
       font-family: var(--font-en);
       font-size: 12px;
       font-weight: 700;
@@ -172,16 +172,82 @@
       text-transform: uppercase;
     }
 
-    .site-nav a,
-    .header-actions a {
-      color: var(--muted);
+    .nav-item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 84px;
+    }
+
+    .site-nav a {
+      color: var(--white);
       transition: color 0.15s ease-out;
+    }
+
+    .header-actions a {
+      color: var(--white);
+      transition: color 0.15s ease-out;
+    }
+
+    .site-header.scrolled .site-nav a,
+    .site-header.scrolled .header-actions a {
+      color: var(--white);
+    }
+
+    .site-header.scrolled .product-dropdown a {
+      color: var(--muted);
+    }
+
+    .site-header.scrolled .product-dropdown a:hover,
+    .site-header.scrolled .product-dropdown a:focus-visible {
+      color: var(--white);
     }
 
     .site-nav a:hover,
     .site-nav a:focus-visible,
+    .nav-item:hover > a,
+    .nav-item:focus-within > a,
     .header-actions a:hover,
     .header-actions a:focus-visible {
+      color: var(--white);
+    }
+
+    .product-dropdown {
+      position: absolute;
+      top: calc(100% - 10px);
+      left: 50%;
+      min-width: 220px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(12,12,12,0.94);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 8px);
+      transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0.18s;
+    }
+
+    .nav-item:hover .product-dropdown,
+    .nav-item:focus-within .product-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .product-dropdown a {
+      display: block;
+      padding: 11px 12px;
+      border-radius: 6px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .product-dropdown a:hover,
+    .product-dropdown a:focus-visible {
+      background: rgba(255,255,255,0.05);
       color: var(--white);
     }
 
@@ -294,7 +360,7 @@
       align-items: center;
       justify-content: center;
       width: 40px; height: 40px;
-      color: var(--muted);
+      color: var(--white);
       transition: color 0.15s ease-out;
     }
     .cart-icon:hover { color: var(--white); }
@@ -322,17 +388,55 @@
     }
 
     /* ═══════════════════════════════════════════
-       SEC-01: HERO — 85vh, text + space only
+       SEC-01: HERO — sticky base layer
        ═══════════════════════════════════════════ */
     .hero {
-      min-height: 85vh;
+      min-height: 100svh;
       display: flex;
       align-items: center;
       padding: 120px 0 var(--space-section-lg);
-      overflow: clip;
+      overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #0b0b0b;
+      isolation: isolate;
     }
 
-    .hero-copy { max-width: 800px; }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(180deg, rgba(12,12,12,0.26) 0%, rgba(10,10,10,0.52) 100%),
+        url("assets/hero-rider.jpg");
+      background-size: cover;
+      background-position: center 52%;
+      background-repeat: no-repeat;
+    }
+
+    .hero::after {
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.32) 68%, rgba(10,10,10,0.86) 100%),
+        linear-gradient(90deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0) 42%, rgba(10,10,10,0.28) 100%);
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 2;
+      will-change: transform, opacity;
+    }
+
+    .hero-copy {
+      max-width: 800px;
+      transform: translateY(clamp(-128px, -12vh, -72px));
+    }
 
     .hero-copy h1 {
       margin: 0;
@@ -362,18 +466,21 @@
     }
 
     .scroll-indicator {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: var(--space-xl);
-      margin-inline: auto;
-      width: fit-content;
+      gap: 8px;
+      position: absolute;
+      left: 50%;
+      bottom: clamp(8px, 2vh, 18px);
+      transform: translateX(-50%);
       color: var(--muted);
       font-family: var(--font-en);
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+      z-index: 3;
     }
 
     .scroll-indicator::after {
@@ -402,6 +509,11 @@
       overflow: clip;
       padding: 0;
       position: relative;
+      z-index: 3;
+      margin-top: -28vh;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      box-shadow: 0 -28px 80px rgba(0,0,0,0.55);
     }
 
     .eva-spotlight::before {
@@ -424,18 +536,138 @@
         radial-gradient(ellipse 800px 500px at 80% 60%, rgba(200,40,40,0.12), transparent);
       pointer-events: none;
       opacity: var(--eva-after-opacity, 0.3);
+      z-index: 0;
     }
 
     /* eva-pulse removed — replaced by GSAP ScrollTrigger scrub */
 
-    /* EVA Intro — fullscreen centered type */
+    .sec-lineup,
+    .sec-compare,
+    .sec-why,
+    .sec-story,
+    .sec-voice,
+    .sec-instagram,
+    .sec-app,
+    .sec-faq,
+    .block-news,
+    .shop,
+    .cta-band {
+      position: relative;
+      isolation: isolate;
+      z-index: 2;
+    }
+
+    .sec-lineup,
+    .sec-compare,
+    .sec-why,
+    .sec-faq,
+    .block-news,
+    .shop,
+    .cta-band {
+      overflow: hidden;
+    }
+
+    .sec-lineup > .container,
+    .sec-compare > .container,
+    .sec-why > .container,
+    .sec-story > .container,
+    .sec-voice > .container,
+    .sec-faq > .container,
+    .block-news > .container,
+    .shop > .container,
+    .cta-band > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .sec-lineup::before,
+    .sec-compare::before,
+    .sec-why::before,
+    .sec-story::before,
+    .sec-voice::before,
+    .sec-faq::before,
+    .block-news::before,
+    .shop::before,
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sec-lineup::before {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255,107,0,0.11), transparent 32%),
+        linear-gradient(180deg, rgba(16,16,16,0.96), rgba(10,10,10,0.98));
+    }
+
+    .sec-compare::before {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.035), transparent 24%, transparent 76%, rgba(255,255,255,0.025)),
+        linear-gradient(180deg, #0a0a0a 0%, #101010 100%);
+    }
+
+    .sec-why::before {
+      background:
+        linear-gradient(135deg, rgba(255,107,0,0.07), transparent 34%),
+        linear-gradient(180deg, #101010 0%, #0a0a0a 100%);
+    }
+
+    .sec-story::before {
+      background:
+        linear-gradient(90deg, rgba(255,107,0,0.08), transparent 30%, rgba(255,255,255,0.03) 100%);
+    }
+
+    .sec-voice::before {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,107,0,0.1), transparent 36%),
+        linear-gradient(180deg, rgba(12,12,12,0.94), rgba(8,8,8,0.98));
+    }
+
+    .sec-faq::before {
+      background:
+        radial-gradient(circle at 18% 30%, rgba(255,107,0,0.14), transparent 34%),
+        radial-gradient(circle at 78% 18%, rgba(123,45,142,0.12), transparent 30%),
+        linear-gradient(180deg, #101010 0%, #090909 100%);
+    }
+
+    .sec-faq::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.06) 0%, rgba(10,10,10,0.36) 68%, rgba(10,10,10,0.86) 100%),
+        linear-gradient(90deg, rgba(10,10,10,0.14) 0%, rgba(10,10,10,0) 42%, rgba(10,10,10,0.24) 100%);
+    }
+
+    .shop::before {
+      background:
+        linear-gradient(90deg, rgba(255,107,0,0.1), transparent 34%),
+        linear-gradient(180deg, #0d0d0d 0%, #090909 100%);
+    }
+
+    .block-news::before {
+      background:
+        linear-gradient(90deg, rgba(255,107,0,0.08), transparent 28%, rgba(255,255,255,0.025) 100%),
+        linear-gradient(180deg, #0f0f0f 0%, #151515 100%);
+    }
+
+    .cta-band::before {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,107,0,0.14), transparent 38%),
+        linear-gradient(180deg, rgba(12,12,12,0.62), rgba(8,8,8,0.96));
+    }
+
+    /* EVA Intro — banner to full-screen video transition */
     .eva-intro {
-      min-height: 80vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 120px 20px 80px;
+      padding: 40px 20px;
       position: relative;
       overflow: hidden;
       z-index: 1;
@@ -446,11 +678,12 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(8,8,8,0.48) 0%, rgba(8,8,8,0.62) 100%),
+        linear-gradient(180deg, rgba(8,8,8,0.08) 0%, rgba(8,8,8,0.2) 100%),
         radial-gradient(ellipse 820px 420px at 18% 22%, rgba(123,45,142,0.22), transparent 62%),
         radial-gradient(ellipse 820px 420px at 82% 70%, rgba(200,40,40,0.2), transparent 62%);
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
+      opacity: 0;
     }
 
     .eva-intro-video {
@@ -460,9 +693,9 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0.56;
+      opacity: 0;
       filter: saturate(1.06) contrast(1.04);
-      z-index: 0;
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -475,7 +708,7 @@
 
     .eva-brand-logo {
       display: block;
-      width: min(360px, 78vw);
+      width: min(460px, 88vw);
       height: auto;
       margin: 0 auto 20px;
     }
@@ -519,6 +752,29 @@
       gap: 0;
     }
 
+    .eva-banner-wrap {
+      width: min(1300px, 92vw);
+      position: relative;
+      z-index: 3;
+    }
+
+    .eva-banner {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.4);
+      transform-origin: center center;
+      transform: scale(0.6);
+    }
+
+    .eva-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .eva-card {
       position: relative;
       padding: var(--space-lg) 32px var(--space-xl);
@@ -540,6 +796,8 @@
 
     .eva-poster-link {
       display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
       border-radius: 14px;
       overflow: hidden;
       transition: transform 0.5s cubic-bezier(0.25,1,0.5,1);
@@ -590,9 +848,10 @@
 
     .eva-device-image {
       width: 100%;
-      aspect-ratio: 9 / 16;
+      height: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 20px 44px rgba(0,0,0,0.5);
@@ -704,7 +963,7 @@
       justify-content: space-between;
       align-items: end;
       gap: var(--space-lg);
-      margin-bottom: var(--space-lg);
+      margin-bottom: var(--space-xl);
     }
 
     .section-heading h2 {
@@ -729,6 +988,34 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 22px;
+    }
+
+    .lineup-group-title {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      color: var(--white);
+      font-family: var(--font-en);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .sec-compare .section-heading {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .sec-events .section-heading {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-bottom: var(--space-lg);
     }
 
     .product-card {
@@ -786,15 +1073,19 @@
     }
 
     .product-device-image {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       object-position: center;
       border-radius: 0;
       border: none;
       background: none;
       filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
       mix-blend-mode: lighten;
+    }
+
+    .product-device-image.s2-image {
+      object-position: center 58%;
     }
 
     .product-card.featured .product-visual {
@@ -850,7 +1141,7 @@
        SEC-05: COMPARE — table, minimal decoration
        ═══════════════════════════════════════════ */
     .sec-compare {
-      padding: var(--space-section-sm) 0 var(--space-section-md);
+      padding: var(--space-section-md) 0;
       border-top: 1px solid var(--border);
     }
 
@@ -899,66 +1190,6 @@
       min-width: 190px;
       font-weight: 600;
     }
-
-    /* ═══════════════════════════════════════════
-       SEC-06: YOUR MATCH — 3-col, center larger
-       ═══════════════════════════════════════════ */
-    .sec-match {
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .match-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr 1fr;
-      gap: 22px;
-    }
-
-    .match-card {
-      padding: var(--space-lg) 28px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1), border-color 0.3s ease;
-    }
-
-    .match-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--border-mid);
-    }
-
-    .match-card strong {
-      display: block;
-      color: var(--white);
-      font-size: 22px;
-      line-height: 1.2;
-      margin-bottom: var(--space-sm);
-    }
-
-    .match-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .match-target {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--accent);
-      font-family: var(--font-en);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .match-target a {
-      transition: opacity 0.15s ease-out;
-    }
-
-    .match-target a:hover { opacity: 0.75; }
 
     /* ═══════════════════════════════════════════
        SEC-07: WHY ASMAX — list style, bottom border
@@ -1017,6 +1248,9 @@
       min-height: 100vh;
       display: flex;
       align-items: stretch;
+      position: sticky;
+      top: 0;
+      z-index: 2;
       background:
         radial-gradient(circle at 16% 24%, rgba(255,107,0,0.12), transparent 38%),
         linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
@@ -1031,7 +1265,7 @@
     .story-grid {
       width: 100%;
       max-width: none;
-      padding-left: clamp(22px, 4.2vw, 72px);
+      padding-left: 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 0;
@@ -1040,8 +1274,12 @@
     }
 
     .story-copy {
-      max-width: 560px;
-      padding: clamp(80px, 9vw, 140px) clamp(18px, 3vw, 48px) clamp(64px, 8vw, 120px) 0;
+      max-width: 720px;
+      padding:
+        clamp(80px, 9vw, 140px)
+        clamp(18px, 3vw, 48px)
+        clamp(64px, 8vw, 120px)
+        max(20px, calc((100vw - var(--container)) / 2));
       margin: auto 0;
       position: relative;
       z-index: 2;
@@ -1095,7 +1333,10 @@
        SEC-09: RIDERS VOICE — compact cards
        ═══════════════════════════════════════════ */
     .sec-voice {
-      padding: var(--space-section-sm) 0;
+      position: relative;
+      z-index: 3;
+      margin-top: 0;
+      padding: var(--space-section-md) 0;
       border-top: 1px solid var(--border);
     }
 
@@ -1179,14 +1420,14 @@
       inset: 0;
       background:
         linear-gradient(180deg,
-          rgba(10,10,10,0.8) 0%,
-          rgba(10,10,10,0.55) 35%,
-          rgba(10,10,10,0.5) 60%,
-          rgba(10,10,10,0.9) 100%),
+          rgba(10,10,10,0.62) 0%,
+          rgba(10,10,10,0.4) 35%,
+          rgba(10,10,10,0.34) 60%,
+          rgba(10,10,10,0.72) 100%),
         linear-gradient(90deg,
-          rgba(10,10,10,0.7) 0%,
-          rgba(10,10,10,0.2) 50%,
-          rgba(10,10,10,0.3) 100%);
+          rgba(10,10,10,0.5) 0%,
+          rgba(10,10,10,0.14) 50%,
+          rgba(10,10,10,0.2) 100%);
     }
 
     .sec-app .container {
@@ -1196,7 +1437,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 120px 24px;
+      padding: 144px 24px;
     }
 
     .app-copy {
@@ -1246,8 +1487,9 @@
        SEC-11: FAQ — centered, accordion
        ═══════════════════════════════════════════ */
     .sec-faq {
-      padding: var(--space-section-sm) 0 var(--space-section-md);
-      border-top: 1px solid var(--border);
+      margin-top: -2px;
+      padding: var(--space-section-md) 0;
+      border-top: none;
     }
 
     .faq-shell {
@@ -1319,20 +1561,229 @@
     .faq-trigger[aria-expanded="true"] + .faq-panel { display: block; }
 
     /* ═══════════════════════════════════════════
+       STORES CTA
+       ═══════════════════════════════════════════ */
+    .shop {
+      padding: var(--space-section-md) 0;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .shop .container {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    .shop-kicker {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contents-title {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.92;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .block-caption {
+      display: grid;
+      gap: var(--space-sm);
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .block-caption p {
+      margin: 0;
+    }
+
+    .btn.size-L {
+      min-height: 58px;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .btn.size-L a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 42px;
+    }
+
+    .btn.btn-bk {
+      background: var(--white);
+      color: #0a0a0a;
+    }
+
+    .shop .btn {
+      justify-self: start;
+      margin-top: var(--space-sm);
+    }
+
+    /* ═══════════════════════════════════════════
+       EVENTS
+       ═══════════════════════════════════════════ */
+    .sec-events {
+      padding: var(--space-section-md) 0;
+      border-top: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .event-slider {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.015);
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      border-left: none;
+      border-right: none;
+    }
+
+    .event-track {
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      will-change: transform;
+    }
+
+    .event-card {
+      flex: 0 0 calc((100% - 36px) / 3);
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .event-image {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-copy {
+      padding: 14px 14px 16px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .event-title {
+      margin: 0;
+      color: var(--white);
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .event-detail {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       NEWS
+       ═══════════════════════════════════════════ */
+    .block-news {
+      padding: var(--space-section-md) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .news-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+      margin-bottom: var(--space-lg);
+    }
+
+    .news-lead {
+      margin: var(--space-sm) 0 0;
+      color: var(--muted);
+      max-width: 430px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .news-alerts {
+      border-top: 1px solid var(--border);
+    }
+
+    .news-20200901 {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .news-01 {
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .news-02 a {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      transition: color 0.18s ease-out;
+    }
+
+    .news-02 a:hover {
+      color: var(--white);
+    }
+
+    .btn.btn-wh {
+      margin: var(--space-md) auto 0;
+      width: fit-content;
+    }
+
+    /* ═══════════════════════════════════════════
        SEC-12: CTA BAND — radial glow
        ═══════════════════════════════════════════ */
-    .cta-band {
+    .sec-instagram {
+      position: relative;
+      z-index: 3;
       padding: var(--space-section-lg) 0 var(--space-section-md);
       background:
         radial-gradient(circle at 50% 0%, rgba(255,107,0,0.12), transparent 40%),
-        linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+        linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
     }
 
-    .cta-inner {
+    .instagram-head {
       text-align: center;
     }
 
-    .cta-band h2 {
+    .sec-instagram h2 {
       margin: 0;
       font-family: var(--font-en);
       font-weight: 900;
@@ -1343,23 +1794,60 @@
       letter-spacing: -0.01em;
     }
 
-    .cta-band .cta-sub {
-      max-width: 600px;
+    .instagram-sub {
+      max-width: 640px;
       margin: var(--space-md) auto 0;
       color: var(--muted);
       font-size: 16px;
     }
 
-    .cta-actions,
-    .mall-links {
+    .instagram-feed {
+      margin-top: var(--space-lg);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .insta-card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+
+    .insta-card a {
+      display: block;
+      color: inherit;
+    }
+
+    .insta-thumb {
+      aspect-ratio: 1 / 1;
+      background: #101010;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .insta-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .insta-copy {
+      padding: 12px 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .instagram-actions {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       margin-top: var(--space-lg);
     }
 
-    .cta-meta {
+    .instagram-meta {
       display: inline-block;
       margin-top: var(--space-lg);
       color: var(--muted);
@@ -1367,7 +1855,7 @@
       transition: color 0.15s ease-out;
     }
 
-    .cta-meta:hover { color: var(--white); }
+    .instagram-meta:hover { color: var(--white); }
 
     /* ═══════════════════════════════════════════
        FOOTER
@@ -1485,6 +1973,12 @@
     }
 
     @media (max-width: 1023px) {
+      :root {
+        --space-section-lg: 140px;
+        --space-section-md: 96px;
+        --space-section-sm: 72px;
+      }
+
       .site-nav { display: none; }
 
       .menu-toggle { display: inline-flex; }
@@ -1517,6 +2011,29 @@
 
       .mobile-drawer a:hover { color: var(--white); }
 
+      .mobile-products {
+        display: grid;
+        gap: 2px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .mobile-products-label {
+        padding: 12px 4px 6px;
+        color: var(--white);
+        font-family: var(--font-en);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .mobile-products a {
+        padding-left: 18px;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+      }
+
       .eva-grid { grid-template-columns: 1fr; }
 
       .eva-card {
@@ -1528,7 +2045,11 @@
 
       .eva-card:last-child { border-bottom: none; }
 
-      .sec-story { min-height: auto; }
+      .sec-story {
+        min-height: auto;
+        position: relative;
+        top: auto;
+      }
 
       .story-grid {
         grid-template-columns: 1fr;
@@ -1549,8 +2070,21 @@
 
       .story-image { height: 40vh; }
 
-      .match-grid,
+      .shop .container,
+      .news-head {
+        grid-template-columns: 1fr;
+      }
+
+      .event-card {
+        flex-basis: calc((100% - 18px) / 2);
+      }
+
+      .instagram-feed {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .why-grid,
+      .wrap-news-list,
       .footer-grid { grid-template-columns: 1fr; }
 
       .why-item {
@@ -1562,15 +2096,15 @@
       .why-item:last-child { border-bottom: none !important; }
 
       .sec-app { min-height: 80vh; }
-      .sec-app .container { padding: 80px 20px; }
+      .sec-app .container { padding: 104px 20px; }
     }
 
     @media (max-width: 767px) {
       :root {
         --container: calc(100vw - 28px);
-        --space-section-lg: 100px;
-        --space-section-md: 72px;
-        --space-section-sm: 56px;
+        --space-section-lg: 116px;
+        --space-section-md: 86px;
+        --space-section-sm: 68px;
       }
 
       .site-header-inner { min-height: 72px; }
@@ -1581,16 +2115,20 @@
       }
 
       .hero {
-        min-height: 70vh;
-        padding: 80px 0 60px;
+        min-height: 100svh;
+        padding: 88px 0 76px;
       }
 
       .hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
       .hero .subcopy { font-size: 16px; }
 
       .eva-intro {
-        min-height: 60vh;
+        min-height: 100vh;
         padding: 80px 20px 60px;
+      }
+
+      .eva-spotlight {
+        margin-top: -18vh;
       }
 
       .eva-heading h2 { font-size: clamp(2.4rem, 10vw, 4rem); }
@@ -1599,7 +2137,10 @@
       .eva-device-image { width: 130px; }
 
       .lineup-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .news-20200901 { grid-template-columns: 1fr; gap: 8px; }
       .voice-grid { grid-template-columns: 1fr; }
+      .event-card { flex-basis: 100%; }
+      .instagram-feed { grid-template-columns: 1fr; }
 
       .faq-trigger { padding: 22px 20px; }
       .faq-panel { padding: 0 20px 22px; }
@@ -1653,13 +2194,12 @@
     }
 
     /* Hero sub-elements initial state (hidden by JS) */
-    .hero-copy.js-init .subcopy,
-    .hero-copy.js-init .hero-actions,
-    .hero-copy.js-init .hero-note,
-    .hero-copy.js-init .scroll-indicator {
-      opacity: 0;
-      transform: translateY(24px);
-    }
+      .hero-copy.js-init .subcopy,
+      .hero-copy.js-init .hero-actions,
+      .hero-copy.js-init .hero-note {
+        opacity: 0;
+        transform: translateY(24px);
+      }
 
     .hero-copy.js-init .hero-note {
       transform: none;
@@ -1796,12 +2336,18 @@
         </a>
 
         <nav class="site-nav" aria-label="グローバルナビゲーション">
-          <a href="product/detail-eva-r-unit01.html">EVA R</a>
-          <a href="product/detail-f1-pro.html">F1 Pro</a>
-          <a href="product/detail-s2.html">S2</a>
-          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <div class="nav-item">
+            <a href="#lineup" aria-haspopup="true">Products</a>
+            <div class="product-dropdown" aria-label="Products submenu">
+              <a href="product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
+              <a href="product/detail-f1-pro.html">F1 Pro</a>
+              <a href="product/detail-s2.html">S2</a>
+            </div>
+          </div>
           <a href="about.html">About</a>
-          <a href="stores.html">Stores</a>
+          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <a href="stores.html">Shop</a>
+          <a href="/contact">Contact</a>
         </nav>
 
         <div class="header-actions">
@@ -1816,12 +2362,16 @@
 
       <div class="mobile-drawer" id="mobile-drawer">
         <div class="container">
-          <a href="product/detail-eva-r-unit01.html">EVA R</a>
-          <a href="product/detail-f1-pro.html">F1 Pro</a>
-          <a href="product/detail-s2.html">S2</a>
-          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <div class="mobile-products">
+            <div class="mobile-products-label">Products</div>
+            <a href="product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
+            <a href="product/detail-f1-pro.html">F1 Pro</a>
+            <a href="product/detail-s2.html">S2</a>
+          </div>
           <a href="about.html">About</a>
-          <a href="stores.html">Stores</a>
+          <a href="cloudtalk-mode.html">CloudTalk</a>
+          <a href="stores.html">Shop</a>
+          <a href="/contact">Contact</a>
         </div>
       </div>
     </header>
@@ -1840,76 +2390,22 @@
             <div class="hero-actions">
               <a class="ghost-btn" href="#eva-r">EVA R コラボを見る</a>
             </div>
-
-            <a class="scroll-indicator" href="#eva-r">Scroll</a>
           </div>
         </div>
+        <a class="scroll-indicator" href="#eva-r">Scroll</a>
       </section>
 
       <!-- SEC-02 & SEC-03: EVA R SPOTLIGHT -->
       <section class="eva-spotlight" id="eva-r">
-        <!-- EVA Intro — fullscreen centered type -->
+        <!-- EVA Intro — banner first, then fullscreen video -->
         <div class="eva-intro" id="eva-intro">
-          <video class="eva-intro-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-            <source src="assets/251113_宣伝動画_日本語.mp4" type="video/mp4">
-          </video>
-          <div class="eva-heading">
-            <img class="eva-brand-logo" src="assets/ASMAX_EVA_LOGO_WHITE.svg" alt="ASMAX × EVA RACING ロゴ" loading="lazy">
-            <h2><span class="duo"><span class="unit01">初号機</span> <span style="color:var(--muted);font-weight:400;">×</span> <span class="unit02">2号機</span></span></h2>
-            <p class="lede">二機、参戦中。ASMAX の技術とエヴァンゲリオンの世界観が融合した、日本限定のアイコンモデル。</p>
-          </div>
-        </div>
-
-        <!-- EVA Cards — fullbleed 2-col poster -->
-        <div class="eva-grid-wrap">
-          <div class="eva-grid">
-            <article class="eva-card unit01" id="eva-card-01">
-              <div class="card-glow-layer"></div>
-              <a href="product/detail-eva-r-unit01.html" class="eva-poster-link">
-                <img class="eva-device-image" src="assets/画板 11-100.jpg" alt="EVA R 初号機" loading="lazy">
-              </a>
-              <div class="eva-card-footer">
-                <div class="eva-copy">
-                  <h3>Future 1 EVA R 初号機</h3>
-                  <p>A パープル / B パープル×グリーン — 各2色展開</p>
-                </div>
-                <div class="price-row">
-                  <div class="price" data-sku="eva-r-unit01a">
-                    <strong data-price>¥35,000</strong>
-                    <span>税込</span>
-                  </div>
-                  <span class="spec-meta">Icon Model</span>
-                </div>
-                <div class="card-actions">
-                  <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
-                  <a class="ghost-btn" href="product/detail-eva-r-unit01.html">詳しく見る</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="eva-card unit02" id="eva-card-02">
-              <div class="card-glow-layer"></div>
-              <a href="product/detail-eva-r-unit02.html" class="eva-poster-link">
-                <img class="eva-device-image" src="assets/画板 12-100.jpg" alt="EVA R 2号機" loading="lazy">
-              </a>
-              <div class="eva-card-footer">
-                <div class="eva-copy">
-                  <h3>Future 1 EVA R 2号機</h3>
-                  <p>A レッド / B レッド×オレンジ — 各2色展開</p>
-                </div>
-                <div class="price-row">
-                  <div class="price" data-sku="eva-r-unit02a">
-                    <strong data-price>¥35,000</strong>
-                    <span>税込</span>
-                  </div>
-                  <span class="spec-meta">Icon Model</span>
-                </div>
-                <div class="card-actions">
-                  <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
-                  <a class="ghost-btn" href="product/detail-eva-r-unit02.html">詳しく見る</a>
-                </div>
-              </div>
-            </article>
+          <div class="eva-banner-wrap">
+            <video class="eva-intro-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+              <source src="assets/251113_宣伝動画_日本語.mp4" type="video/mp4">
+            </video>
+            <a class="eva-banner" href="product/detail-eva-r-unit01.html" aria-label="EVA R モデルページへ">
+              <img src="/Users/cjmac002/Downloads/251029_EVA_ASMAX_re01_1300x712.png" alt="ASMAX × EVA RACING バナー" loading="lazy">
+            </a>
           </div>
         </div>
       </section>
@@ -1920,16 +2416,16 @@
           <div class="section-heading" data-animate>
             <div>
               <div class="eyebrow">Japan Lineup</div>
-              <h2>取り扱い4機種</h2>
+              <h2>Product</h2>
             </div>
-            <p class="section-desc">ASMAX JAPAN が正規取り扱いする全モデル。</p>
+            <p class="section-desc">ASMAX JAPAN取扱い商品</p>
           </div>
 
           <div class="lineup-grid">
+            <h3 class="lineup-group-title" data-animate style="--d:0.02s;">Future1 (EVA Rモデル)</h3>
             <article class="product-card featured has-tilt" data-animate style="--d:0.04s;">
-              <span class="product-role">Icon</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 初号機-A パープル.jpg" alt="EVA R 初号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">EVA R 初号機-A</a></h3>
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01a-45.png" alt="EVA R 初号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">初号機A</a></h3>
               <p>パープル｜WS10 EVA-01A</p>
               <div class="product-price" data-sku="eva-r-unit01a">¥35,000<small> 税込</small></div>
               <div class="product-meta">
@@ -1939,9 +2435,8 @@
             </article>
 
             <article class="product-card featured has-tilt" data-animate style="--d:0.08s;">
-              <span class="product-role">Icon</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 初号機-B パープル:グリーン.jpg" alt="EVA R 初号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">EVA R 初号機-B</a></h3>
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02b-45.png" alt="EVA R 初号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">初号機B</a></h3>
               <p>パープル/グリーン｜WS10 EVA-01B</p>
               <div class="product-price" data-sku="eva-r-unit01b">¥35,000<small> 税込</small></div>
               <div class="product-meta">
@@ -1951,9 +2446,8 @@
             </article>
 
             <article class="product-card featured has-tilt" data-animate style="--d:0.12s;">
-              <span class="product-role">Icon</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 2号機-A レッド.jpg" alt="EVA R 2号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">EVA R 2号機-A</a></h3>
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01b-45.png" alt="EVA R 2号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">2号機A</a></h3>
               <p>レッド｜WS10 EVA-02A</p>
               <div class="product-price" data-sku="eva-r-unit02a">¥35,000<small> 税込</small></div>
               <div class="product-meta">
@@ -1963,9 +2457,8 @@
             </article>
 
             <article class="product-card featured has-tilt" data-animate style="--d:0.16s;">
-              <span class="product-role">Icon</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/Future 1 インカム EVA R 2号機-B レッド:オレンジ.jpg" alt="EVA R 2号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">EVA R 2号機-B</a></h3>
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02a-45.png" alt="EVA R 2号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">2号機B</a></h3>
               <p>レッド/オレンジ｜WS10 EVA-02B</p>
               <div class="product-price" data-sku="eva-r-unit02b">¥35,000<small> 税込</small></div>
               <div class="product-meta">
@@ -1974,11 +2467,11 @@
               </div>
             </article>
 
+            <h3 class="lineup-group-title" data-animate style="--d:0.18s;">F1 Pro</h3>
             <article class="product-card has-tilt" data-animate style="--d:0.2s;">
-              <span class="product-role">All-Rounder</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/F1 Pro インカム シャイニーグレー.jpg" alt="F1 Pro シャイニーグレー" loading="lazy"></div>
-              <h3><a href="product/detail-f1-pro.html">F1 Pro シャイニーグレー</a></h3>
-              <p>全部入りフラッグシップ｜08WS03AFIN017</p>
+              <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-shiny-new.png" alt="F1 Pro シャイニーグレー" loading="lazy"></div>
+              <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
+              <p>シャイニーグレー｜08WS03AFIN017</p>
               <div class="product-price" data-sku="f1-pro-shiny">¥35,915<small> 税込</small></div>
               <div class="product-meta">
                 <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
@@ -1987,10 +2480,9 @@
             </article>
 
             <article class="product-card has-tilt" data-animate style="--d:0.24s;">
-              <span class="product-role">All-Rounder</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/F1 Pro インカム ステラーグレー.jpg" alt="F1 Pro ステラーグレー" loading="lazy"></div>
-              <h3><a href="product/detail-f1-pro.html">F1 Pro ステラーグレー</a></h3>
-              <p>全部入りフラッグシップ｜08WS03AFIN033</p>
+              <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-stellar-new.png" alt="F1 Pro ステラグレー" loading="lazy"></div>
+              <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
+              <p>ステラグレー｜08WS03AFIN033</p>
               <div class="product-price" data-sku="f1-pro-stellar">¥35,915<small> 税込</small></div>
               <div class="product-meta">
                 <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
@@ -1998,9 +2490,9 @@
               </div>
             </article>
 
+            <h3 class="lineup-group-title" data-animate style="--d:0.26s;">S2</h3>
             <article class="product-card has-tilt" data-animate style="--d:0.28s;">
-              <span class="product-role">Entry</span>
-              <div class="product-visual"><img class="product-device-image" src="assets/S2 インカム グレー.jpg" alt="S2 グレー" loading="lazy"></div>
+              <div class="product-visual"><img class="product-device-image s2-image" src="assets/s2-new.png" alt="S2 グレー" loading="lazy"></div>
               <h3><a href="product/detail-s2.html">S2</a></h3>
               <p>はじめての一台に最適｜08WS04AFIN017</p>
               <div class="product-price" data-sku="s2">¥15,899<small> 税込</small></div>
@@ -2013,14 +2505,46 @@
         </div>
       </section>
 
+      <section class="block-news bg-white">
+        <div class="container" data-animate>
+          <div class="news-head">
+            <div>
+              <h2 class="contents-title">NEWS</h2>
+              <p class="news-lead">ASMAX JAPANからの製品情報、サポート更新、イベント出展情報をお知らせします。</p>
+            </div>
+
+            <div class="news-alerts">
+              <div class="news-20200901">
+                <div class="news-01">Support</div>
+                <div class="news-02"><a href="/news/">EVA R / F1 Pro / S2 正規取扱品の保証・サポート受付について</a></div>
+              </div>
+
+              <div class="news-20200901">
+                <div class="news-01">Product</div>
+                <div class="news-02"><a href="/news/">ASMAX World Appでの本体設定・ファームウェア更新手順を公開しました</a></div>
+              </div>
+
+              <div class="news-20200901">
+                <div class="news-01">Dealer</div>
+                <div class="news-02"><a href="stores.html">国内正規販売店での展示・取扱状況は店舗ごとに異なります</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn size-L btn-wh">
+            <a href="/news/">MORE</a>
+          </div>
+        </div>
+      </section>
+
       <!-- SEC-05: COMPARE -->
       <section class="sec-compare" id="compare">
         <div class="container">
           <div class="section-heading" data-animate>
             <div>
-              <h2>4機種、すべて並べる。</h2>
+              <h2>SPEC</h2>
             </div>
-            <p class="section-desc">ひと目で違いがわかるスペック比較。カラー違いのモデルはスペック共通です。</p>
+            <p class="section-desc">製品ごとの機能比較</p>
           </div>
 
           <div class="table-wrap" data-animate="scale" style="--d:0.08s;">
@@ -2078,42 +2602,11 @@
         </div>
       </section>
 
-      <!-- SEC-06: YOUR MATCH -->
-      <section class="sec-match">
-        <div class="container">
-          <div class="section-heading" data-animate>
-            <div>
-              <div class="eyebrow">Your Match</div>
-              <h2>こんな人におすすめ</h2>
-            </div>
-            <p class="section-desc">目的と使い方で、あなたに合った一台を。</p>
-          </div>
-
-          <div class="match-grid">
-            <article class="match-card" data-animate style="--d:0.05s;">
-              <strong>エヴァファン / コレクター</strong>
-              <p>限定コラボモデルで所有する喜びを。ツーリング仲間との話題にもつながる象徴的な一台。</p>
-              <div class="match-target"><a href="#eva-r">EVA R 全4色を見る</a></div>
-            </article>
-            <article class="match-card" data-animate style="--d:0.12s;">
-              <strong>ツーリング好き / 複数人通話</strong>
-              <p>長距離ライドやグループツーリングへ。Mesh と CloudTalk を軸にした、途切れにくいコミュニケーション向け。</p>
-              <div class="match-target"><a href="/product/f1-pro">F1 Proを見る</a></div>
-            </article>
-            <article class="match-card" data-animate style="--d:0.2s;">
-              <strong>インカム初心者 / コスパ重視</strong>
-              <p>まずは一台から始めたいライダーに。価格と必要十分な機能のバランスを重視した入口モデル。</p>
-              <div class="match-target"><a href="/product/s2">S2を見る</a></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <!-- SEC-07: WHY ASMAX JAPAN -->
       <section class="sec-why">
         <div class="container">
           <div style="margin-bottom:var(--space-xl);" data-animate>
-            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">日本総代理店の安心</h2>
+            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">SUPPORT</h2>
             <p style="margin:var(--space-sm) 0 0;color:var(--muted);font-size:15px;">正規品だからこその安心をお届けします。</p>
           </div>
 
@@ -2152,6 +2645,88 @@
         </div>
       </section>
 
+      <section class="shop bg-gray">
+        <div class="container" data-animate>
+          <div>
+            <span class="shop-kicker">Authorized Stores</span>
+            <h2 class="contents-title">SHOP</h2>
+          </div>
+          <div class="block-caption">
+            <p>ASMAX JAPAN正規取扱店を<br>お近くのエリアから探せます。</p>
+            <p>展示機や取扱モデルは店舗ごとに異なります。<br>詳しくは各店舗へお問い合わせください。</p>
+            <div class="btn size-L btn-bk">
+              <a href="stores.html">SHOP LIST</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec-events" id="events">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Event</div>
+              <h2>EVENT</h2>
+            </div>
+            <p class="section-desc">ASMAX JAPAN 出展イベント情報</p>
+          </div>
+
+          <div class="event-slider" data-animate="scale" style="--d:0.06s;">
+            <div class="event-track" id="event-track">
+              <article class="event-card">
+                <div class="event-image">
+                  <img src="assets/event-osaka-motorcycle-show-2026.png" alt="第42回大阪モーターサイクルショー2026">
+                </div>
+                <div class="event-copy">
+                  <h3 class="event-title">大阪モーターサイクルショー 2026</h3>
+                  <p class="event-detail">2026年3月20日(金)〜22日(日) / インテックス大阪 1・2号館 / 屋外特設会場</p>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-image">
+                  <img src="assets/event-tokyo-motorcycle-show-2026.jpg" alt="第53回東京モーターサイクルショー2026">
+                </div>
+                <div class="event-copy">
+                  <h3 class="event-title">東京モーターサイクルショー 2026</h3>
+                  <p class="event-detail">2026年3月27日(金)〜29日(日) / 東京ビッグサイト 西1・2・3・4ホール / アトリウム / 西屋上展示場</p>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-image">
+                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 1">
+                </div>
+                <div class="event-copy">
+                  <h3 class="event-title">名古屋モーターサイクルショー 2026（予定）</h3>
+                  <p class="event-detail">日程・会場調整中 / 出展内容は確定次第お知らせします。</p>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-image">
+                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 2">
+                </div>
+                <div class="event-copy">
+                  <h3 class="event-title">福岡モーターサイクルフェス 2026（予定）</h3>
+                  <p class="event-detail">日程・会場調整中 / 試聴・試着体験の実施を予定しています。</p>
+                </div>
+              </article>
+
+              <article class="event-card">
+                <div class="event-image">
+                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 3">
+                </div>
+                <div class="event-copy">
+                  <h3 class="event-title">ASMAX JAPAN Ride Meeting 2026（予定）</h3>
+                  <p class="event-detail">開催エリア調整中 / ファンミート・製品体験ブースを準備中です。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- SEC-08: BRAND STORY -->
       <section class="sec-story" id="about">
         <div class="container story-grid">
@@ -2181,7 +2756,7 @@
           <div class="section-heading" data-animate>
             <div>
               <div class="eyebrow">Riders Voice</div>
-              <h2>日本のライダーの声</h2>
+              <h2>Voices</h2>
             </div>
           </div>
 
@@ -2272,22 +2847,21 @@
         </div>
       </section>
 
-      <!-- SEC-12: CTA BAND -->
-      <section class="cta-band">
+      <!-- SEC-12: INSTAGRAM -->
+      <section class="sec-instagram" id="instagram">
         <div class="container">
-          <div class="cta-inner" data-animate>
-            <h2>Ready to Ride?</h2>
-            <p class="cta-sub">ASMAX JAPAN 正規取扱品を、お好みの方法でご購入いただけます。</p>
-            <div class="cta-actions">
-              <a class="btn accent" href="#lineup">オンラインで購入</a>
-              <a class="ghost-btn" href="stores.html">取扱店を探す</a>
-            </div>
-            <div class="mall-links">
-              <a class="mall-link" href="#">楽天市場</a>
-              <a class="mall-link" href="#">Yahoo!ショッピング</a>
-            </div>
-            <a class="cta-meta" href="/contact">法人・メディアのお問い合わせ &rarr;</a>
+          <div class="instagram-head" data-animate>
+            <h2>INSTAGRAM</h2>
+            <p class="instagram-sub">@asmax_cj の直近投稿</p>
           </div>
+
+          <div class="instagram-feed" id="asmax-instagram-posts" data-animate="scale" style="--d:0.06s;"></div>
+
+          <div class="instagram-actions">
+            <a class="btn accent" href="https://www.instagram.com/asmax_cj/" target="_blank" rel="noopener">Instagramを見る</a>
+            <a class="ghost-btn" href="stores.html">取扱店を探す</a>
+          </div>
+          <a class="instagram-meta" href="https://www.instagram.com/asmax_cj/" target="_blank" rel="noopener">公式アカウント: @asmax_cj &rarr;</a>
         </div>
       </section>
 
@@ -2383,15 +2957,23 @@
     }
 
     /* ───────────────────────────────────────────
-       HEADER SCROLL — 背景はHERO通過後に表示
+       HEADER SCROLL — 背景はEVA動画セクション通過後に表示
        ─────────────────────────────────────────── */
     const siteHeader = document.querySelector('.site-header');
     const heroSection = document.querySelector('.hero');
-    if (siteHeader && heroSection) {
-      const headerObs = new IntersectionObserver(([entry]) => {
-        siteHeader.classList.toggle('scrolled', !entry.isIntersecting);
-      }, { threshold: 0 });
-      headerObs.observe(heroSection);
+    const evaHeaderTrigger = document.querySelector('.eva-spotlight');
+    if (siteHeader && evaHeaderTrigger) {
+      const updateHeaderBg = () => {
+        const triggerY =
+          evaHeaderTrigger.offsetTop +
+          evaHeaderTrigger.offsetHeight -
+          siteHeader.offsetHeight;
+        siteHeader.classList.toggle('scrolled', window.scrollY >= triggerY);
+      };
+
+      updateHeaderBg();
+      window.addEventListener('scroll', updateHeaderBg, { passive: true });
+      window.addEventListener('resize', updateHeaderBg);
     }
 
     /* ───────────────────────────────────────────
@@ -2475,7 +3057,7 @@
         { el: heroCopy.querySelector('.subcopy'), d: 0.45 },
         { el: heroCopy.querySelector('.hero-actions'), d: 0.65 },
         { el: heroCopy.querySelector('.hero-note'), d: 0.8 },
-        { el: heroCopy.querySelector('.scroll-indicator'), d: 1.1 },
+        { el: document.querySelector('.hero > .scroll-indicator'), d: 1.1 },
       ];
       heroSubs.forEach(({ el, d }) => {
         if (!el) return;
@@ -2486,6 +3068,22 @@
           ease: el.classList.contains('hero-note') ? 'power1.out' : 'power3.out',
         }, d);
       });
+
+      // HERO parallax stays on the hero container so EVA pinning remains untouched.
+      const heroParallaxLayer = document.querySelector('.hero > .container');
+      if (heroParallaxLayer) {
+        gsap.to(heroParallaxLayer, {
+          y: -96,
+          opacity: 0.72,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom 20%',
+            scrub: true,
+          }
+        });
+      }
     }
 
     /* ───────────────────────────────────────────
@@ -2493,74 +3091,67 @@
        ─────────────────────────────────────────── */
     const evaSpotlight = document.querySelector('.eva-spotlight');
     const evaIntro = document.getElementById('eva-intro');
-    const evaHeading = document.querySelector('.eva-heading');
+    const evaBanner = document.querySelector('.eva-banner');
+    const evaIntroVideo = document.querySelector('.eva-intro-video');
 
-    /* 3-1: EVA Intro text reveal */
-    if (evaHeading) {
-      evaHeading.classList.add('js-init');
-
-      // Split unit01 and unit02 text into characters
-      const unit01Span = evaHeading.querySelector('.unit01');
-      const unit02Span = evaHeading.querySelector('.unit02');
-      const splitU01 = new SplitType(unit01Span, { types: 'chars', tagName: 'span' });
-      const splitU02 = new SplitType(unit02Span, { types: 'chars', tagName: 'span' });
-
-      const evaTl = gsap.timeline({
+    /* 3-0: HERO exits once EVA fully overlaps */
+    if (heroSection && evaSpotlight) {
+      gsap.fromTo(heroSection, {
+        autoAlpha: 1,
+        y: 0,
+      }, {
+        autoAlpha: 0,
+        y: -72,
+        ease: 'none',
+        immediateRender: false,
         scrollTrigger: {
-          trigger: '.eva-intro',
-          start: 'top 75%',
-          once: true,
+          trigger: evaSpotlight,
+          start: 'top 85%',
+          end: 'top 35%',
+          scrub: true,
         }
       });
+    }
 
-      // Eyebrow fade in
-      evaTl.to(evaHeading.querySelector('.eyebrow'), {
-        opacity: 1, duration: 0.5, ease: 'power2.out',
-      });
+    /* 3-1: EVA Intro transition — banner grows, then video appears */
+    if (evaIntro && evaBanner && evaIntroVideo) {
+      const VIDEO_SWITCH_POINT = 0.8;
+      const BANNER_MAX_SCALE = 0.8;
+      const VIDEO_MAX_SCALE = 0.8;
 
-      // Unit-01 characters — stagger 0.04s
-      evaTl.to(splitU01.chars, {
-        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
-        stagger: 0.04,
-        onStart() {
-          // Brief purple glow per character
-          splitU01.chars.forEach((c, i) => {
-            setTimeout(() => {
-              c.style.textShadow = '0 0 24px rgba(123,45,142,0.7)';
-              setTimeout(() => { c.style.textShadow = 'none'; }, 600);
-            }, i * 40);
-          });
+      gsap.set(evaBanner, { scale: 0.6 });
+      gsap.set(evaIntroVideo, { opacity: 0, scale: 0.96 });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: evaIntro,
+          start: 'top top',
+          end: '+=270%',
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         }
-      }, '-=0.15');
-
-      // "x" symbol (middle span)
-      const xSpan = evaHeading.querySelector('.duo > span:nth-child(2)');
-      if (xSpan) {
-        // Set initial state
-        gsap.set(xSpan, { opacity: 0, scale: 0.8 });
-        evaTl.to(xSpan, {
-          opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.4)',
-        }, '-=0.3');
-      }
-
-      // Unit-02 characters — stagger 0.05s (different rhythm)
-      evaTl.to(splitU02.chars, {
-        opacity: 1, y: 0, duration: 0.55, ease: 'power3.out',
-        stagger: 0.05,
-        onStart() {
-          splitU02.chars.forEach((c, i) => {
-            setTimeout(() => {
-              c.style.textShadow = '0 0 24px rgba(200,40,40,0.7)';
-              setTimeout(() => { c.style.textShadow = 'none'; }, 600);
-            }, i * 50);
-          });
-        }
-      }, '-=0.2');
-
-      // Lede paragraph
-      evaTl.to(evaHeading.querySelector('.lede'), {
-        opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-      }, '-=0.1');
+      })
+      .to(evaBanner, {
+        scale: BANNER_MAX_SCALE,
+        borderRadius: 0,
+        duration: VIDEO_SWITCH_POINT,
+        ease: 'none',
+      })
+      .to(evaIntroVideo, {
+        opacity: 1,
+        scale: VIDEO_MAX_SCALE,
+        duration: 1 - VIDEO_SWITCH_POINT,
+        ease: 'none',
+      }, VIDEO_SWITCH_POINT)
+      .to(evaBanner, {
+        opacity: 0,
+        duration: 0.14,
+        ease: 'none',
+      }, VIDEO_SWITCH_POINT)
+      // Hold on video for additional scroll distance
+      .to({}, { duration: 0.28 });
     }
 
     /* 3-2: EVA gradient background — scroll-linked scrub */
@@ -2804,6 +3395,96 @@
 
     document.querySelectorAll('[data-price]').forEach(el => priceObserver.observe(el));
 
+    /* Instagram latest posts (static JSON generated server/build side) */
+    const instagramPostsRoot = document.getElementById('asmax-instagram-posts');
+    if (instagramPostsRoot) {
+      const renderInstagramCards = (posts) => {
+        instagramPostsRoot.innerHTML = posts.map(post => {
+          const imageUrl = post.thumbnail_url || post.media_url || 'assets/hero-rider.jpg';
+          const captionRaw = (post.caption || '').replace(/\s+/g, ' ').trim();
+          const caption = captionRaw.length > 90 ? `${captionRaw.slice(0, 90)}...` : captionRaw;
+          const permalink = post.permalink || 'https://www.instagram.com/asmax_cj/';
+
+          return `
+            <article class="insta-card">
+              <a href="${permalink}" target="_blank" rel="noopener">
+                <div class="insta-thumb">
+                  <img src="${imageUrl}" alt="ASMAX Instagram post" loading="lazy">
+                </div>
+                <div class="insta-copy">${caption || '最新投稿は公式Instagramで公開中'}</div>
+              </a>
+            </article>
+          `;
+        }).join('');
+      };
+
+      const fallbackPosts = [
+        { media_url: 'assets/event-osaka-motorcycle-show-2026.png', permalink: 'https://www.instagram.com/p/DYRlOEHgYrz/', caption: 'ASMAX MODE の使い方をチェック' },
+        { media_url: 'assets/event-tokyo-motorcycle-show-2026.jpg', permalink: 'https://www.instagram.com/p/DYPAaeXAYop/', caption: 'ASMAX MODE 新機能の紹介' },
+        { media_url: 'assets/hero-rider.jpg', permalink: 'https://www.instagram.com/p/DYMbpbcAQVa/', caption: '最新アップデート情報を公開中' },
+        { media_url: 'assets/ASMAXworld_app.webp', permalink: 'https://www.instagram.com/p/DXgjO2qGUlq/', caption: 'キャンペーン・お知らせを公開中' },
+      ];
+
+      (async () => {
+        const candidates = [
+          './static/asmax_latest_posts.json',
+          'static/asmax_latest_posts.json',
+          '/static/asmax_latest_posts.json',
+        ];
+
+        for (const path of candidates) {
+          try {
+            const response = await fetch(path, { cache: 'no-store' });
+            if (!response.ok) continue;
+            const data = await response.json();
+            const posts = Array.isArray(data?.posts) ? data.posts.slice(0, 4) : [];
+            if (posts.length) {
+              renderInstagramCards(posts);
+              return;
+            }
+          } catch (_) {}
+        }
+
+        renderInstagramCards(fallbackPosts);
+      })();
+    }
+
+    /* Event auto-slide (3 cards base) */
+    const eventTrack = document.getElementById('event-track');
+    if (eventTrack) {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        const eventCards = [...eventTrack.children];
+        eventCards.forEach(card => eventTrack.appendChild(card.cloneNode(true)));
+
+        let eventOffset = 0;
+        const eventSpeed = 0.35;
+        let eventRafId = null;
+
+        const runEventSlide = () => {
+          eventOffset -= eventSpeed;
+          const loopPoint = eventTrack.scrollWidth / 2;
+          if (Math.abs(eventOffset) >= loopPoint) eventOffset = 0;
+          eventTrack.style.transform = `translate3d(${eventOffset}px, 0, 0)`;
+          eventRafId = requestAnimationFrame(runEventSlide);
+        };
+
+        eventRafId = requestAnimationFrame(runEventSlide);
+
+        const eventSlider = eventTrack.closest('.event-slider');
+        if (eventSlider) {
+          eventSlider.addEventListener('mouseenter', () => {
+            if (eventRafId) cancelAnimationFrame(eventRafId);
+            eventRafId = null;
+          }, { passive: true });
+
+          eventSlider.addEventListener('mouseleave', () => {
+            if (!eventRafId) eventRafId = requestAnimationFrame(runEventSlide);
+          }, { passive: true });
+        }
+      }
+    }
+
     /* ───────────────────────────────────────────
        PHASE 5: MICRO-INTERACTIONS
        ─────────────────────────────────────────── */
@@ -2829,7 +3510,7 @@
     });
 
     /* Card 3D tilt */
-    const tiltCards = document.querySelectorAll('.product-card, .match-card');
+    const tiltCards = document.querySelectorAll('.product-card');
     tiltCards.forEach(card => {
       // Add glare element
       card.classList.add('has-tilt');
