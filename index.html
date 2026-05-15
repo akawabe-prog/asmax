@@ -1820,7 +1820,7 @@
     }
 
     .insta-thumb {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       background: #101010;
       border-bottom: 1px solid var(--border);
     }
@@ -2852,16 +2852,16 @@
         <div class="container">
           <div class="instagram-head" data-animate>
             <h2>INSTAGRAM</h2>
-            <p class="instagram-sub">@asmax_cj の直近投稿</p>
+            <p class="instagram-sub">@asmax_japan の直近投稿</p>
           </div>
 
           <div class="instagram-feed" id="asmax-instagram-posts" data-animate="scale" style="--d:0.06s;"></div>
 
           <div class="instagram-actions">
-            <a class="btn accent" href="https://www.instagram.com/asmax_cj/" target="_blank" rel="noopener">Instagramを見る</a>
+            <a class="btn accent" href="https://www.instagram.com/asmax_japan/" target="_blank" rel="noopener">Instagramを見る</a>
             <a class="ghost-btn" href="stores.html">取扱店を探す</a>
           </div>
-          <a class="instagram-meta" href="https://www.instagram.com/asmax_cj/" target="_blank" rel="noopener">公式アカウント: @asmax_cj &rarr;</a>
+          <a class="instagram-meta" href="https://www.instagram.com/asmax_japan/" target="_blank" rel="noopener">公式アカウント: @asmax_japan &rarr;</a>
         </div>
       </section>
 
@@ -3403,7 +3403,7 @@
           const imageUrl = post.thumbnail_url || post.media_url || 'assets/hero-rider.jpg';
           const captionRaw = (post.caption || '').replace(/\s+/g, ' ').trim();
           const caption = captionRaw.length > 90 ? `${captionRaw.slice(0, 90)}...` : captionRaw;
-          const permalink = post.permalink || 'https://www.instagram.com/asmax_cj/';
+          const permalink = 'https://www.instagram.com/asmax_japan/';
 
           return `
             <article class="insta-card">
@@ -3419,10 +3419,10 @@
       };
 
       const fallbackPosts = [
-        { media_url: 'assets/event-osaka-motorcycle-show-2026.png', permalink: 'https://www.instagram.com/p/DYRlOEHgYrz/', caption: 'ASMAX MODE の使い方をチェック' },
-        { media_url: 'assets/event-tokyo-motorcycle-show-2026.jpg', permalink: 'https://www.instagram.com/p/DYPAaeXAYop/', caption: 'ASMAX MODE 新機能の紹介' },
-        { media_url: 'assets/hero-rider.jpg', permalink: 'https://www.instagram.com/p/DYMbpbcAQVa/', caption: '最新アップデート情報を公開中' },
-        { media_url: 'assets/ASMAXworld_app.webp', permalink: 'https://www.instagram.com/p/DXgjO2qGUlq/', caption: 'キャンペーン・お知らせを公開中' },
+        { media_url: 'assets/event-osaka-motorcycle-show-2026.png', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'ASMAX MODE の使い方をチェック' },
+        { media_url: 'assets/event-tokyo-motorcycle-show-2026.jpg', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'ASMAX MODE 新機能の紹介' },
+        { media_url: 'assets/hero-rider.jpg', permalink: 'https://www.instagram.com/asmax_japan/', caption: '最新アップデート情報を公開中' },
+        { media_url: 'assets/ASMAXworld_app.webp', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'キャンペーン・お知らせを公開中' },
       ];
 
       (async () => {
