@@ -11,52 +11,16 @@
   <meta property="og:site_name" content="ASMAX JAPAN">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- DESIGN SYSTEM — 正準トークン（source of truth）。これより前に読み込み、:root は再定義しない。 -->
+  <link rel="stylesheet" href="assets/css/asmax-japan-tokens.css">
   <style>
     /* ═══════════════════════════════════════════
        0. DESIGN TOKENS
+       → assets/css/asmax-japan-tokens.css に集約（上の <link> で先読み）。
+       「鋼 / HAGANE」: 暖色グラファイト × ガンメタル × ASMAX オレンジ主役色。
+       本ファイルでは :root を再定義せず var() で参照する。
        ═══════════════════════════════════════════ */
-    :root {
-      --bg: #0a0a0a;
-      --bg-soft: #101010;
-      --surface: #141414;
-      --surface-raised: #1c1c1c;
-      --border: rgba(255,255,255,0.07);
-      --border-mid: rgba(255,255,255,0.1);
-      --border-strong: rgba(255,255,255,0.18);
-      --text: #e0e0e0;
-      --muted: #6a6a6a;
-      --white: #f5f5f5;
-      --accent: #ff6b00;
-      --accent-soft: rgba(255,107,0,0.14);
-      --eva01: #7b2d8e;
-      --eva01-accent: #00c853;
-      --eva02: #c82828;
-      --eva02-accent: #ff6d00;
-
-      --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
-      --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
-
-      /* Shadow hierarchy */
-      --shadow-sm: 0 4px 16px rgba(0,0,0,0.2);
-      --shadow-md: 0 16px 48px rgba(0,0,0,0.3);
-      --shadow-lg: 0 32px 80px rgba(0,0,0,0.45);
-
-      /* Spacing rhythm (golden-ratio-ish) */
-      --space-xs: 8px;
-      --space-sm: 13px;
-      --space-md: 21px;
-      --space-lg: 34px;
-      --space-xl: 55px;
-      --space-2xl: 89px;
-
-      /* Section spacing: 3 tiers */
-      --space-section-lg: 180px;
-      --space-section-md: 118px;
-      --space-section-sm: 82px;
-
-      --container: min(1280px, calc(100vw - 40px));
-    }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -64,9 +28,9 @@
     body {
       margin: 0;
       background:
-        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.1), transparent 35%),
-        radial-gradient(circle at 85% 8%, rgba(123,45,142,0.12), transparent 22%),
-        linear-gradient(180deg, #0f0f0f 0%, #090909 40%, #0a0a0a 100%);
+        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.08), transparent 38%),
+        radial-gradient(900px 520px at 88% 4%, rgba(255,90,10,0.05), transparent 70%),
+        linear-gradient(180deg, #0F0F0F 0%, #090909 45%, #0A0A0A 100%);
       color: var(--text);
       font-family: var(--font-ja);
       line-height: 1.65;
@@ -499,47 +463,59 @@
       50%      { opacity: 0.9; transform: rotate(45deg) translateY(4px); }
     }
 
-    /* ═══════════════════════════════════════════
-       SEC-02 & SEC-03: EVA R — spotlight + cards
-       ═══════════════════════════════════════════ */
-    .eva-spotlight {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.015), transparent),
-        linear-gradient(135deg, #0d0018 0%, #19000d 45%, #1a0000 100%);
-      overflow: clip;
-      padding: 0;
-      position: relative;
-      z-index: 3;
-      margin-top: -28vh;
-      border-top-left-radius: 24px;
-      border-top-right-radius: 24px;
-      box-shadow: 0 -28px 80px rgba(0,0,0,0.55);
+    /* HERO trust note — メーカーとしての信頼ライン */
+    .hero-note {
+      margin: var(--space-md) 0 0;
+      font-family: var(--font-en);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--metal);
     }
 
-    .eva-spotlight::before {
+    /* ═══════════════════════════════════════════
+       SEC: EVA R COLLAB — 通常セクション（頂点から降格）
+       ═══════════════════════════════════════════ */
+    .sec-eva-collab {
+      position: relative;
+      z-index: 2;
+      isolation: isolate;
+      padding: var(--space-section-md) 0;
+    }
+    .sec-eva-collab h2 {
+      margin: var(--space-sm) 0 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .sec-eva-collab .sec-desc {
+      margin: var(--space-sm) 0 var(--space-lg);
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .eva-collab-banner {
+      display: block;
+      width: 100%;
+      border-radius: var(--r-card);
+      overflow: hidden;
+      border: 1px solid var(--border-mid);
+      box-shadow: var(--shadow-md);
+      position: relative;
+      transition: border-color var(--dur-fast) var(--ease-out);
+    }
+    .eva-collab-banner::before {
       content: "";
       position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
-      background: linear-gradient(90deg, var(--eva01), transparent 30%, transparent 70%, var(--eva02));
-      filter: blur(0.5px);
-      box-shadow: 0 0 20px rgba(123,45,142,0.5), 0 0 20px rgba(200,40,40,0.5);
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: var(--eva-line);
       z-index: 2;
     }
-
-    .eva-spotlight::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 800px 500px at 20% 30%, rgba(123,45,142,0.12), transparent),
-        radial-gradient(ellipse 800px 500px at 80% 60%, rgba(200,40,40,0.12), transparent);
-      pointer-events: none;
-      opacity: var(--eva-after-opacity, 0.3);
-      z-index: 0;
-    }
-
-    /* eva-pulse removed — replaced by GSAP ScrollTrigger scrub */
+    .eva-collab-banner img { width: 100%; height: auto; display: block; }
+    .eva-collab-banner:hover { border-color: var(--border-strong); }
+    .eva-collab-cta { display: inline-flex; margin-top: var(--space-lg); }
 
     .sec-lineup,
     .sec-compare,
@@ -627,8 +603,8 @@
 
     .sec-faq::before {
       background:
-        radial-gradient(circle at 18% 30%, rgba(255,107,0,0.14), transparent 34%),
-        radial-gradient(circle at 78% 18%, rgba(123,45,142,0.12), transparent 30%),
+        radial-gradient(circle at 18% 30%, rgba(255,107,0,0.12), transparent 34%),
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.04), transparent 32%),
         linear-gradient(180deg, #101010 0%, #090909 100%);
     }
 
@@ -659,282 +635,6 @@
       background:
         radial-gradient(circle at 50% 0%, rgba(255,107,0,0.14), transparent 38%),
         linear-gradient(180deg, rgba(12,12,12,0.62), rgba(8,8,8,0.96));
-    }
-
-    /* EVA Intro — banner to full-screen video transition */
-    .eva-intro {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .eva-intro::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(8,8,8,0.08) 0%, rgba(8,8,8,0.2) 100%),
-        radial-gradient(ellipse 820px 420px at 18% 22%, rgba(123,45,142,0.22), transparent 62%),
-        radial-gradient(ellipse 820px 420px at 82% 70%, rgba(200,40,40,0.2), transparent 62%);
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0;
-    }
-
-    .eva-intro-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      filter: saturate(1.06) contrast(1.04);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .eva-heading {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eva-brand-logo {
-      display: block;
-      width: min(460px, 88vw);
-      height: auto;
-      margin: 0 auto 20px;
-    }
-
-    .eva-heading h2 {
-      margin: 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(3rem, 8vw, 7rem);
-      line-height: 0.9;
-      color: var(--white);
-      letter-spacing: -0.01em;
-    }
-
-    .eva-heading .duo {
-      display: inline-flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .eva-heading .unit01 { color: var(--eva01); }
-    .eva-heading .unit02 { color: var(--eva02); }
-
-    .eva-heading .lede {
-      margin: var(--space-lg) auto 0;
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 480px;
-    }
-
-    /* EVA Cards — fullbleed 2-col */
-    .eva-grid-wrap {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eva-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 0;
-    }
-
-    .eva-banner-wrap {
-      width: min(1300px, 92vw);
-      position: relative;
-      z-index: 3;
-    }
-
-    .eva-banner {
-      display: block;
-      width: 100%;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 44px rgba(0,0,0,0.4);
-      transform-origin: center center;
-      transform: scale(0.6);
-    }
-
-    .eva-banner img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .eva-card {
-      position: relative;
-      padding: var(--space-lg) 32px var(--space-xl);
-      border-radius: 0;
-      overflow: hidden;
-      background: transparent;
-      border: none;
-      border-right: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      transition: background 0.6s cubic-bezier(0.25,1,0.5,1);
-    }
-
-    .eva-card:last-child { border-right: none; }
-
-    .eva-card.unit01:hover { background: rgba(123,45,142,0.04); }
-    .eva-card.unit02:hover { background: rgba(200,40,40,0.04); }
-
-    .eva-poster-link {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.5s cubic-bezier(0.25,1,0.5,1);
-    }
-
-    .eva-poster-link:hover { transform: scale(1.02); }
-
-    .eva-card-footer { display: flex; flex-direction: column; gap: 16px; }
-
-    .eva-card::before {
-      content: "";
-      position: absolute;
-      inset: auto -40px -60px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      opacity: 0.5;
-      filter: blur(8px);
-    }
-
-    .eva-card.unit01::before { background: radial-gradient(circle, rgba(123,45,142,0.4), transparent 70%); }
-    .eva-card.unit02::before { background: radial-gradient(circle, rgba(200,40,40,0.4), transparent 70%); }
-
-    .eva-topline {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      color: var(--muted);
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .eva-device {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin: var(--space-md) 0;
-    }
-
-    .eva-device-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .eva-device-image {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 44px rgba(0,0,0,0.5);
-      background: #0a0a0a;
-      display: block;
-    }
-
-    .device-solo {
-      width: 220px;
-      height: 280px;
-      border-radius: 52px 52px 64px 64px;
-      border: 1px solid currentColor;
-      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
-      position: relative;
-      flex: 0 0 auto;
-    }
-
-    .device-solo::before,
-    .device-solo::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: currentColor;
-      opacity: 0.86;
-    }
-
-    .device-solo::before {
-      width: 14px; height: 14px;
-      top: 24px; left: 24px;
-    }
-
-    .device-solo::after {
-      width: 34px; height: 34px;
-      right: 24px; bottom: 24px;
-      box-shadow: 0 0 0 14px rgba(255,255,255,0.04);
-    }
-
-    .device-solo.unit01 { color: var(--eva01); }
-    .device-solo.unit01b { color: var(--eva01); border-color: var(--eva01-accent); }
-    .device-solo.unit01b::after { background: var(--eva01-accent); }
-    .device-solo.unit02 { color: var(--eva02); }
-    .device-solo.unit02b { color: var(--eva02); border-color: var(--eva02-accent); }
-    .device-solo.unit02b::after { background: var(--eva02-accent); }
-
-    .eva-copy h3 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 3vw, 42px);
-      line-height: 1.05;
-      color: var(--white);
-    }
-
-    .eva-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: var(--space-lg);
-      padding-top: var(--space-md);
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .price {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .price strong {
-      font-family: var(--font-en);
-      font-size: clamp(28px, 3vw, 36px);
-      font-weight: 900;
-      color: var(--white);
-    }
-
-    .price span {
-      color: var(--muted);
-      font-size: 12px;
     }
 
     .card-actions {
@@ -1067,11 +767,6 @@
       position: relative;
     }
 
-    .product-visual .device-solo {
-      width: 120px;
-      height: 158px;
-    }
-
     .product-device-image {
       width: 100%;
       height: 100%;
@@ -1090,11 +785,6 @@
 
     .product-card.featured .product-visual {
       min-height: 0;
-    }
-
-    .product-card.featured .product-visual .device-solo {
-      width: 120px;
-      height: 156px;
     }
 
     .product-card h3 {
@@ -2034,17 +1724,6 @@
         letter-spacing: 0.1em;
       }
 
-      .eva-grid { grid-template-columns: 1fr; }
-
-      .eva-card {
-        min-height: auto;
-        border-right: none !important;
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .eva-card:last-child { border-bottom: none; }
-
       .sec-story {
         min-height: auto;
         position: relative;
@@ -2122,20 +1801,6 @@
       .hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
       .hero .subcopy { font-size: 16px; }
 
-      .eva-intro {
-        min-height: 100vh;
-        padding: 80px 20px 60px;
-      }
-
-      .eva-spotlight {
-        margin-top: -18vh;
-      }
-
-      .eva-heading h2 { font-size: clamp(2.4rem, 10vw, 4rem); }
-      .eva-card { padding: 32px 20px; }
-
-      .eva-device-image { width: 130px; }
-
       .lineup-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .news-20200901 { grid-template-columns: 1fr; gap: 8px; }
       .voice-grid { grid-template-columns: 1fr; }
@@ -2205,78 +1870,6 @@
       transform: none;
     }
 
-    /* EVA heading character wrappers */
-    .eva-heading.js-init h2 .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .eva-heading.js-init .lede {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-
-    .eva-heading.js-init .eyebrow {
-      opacity: 0;
-    }
-
-    /* EVA spotlight — CSS-var driven glow positions */
-    .eva-spotlight::after {
-      background:
-        radial-gradient(ellipse 800px 500px at var(--eva-glow-x1, 20%) 30%, rgba(123,45,142,0.12), transparent),
-        radial-gradient(ellipse 800px 500px at var(--eva-glow-x2, 80%) 60%, rgba(200,40,40,0.12), transparent) !important;
-    }
-
-    /* EVA spotlight glow line — shimmer */
-    .eva-spotlight::before {
-      background:
-        radial-gradient(circle 60px at var(--shimmer-x, -60px) 50%, rgba(255,255,255,0.6), transparent 70%),
-        linear-gradient(90deg, var(--eva01), transparent 30%, transparent 70%, var(--eva02)) !important;
-    }
-
-    /* EVA cursor glow */
-    .eva-cursor-glow {
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(50px);
-      opacity: 0;
-      z-index: 1;
-      will-change: transform, opacity;
-      transition: opacity 0.4s ease;
-    }
-
-    /* EVA card mouse-follow glow */
-    .eva-card {
-      --glow-x: 50%;
-      --glow-y: 50%;
-    }
-
-    .eva-card .card-glow-layer {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 0;
-    }
-
-    .eva-card:hover .card-glow-layer {
-      opacity: 1;
-    }
-
-    .eva-card.unit01 .card-glow-layer {
-      background: radial-gradient(circle 300px at var(--glow-x) var(--glow-y), rgba(123,45,142,0.06), transparent);
-    }
-
-    .eva-card.unit02 .card-glow-layer {
-      background: radial-gradient(circle 300px at var(--glow-x) var(--glow-y), rgba(200,40,40,0.06), transparent);
-    }
-
     /* WHY numbers reveal */
     .why-index {
       opacity: 0;
@@ -2319,8 +1912,6 @@
 
     /* Pointer coarse — disable mouse effects */
     @media (pointer: coarse) {
-      .eva-cursor-glow { display: none !important; }
-      .card-glow-layer { display: none !important; }
       .tilt-glare { display: none !important; }
     }
   </style>
@@ -2383,34 +1974,21 @@
       <section class="hero">
         <div class="container">
           <div class="hero-copy" id="hero-copy">
-            <div class="eyebrow">ASMAX JAPAN Official</div>
+            <div class="eyebrow">ASMAX JAPAN — Official Maker Site</div>
             <h1>Connect Your<br>Every Adventure</h1>
-            <p class="subcopy">ライドから生まれた。ライドのために作られた。<br>日本市場向けの4機種を、ブランドの温度感そのままに。</p>
+            <p class="subcopy">ライドから生まれた。ライドのために作られた。<br>ライダーズインターコムの日本の拠点、ASMAX JAPAN。F1 Pro を軸に、3モデル・7SKU。</p>
 
             <div class="hero-actions">
-              <a class="ghost-btn" href="#eva-r">EVA R コラボを見る</a>
+              <a class="btn" href="#lineup">ラインナップを見る</a>
+              <a class="ghost-btn" href="#eva-r">EVA R を見る</a>
             </div>
+            <p class="hero-note">正規品 · 日本語サポート · 2年保証 · 技適取得</p>
           </div>
         </div>
-        <a class="scroll-indicator" href="#eva-r">Scroll</a>
+        <a class="scroll-indicator" href="#lineup">Scroll</a>
       </section>
 
-      <!-- SEC-02 & SEC-03: EVA R SPOTLIGHT -->
-      <section class="eva-spotlight" id="eva-r">
-        <!-- EVA Intro — banner first, then fullscreen video -->
-        <div class="eva-intro" id="eva-intro">
-          <div class="eva-banner-wrap">
-            <video class="eva-intro-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-              <source src="assets/251113_宣伝動画_日本語.mp4" type="video/mp4">
-            </video>
-            <a class="eva-banner" href="product/detail-eva-r-unit01.html" aria-label="EVA R モデルページへ">
-              <img src="assets/eva-banner-1300x712.png" alt="ASMAX × EVA RACING バナー" loading="lazy">
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-04: JAPAN LINEUP -->
+      <!-- SEC-04: JAPAN LINEUP（製品力主導・F1 Pro を軸に） -->
       <section class="sec-lineup" id="lineup" style="border-top:1px solid var(--border);">
         <div class="container">
           <div class="section-heading" data-animate>
@@ -2422,53 +2000,8 @@
           </div>
 
           <div class="lineup-grid">
-            <h3 class="lineup-group-title" data-animate style="--d:0.02s;">Future1 (EVA Rモデル)</h3>
+            <h3 class="lineup-group-title" data-animate style="--d:0.02s;">F1 Pro <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — Flagship / All-Rounder</span></h3>
             <article class="product-card featured has-tilt" data-animate style="--d:0.04s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01a-45.png" alt="EVA R 初号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">初号機A</a></h3>
-              <p>パープル｜WS10 EVA-01A</p>
-              <div class="product-price" data-sku="eva-r-unit01a">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card featured has-tilt" data-animate style="--d:0.08s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02b-45.png" alt="EVA R 初号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">初号機B</a></h3>
-              <p>パープル/グリーン｜WS10 EVA-01B</p>
-              <div class="product-price" data-sku="eva-r-unit01b">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card featured has-tilt" data-animate style="--d:0.12s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01b-45.png" alt="EVA R 2号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">2号機A</a></h3>
-              <p>レッド｜WS10 EVA-02A</p>
-              <div class="product-price" data-sku="eva-r-unit02a">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card featured has-tilt" data-animate style="--d:0.16s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02a-45.png" alt="EVA R 2号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">2号機B</a></h3>
-              <p>レッド/オレンジ｜WS10 EVA-02B</p>
-              <div class="product-price" data-sku="eva-r-unit02b">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
-              </div>
-            </article>
-
-            <h3 class="lineup-group-title" data-animate style="--d:0.18s;">F1 Pro</h3>
-            <article class="product-card has-tilt" data-animate style="--d:0.2s;">
               <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-shiny-new.png" alt="F1 Pro シャイニーグレー" loading="lazy"></div>
               <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
               <p>シャイニーグレー｜08WS03AFIN017</p>
@@ -2479,7 +2012,7 @@
               </div>
             </article>
 
-            <article class="product-card has-tilt" data-animate style="--d:0.24s;">
+            <article class="product-card featured has-tilt" data-animate style="--d:0.08s;">
               <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-stellar-new.png" alt="F1 Pro ステラグレー" loading="lazy"></div>
               <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
               <p>ステラグレー｜08WS03AFIN033</p>
@@ -2490,8 +2023,53 @@
               </div>
             </article>
 
-            <h3 class="lineup-group-title" data-animate style="--d:0.26s;">S2</h3>
-            <article class="product-card has-tilt" data-animate style="--d:0.28s;">
+            <h3 class="lineup-group-title" data-animate style="--d:0.12s;">Future 1 <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — EVA R Edition</span></h3>
+            <article class="product-card has-tilt" data-animate style="--d:0.14s;">
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01a-45.png" alt="EVA R 初号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">初号機A</a></h3>
+              <p>パープル｜WS10 EVA-01A</p>
+              <div class="product-price" data-sku="eva-r-unit01a">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.18s;">
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02b-45.png" alt="EVA R 初号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit01.html">初号機B</a></h3>
+              <p>パープル/グリーン｜WS10 EVA-01B</p>
+              <div class="product-price" data-sku="eva-r-unit01b">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.22s;">
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01b-45.png" alt="EVA R 2号機-A" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">2号機A</a></h3>
+              <p>レッド｜WS10 EVA-02A</p>
+              <div class="product-price" data-sku="eva-r-unit02a">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card has-tilt" data-animate style="--d:0.26s;">
+              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02a-45.png" alt="EVA R 2号機-B" loading="lazy"></div>
+              <h3><a href="product/detail-eva-r-unit02.html">2号機B</a></h3>
+              <p>レッド/オレンジ｜WS10 EVA-02B</p>
+              <div class="product-price" data-sku="eva-r-unit02b">¥35,000<small> 税込</small></div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
+                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
+              </div>
+            </article>
+
+            <h3 class="lineup-group-title" data-animate style="--d:0.3s;">S2 <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — Entry</span></h3>
+            <article class="product-card has-tilt" data-animate style="--d:0.32s;">
               <div class="product-visual"><img class="product-device-image s2-image" src="assets/s2-new.png" alt="S2 グレー" loading="lazy"></div>
               <h3><a href="product/detail-s2.html">S2</a></h3>
               <p>はじめての一台に最適｜08WS04AFIN017</p>
@@ -2502,6 +2080,21 @@
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      <!-- SEC: EVA R COLLAB（頂点から降格した通常セクション） -->
+      <section class="sec-eva-collab" id="eva-r">
+        <div class="container">
+          <div data-animate>
+            <div class="eyebrow">ASMAX × Evangelion Racing</div>
+            <h2>Future 1 — EVA R</h2>
+            <p class="sec-desc">初号機 / 2号機。Future 1 の特別エディション、全4SKU。</p>
+          </div>
+          <a class="eva-collab-banner" href="product/detail-eva-r-unit01.html" data-animate="scale" style="--d:0.06s;" aria-label="EVA R モデルページへ">
+            <img src="assets/eva-banner-1300x712.png" alt="ASMAX × EVA RACING" loading="lazy">
+          </a>
+          <a class="btn eva-collab-cta" href="product/detail-eva-r-unit01.html" data-animate style="--d:0.12s;">EVA R モデルを見る</a>
         </div>
       </section>
 
@@ -2552,31 +2145,31 @@
               <thead>
                 <tr>
                   <th>Spec</th>
-                  <th>EVA R<br><small style="opacity:0.5;">初号機A/B・2号機A/B</small></th>
                   <th>F1 Pro<br><small style="opacity:0.5;">シャイニー・ステラー</small></th>
+                  <th>Future 1<br><small style="opacity:0.5;">EVA R 初号機/2号機</small></th>
                   <th>S2</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>品番</td><td>WS10 EVA-01A/01B/02A/02B</td><td>08WS03AFIN017/033</td><td>08WS04AFIN017</td></tr>
-                <tr><td>カラー展開</td><td>4色</td><td>2色</td><td>1色</td></tr>
-                <tr><td>Bluetooth</td><td>5.4 デュアルチップ・8コア</td><td>5.3 デュアルチップ・8コア</td><td>5.4 デュアルチップ・4コア</td></tr>
-                <tr><td>Mesh通話</td><td>最大10〜16人</td><td>最大10人（FW更新で16人）</td><td>最大8人</td></tr>
+                <tr><td>品番</td><td>08WS03AFIN017/033</td><td>WS10 EVA-01A/01B/02A/02B</td><td>08WS04AFIN017</td></tr>
+                <tr><td>カラー展開</td><td>2色</td><td>4色</td><td>1色</td></tr>
+                <tr><td>Bluetooth</td><td>5.3 デュアルチップ・8コア</td><td>5.4 デュアルチップ・8コア</td><td>5.4 デュアルチップ・4コア</td></tr>
+                <tr><td>Mesh通話</td><td>最大10人（FW更新で16人）</td><td>最大10〜16人</td><td>最大8人</td></tr>
                 <tr><td>CloudTalk</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td></tr>
                 <tr><td>通信距離</td><td>約3km</td><td>約3km</td><td>約2km</td></tr>
                 <tr><td>連続通話</td><td>約14時間</td><td>約14時間</td><td>約13時間</td></tr>
                 <tr><td>バッテリー</td><td>1,350mAh</td><td>1,350mAh</td><td>980mAh</td></tr>
                 <tr><td>急速充電</td><td>10分→3時間通話</td><td>10分→3時間通話</td><td>10分→3時間 / 60分フル充電</td></tr>
-                <tr><td>スピーカー</td><td>40mmネオジウム</td><td>40mm</td><td>40mm</td></tr>
+                <tr><td>スピーカー</td><td>40mm</td><td>40mmネオジウム</td><td>40mm</td></tr>
                 <tr><td>音声操作</td><td>Hi Max（AIアシスタント）</td><td>Hi Max（AIアシスタント）</td><td>—</td></tr>
                 <tr><td>ノイズキャンセル</td><td>ENC</td><td>ENC</td><td>ENC</td></tr>
                 <tr><td>防水</td><td>IPX7</td><td>IPX7</td><td>IPX7</td></tr>
                 <tr><td>本体寸法</td><td>86×27×23mm</td><td>86×27×23mm</td><td>86.1×39.2×24mm</td></tr>
                 <tr><td>重量</td><td>50g</td><td>50g</td><td>41g</td></tr>
-                <tr><td>マウント</td><td>マグネット式（3秒着脱）</td><td>マグネット式</td><td>ロック式（バッククリップ）</td></tr>
+                <tr><td>マウント</td><td>マグネット式</td><td>マグネット式（3秒着脱）</td><td>ロック式（バッククリップ）</td></tr>
                 <tr><td>充電端子</td><td>USB Type-C</td><td>USB Type-C</td><td>USB Type-C</td></tr>
                 <tr><td>保証</td><td>2年</td><td>2年</td><td>2年</td></tr>
-                <tr><td>価格（税込）</td><td>¥35,000</td><td>¥35,915</td><td>¥15,899</td></tr>
+                <tr><td>価格（税込）</td><td>¥35,915</td><td>¥35,000</td><td>¥15,899</td></tr>
               </tbody>
             </table>
           </div>
@@ -2957,17 +2550,18 @@
     }
 
     /* ───────────────────────────────────────────
-       HEADER SCROLL — 背景はEVA動画セクション通過後に表示
+       HEADER SCROLL — 背景はヒーロー通過後に表示
        ─────────────────────────────────────────── */
     const siteHeader = document.querySelector('.site-header');
     const heroSection = document.querySelector('.hero');
-    const evaHeaderTrigger = document.querySelector('.eva-spotlight');
-    if (siteHeader && evaHeaderTrigger) {
+    if (siteHeader) {
       const updateHeaderBg = () => {
-        const triggerY =
-          evaHeaderTrigger.offsetTop +
-          evaHeaderTrigger.offsetHeight -
-          siteHeader.offsetHeight;
+        // ヒーロー（sticky・ほぼ100svh）を通過したら背景を表示。
+        // sticky要素の offsetHeight は不安定なため viewport を上限に安定化させる。
+        const heroH = heroSection
+          ? Math.min(heroSection.offsetHeight, window.innerHeight)
+          : window.innerHeight;
+        const triggerY = heroH - siteHeader.offsetHeight;
         siteHeader.classList.toggle('scrolled', window.scrollY >= triggerY);
       };
 
@@ -3084,252 +2678,6 @@
           }
         });
       }
-    }
-
-    /* ───────────────────────────────────────────
-       PHASE 3: EVA SECTION
-       ─────────────────────────────────────────── */
-    const evaSpotlight = document.querySelector('.eva-spotlight');
-    const evaIntro = document.getElementById('eva-intro');
-    const evaBanner = document.querySelector('.eva-banner');
-    const evaIntroVideo = document.querySelector('.eva-intro-video');
-
-    /* 3-0: HERO exits once EVA fully overlaps */
-    if (heroSection && evaSpotlight) {
-      gsap.fromTo(heroSection, {
-        autoAlpha: 1,
-        y: 0,
-      }, {
-        autoAlpha: 0,
-        y: -72,
-        ease: 'none',
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: evaSpotlight,
-          start: 'top 85%',
-          end: 'top 35%',
-          scrub: true,
-        }
-      });
-    }
-
-    /* 3-1: EVA Intro transition — banner grows, then video appears */
-    if (evaIntro && evaBanner && evaIntroVideo) {
-      const VIDEO_SWITCH_POINT = 0.8;
-      const BANNER_MAX_SCALE = 0.8;
-      const VIDEO_MAX_SCALE = 0.8;
-
-      gsap.set(evaBanner, { scale: 0.6 });
-      gsap.set(evaIntroVideo, { opacity: 0, scale: 0.96 });
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: evaIntro,
-          start: 'top top',
-          end: '+=270%',
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        }
-      })
-      .to(evaBanner, {
-        scale: BANNER_MAX_SCALE,
-        borderRadius: 0,
-        duration: VIDEO_SWITCH_POINT,
-        ease: 'none',
-      })
-      .to(evaIntroVideo, {
-        opacity: 1,
-        scale: VIDEO_MAX_SCALE,
-        duration: 1 - VIDEO_SWITCH_POINT,
-        ease: 'none',
-      }, VIDEO_SWITCH_POINT)
-      .to(evaBanner, {
-        opacity: 0,
-        duration: 0.14,
-        ease: 'none',
-      }, VIDEO_SWITCH_POINT)
-      // Hold on video for additional scroll distance
-      .to({}, { duration: 0.28 });
-    }
-
-    /* 3-2: EVA gradient background — scroll-linked scrub */
-    if (evaSpotlight) {
-      gsap.to(evaSpotlight, {
-        '--eva-glow-x1': '25%',
-        '--eva-glow-x2': '75%',
-        scrollTrigger: {
-          trigger: evaSpotlight,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.8,
-        }
-      });
-
-      // Opacity scrub on the ::after pseudo (via the parent element)
-      const afterProxy = { opacity: 0.3 };
-      gsap.to(afterProxy, {
-        opacity: 1,
-        scrollTrigger: {
-          trigger: evaSpotlight,
-          start: 'top 80%',
-          end: 'center center',
-          scrub: 0.8,
-          onUpdate(self) {
-            const v = 0.3 + 0.7 * self.progress;
-            evaSpotlight.style.setProperty('--eva-after-opacity', v);
-          }
-        }
-      });
-
-      // Fade back down on exit
-      gsap.to(afterProxy, {
-        opacity: 0.4,
-        scrollTrigger: {
-          trigger: evaSpotlight,
-          start: 'center center',
-          end: 'bottom top',
-          scrub: 0.8,
-          onUpdate(self) {
-            const v = 1 - 0.6 * self.progress;
-            evaSpotlight.style.setProperty('--eva-after-opacity', v);
-          }
-        }
-      });
-
-      /* 3-4: Glow line shimmer */
-      gsap.to(evaSpotlight, {
-        '--shimmer-x': 'calc(100% + 60px)',
-        scrollTrigger: {
-          trigger: evaSpotlight,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2,
-        }
-      });
-    }
-
-    /* 3-3: EVA Cards — staggered content reveal + device parallax */
-    ['eva-card-01', 'eva-card-02'].forEach((id, cardIdx) => {
-      const card = document.getElementById(id);
-      if (!card) return;
-
-      const elements = [
-        { sel: '.eva-poster-link', y: 0, scale: 0.94, dur: 0.9 },
-        { sel: '.eva-copy h3', y: 16, dur: 0.55 },
-        { sel: '.eva-copy p', y: 12, dur: 0.45 },
-        { sel: '.price-row', y: 12, dur: 0.4 },
-        { sel: '.card-actions .btn', y: 0, scale: 0.95, dur: 0.3 },
-        { sel: '.card-actions .ghost-btn', y: 0, scale: 0.95, dur: 0.3 },
-      ];
-
-      // Set initial states
-      elements.forEach(({ sel, y, x, scale }) => {
-        const el = card.querySelector(sel);
-        if (!el) return;
-        gsap.set(el, {
-          opacity: 0,
-          y: y || 0,
-          x: x || 0,
-          scale: scale || 1,
-        });
-      });
-
-      // Staggered timeline — gaps: 0.1, 0.2, 0.08, 0.15, 0.06, 0.1
-      const gaps = [0, 0.1, 0.3, 0.38, 0.53, 0.59, 0.69];
-      const cardTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          once: true,
-        },
-        delay: cardIdx * 0.2, // second card starts 0.2s after first
-      });
-
-      elements.forEach(({ sel, dur, from }, i) => {
-        const el = card.querySelector(sel);
-        if (!el) return;
-        cardTl.to(el, {
-          opacity: 1,
-          y: 0,
-          x: 0,
-          scale: 1,
-          duration: dur,
-          ease: from === 'left' ? 'power2.out' : 'power3.out',
-        }, gaps[i]);
-      });
-
-      // Poster parallax
-      const device = card.querySelector('.eva-poster-link');
-      if (device) {
-        const rotRange = cardIdx === 0 ? [-1, 1] : [1, -1];
-        gsap.fromTo(device, {
-          y: 40,
-          rotation: rotRange[0],
-        }, {
-          y: -40,
-          rotation: rotRange[1],
-          ease: 'none',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-      }
-    });
-
-    /* 3-5: EVA cursor glow (pointer:fine only) */
-    if (hasFinePointer && evaSpotlight) {
-      const cursorGlow = document.createElement('div');
-      cursorGlow.className = 'eva-cursor-glow';
-      evaSpotlight.appendChild(cursorGlow);
-
-      let glowX = 0, glowY = 0, targetX = 0, targetY = 0;
-      let glowActive = false;
-      const lerpFactor = 0.08;
-
-      function animateGlow() {
-        if (!glowActive) return;
-        glowX += (targetX - glowX) * lerpFactor;
-        glowY += (targetY - glowY) * lerpFactor;
-        cursorGlow.style.transform = `translate(${glowX - 120}px, ${glowY - 120}px)`;
-        requestAnimationFrame(animateGlow);
-      }
-
-      evaSpotlight.addEventListener('mouseenter', () => {
-        glowActive = true;
-        cursorGlow.style.opacity = '1';
-        animateGlow();
-      }, { passive: true });
-
-      evaSpotlight.addEventListener('mouseleave', () => {
-        glowActive = false;
-        cursorGlow.style.opacity = '0';
-      }, { passive: true });
-
-      evaSpotlight.addEventListener('mousemove', e => {
-        const rect = evaSpotlight.getBoundingClientRect();
-        targetX = e.clientX - rect.left;
-        targetY = e.clientY - rect.top + evaSpotlight.scrollTop;
-        // Interpolate color: purple (left) → red (right)
-        const t = Math.min(1, Math.max(0, targetX / rect.width));
-        const r = Math.round(123 + (200 - 123) * t);
-        const g = Math.round(45 + (40 - 45) * t);
-        const b = Math.round(142 + (40 - 142) * t);
-        cursorGlow.style.background = `radial-gradient(circle, rgba(${r},${g},${b},0.1), transparent 70%)`;
-      }, { passive: true });
-
-      // EVA card mouse-follow glow
-      document.querySelectorAll('.eva-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          card.style.setProperty('--glow-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
-          card.style.setProperty('--glow-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
-        }, { passive: true });
-      });
     }
 
     /* ───────────────────────────────────────────
