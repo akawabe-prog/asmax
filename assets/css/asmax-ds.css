@@ -71,7 +71,7 @@
   /* ── SPACING ── */
   --space-xs: 8px; --space-sm: 13px; --space-md: 21px;
   --space-lg: 34px; --space-xl: 55px; --space-2xl: 89px;
-  --sec-lg: 160px; --sec-md: 112px; --sec-sm: 72px;
+  --sec-lg: 116px; --sec-md: 80px; --sec-sm: 52px;
 
   /* ── RADIUS ── */
   --r-btn: 999px;   /* Apple的にピル型 */
