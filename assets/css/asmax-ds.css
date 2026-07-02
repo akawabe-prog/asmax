@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ASMAX JAPAN — DESIGN SYSTEM v2「Hybrid Contrast」
+   ───────────────────────────────────────────────────────────────────────
+   ・ベース = 明るい白基調（Apple.com 的にクリーン）＋要所でダーク帯
+   ・ヘッダー = 常時ブラック／白ロゴ（明暗どちらのセクション上でも一貫）
+   ・アクセント = シアン（本国と共有するブランド色）
+   ・書体 = Inter（英）× Noto Sans JP（和）
+
+   仕組み：semantic トークンは LIGHT を既定値にし、
+   ダーク帯は要素に .band-dark を付けて :root 値を上書きする。
+   → ボタン/カード等は var(--surface)/var(--text)/--border を参照するだけで
+     置かれた帯（明/暗）に自動追従する。
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── ACCENT — Cyan（ブランドアクセント） ── */
+  --accent:        #06B6D4;   /* 基本シアン：ボタン地・ダーク上リンク */
+  --accent-2:      #0891B2;   /* 深いシアン：グラデ終端 */
+  --accent-deep:   #0E7490;   /* 明所のテキストリンク（白地でも可読） */
+  --accent-bright: #22D3EE;   /* 明るいシアン：グラデ始点・ダーク上の光 */
+  --accent-grad:   linear-gradient(135deg, #22D3EE 0%, #06B6D4 55%, #0891B2 100%);
+  --accent-soft:   rgba(6,182,212,0.12);
+  --accent-glow:   rgba(6,182,212,0.35);
+
+  /* ── FOUNDATION（LIGHT 既定） ── */
+  --bg:          #FFFFFF;   /* ページ地 */
+  --bg-soft:     #F5F7F9;   /* セクション交互地 */
+  --surface:     #FFFFFF;   /* カード面 */
+  --surface-alt: #F2F4F7;   /* 沈めた面・入力欄 */
+  --border:      rgba(15,23,32,0.10);
+  --border-mid:  rgba(15,23,32,0.16);
+  --hairline:    rgba(15,23,32,0.08);
+
+  /* ── TEXT（LIGHT 既定） ── */
+  --text:   #0A0C0F;   /* 見出し・本文の主色（純黒は避け僅かに寒色） */
+  --ink:    #14181D;
+  --soft:   #4A515B;   /* 副次テキスト */
+  --muted:  #7C848E;   /* 補助・キャプション */
+  --on-accent: #FFFFFF;
+
+  /* ── DARK BAND 用の値（.band-dark で適用） ── */
+  --dark-bg:      #0A0A0A;
+  --dark-surface: #141416;
+  --dark-alt:     #1C1D20;
+  --dark-text:    #F5F6F8;
+  --dark-soft:    #C3C7CD;
+  --dark-muted:   #8A9099;
+  --dark-border:  rgba(255,255,255,0.12);
+
+  /* ── EVA（文化的アクセント・EVA文脈限定） ── */
+  --eva01: #7B2D8E; --eva01-accent: #00C853;
+  --eva02: #C82828; --eva02-accent: #FF6D00;
+  --eva-line: linear-gradient(90deg, var(--eva01), var(--eva02));
+
+  /* ── SEMANTIC / EC ── */
+  --positive: #12B76A;
+  --warning:  #F5A623;
+  --sale:     #E5484D;
+
+  /* ── TYPOGRAPHY ── */
+  --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+  --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+  --fs-hero: clamp(2.6rem, 6.5vw, 5.5rem);   /* line-height .95 / ls -.02em */
+  --fs-h2:   clamp(2rem, 4.2vw, 3.6rem);
+  --fs-h3:   clamp(1.35rem, 2.2vw, 2rem);
+  --fs-lead: clamp(1rem, 1.4vw, 1.25rem);
+  --fs-body: 16px;
+  --fs-eyebrow: 12px;                          /* ls .2em uppercase */
+
+  /* ── SPACING ── */
+  --space-xs: 8px; --space-sm: 13px; --space-md: 21px;
+  --space-lg: 34px; --space-xl: 55px; --space-2xl: 89px;
+  --sec-lg: 160px; --sec-md: 112px; --sec-sm: 72px;
+
+  /* ── RADIUS ── */
+  --r-btn: 999px;   /* Apple的にピル型 */
+  --r-card: 18px;
+  --r-card-lg: 28px;
+  --r-chip: 8px;
+
+  /* ── SHADOW（LIGHT 用：淡く中立） ── */
+  --shadow-sm: 0 1px 3px rgba(15,23,32,0.06), 0 4px 12px rgba(15,23,32,0.05);
+  --shadow-md: 0 8px 24px rgba(15,23,32,0.08), 0 2px 6px rgba(15,23,32,0.05);
+  --shadow-lg: 0 24px 60px rgba(15,23,32,0.12);
+
+  /* ── MOTION ── */
+  --ease-out:   cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  --dur-fast: 0.18s; --dur-mid: 0.4s; --dur-enter: 0.8s;
+
+  /* ── LAYOUT ── */
+  --container: min(1200px, calc(100vw - 40px));
+  --container-wide: min(1440px, calc(100vw - 40px));
+  --header-h: 60px;
+}
+
+/* ───────────────────────────────────────────
+   DARK BAND — この要素配下は semantic を dark に切替
+   使い方: <section class="band band-dark"> … </section>
+   ─────────────────────────────────────────── */
+.band-dark {
+  --bg:          var(--dark-bg);
+  --bg-soft:     var(--dark-surface);
+  --surface:     var(--dark-surface);
+  --surface-alt: var(--dark-alt);
+  --border:      var(--dark-border);
+  --border-mid:  rgba(255,255,255,0.2);
+  --hairline:    rgba(255,255,255,0.08);
+  --text:        var(--dark-text);
+  --ink:         var(--dark-text);
+  --soft:        var(--dark-soft);
+  --muted:       var(--dark-muted);
+  /* ダーク上ではリンク/アクセントは明るいシアンを使う */
+  --accent-deep: var(--accent-bright);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 12px 40px rgba(0,0,0,0.5);
+  --shadow-lg: 0 32px 80px rgba(0,0,0,0.6);
+  background: var(--dark-bg);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast:0.01ms; --dur-mid:0.01ms; --dur-enter:0.01ms; }
+}

@@ -1,3005 +1,433 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASMAX JAPAN | CONNECT YOUR EVERY ADVENTURE</title>
-  <meta name="description" content="ASMAX JAPAN 公式 - EVA R / F1 Pro / S2。日本総代理店として正規取り扱い。2年間保証・日本語サポート。">
-  <meta property="og:title" content="ASMAX JAPAN | CONNECT YOUR EVERY ADVENTURE">
-  <meta property="og:description" content="ASMAX JAPAN 公式。EVA R / F1 Pro / S2 — 日本総代理店として正規取り扱い。">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ASMAX JAPAN">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <!-- DESIGN SYSTEM — 正準トークン（source of truth）。これより前に読み込み、:root は再定義しない。 -->
-  <link rel="stylesheet" href="assets/css/asmax-japan-tokens.css">
-  <style>
-    /* ═══════════════════════════════════════════
-       0. DESIGN TOKENS
-       → assets/css/asmax-japan-tokens.css に集約（上の <link> で先読み）。
-       「鋼 / HAGANE」: 暖色グラファイト × ガンメタル × ASMAX オレンジ主役色。
-       本ファイルでは :root を再定義せず var() で参照する。
-       ═══════════════════════════════════════════ */
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.08), transparent 38%),
-        radial-gradient(900px 520px at 88% 4%, rgba(255,90,10,0.05), transparent 70%),
-        linear-gradient(180deg, #0F0F0F 0%, #090909 45%, #0A0A0A 100%);
-      color: var(--text);
-      font-family: var(--font-ja);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { font: inherit; }
-
-    /* Subtle grid texture — page shell */
-    .page-shell::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 80%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      width: var(--container);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ═══════════════════════════════════════════
-       1. TYPOGRAPHY
-       ═══════════════════════════════════════════ */
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 11px;
-      font-family: var(--font-en);
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 36px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    /* ═══════════════════════════════════════════
-       2. HEADER
-       ═══════════════════════════════════════════ */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(0px);
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
-    }
-    .site-header.scrolled {
-      backdrop-filter: blur(18px);
-      background: rgba(10,10,10,0.82);
-      border-bottom-color: var(--border);
-    }
-
-    .site-header-inner {
-      width: var(--container);
-      min-height: 84px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo-mark {
-      display: inline-flex;
-      align-items: center;
-      color: var(--white);
-    }
-
-    .logo-mark img {
-      display: block;
-      width: clamp(110px, 10vw, 156px);
-      height: auto;
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      font-family: var(--font-en);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .nav-item {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      min-height: 84px;
-    }
-
-    .site-nav a {
-      color: var(--white);
-      transition: color 0.15s ease-out;
-    }
-
-    .header-actions a {
-      color: var(--white);
-      transition: color 0.15s ease-out;
-    }
-
-    .site-header.scrolled .site-nav a,
-    .site-header.scrolled .header-actions a {
-      color: var(--white);
-    }
-
-    .site-header.scrolled .product-dropdown a {
-      color: var(--muted);
-    }
-
-    .site-header.scrolled .product-dropdown a:hover,
-    .site-header.scrolled .product-dropdown a:focus-visible {
-      color: var(--white);
-    }
-
-    .site-nav a:hover,
-    .site-nav a:focus-visible,
-    .nav-item:hover > a,
-    .nav-item:focus-within > a,
-    .header-actions a:hover,
-    .header-actions a:focus-visible {
-      color: var(--white);
-    }
-
-    .product-dropdown {
-      position: absolute;
-      top: calc(100% - 10px);
-      left: 50%;
-      min-width: 220px;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: rgba(12,12,12,0.94);
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(18px);
-      opacity: 0;
-      visibility: hidden;
-      transform: translate(-50%, 8px);
-      transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0.18s;
-    }
-
-    .nav-item:hover .product-dropdown,
-    .nav-item:focus-within .product-dropdown {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 0);
-    }
-
-    .product-dropdown a {
-      display: block;
-      padding: 11px 12px;
-      border-radius: 6px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-
-    .product-dropdown a:hover,
-    .product-dropdown a:focus-visible {
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: transparent;
-      color: var(--white);
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .menu-toggle span,
-    .menu-toggle span::before,
-    .menu-toggle span::after {
-      display: block;
-      width: 18px;
-      height: 1.5px;
-      margin: 0 auto;
-      background: currentColor;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .menu-toggle span::before,
-    .menu-toggle span::after {
-      content: "";
-    }
-
-    .menu-toggle span::before { transform: translateY(-6px); }
-    .menu-toggle span::after  { transform: translateY(4.5px); }
-
-    .menu-toggle[aria-expanded="true"] span { background: transparent; }
-    .menu-toggle[aria-expanded="true"] span::before { transform: translateY(0) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] span::after  { transform: translateY(-1.5px) rotate(-45deg); }
-
-    .mobile-drawer { display: none; }
-
-    /* ═══════════════════════════════════════════
-       3. BUTTONS — varied radii & transitions
-       ═══════════════════════════════════════════ */
-    .btn,
-    .ghost-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 28px;
-      border: 1px solid transparent;
-      font-family: var(--font-en);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn {
-      border-radius: 12px;
-      background: var(--white);
-      color: #0a0a0a;
-      transition: transform 0.18s ease-out, box-shadow 0.25s ease-out;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
-    }
-
-    .btn.accent {
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: 0 12px 40px rgba(255,107,0,0.25);
-      border-radius: 14px;
-    }
-
-    .btn.accent:hover {
-      background: #ff7f24;
-      box-shadow: 0 16px 48px rgba(255,107,0,0.38);
-    }
-
-    .ghost-btn {
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      color: var(--white);
-      border-color: var(--border-mid);
-      transition: border-color 0.2s ease-out, background 0.2s ease-out, transform 0.18s ease-out;
-    }
-
-    .ghost-btn:hover {
-      border-color: var(--border-strong);
-      background: rgba(255,255,255,0.07);
-      transform: translateY(-2px);
-    }
-
-    .cart-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px; height: 40px;
-      color: var(--white);
-      transition: color 0.15s ease-out;
-    }
-    .cart-icon:hover { color: var(--white); }
-
-    .mall-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 22px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--font-en);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      transition: color 0.15s ease-out, border-color 0.2s ease;
-    }
-
-    .mall-link:hover {
-      color: var(--white);
-      border-color: var(--border-strong);
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-01: HERO — sticky base layer
-       ═══════════════════════════════════════════ */
-    .hero {
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 var(--space-section-lg);
-      overflow: hidden;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background: #0b0b0b;
-      isolation: isolate;
-    }
-
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero::before {
-      background:
-        linear-gradient(180deg, rgba(12,12,12,0.26) 0%, rgba(10,10,10,0.52) 100%),
-        url("assets/hero-rider.jpg");
-      background-size: cover;
-      background-position: center 52%;
-      background-repeat: no-repeat;
-    }
-
-    .hero::after {
-      background:
-        linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.32) 68%, rgba(10,10,10,0.86) 100%),
-        linear-gradient(90deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0) 42%, rgba(10,10,10,0.28) 100%);
-    }
-
-    .hero > .container {
-      position: relative;
-      z-index: 2;
-      will-change: transform, opacity;
-    }
-
-    .hero-copy {
-      max-width: 800px;
-      transform: translateY(clamp(-128px, -12vh, -72px));
-    }
-
-    .hero-copy h1 {
-      margin: 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(3.5rem, 10vw, 9rem);
-      letter-spacing: -0.02em;
-      line-height: 0.88;
-      color: var(--white);
-      text-transform: uppercase;
-      max-width: 14ch;
-    }
-
-    .hero .subcopy {
-      margin: var(--space-lg) 0 0;
-      max-width: 32em;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: var(--space-lg);
-    }
-
-    .scroll-indicator {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      position: absolute;
-      left: 50%;
-      bottom: clamp(8px, 2vh, 18px);
-      transform: translateX(-50%);
-      color: var(--muted);
-      font-family: var(--font-en);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      z-index: 3;
-    }
-
-    .scroll-indicator::after {
-      content: "";
-      width: 16px;
-      height: 16px;
-      border-right: 1px solid var(--accent);
-      border-bottom: 1px solid var(--accent);
-      transform: rotate(45deg);
-      opacity: 0.7;
-      animation: scroll-pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes scroll-pulse {
-      0%, 100% { opacity: 0.4; transform: rotate(45deg) translateY(0); }
-      50%      { opacity: 0.9; transform: rotate(45deg) translateY(4px); }
-    }
-
-    /* HERO trust note — メーカーとしての信頼ライン */
-    .hero-note {
-      margin: var(--space-md) 0 0;
-      font-family: var(--font-en);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: var(--metal);
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC: EVA R COLLAB — 通常セクション（頂点から降格）
-       ═══════════════════════════════════════════ */
-    .sec-eva-collab {
-      position: relative;
-      z-index: 2;
-      isolation: isolate;
-      overflow: hidden;
-      padding: var(--space-section-md) 0;
-    }
-    .sec-eva-collab::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 82% 0%, rgba(255,107,0,0.06), transparent 34%),
-        linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
-    }
-    .sec-eva-collab > .container {
-      position: relative;
-      z-index: 2;
-    }
-    .sec-eva-collab h2 {
-      margin: var(--space-sm) 0 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 0.95;
-      color: var(--white);
-      letter-spacing: -0.01em;
-    }
-    .sec-eva-collab .sec-desc {
-      margin: var(--space-sm) 0 var(--space-lg);
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .eva-collab-banner {
-      display: block;
-      width: 100%;
-      border-radius: var(--r-card);
-      overflow: hidden;
-      border: 1px solid var(--border-mid);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      transition: border-color var(--dur-fast) var(--ease-out);
-    }
-    .eva-collab-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 2px;
-      background: var(--eva-line);
-      z-index: 2;
-    }
-    .eva-collab-banner img { width: 100%; height: auto; display: block; }
-    .eva-collab-banner:hover { border-color: var(--border-strong); }
-    .eva-collab-cta { display: inline-flex; margin-top: var(--space-lg); }
-
-    /* ═══════════════════════════════════════════
-       PRODUCT SHOWCASE — Apple風 全面ショーケース帯 ×3
-       各帯は sticky hero を覆うため必ず不透明背景 + z-index。
-       ═══════════════════════════════════════════ */
-    .showcase {
-      position: relative;
-      z-index: 2;
-      isolation: isolate;
-      overflow: hidden;
-      padding: clamp(88px, 13vh, 176px) 0;
-      text-align: center;
-      background: linear-gradient(180deg, #0c0c0c 0%, #090909 100%);
-    }
-    .showcase + .showcase { border-top: 1px solid var(--border); }
-    .showcase > .container {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .showcase-role {
-      font-family: var(--font-en);
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--metal);
-    }
-    .showcase-name {
-      margin: 10px 0 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
-    .showcase-tag {
-      margin: var(--space-md) 0 0;
-      font-size: clamp(16px, 2vw, 21px);
-      line-height: 1.55;
-      color: var(--text);
-      max-width: 34ch;
-    }
-    .showcase-buy {
-      margin-top: var(--space-lg);
-      display: flex; flex-wrap: wrap; gap: 14px 24px;
-      align-items: center; justify-content: center;
-    }
-    .btn-buy {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 15px 34px;
-      border-radius: var(--r-pill);
-      background: var(--accent-grad); color: #fff;
-      font-family: var(--font-en); font-weight: 700; font-size: 15px;
-      letter-spacing: 0.02em;
-      box-shadow: 0 12px 34px var(--accent-glow);
-      transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
-    }
-    .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 18px 44px var(--accent-glow); }
-    .btn-buy .price { font-weight: 600; opacity: 0.92; font-size: 13px; }
-    .link-more {
-      color: var(--accent);
-      font-family: var(--font-en); font-weight: 600; font-size: 15px;
-      transition: opacity var(--dur-fast) var(--ease-out);
-    }
-    .link-more:hover { opacity: 0.72; }
-    .showcase-visual {
-      position: relative;
-      width: 100%;
-      max-width: 760px;
-      margin: clamp(28px, 5vh, 60px) auto 0;
-    }
-    .showcase-visual::before {
-      content: "";
-      position: absolute;
-      inset: 8% 8% 6%;
-      z-index: 0;
-      border-radius: 50%;
-      filter: blur(60px);
-      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
-    }
-    .showcase-visual img { position: relative; z-index: 1; width: 100%; height: auto; }
-    /* Future 1 = EVA context — 控えめな紫→赤グロー（この帯限定） */
-    .showcase-eva .showcase-visual::before {
-      background: radial-gradient(circle at 38% 45%, rgba(123,45,142,0.22), transparent 62%),
-                  radial-gradient(circle at 66% 55%, rgba(200,40,40,0.18), transparent 62%);
-    }
-    .showcase-eva { background: linear-gradient(180deg, #0d0a10 0%, #0a0809 100%); }
-    .showcase-specs {
-      list-style: none; margin: var(--space-xl) 0 0; padding: 0;
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: clamp(22px, 5vw, 60px);
-    }
-    .showcase-specs b {
-      display: block;
-      font-family: var(--font-en); font-weight: 800;
-      font-size: clamp(1.5rem, 3vw, 2.3rem);
-      color: var(--white); line-height: 1;
-    }
-    .showcase-specs span {
-      display: block; margin-top: 8px;
-      font-size: 11.5px; letter-spacing: 0.1em;
-      color: var(--metal); text-transform: uppercase;
-      font-family: var(--font-en);
-    }
-    .showcase-swatches {
-      margin-top: var(--space-lg);
-      display: flex; gap: 10px; align-items: center; justify-content: center;
-    }
-    .showcase-swatches .sw {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--c, #888); border: 1px solid var(--border-strong);
-    }
-    .showcase-swatches .sw-count {
-      font-family: var(--font-en); font-size: 12px; color: var(--metal);
-      letter-spacing: 0.06em; margin-left: 6px;
-    }
-
-    .sec-lineup,
-    .sec-compare,
-    .sec-why,
-    .sec-story,
-    .sec-voice,
-    .sec-instagram,
-    .sec-app,
-    .sec-faq,
-    .block-news,
-    .shop,
-    .cta-band {
-      position: relative;
-      isolation: isolate;
-      z-index: 2;
-    }
-
-    .sec-lineup,
-    .sec-compare,
-    .sec-why,
-    .sec-faq,
-    .block-news,
-    .shop,
-    .cta-band {
-      overflow: hidden;
-    }
-
-    .sec-lineup > .container,
-    .sec-compare > .container,
-    .sec-why > .container,
-    .sec-story > .container,
-    .sec-voice > .container,
-    .sec-faq > .container,
-    .block-news > .container,
-    .shop > .container,
-    .cta-band > .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .sec-lineup::before,
-    .sec-compare::before,
-    .sec-why::before,
-    .sec-story::before,
-    .sec-voice::before,
-    .sec-faq::before,
-    .block-news::before,
-    .shop::before,
-    .cta-band::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .sec-lineup::before {
-      background:
-        radial-gradient(circle at 12% 0%, rgba(255,107,0,0.11), transparent 32%),
-        linear-gradient(180deg, rgba(16,16,16,0.96), rgba(10,10,10,0.98));
-    }
-
-    .sec-compare::before {
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.035), transparent 24%, transparent 76%, rgba(255,255,255,0.025)),
-        linear-gradient(180deg, #0a0a0a 0%, #101010 100%);
-    }
-
-    .sec-why::before {
-      background:
-        linear-gradient(135deg, rgba(255,107,0,0.07), transparent 34%),
-        linear-gradient(180deg, #101010 0%, #0a0a0a 100%);
-    }
-
-    .sec-story::before {
-      background:
-        linear-gradient(90deg, rgba(255,107,0,0.08), transparent 30%, rgba(255,255,255,0.03) 100%);
-    }
-
-    .sec-voice::before {
-      background:
-        radial-gradient(circle at 20% 0%, rgba(255,107,0,0.1), transparent 36%),
-        linear-gradient(180deg, rgba(12,12,12,0.94), rgba(8,8,8,0.98));
-    }
-
-    .sec-faq::before {
-      background:
-        radial-gradient(circle at 18% 30%, rgba(255,107,0,0.12), transparent 34%),
-        radial-gradient(circle at 78% 18%, rgba(255,255,255,0.04), transparent 32%),
-        linear-gradient(180deg, #101010 0%, #090909 100%);
-    }
-
-    .sec-faq::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-      background:
-        linear-gradient(180deg, rgba(10,10,10,0.06) 0%, rgba(10,10,10,0.36) 68%, rgba(10,10,10,0.86) 100%),
-        linear-gradient(90deg, rgba(10,10,10,0.14) 0%, rgba(10,10,10,0) 42%, rgba(10,10,10,0.24) 100%);
-    }
-
-    .shop::before {
-      background:
-        linear-gradient(90deg, rgba(255,107,0,0.1), transparent 34%),
-        linear-gradient(180deg, #0d0d0d 0%, #090909 100%);
-    }
-
-    .block-news::before {
-      background:
-        linear-gradient(90deg, rgba(255,107,0,0.08), transparent 28%, rgba(255,255,255,0.025) 100%),
-        linear-gradient(180deg, #0f0f0f 0%, #151515 100%);
-    }
-
-    .cta-band::before {
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,107,0,0.14), transparent 38%),
-        linear-gradient(180deg, rgba(12,12,12,0.62), rgba(8,8,8,0.96));
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: var(--space-md);
-    }
-
-    .spec-meta {
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-04: LINEUP — 2-col, featured larger
-       ═══════════════════════════════════════════ */
-    .sec-lineup { padding: var(--space-section-md) 0; }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-xl);
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(2rem, 4vw, 3.8rem);
-      letter-spacing: 0.02em;
-      line-height: 0.95;
-      color: var(--white);
-      text-transform: uppercase;
-    }
-
-    .section-heading .section-desc {
-      margin: 0;
-      max-width: 480px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .lineup-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 22px;
-    }
-
-    .lineup-group-title {
-      grid-column: 1 / -1;
-      margin: 0;
-      padding-top: 6px;
-      border-top: 1px solid var(--border);
-      color: var(--white);
-      font-family: var(--font-en);
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    .sec-compare .section-heading {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin-bottom: var(--space-lg);
-    }
-
-    .sec-events .section-heading {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      margin-bottom: var(--space-lg);
-    }
-
-    .product-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 26px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-      transition: transform 0.45s cubic-bezier(0.25,1,0.5,1), box-shadow 0.45s ease;
-    }
-
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .product-card.featured {
-      min-height: 420px;
-      border-color: rgba(255,107,0,0.3);
-      border-radius: 28px;
-    }
-
-    .product-card.featured:hover {
-      border-color: rgba(255,107,0,0.5);
-      box-shadow: var(--shadow-lg), 0 0 40px rgba(255,107,0,0.06);
-    }
-
-    .product-role {
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .product-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      aspect-ratio: 1 / 1;
-      margin: 16px 0 18px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #111;
-      position: relative;
-    }
-
-    .product-device-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 0;
-      border: none;
-      background: none;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5));
-      mix-blend-mode: lighten;
-    }
-
-    .product-device-image.s2-image {
-      object-position: center 58%;
-    }
-
-    .product-card.featured .product-visual {
-      min-height: 0;
-    }
-
-    .product-card h3 {
-      margin: 0 0 8px;
-      color: var(--white);
-      font-size: 23px;
-      line-height: 1.1;
-    }
-    .product-card h3 a { transition: color 0.2s; }
-    .product-card h3 a:hover { color: var(--accent); }
-
-    .product-card.featured h3 { font-size: 22px; }
-
-    .product-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .product-price {
-      margin-top: 18px;
-      font-family: var(--font-en);
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--white);
-    }
-
-    .product-card.featured .product-price { font-size: 24px; }
-
-    .product-price small {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--muted);
-    }
-
-    .product-meta {
-      display: grid;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: var(--space-lg);
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-05: COMPARE — table, minimal decoration
-       ═══════════════════════════════════════════ */
-    .sec-compare {
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: 0;
-      background: rgba(255,255,255,0.015);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 680px;
-    }
-
-    th, td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-      vertical-align: top;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    td:first-child { white-space: nowrap; font-weight: 600; color: var(--muted); }
-    td:not(:first-child) { white-space: normal; min-width: 140px; }
-
-    th {
-      font-family: var(--font-en);
-      font-size: 12px;
-      color: var(--white);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.025);
-    }
-
-    tr:last-child td { border-bottom: none; }
-
-    td:first-child,
-    th:first-child {
-      position: sticky;
-      left: 0;
-      background: var(--surface);
-      z-index: 1;
-      min-width: 190px;
-      font-weight: 600;
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-07: WHY ASMAX — list style, bottom border
-       ═══════════════════════════════════════════ */
-    .sec-why {
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 0;
-    }
-
-    .why-item {
-      padding: var(--space-lg) var(--space-lg) var(--space-lg) 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .why-item:nth-child(3n+2) { padding-left: var(--space-lg); padding-right: var(--space-lg); }
-    .why-item:nth-child(3n)   { padding-left: var(--space-lg); }
-
-    .why-item:nth-child(n+4) { border-bottom: none; }
-
-    .why-index {
-      display: block;
-      margin-bottom: var(--space-sm);
-      color: rgba(255,255,255,0.1);
-      font-family: var(--font-en);
-      font-size: 48px;
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .why-item strong {
-      display: block;
-      color: var(--white);
-      font-size: 18px;
-      margin-bottom: var(--space-xs);
-    }
-
-    .why-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-08: BRAND STORY — fullscreen 2-col
-       ═══════════════════════════════════════════ */
-    .sec-story {
-      border-top: 1px solid var(--border);
-      min-height: 100vh;
-      display: flex;
-      align-items: stretch;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      background:
-        radial-gradient(circle at 16% 24%, rgba(255,107,0,0.12), transparent 38%),
-        linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-      overflow: hidden;
-    }
-
-    .sec-story .container {
-      width: 100%;
-      margin: 0;
-    }
-
-    .story-grid {
-      width: 100%;
-      max-width: none;
-      padding-left: 0;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 0;
-      align-items: stretch;
-      min-height: 100vh;
-    }
-
-    .story-copy {
-      max-width: 720px;
-      padding:
-        clamp(80px, 9vw, 140px)
-        clamp(18px, 3vw, 48px)
-        clamp(64px, 8vw, 120px)
-        max(20px, calc((100vw - var(--container)) / 2));
-      margin: auto 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .story-copy h2 {
-      margin: 0 0 var(--space-md);
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(2.2rem, 5vw, 4.6rem);
-      letter-spacing: -0.01em;
-      line-height: 0.92;
-      color: var(--white);
-    }
-
-    .story-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .story-copy p + p { margin-top: 16px; }
-
-    .story-visual {
-      position: relative;
-      min-height: 100%;
-      border-left: 1px solid var(--border);
-      overflow: hidden;
-      background: #0f0f0f;
-    }
-
-    .story-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.2) 36%, rgba(10,10,10,0.1) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .story-image {
-      width: 100%;
-      height: min(72vh, 760px);
-      object-fit: cover;
-      object-position: center top;
-      filter: saturate(0.95) contrast(1.06);
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-09: RIDERS VOICE — compact cards
-       ═══════════════════════════════════════════ */
-    .sec-voice {
-      position: relative;
-      z-index: 3;
-      margin-top: 0;
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .voice-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap: 18px;
-    }
-
-    .voice-card {
-      padding: 24px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.4s cubic-bezier(0.25,1,0.5,1), border-color 0.25s ease;
-    }
-
-    .voice-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-mid);
-    }
-
-    .voice-source {
-      display: inline-flex;
-      padding: 5px 10px;
-      margin-bottom: var(--space-sm);
-      border-radius: 999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-family: var(--font-en);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .voice-card strong {
-      display: block;
-      margin-bottom: var(--space-xs);
-      color: var(--white);
-      font-size: 16px;
-    }
-
-    .voice-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-10: APP — fullscreen bg image + overlay text
-       ═══════════════════════════════════════════ */
-    .sec-app {
-      position: relative;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-    }
-
-    .sec-app .app-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .sec-app .app-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 65% center;
-    }
-
-    .sec-app .app-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg,
-          rgba(10,10,10,0.62) 0%,
-          rgba(10,10,10,0.4) 35%,
-          rgba(10,10,10,0.34) 60%,
-          rgba(10,10,10,0.72) 100%),
-        linear-gradient(90deg,
-          rgba(10,10,10,0.5) 0%,
-          rgba(10,10,10,0.14) 50%,
-          rgba(10,10,10,0.2) 100%);
-    }
-
-    .sec-app .container {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 144px 24px;
-    }
-
-    .app-copy {
-      max-width: 680px;
-    }
-
-    .app-copy h2 {
-      margin: 0 0 var(--space-md);
-      font-family: var(--font-ja);
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      font-weight: 900;
-      line-height: 1.15;
-      color: var(--white);
-      text-shadow: 0 2px 30px rgba(0,0,0,0.5);
-    }
-
-    .app-copy .app-desc {
-      margin: 0 auto var(--space-lg);
-      color: rgba(255,255,255,0.85);
-      font-size: 16px;
-      max-width: 520px;
-      line-height: 1.8;
-      text-shadow: 0 1px 12px rgba(0,0,0,0.4);
-    }
-
-    .app-badges {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .app-badges a {
-      display: inline-block;
-      transition: transform 0.25s ease-out, opacity 0.2s ease;
-    }
-
-    .app-badges a:hover {
-      transform: translateY(-2px);
-      opacity: 0.85;
-    }
-
-    .app-badges img { height: 48px; width: auto; }
-
-    /* ═══════════════════════════════════════════
-       SEC-11: FAQ — centered, accordion
-       ═══════════════════════════════════════════ */
-    .sec-faq {
-      margin-top: -2px;
-      padding: var(--space-section-md) 0;
-      border-top: none;
-    }
-
-    .faq-shell {
-      max-width: 840px;
-      margin: 0 auto;
-      border-radius: 0;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .faq-item + .faq-item {
-      border-top: 1px solid var(--border);
-    }
-
-    .faq-trigger {
-      width: 100%;
-      padding: 24px 28px;
-      border: none;
-      background: transparent;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      text-align: left;
-      cursor: pointer;
-      transition: background 0.15s ease-out;
-    }
-
-    .faq-trigger:hover { background: rgba(255,255,255,0.015); }
-
-    .faq-trigger span:first-child {
-      font-size: 16px;
-      line-height: 1.45;
-    }
-
-    .faq-icon {
-      flex: 0 0 auto;
-      width: 18px;
-      height: 18px;
-      position: relative;
-    }
-
-    .faq-icon::before,
-    .faq-icon::after {
-      content: "";
-      position: absolute;
-      left: 50%; top: 50%;
-      width: 18px;
-      height: 1.5px;
-      background: var(--muted);
-      transform: translate(-50%,-50%);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    .faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); }
-
-    .faq-trigger[aria-expanded="true"] .faq-icon::after { opacity: 0; }
-
-    .faq-panel {
-      padding: 0 28px 24px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      display: none;
-    }
-
-    .faq-trigger[aria-expanded="true"] + .faq-panel { display: block; }
-
-    /* ═══════════════════════════════════════════
-       STORES CTA
-       ═══════════════════════════════════════════ */
-    .shop {
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-      text-align: left;
-    }
-
-    .shop .container {
-      display: grid;
-      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
-      gap: var(--space-lg);
-      align-items: center;
-    }
-
-    .shop-kicker {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .contents-title {
-      margin: 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 0.92;
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .block-caption {
-      display: grid;
-      gap: var(--space-sm);
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.8;
-    }
-
-    .block-caption p {
-      margin: 0;
-    }
-
-    .btn.size-L {
-      min-height: 58px;
-      padding: 0;
-      font-size: 14px;
-    }
-
-    .btn.size-L a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 58px;
-      padding: 0 42px;
-    }
-
-    .btn.btn-bk {
-      background: var(--white);
-      color: #0a0a0a;
-    }
-
-    .shop .btn {
-      justify-self: start;
-      margin-top: var(--space-sm);
-    }
-
-    /* ═══════════════════════════════════════════
-       EVENTS
-       ═══════════════════════════════════════════ */
-    .sec-events {
-      position: relative;
-      z-index: 2;
-      isolation: isolate;
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.06), transparent 34%),
-        linear-gradient(180deg, #0b0b0b 0%, #0a0a0a 100%);
-    }
-
-    .event-slider {
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.015);
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      border-left: none;
-      border-right: none;
-    }
-
-    .event-track {
-      display: flex;
-      gap: 18px;
-      padding: 18px;
-      will-change: transform;
-    }
-
-    .event-card {
-      flex: 0 0 calc((100% - 36px) / 3);
-      min-width: 0;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
-
-    .event-image {
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .event-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .event-copy {
-      padding: 14px 14px 16px;
-      display: grid;
-      gap: 8px;
-      align-content: start;
-    }
-
-    .event-title {
-      margin: 0;
-      color: var(--white);
-      font-size: 20px;
-      line-height: 1.15;
-    }
-
-    .event-detail {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════
-       NEWS
-       ═══════════════════════════════════════════ */
-    .block-news {
-      padding: var(--space-section-md) 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .news-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-      gap: var(--space-xl);
-      align-items: start;
-      margin-bottom: var(--space-lg);
-    }
-
-    .news-lead {
-      margin: var(--space-sm) 0 0;
-      color: var(--muted);
-      max-width: 430px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .news-alerts {
-      border-top: 1px solid var(--border);
-    }
-
-    .news-20200901 {
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr);
-      gap: 18px;
-      align-items: start;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .news-01 {
-      color: var(--accent);
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .news-02 a {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      transition: color 0.18s ease-out;
-    }
-
-    .news-02 a:hover {
-      color: var(--white);
-    }
-
-    .btn.btn-wh {
-      margin: var(--space-md) auto 0;
-      width: fit-content;
-    }
-
-    /* ═══════════════════════════════════════════
-       SEC-12: CTA BAND — radial glow
-       ═══════════════════════════════════════════ */
-    .sec-instagram {
-      position: relative;
-      z-index: 3;
-      padding: var(--space-section-lg) 0 var(--space-section-md);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,107,0,0.12), transparent 40%),
-        linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-    }
-
-    .instagram-head {
-      text-align: center;
-    }
-
-    .sec-instagram h2 {
-      margin: 0;
-      font-family: var(--font-en);
-      font-weight: 900;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 0.92;
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-    }
-
-    .instagram-sub {
-      max-width: 640px;
-      margin: var(--space-md) auto 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .instagram-feed {
-      margin-top: var(--space-lg);
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .insta-card {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      overflow: hidden;
-    }
-
-    .insta-card a {
-      display: block;
-      color: inherit;
-    }
-
-    .insta-thumb {
-      aspect-ratio: 4 / 5;
-      background: #101010;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .insta-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .insta-copy {
-      padding: 12px 12px 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
-    }
-
-    .instagram-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: var(--space-lg);
-    }
-
-    .instagram-meta {
-      display: inline-block;
-      margin-top: var(--space-lg);
-      color: var(--muted);
-      font-size: 13px;
-      transition: color 0.15s ease-out;
-    }
-
-    .instagram-meta:hover { color: var(--white); }
-
-    /* ═══════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════ */
-    .site-footer {
-      padding: 72px 0 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .footer-brand { max-width: 360px; }
-    .footer-brand p {
-      margin: 16px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .footer-title {
-      margin-bottom: 18px;
-      color: var(--white);
-      font-family: var(--font-en);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .footer-column {
-      display: grid;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-column a { transition: color 0.15s ease-out; }
-    .footer-column a:hover { color: var(--white); }
-
-    .footer-bottom {
-      margin-top: var(--space-lg);
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-bottom a {
-      transition: color 0.15s ease-out;
-    }
-
-    .footer-bottom a:hover { color: var(--white); }
-
-    /* ═══════════════════════════════════════════
-       ANIMATIONS — varied easings & delays
-       ═══════════════════════════════════════════ */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(32px);
-      transition:
-        opacity 0.85s cubic-bezier(0.16,1,0.3,1),
-        transform 0.85s cubic-bezier(0.16,1,0.3,1);
-      transition-delay: var(--d, 0s);
-    }
-
-    [data-animate].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    [data-animate="scale"] {
-      opacity: 0;
-      transform: scale(0.96);
-      transition:
-        opacity 1s cubic-bezier(0.16,1,0.3,1),
-        transform 1s cubic-bezier(0.16,1,0.3,1);
-      transition-delay: var(--d, 0s);
-    }
-
-    [data-animate="scale"].is-visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    [data-animate="slide-left"] {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition:
-        opacity 0.9s cubic-bezier(0.16,1,0.3,1),
-        transform 0.9s cubic-bezier(0.16,1,0.3,1);
-      transition-delay: var(--d, 0s);
-    }
-
-    [data-animate="slide-left"].is-visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* ═══════════════════════════════════════════
-       RESPONSIVE — desktop-first
-       ═══════════════════════════════════════════ */
-    @media (max-width: 1279px) {
-      .voice-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .lineup-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-      .product-card.featured { min-height: 380px; }
-    }
-
-    @media (max-width: 1023px) {
-      :root {
-        --space-section-lg: 140px;
-        --space-section-md: 96px;
-        --space-section-sm: 72px;
-      }
-
-      .site-nav { display: none; }
-
-      .menu-toggle { display: inline-flex; }
-
-      .mobile-drawer.open { display: block; }
-
-      .mobile-drawer {
-        display: none;
-        border-top: 1px solid var(--border);
-        background: rgba(10,10,10,0.95);
-      }
-
-      .mobile-drawer .container {
-        padding: 18px 0 24px;
-        display: grid;
-        gap: 8px;
-      }
-
-      .mobile-drawer a {
-        display: block;
-        padding: 12px 4px;
-        color: var(--muted);
-        font-family: var(--font-en);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        transition: color 0.15s ease-out;
-      }
-
-      .mobile-drawer a:hover { color: var(--white); }
-
-      .mobile-products {
-        display: grid;
-        gap: 2px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .mobile-products-label {
-        padding: 12px 4px 6px;
-        color: var(--white);
-        font-family: var(--font-en);
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-
-      .mobile-products a {
-        padding-left: 18px;
-        font-size: 12px;
-        letter-spacing: 0.1em;
-      }
-
-      .sec-story {
-        min-height: auto;
-        position: relative;
-        top: auto;
-      }
-
-      .story-grid {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
-      }
-
-      .story-copy {
-        max-width: none;
-        padding: var(--space-section-sm) 0 var(--space-lg);
-      }
-
-      .story-visual {
-        border-left: none;
-        border-top: 1px solid var(--border);
-      }
-
-      .story-image { height: 40vh; }
-
-      .shop .container,
-      .news-head {
-        grid-template-columns: 1fr;
-      }
-
-      .event-card {
-        flex-basis: calc((100% - 18px) / 2);
-      }
-
-      .instagram-feed {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .why-grid,
-      .wrap-news-list,
-      .footer-grid { grid-template-columns: 1fr; }
-
-      .why-item {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        border-bottom: 1px solid var(--border) !important;
-      }
-
-      .why-item:last-child { border-bottom: none !important; }
-
-      .sec-app { min-height: 80vh; }
-      .sec-app .container { padding: 104px 20px; }
-    }
-
-    @media (max-width: 767px) {
-      :root {
-        --container: calc(100vw - 28px);
-        --space-section-lg: 116px;
-        --space-section-md: 86px;
-        --space-section-sm: 68px;
-      }
-
-      .site-header-inner { min-height: 72px; }
-
-      .section-heading {
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .hero {
-        min-height: 100svh;
-        padding: 88px 0 76px;
-      }
-
-      .hero-copy h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
-      .hero .subcopy { font-size: 16px; }
-
-      .lineup-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .news-20200901 { grid-template-columns: 1fr; gap: 8px; }
-      .voice-grid { grid-template-columns: 1fr; }
-      .event-card { flex-basis: 100%; }
-      .instagram-feed { grid-template-columns: 1fr; }
-
-      .faq-trigger { padding: 22px 20px; }
-      .faq-panel { padding: 0 20px 22px; }
-
-      .sec-app { min-height: 60vh; }
-
-      .footer-bottom { flex-direction: column; }
-    }
-
-    /* ═══════════════════════════════════════════
-       ACCESSIBILITY
-       ═══════════════════════════════════════════ */
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      .scroll-progress { display: none !important; }
-    }
-
-    /* ═══════════════════════════════════════════
-       JS-DRIVEN ANIMATION STATES
-       ═══════════════════════════════════════════ */
-
-    /* Scroll progress bar */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: var(--accent);
-      transform-origin: left;
-      transform: scaleX(0);
-      z-index: 50;
-      pointer-events: none;
-      opacity: 0.5;
-      width: 100%;
-    }
-
-    /* Hero text split — word wrappers */
-    .hero-copy h1 .word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    /* Hero sub-elements initial state (hidden by JS) */
-      .hero-copy.js-init .subcopy,
-      .hero-copy.js-init .hero-actions,
-      .hero-copy.js-init .hero-note {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-    .hero-copy.js-init .hero-note {
-      transform: none;
-    }
-
-    /* WHY numbers reveal */
-    .why-index {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-      transition-delay: var(--d, 0s);
-    }
-
-    [data-animate].is-visible .why-index {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Card 3D tilt glare */
-    .has-tilt {
-      transform-style: preserve-3d;
-    }
-
-    .tilt-glare {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      opacity: 0;
-      background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(255,255,255,0.025) 45%,
-        rgba(255,255,255,0.04) 50%,
-        rgba(255,255,255,0.025) 55%,
-        transparent 60%
-      );
-      transition: opacity 0.3s ease;
-      z-index: 2;
-    }
-
-    .has-tilt:hover .tilt-glare {
-      opacity: 1;
-    }
-
-    /* Pointer coarse — disable mouse effects */
-    @media (pointer: coarse) {
-      .tilt-glare { display: none !important; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMAX JAPAN | Connect Your Every Ride</title>
+<meta name="description" content="ASMAX JAPAN 公式。ライダーズインターコム Future 1（EVA R）/ F1 Pro / S2。正規品・日本語サポート・2年保証・技適取得。">
+<meta property="og:title" content="ASMAX JAPAN | Connect Your Every Ride">
+<meta property="og:description" content="ライダーズインターコムの日本の拠点。Future 1 / F1 Pro / S2。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ASMAX JAPAN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/asmax-ds.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-ja);background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button{font:inherit;cursor:pointer}
+  .wrap{width:var(--container);margin:0 auto}
+  .en{font-family:var(--font-en)}
+  .eyebrow{font-family:var(--font-en);font-size:var(--fs-eyebrow);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-en);font-weight:700;font-size:15px;padding:14px 30px;border-radius:var(--r-btn);transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),background var(--dur-fast);border:1px solid transparent}
+  .btn-primary{background:linear-gradient(135deg,#0EA5BE,#0B7C94);color:#fff;box-shadow:0 8px 24px var(--accent-glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--accent-glow)}
+  .band-dark .btn-primary{background:var(--accent-grad)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--border-mid)}
+  .btn-ghost:hover{border-color:var(--text)}
+  .btn .price{font-weight:500;font-size:13px;opacity:.9}
+  .link-arrow{font-family:var(--font-en);font-weight:600;font-size:15px;color:var(--accent-deep)}
+  .link-arrow:hover{opacity:.7}
+
+  /* ── HEADER (常時ブラック・白ロゴ) ── */
+  .site-header{position:sticky;top:0;z-index:100;background:#0a0a0a;border-bottom:1px solid rgba(255,255,255,.08)}
+  .site-header .bar{width:var(--container-wide);margin:0 auto;height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand img{width:118px;height:auto;display:block}
+  .site-nav{display:flex;gap:30px;font-family:var(--font-en);font-size:13px;font-weight:600;letter-spacing:.03em;color:#f0f1f3}
+  .site-nav a{opacity:.82;transition:opacity var(--dur-fast)}
+  .site-nav a:hover{opacity:1}
+  .head-actions{display:flex;align-items:center;gap:18px;color:#f0f1f3}
+  .head-actions a{display:inline-flex;opacity:.9}
+  .head-actions a:hover{opacity:1;color:var(--accent-bright)}
+  .menu-btn{display:none;background:none;border:0;width:26px;height:26px;position:relative}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{position:absolute;left:2px;width:22px;height:2px;background:#f0f1f3;transition:.3s}
+  .menu-btn span{top:12px}.menu-btn span::before{content:"";top:-7px}.menu-btn span::after{content:"";top:7px}
+  .menu-btn[aria-expanded="true"] span{background:transparent}
+  .menu-btn[aria-expanded="true"] span::before{transform:rotate(45deg)translate(0,7px)}
+  .menu-btn[aria-expanded="true"] span::after{transform:rotate(-45deg)translate(0,-7px)}
+  .drawer{display:none;background:#0a0a0a;border-bottom:1px solid rgba(255,255,255,.08)}
+  .drawer.open{display:block}
+  .drawer .wrap{width:var(--container-wide);display:flex;flex-direction:column;padding:8px 0 18px}
+  .drawer a{color:#e7e8ea;font-family:var(--font-en);font-weight:600;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+
+  /* ── section scaffolding ── */
+  section{position:relative}
+  .sec{padding:var(--sec-md) 0}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto var(--space-xl)}
+  .sec-head h2{font-family:var(--font-en);font-weight:900;font-size:var(--fs-h2);letter-spacing:-.02em;line-height:1;margin:12px 0 0;color:var(--text)}
+  .sec-head p{margin-top:16px;color:var(--soft);font-size:var(--fs-lead)}
+
+  /* ── HERO (light, typographic) ── */
+  .hero{position:relative;text-align:center;padding:clamp(90px,15vh,180px) 0 clamp(60px,9vh,110px);overflow:hidden;background:
+     radial-gradient(60% 60% at 50% -8%,var(--accent-soft),transparent 70%),
+     linear-gradient(180deg,#fff 0%,#F5F7F9 100%)}
+  .hero h1{font-family:var(--font-en);font-weight:900;font-size:var(--fs-hero);line-height:.95;letter-spacing:-.03em;color:var(--text);margin:16px 0 0}
+  .hero .lead{margin:22px auto 0;max-width:40ch;font-size:var(--fs-lead);color:var(--soft)}
+  .hero-cta{margin-top:34px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .trust-strip{margin-top:44px;display:flex;gap:10px 26px;justify-content:center;flex-wrap:wrap;font-family:var(--font-en);font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--muted)}
+  .trust-strip span{display:inline-flex;align-items:center;gap:7px}
+  .trust-strip span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+  /* ── PRODUCT SHOWCASE ── */
+  .show{padding:clamp(80px,12vh,150px) 0;overflow:hidden}
+  .show .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .show-role{font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+  .show-name{font-family:var(--font-en);font-weight:900;font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.02em;line-height:.95;margin:10px 0 0;color:var(--text)}
+  .show-tag{margin:16px auto 0;max-width:34ch;font-size:var(--fs-lead);color:var(--soft)}
+  .show-buy{margin-top:28px;display:flex;gap:14px 22px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .show-visual{position:relative;width:100%;max-width:720px;margin:clamp(28px,5vh,54px) auto 0}
+  .show-visual::before{content:"";position:absolute;inset:6%;border-radius:50%;filter:blur(56px);z-index:0;background:radial-gradient(circle,var(--accent-soft),transparent 70%)}
+  .show-visual img{position:relative;z-index:1;width:100%}
+  .show-eva .show-visual::before{background:radial-gradient(circle at 38% 45%,rgba(123,45,142,.34),transparent 60%),radial-gradient(circle at 66% 55%,rgba(200,40,40,.28),transparent 60%)}
+  .show-specs{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(22px,5vw,60px);margin-top:var(--space-xl)}
+  .show-specs b{display:block;font-family:var(--font-en);font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1;color:var(--text)}
+  .show-specs span{display:block;margin-top:8px;font-family:var(--font-en);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .show-sw{margin-top:var(--space-lg);display:flex;gap:10px;align-items:center;justify-content:center}
+  .show-sw i{width:20px;height:20px;border-radius:50%;background:var(--c);border:1px solid var(--border-mid);display:inline-block}
+  .show-sw em{font-family:var(--font-en);font-style:normal;font-size:12px;color:var(--muted);margin-left:6px}
+
+  /* ── COMPARE ── */
+  .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+  th,td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--hairline)}
+  thead th{position:sticky;top:0;background:var(--surface-alt);font-family:var(--font-en);font-weight:800;color:var(--text)}
+  thead th small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
+  tbody td:first-child{font-family:var(--font-en);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  tbody td{color:var(--text)}
+  tbody tr:last-child td{border-bottom:0}
+
+  /* ── APP band ── */
+  .app-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2xl);align-items:center}
+  .app-copy h2{font-family:var(--font-en);font-weight:900;font-size:var(--fs-h2);letter-spacing:-.02em;line-height:1.02;color:var(--text)}
+  .app-copy p{margin:20px 0 0;color:var(--soft);font-size:var(--fs-lead);max-width:44ch}
+  .app-badges{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+  .app-visual img{width:100%;border-radius:var(--r-card-lg);border:1px solid var(--border)}
+
+  /* ── TRUST grid ── */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r-card);overflow:hidden}
+  .trust-item{background:var(--surface);padding:30px 26px}
+  .trust-item .n{font-family:var(--font-en);font-size:12px;font-weight:800;color:var(--accent-deep);letter-spacing:.1em}
+  .trust-item h3{font-size:17px;font-weight:700;margin:12px 0 8px;color:var(--text)}
+  .trust-item p{font-size:13.5px;color:var(--soft);line-height:1.7}
+
+  /* ── REVIEWS ── */
+  .review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .review{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:22px;box-shadow:var(--shadow-sm)}
+  .review .src{font-family:var(--font-en);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+  .review .stars{color:var(--accent);margin:10px 0 8px;letter-spacing:2px;font-size:13px}
+  .review p{font-size:13.5px;color:var(--text);line-height:1.75}
+  .review .who{margin-top:14px;font-size:12px;color:var(--muted)}
+
+  /* ── FAQ ── */
+  .faq{max-width:820px;margin:0 auto}
+  .faq details{border-bottom:1px solid var(--border)}
+  .faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;font-weight:700;color:var(--text)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--font-en);font-size:22px;color:var(--accent-deep);transition:transform var(--dur-fast)}
+  .faq details[open] summary::after{content:"–"}
+  .faq .a{padding:0 0 22px;color:var(--soft);font-size:14.5px;line-height:1.8}
+
+  /* ── FINAL CTA ── */
+  .final{text-align:center;padding:clamp(90px,14vh,170px) 0}
+  .final h2{font-family:var(--font-en);font-weight:900;font-size:var(--fs-h2);letter-spacing:-.02em;color:var(--text)}
+  .final p{margin:16px auto 0;color:var(--soft);max-width:42ch;font-size:var(--fs-lead)}
+  .final .row{margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .final .malls{margin-top:22px;font-family:var(--font-en);font-size:13px;color:var(--muted)}
+  .final .malls a{color:var(--accent-deep);font-weight:600}
+
+  /* ── FOOTER ── */
+  .site-footer{padding:70px 0 40px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid var(--border)}
+  .foot-brand img{width:120px;margin-bottom:16px}
+  .foot-brand p{color:var(--muted);font-size:13px;max-width:30ch}
+  .foot-col h4{font-family:var(--font-en);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+  .foot-col a{display:block;color:var(--muted);font-size:13.5px;padding:6px 0;transition:color var(--dur-fast)}
+  .foot-col a:hover{color:var(--text)}
+  .foot-bottom{padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+  .foot-bottom a{color:var(--muted)}
+
+  /* ── reveal ── */
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity var(--dur-enter) var(--ease-out),transform var(--dur-enter) var(--ease-out)}
+  [data-reveal].in{opacity:1;transform:none}
+
+  /* ── responsive ── */
+  @media(max-width:900px){
+    .site-nav{display:none}
+    .menu-btn{display:block}
+    .app-grid{grid-template-columns:1fr;gap:var(--space-xl)}
+    .trust-grid{grid-template-columns:1fr}
+    .review-grid{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media(max-width:560px){
+    .review-grid{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
-  <div class="page-shell">
 
-    <!-- ── HEADER ── -->
-    <header class="site-header">
-      <div class="site-header-inner">
-        <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN">
-          <img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="eager">
-        </a>
-
-        <nav class="site-nav" aria-label="グローバルナビゲーション">
-          <div class="nav-item">
-            <a href="#lineup" aria-haspopup="true">Products</a>
-            <div class="product-dropdown" aria-label="Products submenu">
-              <a href="product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
-              <a href="product/detail-f1-pro.html">F1 Pro</a>
-              <a href="product/detail-s2.html">S2</a>
-            </div>
-          </div>
-          <a href="about.html">About</a>
-          <a href="cloudtalk-mode.html">CloudTalk</a>
-          <a href="stores.html">Shop</a>
-          <a href="/contact">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-          <a class="cart-icon" href="/cart?site=asmax" aria-label="カート">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          </a>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="メニューを開閉">
-            <span></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="mobile-drawer" id="mobile-drawer">
-        <div class="container">
-          <div class="mobile-products">
-            <div class="mobile-products-label">Products</div>
-            <a href="product/detail-eva-r-unit01.html">Future1(EVA Rモデル)</a>
-            <a href="product/detail-f1-pro.html">F1 Pro</a>
-            <a href="product/detail-s2.html">S2</a>
-          </div>
-          <a href="about.html">About</a>
-          <a href="cloudtalk-mode.html">CloudTalk</a>
-          <a href="stores.html">Shop</a>
-          <a href="/contact">Contact</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- ── MAIN ── -->
-    <main id="top">
-
-      <!-- SEC-01: HERO -->
-      <section class="hero">
-        <div class="container">
-          <div class="hero-copy" id="hero-copy">
-            <div class="eyebrow">ASMAX JAPAN — Official Maker Site</div>
-            <h1>Connect Your<br>Every Adventure</h1>
-            <p class="subcopy">ライドから生まれた。ライドのために作られた。<br>ライダーズインターコムの日本の拠点、ASMAX JAPAN。F1 Pro を軸に、3モデル・7SKU。</p>
-
-            <div class="hero-actions">
-              <a class="btn" href="#lineup">ラインナップを見る</a>
-              <a class="ghost-btn" href="#eva-r">EVA R を見る</a>
-            </div>
-            <p class="hero-note">正規品 · 日本語サポート · 2年保証 · 技適取得</p>
-          </div>
-        </div>
-        <a class="scroll-indicator" href="#lineup">Scroll</a>
-      </section>
-
-      <!-- 製品ショーケース ①: F1 Pro（フラッグシップ） -->
-      <section class="showcase" id="lineup">
-        <div class="container" data-animate>
-          <span class="showcase-role">Flagship · All-Rounder</span>
-          <h2 class="showcase-name">F1 Pro</h2>
-          <p class="showcase-tag">全部入りフラッグシップ。どのヘルメットにも、確かな性能を。</p>
-          <div class="showcase-buy">
-            <a class="btn-buy" href="product/f1-pro.html">購入する <span class="price">¥35,915〜</span></a>
-            <a class="link-more" href="product/detail-f1-pro.html">詳しく見る ›</a>
-          </div>
-          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
-            <img src="assets/f1-pro-shiny-new.png" alt="F1 Pro" loading="lazy">
-          </div>
-          <ul class="showcase-specs">
-            <li><b>16</b><span>最大 Mesh 接続</span></li>
-            <li><b>50</b><span>CloudTalk</span></li>
-            <li><b>IPX7</b><span>防水</span></li>
-          </ul>
-          <div class="showcase-swatches">
-            <span class="sw" style="--c:#8a8d91" title="シャイニーグレー"></span>
-            <span class="sw" style="--c:#4b4f55" title="ステラグレー"></span>
-            <span class="sw-count">2色</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 製品ショーケース ②: Future 1（EVA R エディション） -->
-      <section class="showcase showcase-eva" id="eva-r">
-        <div class="container" data-animate>
-          <span class="showcase-role">EVANGELION Racing · Collaboration</span>
-          <h2 class="showcase-name">Future 1</h2>
-          <p class="showcase-tag">EVA RACING コラボの特別エディション。初号機／2号機、全4SKU。</p>
-          <div class="showcase-buy">
-            <a class="btn-buy" href="product/eva-r-unit01.html">購入する <span class="price">¥35,000〜</span></a>
-            <a class="link-more" href="product/detail-eva-r-unit01.html">詳しく見る ›</a>
-          </div>
-          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
-            <img src="assets/eva-r-unit01a-45.png" alt="Future 1 — EVA R" loading="lazy">
-          </div>
-          <ul class="showcase-specs">
-            <li><b>16</b><span>最大 Mesh 接続</span></li>
-            <li><b>50</b><span>CloudTalk</span></li>
-            <li><b>IPX7</b><span>防水</span></li>
-          </ul>
-          <div class="showcase-swatches">
-            <span class="sw" style="--c:#7b2d8e" title="初号機A"></span>
-            <span class="sw" style="--c:#00c853" title="初号機B"></span>
-            <span class="sw" style="--c:#c82828" title="2号機A"></span>
-            <span class="sw" style="--c:#ff6d00" title="2号機B"></span>
-            <span class="sw-count">全4SKU</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 製品ショーケース ③: S2（エントリー） -->
-      <section class="showcase" id="s2">
-        <div class="container" data-animate>
-          <span class="showcase-role">Entry</span>
-          <h2 class="showcase-name">S2</h2>
-          <p class="showcase-tag">はじめての一台に、ちょうどいい。必要十分を、手の届く価格で。</p>
-          <div class="showcase-buy">
-            <a class="btn-buy" href="product/s2.html">購入する <span class="price">¥15,899</span></a>
-            <a class="link-more" href="product/detail-s2.html">詳しく見る ›</a>
-          </div>
-          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
-            <img src="assets/s2-new.png" alt="S2" loading="lazy">
-          </div>
-          <ul class="showcase-specs">
-            <li><b>8</b><span>最大 Mesh 接続</span></li>
-            <li><b>50</b><span>CloudTalk</span></li>
-            <li><b>IPX7</b><span>防水</span></li>
-          </ul>
-          <div class="showcase-swatches">
-            <span class="sw" style="--c:#75787c" title="グレー"></span>
-            <span class="sw-count">1色</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="block-news bg-white">
-        <div class="container" data-animate>
-          <div class="news-head">
-            <div>
-              <h2 class="contents-title">NEWS</h2>
-              <p class="news-lead">ASMAX JAPANからの製品情報、サポート更新、イベント出展情報をお知らせします。</p>
-            </div>
-
-            <div class="news-alerts">
-              <div class="news-20200901">
-                <div class="news-01">Support</div>
-                <div class="news-02"><a href="/news/">EVA R / F1 Pro / S2 正規取扱品の保証・サポート受付について</a></div>
-              </div>
-
-              <div class="news-20200901">
-                <div class="news-01">Product</div>
-                <div class="news-02"><a href="/news/">ASMAX World Appでの本体設定・ファームウェア更新手順を公開しました</a></div>
-              </div>
-
-              <div class="news-20200901">
-                <div class="news-01">Dealer</div>
-                <div class="news-02"><a href="stores.html">国内正規販売店での展示・取扱状況は店舗ごとに異なります</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="btn size-L btn-wh">
-            <a href="/news/">MORE</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-05: COMPARE -->
-      <section class="sec-compare" id="compare">
-        <div class="container">
-          <div class="section-heading" data-animate>
-            <div>
-              <h2>SPEC</h2>
-            </div>
-            <p class="section-desc">製品ごとの機能比較</p>
-          </div>
-
-          <div class="table-wrap" data-animate="scale" style="--d:0.08s;">
-            <table>
-              <thead>
-                <tr>
-                  <th>Spec</th>
-                  <th>F1 Pro<br><small style="opacity:0.5;">シャイニー・ステラー</small></th>
-                  <th>Future 1<br><small style="opacity:0.5;">EVA R 初号機/2号機</small></th>
-                  <th>S2</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>品番</td><td>08WS03AFIN017/033</td><td>WS10 EVA-01A/01B/02A/02B</td><td>08WS04AFIN017</td></tr>
-                <tr><td>カラー展開</td><td>2色</td><td>4色</td><td>1色</td></tr>
-                <tr><td>Bluetooth</td><td>5.3 デュアルチップ・8コア</td><td>5.4 デュアルチップ・8コア</td><td>5.4 デュアルチップ・4コア</td></tr>
-                <tr><td>Mesh通話</td><td>最大10人（FW更新で16人）</td><td>最大10〜16人</td><td>最大8人</td></tr>
-                <tr><td>CloudTalk</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td></tr>
-                <tr><td>通信距離</td><td>約3km</td><td>約3km</td><td>約2km</td></tr>
-                <tr><td>連続通話</td><td>約14時間</td><td>約14時間</td><td>約13時間</td></tr>
-                <tr><td>バッテリー</td><td>1,350mAh</td><td>1,350mAh</td><td>980mAh</td></tr>
-                <tr><td>急速充電</td><td>10分→3時間通話</td><td>10分→3時間通話</td><td>10分→3時間 / 60分フル充電</td></tr>
-                <tr><td>スピーカー</td><td>40mm</td><td>40mmネオジウム</td><td>40mm</td></tr>
-                <tr><td>音声操作</td><td>Hi Max（AIアシスタント）</td><td>Hi Max（AIアシスタント）</td><td>—</td></tr>
-                <tr><td>ノイズキャンセル</td><td>ENC</td><td>ENC</td><td>ENC</td></tr>
-                <tr><td>防水</td><td>IPX7</td><td>IPX7</td><td>IPX7</td></tr>
-                <tr><td>本体寸法</td><td>86×27×23mm</td><td>86×27×23mm</td><td>86.1×39.2×24mm</td></tr>
-                <tr><td>重量</td><td>50g</td><td>50g</td><td>41g</td></tr>
-                <tr><td>マウント</td><td>マグネット式</td><td>マグネット式（3秒着脱）</td><td>ロック式（バッククリップ）</td></tr>
-                <tr><td>充電端子</td><td>USB Type-C</td><td>USB Type-C</td><td>USB Type-C</td></tr>
-                <tr><td>保証</td><td>2年</td><td>2年</td><td>2年</td></tr>
-                <tr><td>価格（税込）</td><td>¥35,915</td><td>¥35,000</td><td>¥15,899</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-10: APP -->
-      <section class="sec-app" id="app">
-        <div class="app-bg">
-          <img src="assets/ASMAXworld_app.webp" alt="ASMAX World App 画面イメージ" loading="lazy">
-        </div>
-        <div class="container">
-          <div class="app-copy" data-animate>
-            <div class="eyebrow">ASMAX World App</div>
-            <h2>1つのアプリで、<br>すべてを管理。</h2>
-            <p class="app-desc">LED、グループインターコム、通話、音楽EQなど、すべて指先で操作可能。スマートフォンからライドをコントロールしましょう。</p>
-            <div class="app-badges">
-              <a href="https://apps.apple.com/us/app/asmax-world/id6476167600" target="_blank" rel="noopener">
-                <img src="https://www.asmaxworld.com/cdn/shop/files/ASMAX_APP_LPGO.png?v=1774882084" alt="App Store からダウンロード">
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-07: WHY ASMAX JAPAN -->
-      <section class="sec-why">
-        <div class="container">
-          <div style="margin-bottom:var(--space-xl);" data-animate>
-            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">SUPPORT</h2>
-            <p style="margin:var(--space-sm) 0 0;color:var(--muted);font-size:15px;">正規品だからこその安心をお届けします。</p>
-          </div>
-
-          <div class="why-grid">
-            <div class="why-item" data-animate style="--d:0s;">
-              <span class="why-index">01</span>
-              <strong>正規品保証</strong>
-              <p>ASMAX JAPAN 正規取扱品のみを販売。全品検品済みで、安心してお使いいただけます。</p>
-            </div>
-            <div class="why-item" data-animate style="--d:0.06s;">
-              <span class="why-index">02</span>
-              <strong>日本語サポート</strong>
-              <p>日本語対応のカスタマーサポート窓口を完備。設定・接続・トラブル、すべて日本語で対応。</p>
-            </div>
-            <div class="why-item" data-animate style="--d:0.15s;">
-              <span class="why-index">03</span>
-              <strong>2年間保証 / 30日返品</strong>
-              <p>グローバルと同条件の長期保証。万が一の場合も、30日間の返品ポリシーで安心。</p>
-            </div>
-            <div class="why-item" data-animate style="--d:0s;">
-              <span class="why-index">04</span>
-              <strong>技適マーク取得</strong>
-              <p>日本の電波法に適合した正規品。国内で安心してご利用いただけます。</p>
-            </div>
-            <div class="why-item" data-animate style="--d:0.08s;">
-              <span class="why-index">05</span>
-              <strong>日本のヘルメット対応</strong>
-              <p>Arai / SHOEI 等、国内主要メーカーのヘルメットでの装着を確認済み。</p>
-            </div>
-            <div class="why-item" data-animate style="--d:0.18s;">
-              <span class="why-index">06</span>
-              <strong>全国の取扱店</strong>
-              <p>オンラインだけでなく、全国の取扱店で実機の体験・購入が可能です。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="shop bg-gray">
-        <div class="container" data-animate>
-          <div>
-            <span class="shop-kicker">Authorized Stores</span>
-            <h2 class="contents-title">SHOP</h2>
-          </div>
-          <div class="block-caption">
-            <p>ASMAX JAPAN正規取扱店を<br>お近くのエリアから探せます。</p>
-            <p>展示機や取扱モデルは店舗ごとに異なります。<br>詳しくは各店舗へお問い合わせください。</p>
-            <div class="btn size-L btn-bk">
-              <a href="stores.html">SHOP LIST</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="sec-events" id="events">
-        <div class="container">
-          <div class="section-heading" data-animate>
-            <div>
-              <div class="eyebrow">Event</div>
-              <h2>EVENT</h2>
-            </div>
-            <p class="section-desc">ASMAX JAPAN 出展イベント情報</p>
-          </div>
-
-          <div class="event-slider" data-animate="scale" style="--d:0.06s;">
-            <div class="event-track" id="event-track">
-              <article class="event-card">
-                <div class="event-image">
-                  <img src="assets/event-osaka-motorcycle-show-2026.png" alt="第42回大阪モーターサイクルショー2026">
-                </div>
-                <div class="event-copy">
-                  <h3 class="event-title">大阪モーターサイクルショー 2026</h3>
-                  <p class="event-detail">2026年3月20日(金)〜22日(日) / インテックス大阪 1・2号館 / 屋外特設会場</p>
-                </div>
-              </article>
-
-              <article class="event-card">
-                <div class="event-image">
-                  <img src="assets/event-tokyo-motorcycle-show-2026.jpg" alt="第53回東京モーターサイクルショー2026">
-                </div>
-                <div class="event-copy">
-                  <h3 class="event-title">東京モーターサイクルショー 2026</h3>
-                  <p class="event-detail">2026年3月27日(金)〜29日(日) / 東京ビッグサイト 西1・2・3・4ホール / アトリウム / 西屋上展示場</p>
-                </div>
-              </article>
-
-              <article class="event-card">
-                <div class="event-image">
-                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 1">
-                </div>
-                <div class="event-copy">
-                  <h3 class="event-title">名古屋モーターサイクルショー 2026（予定）</h3>
-                  <p class="event-detail">日程・会場調整中 / 出展内容は確定次第お知らせします。</p>
-                </div>
-              </article>
-
-              <article class="event-card">
-                <div class="event-image">
-                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 2">
-                </div>
-                <div class="event-copy">
-                  <h3 class="event-title">福岡モーターサイクルフェス 2026（予定）</h3>
-                  <p class="event-detail">日程・会場調整中 / 試聴・試着体験の実施を予定しています。</p>
-                </div>
-              </article>
-
-              <article class="event-card">
-                <div class="event-image">
-                  <img src="assets/hero-rider.jpg" alt="プレースホルダーイベント 3">
-                </div>
-                <div class="event-copy">
-                  <h3 class="event-title">ASMAX JAPAN Ride Meeting 2026（予定）</h3>
-                  <p class="event-detail">開催エリア調整中 / ファンミート・製品体験ブースを準備中です。</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-08: BRAND STORY -->
-      <section class="sec-story" id="about">
-        <div class="container story-grid">
-          <div class="story-copy" data-animate style="--d:0.1s;">
-            <h2>Born From<br>The Ride.</h2>
-            <p>2004年、ライダー同士のつながりを変えるために。ライダーによるライダーのためのヘルメットインターコムづくりからASMAXは始まりました。</p>
-            <p>それから20年以上。世界中のあらゆる道で、ASMAXは仲間との通信を支え続けています。日本市場でも、その哲学は変わりません。</p>
-            <div class="card-actions" style="margin-top:var(--space-lg);">
-              <a class="ghost-btn" href="about.html">Read More</a>
-            </div>
-          </div>
-
-          <div class="story-visual" data-animate="slide-left">
-            <img
-              class="story-image"
-              src="https://www.asmaxworld.com/cdn/shop/files/maozi.png?v=1773277857"
-              alt="ASMAX ブランドストーリーイメージ"
-              loading="lazy"
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-09: RIDERS VOICE -->
-      <section class="sec-voice">
-        <div class="container">
-          <div class="section-heading" data-animate>
-            <div>
-              <div class="eyebrow">Riders Voice</div>
-              <h2>Voices</h2>
-            </div>
-          </div>
-
-          <div class="voice-grid">
-            <article class="voice-card" data-animate style="--d:0s;">
-              <div class="voice-source">Instagram</div>
-              <strong>@rider_japan_01</strong>
-              <p>EVA R 初号機で箱根ツーリング。グループ10人でも接続が途切れない。見た目も最高。</p>
-            </article>
-            <article class="voice-card" data-animate style="--d:0.07s;">
-              <div class="voice-source">YouTube</div>
-              <strong>バイク系YouTuber A</strong>
-              <p>F1 Proレビュー。SHOEIヘルメットへの取り付けから音質テストまで徹底検証しました。</p>
-            </article>
-            <article class="voice-card" data-animate style="--d:0.16s;">
-              <div class="voice-source">Media</div>
-              <strong>バイク雑誌 B</strong>
-              <p>2026年注目のバイク用インカム。ASMAX F1 Proがグループツーリングの新定番になるか。</p>
-            </article>
-            <article class="voice-card" data-animate style="--d:0.22s;">
-              <div class="voice-source">X</div>
-              <strong>@rider_japan_02</strong>
-              <p>S2コスパ最強。初めてのインカムにこれ買っておけば間違いない。1万円台でこの品質はすごい。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-11: FAQ -->
-      <section class="sec-faq" id="support">
-        <div class="container">
-          <div style="text-align:center;margin-bottom:var(--space-xl);" data-animate>
-            <h2 style="margin:0;font-family:var(--font-en);font-weight:900;font-size:clamp(2rem,4vw,3.8rem);letter-spacing:0.02em;line-height:0.95;color:var(--white);text-transform:uppercase;">FAQ</h2>
-            <p style="margin:var(--space-sm) auto 0;color:var(--muted);font-size:15px;max-width:400px;">お問い合わせの多いご質問にお答えします。</p>
-          </div>
-
-          <div class="faq-shell" data-animate style="--d:0.08s;">
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="true">
-                <span>EVA Rモデルはどこで購入できますか?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">当サイトの各製品ページ「Buy Now」ボタンからご注文いただけます。楽天市場・Yahoo!ショッピングからもお求めいただけます。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>並行輸入品との違いは何ですか?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">ASMAX JAPAN の正規取扱品は、日本語サポート・2年間保証・技適取得済みの正規品です。並行輸入品ではこれらの保証やサポートが受けられない場合があります。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>技適マークは取得していますか?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">はい、ASMAX JAPAN で取り扱う全製品は技適マークを取得しており、日本国内で安心してご利用いただけます。技適番号は各製品ページに記載しています。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>Arai / SHOEI のヘルメットに取り付けられますか?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">はい、Arai・SHOEI をはじめとする国内主要メーカーのヘルメットに対応しています。詳しい取り付け方法は各製品ページのインストールガイドをご覧ください。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>Bluetooth Mesh と CloudTalk の違いは?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">Bluetooth Mesh はスマートフォン不要で最大10人と直接通信できるライダー間通話です。CloudTalk はモバイルデータ通信を利用し、距離無制限で世界中のライダーと通話できます。どちらもEVA R・F1 Proに搭載しています。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>保証期間と返品ポリシーについて教えてください。</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">ASMAX JAPAN 正規取扱品はすべて購入日から2年間の製品保証が付きます。また、お届けから30日以内であれば返品を承ります。詳細は特定商取引法に基づく表記をご確認ください。</div>
-            </div>
-            <div class="faq-item">
-              <button class="faq-trigger" type="button" aria-expanded="false">
-                <span>楽天市場・Yahoo!ショッピングでも購入できますか?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-panel">はい、楽天市場・Yahoo!ショッピングでもASMAX JAPAN 正規品をお求めいただけます。各製品ページおよびページ下部のリンクからアクセスできます。</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SEC-12: INSTAGRAM -->
-      <section class="sec-instagram" id="instagram">
-        <div class="container">
-          <div class="instagram-head" data-animate>
-            <h2>INSTAGRAM</h2>
-            <p class="instagram-sub">@asmax_japan の直近投稿</p>
-          </div>
-
-          <div class="instagram-feed" id="asmax-instagram-posts" data-animate="scale" style="--d:0.06s;"></div>
-
-          <div class="instagram-actions">
-            <a class="btn accent" href="https://www.instagram.com/asmax_japan/" target="_blank" rel="noopener">Instagramを見る</a>
-            <a class="ghost-btn" href="stores.html">取扱店を探す</a>
-          </div>
-          <a class="instagram-meta" href="https://www.instagram.com/asmax_japan/" target="_blank" rel="noopener">公式アカウント: @asmax_japan &rarr;</a>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- ── FOOTER ── -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN">
-              <img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" loading="lazy">
-            </a>
-            <p>日本総代理店 ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年間保証。</p>
-          </div>
-
-          <div>
-            <div class="footer-title">Products</div>
-            <div class="footer-column">
-              <a href="product/detail-eva-r-unit01.html">EVA R 初号機</a>
-              <a href="product/detail-eva-r-unit02.html">EVA R 2号機</a>
-              <a href="product/f1-pro.html">F1 Pro</a>
-              <a href="product/s2.html">S2</a>
-            </div>
-          </div>
-
-          <div>
-            <div class="footer-title">Brand</div>
-            <div class="footer-column">
-              <a href="about.html">About ASMAX</a>
-              <a href="/news">News</a>
-              <a href="stores.html">Partner</a>
-              <a href="/affiliate">Affiliate</a>
-            </div>
-          </div>
-
-          <div>
-            <div class="footer-title">Support</div>
-            <div class="footer-column">
-              <a href="/support">FAQ</a>
-              <a href="/contact">Contact</a>
-              <a href="#">User Manual</a>
-              <a href="#">ASMAXWorld App</a>
-              <a href="#">延長保証</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span>&copy; 2026 ASMAX JAPAN. All rights reserved.<br>日本総代理店：カスタムジャパン</span>
-          <span>
-            <a href="#">特定商取引法に基づく表記</a> /
-            <a href="#">プライバシーポリシー</a> /
-            <a href="#">利用規約</a>
-          </span>
-        </div>
-      </div>
-    </footer>
-
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="ASMAX JAPAN"><img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX"></a>
+    <nav class="site-nav">
+      <a href="#lineup">Products</a>
+      <a href="#compare">Compare</a>
+      <a href="#app">App</a>
+      <a href="#support">Support</a>
+      <a href="stores.html">Store</a>
+    </nav>
+    <div class="head-actions">
+      <a href="#lineup" aria-label="購入">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+      </a>
+      <button class="menu-btn" aria-label="メニュー" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </div>
   </div>
+  <div class="drawer" id="drawer">
+    <div class="wrap">
+      <a href="#lineup">Products</a>
+      <a href="#compare">Compare</a>
+      <a href="#app">App</a>
+      <a href="#support">Support</a>
+      <a href="stores.html">Store</a>
+    </div>
+  </div>
+</header>
 
-  <!-- ── CDN LIBRARIES ── -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js" defer></script>
+<main>
 
-  <!-- ── MAIN SCRIPT ── -->
-  <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ───────────────────────────────────────────
-       UTILS & FEATURE DETECTION
-       ─────────────────────────────────────────── */
-    const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const hasFinePointer = matchMedia('(pointer: fine)').matches;
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow">ASMAX JAPAN — Official</span>
+      <h1>Connect Your<br>Every Ride</h1>
+      <p class="lead">ライドから生まれた。ライドのために作られた。ライダーズインターコムの日本の拠点、ASMAX JAPAN。</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#lineup">ラインナップを見る</a>
+        <a class="link-arrow" href="#compare">3モデルを比較 ›</a>
+      </div>
+      <div class="trust-strip">
+        <span>正規品</span><span>日本語サポート</span><span>2年保証</span><span>技適取得</span>
+      </div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       MOBILE MENU
-       ─────────────────────────────────────────── */
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileDrawer = document.getElementById('mobile-drawer');
-    if (menuToggle && mobileDrawer) {
-      menuToggle.addEventListener('click', () => {
-        const open = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!open));
-        mobileDrawer.classList.toggle('open', !open);
-      });
-      mobileDrawer.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          mobileDrawer.classList.remove('open');
-        });
-      });
-    }
+  <!-- ══ SHOWCASE ① F1 Pro (light) ══ -->
+  <section class="show" id="lineup">
+    <div class="wrap" data-reveal>
+      <span class="show-role">Flagship · All-Rounder</span>
+      <h2 class="show-name">F1 Pro</h2>
+      <p class="show-tag">全部入りフラッグシップ。どのヘルメットにも、確かな性能を。</p>
+      <div class="show-buy">
+        <a class="btn btn-primary" href="product/f1-pro.html">購入する <span class="price">¥35,915〜</span></a>
+        <a class="link-arrow" href="product/detail-f1-pro.html">詳しく見る ›</a>
+      </div>
+      <div class="show-visual"><img src="assets/f1-pro-shiny-new.png" alt="F1 Pro" loading="lazy"></div>
+      <ul class="show-specs">
+        <li><b>16</b><span>最大 Mesh 接続</span></li>
+        <li><b>50</b><span>CloudTalk</span></li>
+        <li><b>IPX7</b><span>防水</span></li>
+      </ul>
+      <div class="show-sw">
+        <i style="--c:#8a8d91" title="シャイニーグレー"></i>
+        <i style="--c:#4b4f55" title="ステラグレー"></i>
+        <em>2色</em>
+      </div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       HEADER SCROLL — 背景はヒーロー通過後に表示
-       ─────────────────────────────────────────── */
-    const siteHeader = document.querySelector('.site-header');
-    const heroSection = document.querySelector('.hero');
-    if (siteHeader) {
-      const updateHeaderBg = () => {
-        // ヒーロー（sticky・ほぼ100svh）を通過したら背景を表示。
-        // sticky要素の offsetHeight は不安定なため viewport を上限に安定化させる。
-        const heroH = heroSection
-          ? Math.min(heroSection.offsetHeight, window.innerHeight)
-          : window.innerHeight;
-        const triggerY = heroH - siteHeader.offsetHeight;
-        siteHeader.classList.toggle('scrolled', window.scrollY >= triggerY);
-      };
+  <!-- ══ SHOWCASE ② Future 1 — EVA R (DARK band) ══ -->
+  <section class="show show-eva band band-dark" id="eva-r">
+    <div class="wrap" data-reveal>
+      <span class="show-role">EVANGELION Racing · Collaboration</span>
+      <h2 class="show-name">Future 1</h2>
+      <p class="show-tag">EVA RACING コラボの特別エディション。初号機／2号機、全4SKU。</p>
+      <div class="show-buy">
+        <a class="btn btn-primary" href="product/eva-r-unit01.html">購入する <span class="price">¥35,000〜</span></a>
+        <a class="link-arrow" href="product/detail-eva-r-unit01.html">詳しく見る ›</a>
+      </div>
+      <div class="show-visual"><img src="assets/eva-r-unit01a-45.png" alt="Future 1 — EVA R" loading="lazy"></div>
+      <ul class="show-specs">
+        <li><b>16</b><span>最大 Mesh 接続</span></li>
+        <li><b>50</b><span>CloudTalk</span></li>
+        <li><b>IPX7</b><span>防水</span></li>
+      </ul>
+      <div class="show-sw">
+        <i style="--c:#7b2d8e"></i><i style="--c:#00c853"></i><i style="--c:#c82828"></i><i style="--c:#ff6d00"></i>
+        <em>全4SKU</em>
+      </div>
+    </div>
+  </section>
 
-      updateHeaderBg();
-      window.addEventListener('scroll', updateHeaderBg, { passive: true });
-      window.addEventListener('resize', updateHeaderBg);
-    }
+  <!-- ══ SHOWCASE ③ S2 (light) ══ -->
+  <section class="show" id="s2">
+    <div class="wrap" data-reveal>
+      <span class="show-role">Entry</span>
+      <h2 class="show-name">S2</h2>
+      <p class="show-tag">はじめての一台に、ちょうどいい。必要十分を、手の届く価格で。</p>
+      <div class="show-buy">
+        <a class="btn btn-primary" href="product/s2.html">購入する <span class="price">¥15,899</span></a>
+        <a class="link-arrow" href="product/detail-s2.html">詳しく見る ›</a>
+      </div>
+      <div class="show-visual"><img src="assets/s2-new.png" alt="S2" loading="lazy"></div>
+      <ul class="show-specs">
+        <li><b>8</b><span>最大 Mesh 接続</span></li>
+        <li><b>50</b><span>CloudTalk</span></li>
+        <li><b>IPX7</b><span>防水</span></li>
+      </ul>
+      <div class="show-sw"><i style="--c:#75787c"></i><em>1色</em></div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       FAQ ACCORDION
-       ─────────────────────────────────────────── */
-    document.querySelectorAll('.faq-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const exp = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!exp));
-      });
-    });
+  <!-- ══ COMPARE ══ -->
+  <section class="sec" id="compare" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Compare</span>
+        <h2>3モデル、並べて選ぶ。</h2>
+      </div>
+      <div class="table-wrap" data-reveal>
+        <table>
+          <thead><tr>
+            <th>Spec</th>
+            <th>F1 Pro<br><small>シャイニー・ステラー</small></th>
+            <th>Future 1<br><small>EVA R 初号機/2号機</small></th>
+            <th>S2</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>カラー展開</td><td>2色</td><td>全4SKU</td><td>1色</td></tr>
+            <tr><td>Bluetooth</td><td>5.3・8コア</td><td>5.4・8コア</td><td>5.4・4コア</td></tr>
+            <tr><td>Mesh通話</td><td>最大16人</td><td>最大16人</td><td>最大8人</td></tr>
+            <tr><td>CloudTalk</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td><td>最大50人（距離無制限）</td></tr>
+            <tr><td>連続通話</td><td>約14時間</td><td>約14時間</td><td>約13時間</td></tr>
+            <tr><td>防水</td><td>IPX7</td><td>IPX7</td><td>IPX7</td></tr>
+            <tr><td>重量</td><td>50g</td><td>50g</td><td>41g</td></tr>
+            <tr><td>価格（税込）</td><td>¥35,915</td><td>¥35,000〜</td><td>¥15,899</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       INTERSECTION OBSERVER (non-GSAP elements)
-       ─────────────────────────────────────────── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+  <!-- ══ APP (DARK band) ══ -->
+  <section class="sec band band-dark" id="app">
+    <div class="wrap">
+      <div class="app-grid">
+        <div class="app-copy" data-reveal>
+          <span class="eyebrow">ASMAX World App</span>
+          <h2>1つのアプリで、<br>すべてを管理。</h2>
+          <p>ファームウェア更新、機器設定、CloudTalk のグループ管理まで。スマホひとつで、あなたのインカムを最新・最適に保ちます。</p>
+          <div class="app-badges">
+            <a class="btn btn-primary" href="#">App Store</a>
+            <a class="btn btn-ghost" href="#">Google Play</a>
+          </div>
+        </div>
+        <div class="app-visual" data-reveal><img src="assets/ASMAXworld_app.webp" alt="ASMAX World App" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       SCROLL PROGRESS BAR (vanilla)
-       ─────────────────────────────────────────── */
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
+  <!-- ══ WHY / TRUST ══ -->
+  <section class="sec" id="support">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Why ASMAX JAPAN</span>
+        <h2>日本総代理店の安心。</h2>
+      </div>
+      <div class="trust-grid" data-reveal>
+        <div class="trust-item"><div class="n">01</div><h3>正規品保証</h3><p>並行輸入品とは異なる、ASMAX JAPAN 正規取扱品。全品検品済み。</p></div>
+        <div class="trust-item"><div class="n">02</div><h3>日本語サポート</h3><p>設定・操作・トラブルまで、日本語対応の専用カスタマーサポート。</p></div>
+        <div class="trust-item"><div class="n">03</div><h3>2年保証 / 30日返品</h3><p>グローバルと同条件の長期保証と、安心の返品ポリシー。</p></div>
+        <div class="trust-item"><div class="n">04</div><h3>技適マーク取得</h3><p>日本の電波法に適合。安心して国内でご利用いただけます。</p></div>
+        <div class="trust-item"><div class="n">05</div><h3>国内ヘルメット対応</h3><p>Arai / SHOEI 等、国内主要ヘルメットでの装着を検証。</p></div>
+        <div class="trust-item"><div class="n">06</div><h3>全国の取扱店</h3><p>オフラインでも購入・体験可能。取扱店ネットワークを展開中。</p></div>
+      </div>
+    </div>
+  </section>
 
-    let ticking = false;
-    function updateProgress() {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = h > 0 ? window.scrollY / h : 0;
-      progressBar.style.transform = `scaleX(${pct})`;
-      ticking = false;
-    }
-    window.addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); }
-    }, { passive: true });
+  <!-- ══ REVIEWS ══ -->
+  <section class="sec" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">Riders Voice</span>
+        <h2>日本のライダーの声。</h2>
+      </div>
+      <div class="review-grid" data-reveal>
+        <article class="review"><div class="src">Instagram</div><div class="stars">★★★★★</div><p>Mesh の途切れにくさが別次元。グループツーリングが快適になった。</p><div class="who">@touring_rider</div></article>
+        <article class="review"><div class="src">YouTube</div><div class="stars">★★★★★</div><p>この価格でこの音質は反則。CloudTalk で遠くの仲間とも話せる。</p><div class="who">モトブロガー K</div></article>
+        <article class="review"><div class="src">Media</div><div class="stars">★★★★★</div><p>マグネット着脱が想像以上に快適。取り回しが良く完成度が高い。</p><div class="who">バイク専門誌</div></article>
+        <article class="review"><div class="src">X</div><div class="stars">★★★★★</div><p>EVA R 初号機、所有欲が満たされる。仲間内でも話題に。</p><div class="who">@eva_rider</div></article>
+      </div>
+    </div>
+  </section>
 
-    /* ═══════════════════════════════════════════
-       REDUCED MOTION — bail out of rich anims
-       ═══════════════════════════════════════════ */
-    if (prefersReduced) return;
+  <!-- ══ FAQ ══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <span class="eyebrow">FAQ</span>
+        <h2>よくある質問。</h2>
+      </div>
+      <div class="faq" data-reveal>
+        <details open><summary>並行輸入品との違いは何ですか？</summary><div class="a">ASMAX JAPAN 正規取扱品は全品検品済みで、日本語サポート・2年保証・技適取得の対象です。並行輸入品はこれらの対象外となります。</div></details>
+        <details><summary>技適マークは取得していますか？</summary><div class="a">取り扱い全モデルが日本の電波法に適合（技適取得済み）です。安心して国内でご利用いただけます。</div></details>
+        <details><summary>Arai / SHOEI のヘルメットに取り付けられますか？</summary><div class="a">国内主要ヘルメットでの装着を検証済みです。マグネット式マウントで簡単に着脱できます。</div></details>
+        <details><summary>Bluetooth Mesh と CloudTalk の違いは？</summary><div class="a">Mesh は近距離のグループ通話（自動再接続）、CloudTalk はモバイル回線を使い距離無制限で最大50人と通話できる機能です。</div></details>
+        <details><summary>楽天市場・Yahoo!ショッピングでも買えますか？</summary><div class="a">各モールでも正規取扱品をご購入いただけます。詳しくは各製品ページのリンクをご覧ください。</div></details>
+      </div>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       PHASE 1: GSAP FOUNDATION (Lenis removed — caused ticker freeze)
-       ─────────────────────────────────────────── */
-    gsap.registerPlugin(ScrollTrigger);
+  <!-- ══ FINAL CTA (DARK) ══ -->
+  <section class="final band band-dark">
+    <div class="wrap" data-reveal>
+      <h2>Ready to Ride?</h2>
+      <p>ASMAX JAPAN 正規取扱品を、お好みの方法でご購入いただけます。</p>
+      <div class="row">
+        <a class="btn btn-primary" href="#lineup">オンラインで購入</a>
+        <a class="btn btn-ghost" href="stores.html">取扱店を探す</a>
+      </div>
+      <p class="malls">外部モール： <a href="#">楽天市場</a> ・ <a href="#">Yahoo!ショッピング</a></p>
+    </div>
+  </section>
 
-    /* ───────────────────────────────────────────
-       PHASE 2: HERO ANIMATION
-       ─────────────────────────────────────────── */
-    const heroCopy = document.getElementById('hero-copy');
-    if (heroCopy) {
-      heroCopy.classList.add('js-init');
-      const h1 = heroCopy.querySelector('h1');
+</main>
 
-      // SplitType — word-level split
-      const split = new SplitType(h1, { types: 'words', tagName: 'span' });
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer band band-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX">
+        <p>日本総代理店 ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年保証。</p>
+      </div>
+      <div class="foot-col"><h4>Products</h4><a href="product/f1-pro.html">F1 Pro</a><a href="product/eva-r-unit01.html">Future 1 — EVA R</a><a href="product/s2.html">S2</a><a href="#compare">スペック比較</a></div>
+      <div class="foot-col"><h4>Brand</h4><a href="about.html">About</a><a href="#app">App</a><a href="stores.html">取扱店</a></div>
+      <div class="foot-col"><h4>Support</h4><a href="#support">FAQ</a><a href="stores.html">お問い合わせ</a><a href="#">保証について</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ASMAX JAPAN. 日本総代理店：カスタムジャパン</span>
+      <span><a href="#">特定商取引法</a> ・ <a href="#">プライバシー</a> ・ <a href="#">利用規約</a></span>
+    </div>
+  </div>
+</footer>
 
-      // Word reveal timeline — opacity + translateY (clip-path not supported in GSAP free)
-      const heroTl = gsap.timeline({ delay: 0.35 });
-
-      // Stagger per word: non-uniform
-      split.words.forEach((word, i) => {
-        const delays = [0, 0.07, 0.14, 0.23]; // "Every" (index 2) has a wider gap
-        heroTl.to(word, {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: 'power3.out',
-        }, delays[i] || i * 0.07);
-      });
-
-      // Sub-elements stagger (non-uniform gaps: 0.20, 0.15, 0.30)
-      const heroSubs = [
-        { el: heroCopy.querySelector('.subcopy'), d: 0.45 },
-        { el: heroCopy.querySelector('.hero-actions'), d: 0.65 },
-        { el: heroCopy.querySelector('.hero-note'), d: 0.8 },
-        { el: document.querySelector('.hero > .scroll-indicator'), d: 1.1 },
-      ];
-      heroSubs.forEach(({ el, d }) => {
-        if (!el) return;
-        heroTl.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: el.classList.contains('hero-note') ? 0.45 : 0.7,
-          ease: el.classList.contains('hero-note') ? 'power1.out' : 'power3.out',
-        }, d);
-      });
-
-      // HERO parallax stays on the hero container so EVA pinning remains untouched.
-      const heroParallaxLayer = document.querySelector('.hero > .container');
-      if (heroParallaxLayer) {
-        gsap.to(heroParallaxLayer, {
-          y: -96,
-          opacity: 0.72,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom 20%',
-            scrub: true,
-          }
-        });
-      }
-    }
-
-    /* ───────────────────────────────────────────
-       PHASE 4: GLOBAL ENHANCEMENTS
-       ─────────────────────────────────────────── */
-
-    /* Parallax — story visual */
-    const storyVisual = document.querySelector('.story-visual');
-    if (storyVisual) {
-      gsap.fromTo(storyVisual, { y: 30 }, {
-        y: -30, ease: 'none',
-        scrollTrigger: { trigger: storyVisual, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    }
-
-    /* Parallax — app background image */
-    const appBgImg = document.querySelector('.app-bg img');
-    if (appBgImg) {
-      gsap.fromTo(appBgImg, { scale: 1.15, y: '-8%' }, {
-        scale: 1, y: '0%', ease: 'none',
-        scrollTrigger: { trigger: '.sec-app', start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    }
-
-    /* Parallax — CTA band gradient shift */
-    const ctaBand = document.querySelector('.cta-band');
-    if (ctaBand) {
-      gsap.fromTo(ctaBand, { backgroundPosition: '50% 20%' }, {
-        backgroundPosition: '50% -10%', ease: 'none',
-        scrollTrigger: { trigger: ctaBand, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    }
-
-    /* Price counter animation (vanilla) */
-    const priceObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        priceObserver.unobserve(el);
-
-        const text = el.textContent.trim();
-        const match = text.match(/[\d,]+/);
-        if (!match) return;
-
-        const target = parseInt(match[0].replace(/,/g, ''), 10);
-        const prefix = text.slice(0, text.indexOf(match[0]));
-        // Slightly varied duration per element
-        const idx = [...document.querySelectorAll('[data-price]')].indexOf(el);
-        const duration = 1200 + (idx % 3 === 1 ? 150 : idx % 3 === 2 ? -100 : 0);
-        const start = performance.now();
-
-        function tick(now) {
-          const elapsed = now - start;
-          const t = Math.min(1, elapsed / duration);
-          const eased = 1 - Math.pow(1 - t, 3); // deceleration
-          const current = Math.round(target * eased);
-          el.textContent = prefix + new Intl.NumberFormat('ja-JP').format(current);
-          if (t < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('[data-price]').forEach(el => priceObserver.observe(el));
-
-    /* Instagram latest posts (static JSON generated server/build side) */
-    const instagramPostsRoot = document.getElementById('asmax-instagram-posts');
-    if (instagramPostsRoot) {
-      const renderInstagramCards = (posts) => {
-        instagramPostsRoot.innerHTML = posts.map(post => {
-          const imageUrl = post.thumbnail_url || post.media_url || 'assets/hero-rider.jpg';
-          const captionRaw = (post.caption || '').replace(/\s+/g, ' ').trim();
-          const caption = captionRaw.length > 90 ? `${captionRaw.slice(0, 90)}...` : captionRaw;
-          const permalink = 'https://www.instagram.com/asmax_japan/';
-
-          return `
-            <article class="insta-card">
-              <a href="${permalink}" target="_blank" rel="noopener">
-                <div class="insta-thumb">
-                  <img src="${imageUrl}" alt="ASMAX Instagram post" loading="lazy">
-                </div>
-                <div class="insta-copy">${caption || '最新投稿は公式Instagramで公開中'}</div>
-              </a>
-            </article>
-          `;
-        }).join('');
-      };
-
-      const fallbackPosts = [
-        { media_url: 'assets/event-osaka-motorcycle-show-2026.png', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'ASMAX MODE の使い方をチェック' },
-        { media_url: 'assets/event-tokyo-motorcycle-show-2026.jpg', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'ASMAX MODE 新機能の紹介' },
-        { media_url: 'assets/hero-rider.jpg', permalink: 'https://www.instagram.com/asmax_japan/', caption: '最新アップデート情報を公開中' },
-        { media_url: 'assets/ASMAXworld_app.webp', permalink: 'https://www.instagram.com/asmax_japan/', caption: 'キャンペーン・お知らせを公開中' },
-      ];
-
-      (async () => {
-        const candidates = [
-          './static/asmax_latest_posts.json',
-          'static/asmax_latest_posts.json',
-          '/static/asmax_latest_posts.json',
-        ];
-
-        for (const path of candidates) {
-          try {
-            const response = await fetch(path, { cache: 'no-store' });
-            if (!response.ok) continue;
-            const data = await response.json();
-            const posts = Array.isArray(data?.posts) ? data.posts.slice(0, 4) : [];
-            if (posts.length) {
-              renderInstagramCards(posts);
-              return;
-            }
-          } catch (_) {}
-        }
-
-        renderInstagramCards(fallbackPosts);
-      })();
-    }
-
-    /* Event auto-slide (3 cards base) */
-    const eventTrack = document.getElementById('event-track');
-    if (eventTrack) {
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!reduceMotion) {
-        const eventCards = [...eventTrack.children];
-        eventCards.forEach(card => eventTrack.appendChild(card.cloneNode(true)));
-
-        let eventOffset = 0;
-        const eventSpeed = 0.35;
-        let eventRafId = null;
-
-        const runEventSlide = () => {
-          eventOffset -= eventSpeed;
-          const loopPoint = eventTrack.scrollWidth / 2;
-          if (Math.abs(eventOffset) >= loopPoint) eventOffset = 0;
-          eventTrack.style.transform = `translate3d(${eventOffset}px, 0, 0)`;
-          eventRafId = requestAnimationFrame(runEventSlide);
-        };
-
-        eventRafId = requestAnimationFrame(runEventSlide);
-
-        const eventSlider = eventTrack.closest('.event-slider');
-        if (eventSlider) {
-          eventSlider.addEventListener('mouseenter', () => {
-            if (eventRafId) cancelAnimationFrame(eventRafId);
-            eventRafId = null;
-          }, { passive: true });
-
-          eventSlider.addEventListener('mouseleave', () => {
-            if (!eventRafId) eventRafId = requestAnimationFrame(runEventSlide);
-          }, { passive: true });
-        }
-      }
-    }
-
-    /* ───────────────────────────────────────────
-       PHASE 5: MICRO-INTERACTIONS
-       ─────────────────────────────────────────── */
-    if (!hasFinePointer) return;
-
-    /* Magnetic hover on buttons */
-    const magneticBtns = document.querySelectorAll('.btn, .ghost-btn');
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const rect = btn.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = Math.max(-8, Math.min(8, (e.clientX - cx) * 0.15));
-        const dy = Math.max(-8, Math.min(8, (e.clientY - cy) * 0.15));
-        btn.style.transform = `translate(${dx}px, ${dy}px)`;
-      }, { passive: true });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transition = 'transform 0.3s cubic-bezier(0.25,1,0.5,1)';
-        btn.style.transform = 'translate(0,0)';
-        setTimeout(() => { btn.style.transition = ''; }, 300);
-      }, { passive: true });
-    });
-
-    /* Card 3D tilt */
-    const tiltCards = document.querySelectorAll('.product-card');
-    tiltCards.forEach(card => {
-      // Add glare element
-      card.classList.add('has-tilt');
-      const glare = document.createElement('div');
-      glare.className = 'tilt-glare';
-      card.appendChild(glare);
-
-      card.addEventListener('mouseenter', () => {
-        card.style.willChange = 'transform';
-      }, { passive: true });
-
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const rx = y * -6;  // max ±3deg
-        const ry = x * 6;
-        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-        // Shift glare
-        glare.style.backgroundPosition = `${50 + x * 30}% ${50 + y * 30}%`;
-      }, { passive: true });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transition = 'transform 0.5s cubic-bezier(0.25,1,0.5,1)';
-        card.style.transform = '';
-        setTimeout(() => {
-          card.style.transition = '';
-          card.style.willChange = '';
-        }, 500);
-      }, { passive: true });
-    });
-
-  }); // end DOMContentLoaded
-  </script>
+<script>
+  // mobile drawer
+  var mb=document.querySelector('.menu-btn'),dr=document.getElementById('drawer');
+  mb.addEventListener('click',function(){var o=mb.getAttribute('aria-expanded')==='true';mb.setAttribute('aria-expanded',String(!o));dr.classList.toggle('open',!o);});
+  dr.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mb.setAttribute('aria-expanded','false');dr.classList.remove('open');});});
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.14});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+</script>
 </body>
 </html>
