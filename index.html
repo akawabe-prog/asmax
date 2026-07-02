@@ -532,6 +532,124 @@
     .eva-collab-banner:hover { border-color: var(--border-strong); }
     .eva-collab-cta { display: inline-flex; margin-top: var(--space-lg); }
 
+    /* ═══════════════════════════════════════════
+       PRODUCT SHOWCASE — Apple風 全面ショーケース帯 ×3
+       各帯は sticky hero を覆うため必ず不透明背景 + z-index。
+       ═══════════════════════════════════════════ */
+    .showcase {
+      position: relative;
+      z-index: 2;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(88px, 13vh, 176px) 0;
+      text-align: center;
+      background: linear-gradient(180deg, #0c0c0c 0%, #090909 100%);
+    }
+    .showcase + .showcase { border-top: 1px solid var(--border); }
+    .showcase > .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .showcase-role {
+      font-family: var(--font-en);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--metal);
+    }
+    .showcase-name {
+      margin: 10px 0 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .showcase-tag {
+      margin: var(--space-md) 0 0;
+      font-size: clamp(16px, 2vw, 21px);
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 34ch;
+    }
+    .showcase-buy {
+      margin-top: var(--space-lg);
+      display: flex; flex-wrap: wrap; gap: 14px 24px;
+      align-items: center; justify-content: center;
+    }
+    .btn-buy {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 34px;
+      border-radius: var(--r-pill);
+      background: var(--accent-grad); color: #fff;
+      font-family: var(--font-en); font-weight: 700; font-size: 15px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 12px 34px var(--accent-glow);
+      transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+    }
+    .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 18px 44px var(--accent-glow); }
+    .btn-buy .price { font-weight: 600; opacity: 0.92; font-size: 13px; }
+    .link-more {
+      color: var(--accent);
+      font-family: var(--font-en); font-weight: 600; font-size: 15px;
+      transition: opacity var(--dur-fast) var(--ease-out);
+    }
+    .link-more:hover { opacity: 0.72; }
+    .showcase-visual {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      margin: clamp(28px, 5vh, 60px) auto 0;
+    }
+    .showcase-visual::before {
+      content: "";
+      position: absolute;
+      inset: 8% 8% 6%;
+      z-index: 0;
+      border-radius: 50%;
+      filter: blur(60px);
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+    }
+    .showcase-visual img { position: relative; z-index: 1; width: 100%; height: auto; }
+    /* Future 1 = EVA context — 控えめな紫→赤グロー（この帯限定） */
+    .showcase-eva .showcase-visual::before {
+      background: radial-gradient(circle at 38% 45%, rgba(123,45,142,0.22), transparent 62%),
+                  radial-gradient(circle at 66% 55%, rgba(200,40,40,0.18), transparent 62%);
+    }
+    .showcase-eva { background: linear-gradient(180deg, #0d0a10 0%, #0a0809 100%); }
+    .showcase-specs {
+      list-style: none; margin: var(--space-xl) 0 0; padding: 0;
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: clamp(22px, 5vw, 60px);
+    }
+    .showcase-specs b {
+      display: block;
+      font-family: var(--font-en); font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      color: var(--white); line-height: 1;
+    }
+    .showcase-specs span {
+      display: block; margin-top: 8px;
+      font-size: 11.5px; letter-spacing: 0.1em;
+      color: var(--metal); text-transform: uppercase;
+      font-family: var(--font-en);
+    }
+    .showcase-swatches {
+      margin-top: var(--space-lg);
+      display: flex; gap: 10px; align-items: center; justify-content: center;
+    }
+    .showcase-swatches .sw {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--c, #888); border: 1px solid var(--border-strong);
+    }
+    .showcase-swatches .sw-count {
+      font-family: var(--font-en); font-size: 12px; color: var(--metal);
+      letter-spacing: 0.06em; margin-left: 6px;
+    }
+
     .sec-lineup,
     .sec-compare,
     .sec-why,
@@ -2009,113 +2127,82 @@
         <a class="scroll-indicator" href="#lineup">Scroll</a>
       </section>
 
-      <!-- SEC-04: JAPAN LINEUP（製品力主導・F1 Pro を軸に） -->
-      <section class="sec-lineup" id="lineup" style="border-top:1px solid var(--border);">
-        <div class="container">
-          <div class="section-heading" data-animate>
-            <div>
-              <div class="eyebrow">Japan Lineup</div>
-              <h2>Product</h2>
-            </div>
-            <p class="section-desc">ASMAX JAPAN取扱い商品</p>
+      <!-- 製品ショーケース ①: F1 Pro（フラッグシップ） -->
+      <section class="showcase" id="lineup">
+        <div class="container" data-animate>
+          <span class="showcase-role">Flagship · All-Rounder</span>
+          <h2 class="showcase-name">F1 Pro</h2>
+          <p class="showcase-tag">全部入りフラッグシップ。どのヘルメットにも、確かな性能を。</p>
+          <div class="showcase-buy">
+            <a class="btn-buy" href="product/f1-pro.html">購入する <span class="price">¥35,915〜</span></a>
+            <a class="link-more" href="product/detail-f1-pro.html">詳しく見る ›</a>
           </div>
-
-          <div class="lineup-grid">
-            <h3 class="lineup-group-title" data-animate style="--d:0.02s;">F1 Pro <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — Flagship / All-Rounder</span></h3>
-            <article class="product-card featured has-tilt" data-animate style="--d:0.04s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-shiny-new.png" alt="F1 Pro シャイニーグレー" loading="lazy"></div>
-              <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
-              <p>シャイニーグレー｜08WS03AFIN017</p>
-              <div class="product-price" data-sku="f1-pro-shiny">¥35,915<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
-                <a class="btn" href="product/f1-pro.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card featured has-tilt" data-animate style="--d:0.08s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/f1-pro-stellar-new.png" alt="F1 Pro ステラグレー" loading="lazy"></div>
-              <h3><a href="product/detail-f1-pro.html">F1 Pro</a></h3>
-              <p>ステラグレー｜08WS03AFIN033</p>
-              <div class="product-price" data-sku="f1-pro-stellar">¥35,915<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-f1-pro.html">View Details</a>
-                <a class="btn" href="product/f1-pro.html">Buy Now</a>
-              </div>
-            </article>
-
-            <h3 class="lineup-group-title" data-animate style="--d:0.12s;">Future 1 <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — EVA R Edition</span></h3>
-            <article class="product-card has-tilt" data-animate style="--d:0.14s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01a-45.png" alt="EVA R 初号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">初号機A</a></h3>
-              <p>パープル｜WS10 EVA-01A</p>
-              <div class="product-price" data-sku="eva-r-unit01a">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card has-tilt" data-animate style="--d:0.18s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02b-45.png" alt="EVA R 初号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit01.html">初号機B</a></h3>
-              <p>パープル/グリーン｜WS10 EVA-01B</p>
-              <div class="product-price" data-sku="eva-r-unit01b">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit01.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit01.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card has-tilt" data-animate style="--d:0.22s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit01b-45.png" alt="EVA R 2号機-A" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">2号機A</a></h3>
-              <p>レッド｜WS10 EVA-02A</p>
-              <div class="product-price" data-sku="eva-r-unit02a">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
-              </div>
-            </article>
-
-            <article class="product-card has-tilt" data-animate style="--d:0.26s;">
-              <div class="product-visual"><img class="product-device-image" src="assets/eva-r-unit02a-45.png" alt="EVA R 2号機-B" loading="lazy"></div>
-              <h3><a href="product/detail-eva-r-unit02.html">2号機B</a></h3>
-              <p>レッド/オレンジ｜WS10 EVA-02B</p>
-              <div class="product-price" data-sku="eva-r-unit02b">¥35,000<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-eva-r-unit02.html">View Details</a>
-                <a class="btn" href="product/eva-r-unit02.html">Buy Now</a>
-              </div>
-            </article>
-
-            <h3 class="lineup-group-title" data-animate style="--d:0.3s;">S2 <span style="color:var(--metal);font-size:13px;font-weight:600;letter-spacing:0.04em;"> — Entry</span></h3>
-            <article class="product-card has-tilt" data-animate style="--d:0.32s;">
-              <div class="product-visual"><img class="product-device-image s2-image" src="assets/s2-new.png" alt="S2 グレー" loading="lazy"></div>
-              <h3><a href="product/detail-s2.html">S2</a></h3>
-              <p>はじめての一台に最適｜08WS04AFIN017</p>
-              <div class="product-price" data-sku="s2">¥15,899<small> 税込</small></div>
-              <div class="product-meta">
-                <a class="ghost-btn" href="product/detail-s2.html">View Details</a>
-                <a class="btn" href="product/s2.html">Buy Now</a>
-              </div>
-            </article>
+          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
+            <img src="assets/f1-pro-shiny-new.png" alt="F1 Pro" loading="lazy">
+          </div>
+          <ul class="showcase-specs">
+            <li><b>16</b><span>最大 Mesh 接続</span></li>
+            <li><b>50</b><span>CloudTalk</span></li>
+            <li><b>IPX7</b><span>防水</span></li>
+          </ul>
+          <div class="showcase-swatches">
+            <span class="sw" style="--c:#8a8d91" title="シャイニーグレー"></span>
+            <span class="sw" style="--c:#4b4f55" title="ステラグレー"></span>
+            <span class="sw-count">2色</span>
           </div>
         </div>
       </section>
 
-      <!-- SEC: EVA R COLLAB（頂点から降格した通常セクション） -->
-      <section class="sec-eva-collab" id="eva-r">
-        <div class="container">
-          <div data-animate>
-            <div class="eyebrow">ASMAX × Evangelion Racing</div>
-            <h2>Future 1 — EVA R</h2>
-            <p class="sec-desc">初号機 / 2号機。Future 1 の特別エディション、全4SKU。</p>
+      <!-- 製品ショーケース ②: Future 1（EVA R エディション） -->
+      <section class="showcase showcase-eva" id="eva-r">
+        <div class="container" data-animate>
+          <span class="showcase-role">EVANGELION Racing · Collaboration</span>
+          <h2 class="showcase-name">Future 1</h2>
+          <p class="showcase-tag">EVA RACING コラボの特別エディション。初号機／2号機、全4SKU。</p>
+          <div class="showcase-buy">
+            <a class="btn-buy" href="product/eva-r-unit01.html">購入する <span class="price">¥35,000〜</span></a>
+            <a class="link-more" href="product/detail-eva-r-unit01.html">詳しく見る ›</a>
           </div>
-          <a class="eva-collab-banner" href="product/detail-eva-r-unit01.html" data-animate="scale" style="--d:0.06s;" aria-label="EVA R モデルページへ">
-            <img src="assets/eva-banner-1300x712.png" alt="ASMAX × EVA RACING" loading="lazy">
-          </a>
-          <a class="btn eva-collab-cta" href="product/detail-eva-r-unit01.html" data-animate style="--d:0.12s;">EVA R モデルを見る</a>
+          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
+            <img src="assets/eva-r-unit01a-45.png" alt="Future 1 — EVA R" loading="lazy">
+          </div>
+          <ul class="showcase-specs">
+            <li><b>16</b><span>最大 Mesh 接続</span></li>
+            <li><b>50</b><span>CloudTalk</span></li>
+            <li><b>IPX7</b><span>防水</span></li>
+          </ul>
+          <div class="showcase-swatches">
+            <span class="sw" style="--c:#7b2d8e" title="初号機A"></span>
+            <span class="sw" style="--c:#00c853" title="初号機B"></span>
+            <span class="sw" style="--c:#c82828" title="2号機A"></span>
+            <span class="sw" style="--c:#ff6d00" title="2号機B"></span>
+            <span class="sw-count">全4SKU</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 製品ショーケース ③: S2（エントリー） -->
+      <section class="showcase" id="s2">
+        <div class="container" data-animate>
+          <span class="showcase-role">Entry</span>
+          <h2 class="showcase-name">S2</h2>
+          <p class="showcase-tag">はじめての一台に、ちょうどいい。必要十分を、手の届く価格で。</p>
+          <div class="showcase-buy">
+            <a class="btn-buy" href="product/s2.html">購入する <span class="price">¥15,899</span></a>
+            <a class="link-more" href="product/detail-s2.html">詳しく見る ›</a>
+          </div>
+          <div class="showcase-visual" data-animate="scale" style="--d:0.08s;">
+            <img src="assets/s2-new.png" alt="S2" loading="lazy">
+          </div>
+          <ul class="showcase-specs">
+            <li><b>8</b><span>最大 Mesh 接続</span></li>
+            <li><b>50</b><span>CloudTalk</span></li>
+            <li><b>IPX7</b><span>防水</span></li>
+          </ul>
+          <div class="showcase-swatches">
+            <span class="sw" style="--c:#75787c" title="グレー"></span>
+            <span class="sw-count">1色</span>
+          </div>
         </div>
       </section>
 
