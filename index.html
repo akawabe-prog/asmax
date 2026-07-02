@@ -479,7 +479,22 @@
       position: relative;
       z-index: 2;
       isolation: isolate;
+      overflow: hidden;
       padding: var(--space-section-md) 0;
+    }
+    .sec-eva-collab::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 82% 0%, rgba(255,107,0,0.06), transparent 34%),
+        linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
+    }
+    .sec-eva-collab > .container {
+      position: relative;
+      z-index: 2;
     }
     .sec-eva-collab h2 {
       margin: var(--space-sm) 0 0;
@@ -1329,9 +1344,15 @@
        EVENTS
        ═══════════════════════════════════════════ */
     .sec-events {
+      position: relative;
+      z-index: 2;
+      isolation: isolate;
       padding: var(--space-section-md) 0;
       border-top: 1px solid var(--border);
       overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255,107,0,0.06), transparent 34%),
+        linear-gradient(180deg, #0b0b0b 0%, #0a0a0a 100%);
     }
 
     .event-slider {
