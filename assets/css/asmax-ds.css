@@ -13,14 +13,15 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── ACCENT — Cyan（ブランドアクセント） ── */
-  --accent:        #06B6D4;   /* 基本シアン：ボタン地・ダーク上リンク */
-  --accent-2:      #0891B2;   /* 深いシアン：グラデ終端 */
-  --accent-deep:   #0E7490;   /* 明所のテキストリンク（白地でも可読） */
-  --accent-bright: #22D3EE;   /* 明るいシアン：グラデ始点・ダーク上の光 */
-  --accent-grad:   linear-gradient(135deg, #22D3EE 0%, #06B6D4 55%, #0891B2 100%);
-  --accent-soft:   rgba(6,182,212,0.12);
-  --accent-glow:   rgba(6,182,212,0.35);
+  /* ── ACCENT — 本国ロゴと同一のアクア（実測 #3BFFD9 / HSL 168°,100%,62%） ── */
+  --accent:        #3BFFD9;   /* ブランドアクア：ボタン地・グロー・ダーク上の光 */
+  --accent-2:      #14E0C0;   /* やや深いアクア：グラデ中間 */
+  --accent-deep:   #007D68;   /* 同色相の濃いティール：明所のテキスト/リンク/eyebrow（白地で可読） */
+  --accent-bright: #5BFFDE;   /* 最も明るいアクア：ダーク上のリンク/光 */
+  --accent-grad:   linear-gradient(135deg, #5BFFDE 0%, #2BF4D0 50%, #14D8BB 100%);
+  --accent-soft:   rgba(59,255,217,0.14);
+  --accent-glow:   rgba(59,255,217,0.38);
+  --on-accent-ink: #06231D;   /* アクア地の上に載せる濃色テキスト */
 
   /* ── FOUNDATION（LIGHT 既定） ── */
   --bg:          #FFFFFF;   /* ページ地 */

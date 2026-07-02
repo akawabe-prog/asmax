@@ -26,9 +26,8 @@
 
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-en);font-weight:700;font-size:15px;padding:14px 30px;border-radius:var(--r-btn);transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),background var(--dur-fast);border:1px solid transparent}
-  .btn-primary{background:linear-gradient(135deg,#0EA5BE,#0B7C94);color:#fff;box-shadow:0 8px 24px var(--accent-glow)}
+  .btn-primary{background:var(--accent-grad);color:var(--on-accent-ink);font-weight:800;box-shadow:0 8px 24px var(--accent-glow)}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 34px var(--accent-glow)}
-  .band-dark .btn-primary{background:var(--accent-grad)}
   .btn-ghost{background:transparent;color:var(--text);border-color:var(--border-mid)}
   .btn-ghost:hover{border-color:var(--text)}
   .btn .price{font-weight:500;font-size:13px;opacity:.9}
@@ -151,6 +150,21 @@
   .foot-col a:hover{color:var(--text)}
   .foot-bottom{padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
   .foot-bottom a{color:var(--muted)}
+
+  /* ── STORY photo band (本国ライフスタイル素材) ── */
+  .story-band{position:relative;padding:clamp(96px,17vh,190px) 0;text-align:center;color:#fff;overflow:hidden;background:#0a0a0a}
+  .story-band::before{content:"";position:absolute;inset:0;background:url(assets/world-ride.jpg) center/cover no-repeat;opacity:.55;z-index:0;transform:scale(1.04)}
+  .story-band::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,9,10,.5) 0%,rgba(8,9,10,.72) 100%)}
+  .story-band .wrap{position:relative;z-index:2}
+  .story-band .eyebrow{color:var(--accent-bright)}
+  .story-band h2{font-family:var(--font-en);font-weight:900;font-size:var(--fs-h2);letter-spacing:-.02em;line-height:1;margin:12px 0 0;color:#fff}
+  .story-band p{margin:18px auto 0;max-width:46ch;color:rgba(255,255,255,.84);font-size:var(--fs-lead)}
+
+  /* ── PRESS strip（掲載メディア） ── */
+  .press{margin-bottom:var(--space-xl)}
+  .press .lab{text-align:center;font-family:var(--font-en);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+  .press .row{display:flex;gap:clamp(26px,6vw,60px);align-items:center;justify-content:center;flex-wrap:wrap}
+  .press img{height:20px;width:auto;opacity:.5;filter:grayscale(1)}
 
   /* ── reveal ── */
   [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity var(--dur-enter) var(--ease-out),transform var(--dur-enter) var(--ease-out)}
@@ -287,6 +301,15 @@
     </div>
   </section>
 
+  <!-- ══ STORY photo band ══ -->
+  <section class="story-band">
+    <div class="wrap" data-reveal>
+      <span class="eyebrow">Born From The Ride</span>
+      <h2>ライドから、生まれた。</h2>
+      <p>2004年の創業から、ASMAX はライダー自身の声で進化してきました。ASMAX JAPAN は、その哲学を日本のライダーへ。</p>
+    </div>
+  </section>
+
   <!-- ══ COMPARE ══ -->
   <section class="sec" id="compare" style="background:var(--bg-soft)">
     <div class="wrap">
@@ -356,6 +379,15 @@
   <!-- ══ REVIEWS ══ -->
   <section class="sec" style="background:var(--bg-soft)">
     <div class="wrap">
+      <div class="press" data-reveal>
+        <div class="lab">As Featured In</div>
+        <div class="row">
+          <img src="assets/press/marketwatch.png" alt="MarketWatch" loading="lazy">
+          <img src="assets/press/prnewswire.png" alt="PR Newswire" loading="lazy">
+          <img src="assets/press/mba.png" alt="MBA" loading="lazy">
+          <img src="assets/press/imoto.png" alt="i-moto" loading="lazy">
+        </div>
+      </div>
       <div class="sec-head" data-reveal>
         <span class="eyebrow">Riders Voice</span>
         <h2>日本のライダーの声。</h2>
