@@ -99,7 +99,7 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 .stat-row{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
 .stat-row .st b{font-family:var(--font-en);font-variation-settings:"wdth" 116;font-weight:800;font-size:clamp(30px,3.4vw,46px);line-height:1}
 .stat-row .st b small{font-size:.45em;color:var(--sub);margin-left:3px}
-.stat-row .st span{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.stat-row .st > span{display:block;font-size:12px;color:var(--sub);margin-top:6px}
 
 /* ---- カードグリッド ---- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
