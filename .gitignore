@@ -16,3 +16,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.swp
+
+# 本番アップ用の生成フォルダ(scripts/build-deploy.py で生成)
+/asmax/
