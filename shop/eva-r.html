@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVA R モデルを購入 | ASMAX JAPAN 公式ストア</title>
+<meta name="description" content="ASMAX × EVANGELION RACING 公式コラボ「EVA R モデル」¥35,000(税込)。初号機A/B・2号機A/B 全4モデル。公式ストア購入でメーカー保証4年。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ ASMAX SHOP — ATMOS購入画面(EVAテーマ) ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --font-en:"Archivo",sans-serif;--font-ja:"Noto Sans JP",sans-serif;
+  --header-h:68px;--ease:cubic-bezier(.22,.61,.2,1);
+  --bg:#120b10;--bg2:#1a0f15;--ink:#f6f1f2;--sub:#a89aa0;
+  --accent:#ff3b4e;--accent-dim:rgba(255,59,78,.14);
+  --line:rgba(255,255,255,.1);--card:#1b1016;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-ja);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+.en{font-family:var(--font-en)}
+.wrap{width:min(1240px,94vw);margin:0 auto}
+.eyebrow{font-family:var(--font-en);font-size:11.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.hd{position:fixed;inset:0 0 auto;z-index:90;mix-blend-mode:difference}
+.hd .bar{width:min(1360px,94vw);margin:0 auto;height:var(--header-h);display:flex;align-items:center;justify-content:space-between}
+.hd img{width:106px}
+.hd nav{display:flex;gap:26px;font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.12em;color:#fff}
+.hd nav a{opacity:.75}.hd nav a:hover{opacity:1}
+@media(max-width:800px){.hd nav{display:none}}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}.rv[data-d="3"]{transition-delay:.3s}
+.buy{padding:calc(var(--header-h) + 30px) 0 60px}
+.crumb{font-size:12px;color:var(--sub);margin-bottom:22px}
+.crumb a:hover{color:var(--ink)}
+.buy-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:min(4.5vw,60px);align-items:start}
+@media(max-width:920px){.buy-grid{grid-template-columns:1fr}}
+.gal-main{background:var(--card);border:1px solid var(--line);border-radius:22px;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.gal-main .glow{position:absolute;width:64%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--eva-glow,rgba(122,79,208,.24)),transparent 70%);filter:blur(16px);transition:background .6s}
+.gal-main img{position:relative;max-width:84%;max-height:84%;object-fit:contain;transition:opacity .3s var(--ease)}
+.gal-main img.swap{opacity:0}
+.gal-main.photo img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover}
+.gal-credit{position:absolute;right:14px;bottom:10px;font-size:10px;color:var(--sub);z-index:2}
+.thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.thumbs button{width:76px;height:76px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .25s}
+.thumbs button img{max-width:82%;max-height:82%;object-fit:contain}
+.thumbs button.photo img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:cover}
+.thumbs button.on{border-color:var(--accent)}
+.p-pos{margin-bottom:8px}
+h1.p-name{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.35}
+.p-name-en{font-family:var(--font-en);font-variation-settings:"wdth" 118;font-weight:800;color:var(--sub);font-size:13.5px;letter-spacing:.08em;margin-top:4px}
+.p-price{display:flex;align-items:baseline;gap:10px;margin:22px 0 4px}
+.p-price b{font-family:var(--font-en);font-size:clamp(30px,3vw,38px);font-weight:800}
+.p-price small{color:var(--sub);font-size:13px}
+.p-note{font-size:12px;color:var(--sub)}
+.opt-label{font-size:12.5px;font-weight:700;color:var(--sub);margin:26px 0 10px;letter-spacing:.06em}
+.opt-label b{color:var(--ink)}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.models button{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:12.5px;font-weight:700;color:var(--sub);text-align:left;transition:.25s}
+.models button .sw{flex:0 0 34px;height:12px;border-radius:6px;background:var(--c)}
+.models button.on{border-color:var(--c);color:var(--ink);box-shadow:0 0 0 1px var(--c),0 10px 26px -14px var(--c)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;width:max-content;overflow:hidden}
+.qty button{width:44px;height:44px;font-size:18px;color:var(--sub)}
+.qty button:hover{color:var(--ink)}
+.qty output{width:44px;text-align:center;font-family:var(--font-en);font-weight:800;font-size:16px}
+.cartrow{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn-cart{flex:1;min-width:230px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#2b0409;font-weight:800;font-size:16px;letter-spacing:.04em;padding:17px 30px;border-radius:99px;transition:.3s var(--ease)}
+.btn-cart:hover{transform:translateY(-2px);box-shadow:0 16px 40px var(--accent-dim)}
+.btn-cart[disabled]{opacity:.55;transform:none}
+.cart-message{display:none;font-size:13px;font-weight:700;margin-top:12px}
+.cart-message.msg-info{color:var(--sub)}.cart-message.msg-success{color:#2fd573}.cart-message.msg-error{color:#ff5566}
+.w4{display:flex;align-items:center;gap:16px;border:1px solid var(--line);background:linear-gradient(100deg,var(--accent-dim),transparent 60%),var(--card);border-radius:16px;padding:16px 20px;margin-top:26px}
+.w4 .y{font-family:var(--font-en);font-variation-settings:"wdth" 118;font-weight:800;font-size:30px;color:var(--accent);line-height:1;white-space:nowrap}
+.w4 .y small{font-size:12px;letter-spacing:.1em}
+.w4 p{font-size:12.5px;color:var(--sub)}
+.w4 p b{color:var(--ink)}
+.trust-mini{list-style:none;display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.trust-mini li{font-size:11.5px;font-weight:700;color:var(--sub);display:flex;align-items:center;gap:6px}
+.trust-mini li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.chip-specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip-specs li{list-style:none;font-size:11.5px;font-weight:700;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:5px 13px}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(18,11,16,.9);backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s var(--ease)}
+.buybar.show{transform:none}
+.buybar .in{width:min(1240px,94vw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 0}
+.buybar img{width:46px;height:46px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
+.buybar .nm{font-size:13.5px;font-weight:800}
+.buybar .pr{font-family:var(--font-en);font-weight:800;font-size:16px;margin-left:auto}
+.buybar .btn-cart{flex:0 0 auto;min-width:0;padding:12px 26px;font-size:14px}
+@media(max-width:700px){.buybar .nm span{display:none}}
+.lp-head{text-align:center;padding:90px 0 50px}
+.lp-head .t{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.5}
+.lp-head .s{color:var(--sub);margin-top:12px;font-size:14.5px}
+.feature{padding:60px 0}
+.feature .fx{display:grid;grid-template-columns:1fr 1fr;gap:min(5vw,70px);align-items:center}
+.feature .fx.rev .vis{order:2}
+@media(max-width:880px){.feature .fx{grid-template-columns:1fr}.feature .fx.rev .vis{order:0}}
+.fno{font-family:var(--font-en);font-variation-settings:"wdth" 120;font-weight:800;font-size:13px;letter-spacing:.3em;color:var(--accent)}
+.feature h3{font-size:clamp(23px,2.6vw,34px);font-weight:900;line-height:1.5;margin:12px 0 16px}
+.feature p{color:var(--sub);font-size:15px;max-width:34em}
+.feature .vis{position:relative;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;min-height:340px}
+.feature .vis img{width:100%;height:100%;object-fit:cover}
+.feature .vis.pad img{width:82%;height:auto;object-fit:contain}
+.feature .vis .glow{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--accent-dim),transparent 70%);filter:blur(18px)}
+/* 通信モードカード */
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:880px){.modes{grid-template-columns:1fr}}
+.mode{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:22px 20px}
+.mode b{display:block;font-size:16px;margin-bottom:6px}
+.mode .mx{font-family:var(--font-en);font-variation-settings:"wdth" 116;font-weight:800;font-size:26px;color:var(--accent);line-height:1.2}
+.mode .mx small{font-size:12px;color:var(--sub);font-weight:600;margin-left:3px}
+.mode span{display:block;font-size:12.5px;color:var(--sub);margin-top:8px}
+.vchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;max-width:34em}
+.vchip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--card);border:1px solid var(--line)}
+.vchip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.stat-row{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.stat-row .st b{font-family:var(--font-en);font-variation-settings:"wdth" 116;font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1}
+.stat-row .st b small{font-size:.45em;color:var(--sub);margin-left:3px}
+.stat-row .st span{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.bleed{position:relative;height:70svh;min-height:420px;overflow:hidden;display:flex;align-items:flex-end;margin:70px 0}
+.bleed .ph{position:absolute;inset:-10% 0;background-size:cover;background-position:center}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 40%,rgba(0,0,0,.62) 90%)}
+.bleed .cap{position:relative;z-index:2;width:min(1240px,94vw);margin:0 auto;padding-bottom:6vh;color:#fff}
+.bleed .cap .t{font-size:clamp(21px,2.6vw,34px);font-weight:900;line-height:1.5}
+.bleed .cap .s{color:rgba(255,255,255,.75);margin-top:8px;font-size:14px}
+.specs{padding:80px 0}
+.specs h2,.faq h2,.xsell h2{font-size:clamp(22px,2.6vw,32px);font-weight:900;margin-bottom:28px}
+.spec-table{width:100%;border-top:1px solid var(--line)}
+.spec-table div{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:15px 6px;border-bottom:1px solid var(--line);font-size:14px}
+.spec-table dt{color:var(--sub);font-weight:700}
+.spec-table dd{font-weight:500}
+@media(max-width:700px){.spec-table div{grid-template-columns:1fr;gap:2px}}
+.faq{padding:20px 0 80px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 6px;font-weight:700;font-size:14.5px;cursor:pointer}
+.faq summary::after{content:"+";font-family:var(--font-en);font-size:20px;color:var(--accent);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 6px 20px;color:var(--sub);font-size:14px;max-width:46em}
+.final{padding:90px 0;text-align:center;background:linear-gradient(180deg,transparent,var(--bg2))}
+.final .t{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.5}
+.final .s{color:var(--sub);margin:14px 0 30px}
+.xsell{padding:70px 0}
+.xrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:880px){.xrow{grid-template-columns:1fr}}
+.xcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;gap:16px;align-items:center;transition:transform .3s var(--ease),border-color .3s}
+.xcard:hover{transform:translateY(-4px);border-color:var(--accent)}
+.xcard img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:12px}
+.xcard b{display:block;font-size:14px;line-height:1.5}
+.xcard i{font-style:normal;font-family:var(--font-en);font-weight:800;font-size:15px;color:var(--accent)}
+.xcard small{display:block;font-size:11px;color:var(--sub);margin-bottom:4px}
+footer{border-top:1px solid var(--line);padding:46px 0}
+footer .in{width:min(1240px,94vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer img{width:100px;opacity:.9}
+footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub)}
+footer .lic{font-size:11px;color:var(--sub)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="bar">
+    <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
+    <nav class="en">
+      <a href="f1-pro.html">F1 PRO</a>
+      <a href="eva-r.html">EVA R</a>
+      <a href="s2.html">S2</a>
+      <a href="../index.html#brand">BRAND</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 購入モジュール ============ -->
+<section class="buy">
+  <div class="wrap">
+    <p class="crumb"><a href="../index.html">TOP</a> / <a href="../index.html#shop">STORE</a> / EVA R モデル</p>
+    <div class="buy-grid">
+      <div class="gallery">
+        <div class="gal-main" id="galMain">
+          <div class="glow" id="galGlow"></div>
+          <img id="galImg" src="../assets/v3/eva-01a.webp" alt="EVA R 初号機モデル-A">
+          <span class="gal-credit">©khara</span>
+        </div>
+        <div class="thumbs" id="galThumbs">
+          <button class="on" data-src="../assets/v3/eva-01a.webp" data-model="1"><img src="../assets/v3/eva-01a.webp" alt=""></button>
+          <button data-src="../assets/products/29200238/main.jpg" data-photo="1"><img src="../assets/products/29200238/thumb.jpg" alt=""></button>
+          <button data-src="../assets/v3/eva-helmet.webp"><img src="../assets/v3/eva-helmet.webp" alt=""></button>
+          <button data-src="../assets/v3/eva-night-1.jpg" data-photo="1"><img src="../assets/v3/eva-night-1.jpg" alt=""></button>
+          <button data-src="../assets/v3/eva-model-1.jpg" data-photo="1"><img src="../assets/v3/eva-model-1.jpg" alt=""></button>
+          <button data-src="../assets/v3/eva-model-2.jpg" data-photo="1"><img src="../assets/v3/eva-model-2.jpg" alt=""></button>
+        </div>
+      </div>
+      <div class="info">
+        <p class="eyebrow p-pos">ASMAX × EVANGELION RACING — OFFICIAL</p>
+        <h1 class="p-name">Future 1 インカム<br>EVA R モデル</h1>
+        <p class="p-name-en">Smart IoT MESH Helmet Intercom / EVANGELION RACING Model</p>
+        <div class="p-price"><b>¥35,000</b><small>(税込・送料は決済画面で確定)</small></div>
+        <p class="p-note">日本正規品 / カスタムジャパン発送 / ©khara</p>
+
+        <p class="opt-label">モデル: <b id="modelName">初号機モデル-A パープル</b></p>
+        <div class="models" id="modelOpts">
+          <button class="on" data-id="29200238" data-name="初号機モデル-A パープル" data-img="../assets/v3/eva-01a.webp" data-glow="rgba(122,79,208,.28)" style="--c:#7a4fd0"><span class="sw"></span>初号機-A<br>パープル</button>
+          <button data-id="29200245" data-name="初号機モデル-B パープル/グリーン" data-img="../assets/v3/eva-01b.webp" data-glow="rgba(94,168,80,.28)" style="--c:#5ea850"><span class="sw"></span>初号機-B<br>パープル/グリーン</button>
+          <button data-id="29200252" data-name="2号機モデル-A レッド" data-img="../assets/v3/eva-02a.webp" data-glow="rgba(232,51,86,.28)" style="--c:#e83356"><span class="sw"></span>2号機-A<br>レッド</button>
+          <button data-id="29200269" data-name="2号機モデル-B レッド/オレンジ" data-img="../assets/v3/eva-02b.webp" data-glow="rgba(255,106,44,.28)" style="--c:#ff6a2c"><span class="sw"></span>2号機-B<br>レッド/オレンジ</button>
+        </div>
+
+        <p class="opt-label">数量</p>
+        <div class="qty">
+          <button id="qDown" aria-label="数量を減らす">−</button>
+          <output id="qVal">1</output>
+          <button id="qUp" aria-label="数量を増やす">＋</button>
+        </div>
+
+        <div class="cartrow">
+          <button class="btn-cart" id="addCart">カートに入れる — ¥<span id="cartPrice">35,000</span></button>
+        </div>
+        <p id="cart-message" class="cart-message"></p>
+
+        <div class="w4">
+          <p class="y en">4<small>YEARS</small></p>
+          <p><b>公式ストア購入特典:メーカー保証を2年→4年に延長。</b><br>ASMAX JAPAN(カスタムジャパン)からのご購入が対象です。</p>
+        </div>
+        <ul class="trust-mini">
+          <li>日本正規品</li><li>日本語サポート</li><li>技適取得</li><li>EVANGELION RACING公式ライセンス</li>
+        </ul>
+        <ul class="chip-specs">
+          <li>CloudTalk 最大50人</li><li>最大3km通信</li><li>Bluetooth 5.4 8コア</li><li>Hi Max音声操作</li><li>グラミー調音</li><li>IPX7防水</li><li>LEDカラーリング</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 説得LP ============ -->
+<div class="lp-head wrap">
+  <p class="eyebrow rv">WHY EVA R</p>
+  <p class="t rv" data-d="1">これは「限定カラー」ではない。<br>レーシングチームの魂を積んだ、二輪専用 補助通信装置。</p>
+  <p class="s rv" data-d="2">迷っているあなたに、EVA Rだけの7つの理由を。</p>
+</div>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 01 — THE COLLABORATION</p>
+      <h3 class="rv" data-d="1">鈴鹿8耐を走った、<br>実在のチームの公式モデル。</h3>
+      <p class="rv" data-d="2">「EVANGELION RACING」は『ヱヴァンゲリヲン新劇場版』とのプロモーションタイアップから2010年に誕生した実在のレーシングチーム。鈴鹿8耐やSUPER GTなど国内外のモータースポーツで戦ってきました。EVA Rモデルは、そのチームの世界観とレーシングDNAをヘルメットギアに落とし込んだ公式コラボレーションです。</p>
+      <p class="rv" data-d="3" style="margin-top:12px">初号機・2号機の象徴的な配色とLEDカラーリングが、ナイトランで圧倒的な存在感を放ちます。</p>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/eva-model-1.jpg" alt="EVA R 装着ライディング"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx rev">
+    <div>
+      <p class="fno rv">REASON 02 — 4 COLORWAYS</p>
+      <h3 class="rv" data-d="1">全4機、<br>どれで出撃する?</h3>
+      <p class="rv" data-d="2">初号機モデルA/B、2号機モデルA/B。すべてに専用グラフィックとLEDカラーリングを施した、ファン垂涎の4ラインアップ。2台セットならタンデムや仲間との「機体違い」も楽しめます。</p>
+      <div class="vchips rv" data-d="3">
+        <span class="vchip"><span class="dot" style="background:#7a4fd0"></span>初号機-A パープル</span>
+        <span class="vchip"><span class="dot" style="background:#5ea850"></span>初号機-B パープル/グリーン</span>
+        <span class="vchip"><span class="dot" style="background:#e83356"></span>2号機-A レッド</span>
+        <span class="vchip"><span class="dot" style="background:#ff6a2c"></span>2号機-B レッド/オレンジ</span>
+      </div>
+    </div>
+    <div class="vis pad rv"><div class="glow"></div><img src="../assets/v3/eva-02a.webp" alt="EVA R 2号機モデル" style="object-fit:contain"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 03 — NETWORK</p>
+      <h3 class="rv" data-d="1">多様なネットワーク構築。<br>切断後も、自動で再接続。</h3>
+      <p class="rv" data-d="2">Bluetooth 5.4デュアルチップ(8コア)と独自アルゴリズムで、最大3kmの通信距離を実現。走り方に合わせて3つのモードを使い分けられます。</p>
+      <div class="modes rv" data-d="3">
+        <div class="mode"><b>フリーモード</b><p class="mx">10<small>人</small></p><span>オープンチャネルで自由に通話。「Hi Max、フリーモード」の一声で開始。</span></div>
+        <div class="mode"><b>チームモード</b><p class="mx">暗号化</p><span>暗号化チャンネルでより遠く、より安定。チームだけの通話空間。</span></div>
+        <div class="mode"><b>MAXMode</b><p class="mx">50<small>人</small></p><span>SMC2.0でメッシュ範囲外でも通信可能。スムーズに5G通信へ切替、最大50人同時通話。</span></div>
+      </div>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/eva-model-3.jpg" alt="ツーリングでの通信"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx rev">
+    <div>
+      <p class="fno rv">REASON 04 — VOICE "Hi Max"</p>
+      <h3 class="rv" data-d="1">活動限界まで、<br>操作はすべて声で。</h3>
+      <p class="rv" data-d="2">スマート音声認識機能を搭載。ネット環境不要のオフラインコマンドで、長距離ツーリングの安全をサポートします。</p>
+      <div class="vchips rv" data-d="3">
+        <span class="vchip"><span class="dot"></span>「着信に出る」</span>
+        <span class="vchip"><span class="dot"></span>「音楽を再生」</span>
+        <span class="vchip"><span class="dot"></span>「電源をチェック」</span>
+        <span class="vchip"><span class="dot"></span>「フリーモード」</span>
+        <span class="vchip"><span class="dot"></span>「音量を上げる」</span>
+        <span class="vchip"><span class="dot"></span>「次の曲」</span>
+        <span class="vchip"><span class="dot"></span>「着信を切る」</span>
+      </div>
+    </div>
+    <div class="vis pad rv"><div class="glow"></div><img src="../assets/v3/eva-01b.webp" alt="EVA R 初号機モデル-B" style="object-fit:contain"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 05 — SOUND</p>
+      <h3 class="rv" data-d="1">グラミー級の調音を、<br>ヘルメットの中に。</h3>
+      <p class="rv" data-d="2">ASMAXオリジナル40mm BOXサウンドキャビティスピーカーに、Bongiovi Acoustic Labsによる音響チューニング(グラミー調音)を融合。さらにENC(環境ノイズキャンセリング)が風切り音を抑制し、迫力と臨場感あるサウンドを届けます。</p>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/eva-night-1.jpg" alt="EVA R ナイトLED"></div>
+  </div>
+</section>
+
+<div class="bleed">
+  <div class="ph" style="background-image:url('../assets/v3/eva-model-2.jpg')"></div>
+  <div class="cap">
+    <p class="fno rv">REASON 06 — ENDURANCE</p>
+    <p class="t rv" data-d="1">最大14時間。休憩10分で、また3時間。</p>
+    <p class="s rv" data-d="2">1350mAhバッテリー / USB Type-C急速充電 / IPX7相当の防水性能。天候もロングランも、想定内。</p>
+  </div>
+</div>
+
+<section class="feature wrap" style="padding-top:0">
+  <div class="fx rev">
+    <div>
+      <p class="fno rv">REASON 07 — GROWS WITH YOU</p>
+      <h3 class="rv" data-d="1">アップデートで進化し続ける、<br>保証4年の相棒。</h3>
+      <p class="rv" data-d="2">専用アプリ「ASMAX WORLD」でグループ管理・設定カスタマイズ・OTAアップデートに対応。他社インカムともつながるユニバーサルペアリング付き。公式ストア購入ならメーカー保証4年で、長く安心して使えます。</p>
+      <div class="stat-row rv" data-d="3">
+        <div class="st"><b>14<small>時間</small></b><span>連続通話</span></div>
+        <div class="st"><b>3<small>km</small></b><span>最大通信距離</span></div>
+        <div class="st"><b>4<small>年</small></b><span>公式ストア保証</span></div>
+      </div>
+    </div>
+    <div class="vis pad rv"><div class="glow"></div><img src="../assets/v3/eva-02b.webp" alt="EVA R 2号機モデル-B" style="object-fit:contain"></div>
+  </div>
+</section>
+
+<!-- ============ スペック ============ -->
+<section class="specs wrap" id="specs">
+  <h2>SPECS — EVA R モデル</h2>
+  <dl class="spec-table">
+    <div><dt>Bluetooth</dt><dd>5.4 デュアルチップ(8コア)</dd></div>
+    <div><dt>通信距離</dt><dd>最大3km(メッシュ型通話・自動再接続)</dd></div>
+    <div><dt>通話人数</dt><dd>フリーモード最大10人 / MAXMode(SMC2.0・5G切替)最大50人同時通話 / チームモード(暗号化)</dd></div>
+    <div><dt>音声操作</dt><dd>スマート音声認識「Hi Max」(オフライン対応・ネット環境不要)</dd></div>
+    <div><dt>スピーカー</dt><dd>40mm BOXサウンドキャビティスピーカー / Bongiovi Acoustic Labs調音 / ENC搭載</dd></div>
+    <div><dt>連続通話</dt><dd>最大14時間(1350mAhバッテリー)</dd></div>
+    <div><dt>充電</dt><dd>USB Type-C 急速充電(15V以下の充電器を使用)</dd></div>
+    <div><dt>防水</dt><dd>IPX7相当</dd></div>
+    <div><dt>取付</dt><dd>マグネットマウント(ワンタッチ着脱)</dd></div>
+    <div><dt>アプリ</dt><dd>ASMAX WORLD(グループ管理 / OTAアップデート対応)</dd></div>
+    <div><dt>接続互換</dt><dd>他社インカム接続(ユニバーサルペアリング)対応</dd></div>
+    <div><dt>モデル</dt><dd>初号機-A / 初号機-B / 2号機-A / 2号機-B(全4種・専用グラフィック+LEDカラーリング)©khara</dd></div>
+    <div><dt>保証</dt><dd>メーカー保証4年(ASMAX JAPAN公式ストア購入特典 / 通常2年)</dd></div>
+  </dl>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq wrap">
+  <h2>よくある質問</h2>
+  <details>
+    <summary>ベースのインカムとしての性能は?</summary>
+    <p class="a">Future 1をベースにした本格スマートインカムです。Bluetooth 5.4デュアルチップ・最大3km通信・最大50人同時通話(CloudTalk/MAXMode)・Hi Max音声操作など、デザインだけでなく性能もフラッグシップ級です。</p>
+  </details>
+  <details>
+    <summary>他社のインカムと接続できますか?</summary>
+    <p class="a">はい。ユニバーサルペアリング対応で、他社製インカムとも接続できます。</p>
+  </details>
+  <details>
+    <summary>使い始めに必要な設定はありますか?</summary>
+    <p class="a">商品到着後、専用アプリ「ASMAX WORLD」からOTAアップデートとアプリのバージョン更新を必ず行ってください。最新機能と安定性が適用されます。</p>
+  </details>
+  <details>
+    <summary>充電で気をつけることは?</summary>
+    <p class="a">15V以下の充電器をご使用ください。過電圧充電は故障の原因となります。</p>
+  </details>
+  <details>
+    <summary>保証はどうなっていますか?</summary>
+    <p class="a">ASMAX JAPAN公式ストアでのご購入で、メーカー保証が通常2年から4年に延長されます。日本語サポート付きです。</p>
+  </details>
+</section>
+
+<!-- ============ クロスセル ============ -->
+<section class="xsell wrap">
+  <h2>2台セットがお得</h2>
+  <div class="xrow">
+    <a class="xcard rv" href="https://www.customjapan.net/item/29364831"><img src="../assets/products/29364831/thumb.jpg" alt=""><span><small>初号機ペア</small><b>初号機-A + 初号機-B セット</b><i>¥66,499</i></span></a>
+    <a class="xcard rv" data-d="1" href="https://www.customjapan.net/item/29364886"><img src="../assets/products/29364886/thumb.jpg" alt=""><span><small>2号機ペア</small><b>2号機-B + 2号機-A セット</b><i>¥66,499</i></span></a>
+    <a class="xcard rv" data-d="2" href="https://www.customjapan.net/item/29364848"><img src="../assets/products/29364848/thumb.jpg" alt=""><span><small>初号機×2号機</small><b>2号機-A + 初号機-A セット</b><i>¥66,499</i></span></a>
+  </div>
+</section>
+
+<!-- ============ 最終CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <p class="t rv">さあ、機体を選んで出撃を。</p>
+    <p class="s rv" data-d="1">EVA R モデル ¥35,000(税込)— 全4機・公式ストア購入でメーカー保証4年。</p>
+    <button class="btn-cart rv" data-d="2" style="max-width:360px;margin:0 auto" onclick="document.getElementById('addCart').click()">カートに入れる</button>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN">
+    <nav style="display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--sub)">
+      <a href="../pages/support.html">サポート</a><a href="../pages/stores.html">取扱店舗</a><a href="../pages/legal.html">特定商取引法に基づく表記</a><a href="../pages/privacy.html">プライバシー</a><a href="../pages/shipping.html">配送・返品・保証</a><a href="../pages/contact.html">お問い合わせ</a>
+    </nav>
+    <p class="lic">EVANGELION RACING 公式ライセンス商品 ©khara</p>
+    <p class="cp">© ASMAX JAPAN / CUSTOM JAPAN Co., Ltd.</p>
+  </div>
+</footer>
+
+<!-- ============ 追従購入バー ============ -->
+<div class="buybar" id="buybar">
+  <div class="in">
+    <img id="barImg" src="../assets/products/29200238/thumb.jpg" alt="">
+    <p class="nm">EVA R <span id="barModel">初号機モデル-A</span></p>
+    <p class="pr en" id="barPrice">¥35,000</p>
+    <button class="btn-cart" onclick="document.getElementById('addCart').click()">カートに入れる</button>
+  </div>
+</div>
+
+<script type="module">
+import { initApiClient, addItemsToCart } from '../assets/js/api-client.js';
+initApiClient();
+
+const UNIT_PRICE = 35000;
+const state = { id: '29200238', name: '初号機モデル-A パープル', qty: 1 };
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => n.toLocaleString('ja-JP');
+
+const galImg = $('galImg'), galMain = $('galMain'), galGlow = $('galGlow');
+function showImage(src, isPhoto) {
+  galImg.classList.add('swap');
+  setTimeout(() => {
+    galImg.src = src;
+    galMain.classList.toggle('photo', !!isPhoto);
+    galImg.onload = () => galImg.classList.remove('swap');
+  }, 200);
+}
+document.querySelectorAll('#galThumbs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#galThumbs button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  showImage(b.dataset.src, b.dataset.photo);
+}));
+document.querySelectorAll('#galThumbs button[data-photo]').forEach(b => b.classList.add('photo'));
+
+document.querySelectorAll('#modelOpts button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#modelOpts button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  state.id = b.dataset.id; state.name = b.dataset.name;
+  $('modelName').textContent = state.name;
+  $('barModel').textContent = state.name.split(' ')[0];
+  $('barImg').src = `../assets/products/${state.id}/thumb.jpg`;
+  galGlow.style.background = `radial-gradient(circle, ${b.dataset.glow}, transparent 70%)`;
+  // サムネ先頭とギャラリーもモデルに追従
+  const first = document.querySelector('#galThumbs button');
+  first.dataset.src = b.dataset.img;
+  first.querySelector('img').src = b.dataset.img;
+  document.querySelectorAll('#galThumbs button').forEach(x => x.classList.remove('on'));
+  first.classList.add('on');
+  showImage(b.dataset.img, false);
+}));
+
+const syncPrice = () => { const t = UNIT_PRICE * state.qty; $('cartPrice').textContent = fmt(t); $('barPrice').textContent = '¥' + fmt(t); $('qVal').textContent = state.qty; };
+$('qUp').addEventListener('click', () => { state.qty = Math.min(5, state.qty + 1); syncPrice(); });
+$('qDown').addEventListener('click', () => { state.qty = Math.max(1, state.qty - 1); syncPrice(); });
+
+const CART_URL = 'https://www.customjapan.net/cart?site=asmax';
+function msg(text, type) { const el = $('cart-message'); el.style.display = 'block'; el.className = 'cart-message msg-' + type; el.textContent = text; }
+$('addCart').addEventListener('click', async () => {
+  const btn = $('addCart');
+  btn.disabled = true;
+  msg('カートに追加中です...', 'info');
+  try {
+    const result = await addItemsToCart([{ id: state.id, quantity: state.qty }]);
+    if (result && result.result === 'error') {
+      msg((result.errors?.[0]?.abstract) || 'カート追加に失敗しました。', 'error');
+    } else {
+      msg('カートに追加しました。カートへ移動します...', 'success');
+      window.location.href = CART_URL;
+    }
+  } catch (e) {
+    console.error('[ASMAX] add to cart failed', e);
+    msg('通信エラーのため、カート追加に失敗しました。', 'error');
+  } finally { btn.disabled = false; }
+});
+</script>
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+const buybar = document.getElementById('buybar');
+const buySec = document.querySelector('.buy');
+addEventListener('scroll', () => {
+  buybar.classList.toggle('show', scrollY > buySec.offsetTop + buySec.offsetHeight);
+}, { passive: true });
+</script>
+</body>
+</html>

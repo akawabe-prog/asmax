@@ -1,0 +1,427 @@
+[
+  {
+    "id": "29200245",
+    "name": "Future 1 インカム EVA R 初号機-B パープル/グリーン",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 35000,
+      "taxEx": 31818
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-10-30T18:21:25"
+    },
+    "jan": "6976729480741",
+    "makerNo": "WS10 EVA-01B",
+    "color": "パープル/グリーン",
+    "img": {
+      "s": "/items/29200245_s.jpg",
+      "l": "/items/29200245_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29200245",
+    "localMain": "assets/products/29200245/main.jpg",
+    "localThumb": "assets/products/29200245/thumb.jpg"
+  },
+  {
+    "id": "29200238",
+    "name": "Future 1 インカム EVA R 初号機-A パープル",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 35000,
+      "taxEx": 31818
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-10-30T18:21:25"
+    },
+    "jan": "6976729480727",
+    "makerNo": "WS10 EVA-01A",
+    "color": "パープル",
+    "img": {
+      "s": "/items/29200238_s.jpg",
+      "l": "/items/29200238_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29200238",
+    "localMain": "assets/products/29200238/main.jpg",
+    "localThumb": "assets/products/29200238/thumb.jpg"
+  },
+  {
+    "id": "29200269",
+    "name": "Future 1 インカム EVA R 2号機-B レッド/オレンジ",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 35000,
+      "taxEx": 31818
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-10-30T18:21:25"
+    },
+    "jan": "6976729480758",
+    "makerNo": "WS10 EVA-02B",
+    "color": "レッド/オレンジ",
+    "img": {
+      "s": "/items/29200269_s.jpg",
+      "l": "/items/29200269_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29200269",
+    "localMain": "assets/products/29200269/main.jpg",
+    "localThumb": "assets/products/29200269/thumb.jpg"
+  },
+  {
+    "id": "29200252",
+    "name": "Future 1 インカム EVA R 2号機-A レッド",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 35000,
+      "taxEx": 31818
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-10-30T18:21:25"
+    },
+    "jan": "6976729480734",
+    "makerNo": "WS10 EVA-02A",
+    "color": "レッド",
+    "img": {
+      "s": "/items/29200252_s.jpg",
+      "l": "/items/29200252_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29200252",
+    "localMain": "assets/products/29200252/main.jpg",
+    "localThumb": "assets/products/29200252/thumb.jpg"
+  },
+  {
+    "id": "29159420",
+    "name": "F1 Pro インカム シャイニーグレー",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 32900,
+      "taxEx": 29909
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-09-02T19:11:25"
+    },
+    "jan": "6976729480703",
+    "makerNo": "08WS03AFIN017",
+    "color": "シャイニーグレー",
+    "img": {
+      "s": "/items/29159420_s.jpg",
+      "l": "/items/29159420_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29159420",
+    "localMain": "assets/products/29159420/main.jpg",
+    "localThumb": "assets/products/29159420/thumb.jpg"
+  },
+  {
+    "id": "29159413",
+    "name": "F1 Pro インカム ステラーグレー",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 32900,
+      "taxEx": 29909
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-09-02T19:11:25"
+    },
+    "jan": "6976729480567",
+    "makerNo": "08WS03AFIN033",
+    "color": "ステラーグレー",
+    "img": {
+      "s": "/items/29159413_s.jpg",
+      "l": "/items/29159413_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29159413",
+    "localMain": "assets/products/29159413/main.jpg",
+    "localThumb": "assets/products/29159413/thumb.jpg"
+  },
+  {
+    "id": "29159437",
+    "name": "S2 インカム グレー",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 15899,
+      "taxEx": 14454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-09-02T19:11:25"
+    },
+    "jan": "6976729480581",
+    "makerNo": "08WS04AFIN017",
+    "color": "グレー",
+    "img": {
+      "s": "/items/29159437_s.jpg",
+      "l": "/items/29159437_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29159437",
+    "localMain": "assets/products/29159437/main.jpg",
+    "localThumb": "assets/products/29159437/thumb.jpg"
+  },
+  {
+    "id": "29208180",
+    "name": "S2 A/B メタルクランプ/マイク＆スピーカーセット",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 4599,
+      "taxEx": 4181
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-11-22T15:21:25"
+    },
+    "jan": "6976729480666",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29208180_s.jpg",
+      "l": "/items/29208180_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29208180",
+    "localMain": "assets/products/29208180/main.jpg",
+    "localThumb": "assets/products/29208180/thumb.jpg"
+  },
+  {
+    "id": "29208173",
+    "name": "F1 Pro B マイク＆スピーカーセット",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 5499,
+      "taxEx": 4999
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-11-22T15:11:25"
+    },
+    "jan": "6976729480642",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29208173_s.jpg",
+      "l": "/items/29208173_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29208173",
+    "localMain": "assets/products/29208173/main.jpg",
+    "localThumb": "assets/products/29208173/thumb.jpg"
+  },
+  {
+    "id": "29208166",
+    "name": "F1 Pro A マグネットマウントセット",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 4599,
+      "taxEx": 4181
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2025-11-22T15:31:30"
+    },
+    "jan": "6976729480659",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29208166_s.jpg",
+      "l": "/items/29208166_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29208166",
+    "localMain": "assets/products/29208166/main.jpg",
+    "localThumb": "assets/products/29208166/thumb.jpg"
+  },
+  {
+    "id": "29364893",
+    "name": "【セット品】F1 Pro インカム ステラーグレー+シャイニーグレー",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 62510,
+      "taxEx": 56827
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499605",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364893_s.jpg",
+      "l": "/items/29364893_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364893",
+    "localMain": "assets/products/29364893/main.jpg",
+    "localThumb": "assets/products/29364893/thumb.jpg"
+  },
+  {
+    "id": "29364886",
+    "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+2号機-A レッド",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499599",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364886_s.jpg",
+      "l": "/items/29364886_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364886",
+    "localMain": "assets/products/29364886/main.jpg",
+    "localThumb": "assets/products/29364886/thumb.jpg"
+  },
+  {
+    "id": "29364879",
+    "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+初号機-B パープル/グリーン",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499582",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364879_s.jpg",
+      "l": "/items/29364879_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364879",
+    "localMain": "assets/products/29364879/main.jpg",
+    "localThumb": "assets/products/29364879/thumb.jpg"
+  },
+  {
+    "id": "29364862",
+    "name": "【セット品】Future 1 インカム EVA R 2号機-A レッド+初号機-B パープル/グリーン",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499575",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364862_s.jpg",
+      "l": "/items/29364862_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364862",
+    "localMain": "assets/products/29364862/main.jpg",
+    "localThumb": "assets/products/29364862/thumb.jpg"
+  },
+  {
+    "id": "29364855",
+    "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+初号機-A パープル",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499568",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364855_s.jpg",
+      "l": "/items/29364855_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364855",
+    "localMain": "assets/products/29364855/main.jpg",
+    "localThumb": "assets/products/29364855/thumb.jpg"
+  },
+  {
+    "id": "29364848",
+    "name": "【セット品】Future 1 インカム EVA R 2号機-A レッド+初号機-A パープル",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499551",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364848_s.jpg",
+      "l": "/items/29364848_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364848",
+    "localMain": "assets/products/29364848/main.jpg",
+    "localThumb": "assets/products/29364848/thumb.jpg"
+  },
+  {
+    "id": "29364831",
+    "name": "【セット品】Future 1 インカム EVA R 初号機-A パープル+初号機-B パープル/グリーン",
+    "maker": "ASMAX",
+    "category": "インカム",
+    "price": {
+      "taxIn": 66499,
+      "taxEx": 60454
+    },
+    "status": {
+      "cd": "SE",
+      "txt": "◯在庫あり",
+      "updatedAt": "2026-05-22T16:57:55"
+    },
+    "jan": "4580080499544",
+    "makerNo": "",
+    "color": "",
+    "img": {
+      "s": "/items/29364831_s.jpg",
+      "l": "/items/29364831_1.jpg"
+    },
+    "url": "https://www.customjapan.net/item/29364831",
+    "localMain": "assets/products/29364831/main.jpg",
+    "localThumb": "assets/products/29364831/thumb.jpg"
+  }
+]

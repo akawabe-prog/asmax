@@ -6,6 +6,36 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/ASMAX_ReBranding", "-p", "8090", "-c-1"],
       "port": 8090
+    },
+    {
+      "name": "spc-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/SPconnect_Branding", "-p", "8123", "-c-1"],
+      "port": 8123
+    },
+    {
+      "name": "spc-8126",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/SPconnect_Branding", "-p", "8126", "-c-1"],
+      "port": 8126
+    },
+    {
+      "name": "spc-8127",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/SPconnect_Branding", "-p", "8127", "-c-1"],
+      "port": 8127
+    },
+    {
+      "name": "spc-verify",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/SPconnect_Branding", "-p", "8141", "-c-1"],
+      "port": 8141
+    },
+    {
+      "name": "spc-deploy",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "/Users/cjmac002/Desktop/SPconnect_Branding/sp-connect", "-p", "8142", "-c-1"],
+      "port": 8142
     }
   ]
 }

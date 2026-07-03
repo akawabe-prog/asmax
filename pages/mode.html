@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASMAXモード — 接続は一つ。何があっても。 | ASMAX JAPAN</title>
+<meta name="description" content="ASMAX独自の通信技術「ASMAXモード」。メッシュ通信の自動再接続、フリー/チーム/MAXの3モード、最大50人同時通話。途切れないグループツーリングの仕組みを解説。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/atmos-sub.css">
+<style>
+.mode-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:5vh}
+@media(max-width:880px){.mode-cards{grid-template-columns:1fr}}
+.mode-card{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:30px 26px;position:relative;overflow:hidden}
+.mode-card .mx{font-family:var(--font-en);font-variation-settings:"wdth" 118;font-weight:800;font-size:clamp(36px,4vw,54px);color:var(--accent);line-height:1.1}
+.mode-card .mx small{font-size:.4em;color:var(--sub)}
+.mode-card b{display:block;font-size:18px;margin:8px 0 10px}
+.mode-card p{font-size:13.5px;color:var(--sub)}
+.mode-card .tag{position:absolute;top:22px;right:22px;font-family:var(--font-en);font-size:10.5px;font-weight:700;letter-spacing:.2em;color:var(--sub)}
+.netviz{position:relative;border-radius:22px;border:1px solid var(--line);background:var(--card);padding:40px;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center}
+.netviz svg{width:100%;max-width:520px;height:auto}
+.netviz .nd{fill:var(--accent)}
+.netviz .lk{stroke:var(--accent);stroke-width:1.2;opacity:.5;stroke-dasharray:6 6;animation:dash 2.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+</style>
+</head>
+<body>
+
+<section class="page-hero">
+  <p class="bgword">MODE</p>
+  <div class="wrap">
+    <p class="eyebrow rv">ASMAX MODE — TECHNOLOGY</p>
+    <h1 class="rv" data-d="1">接続は一つ。<br>何があっても。</h1>
+    <p class="lead rv" data-d="2">コミュニケーションが途絶えれば、グループの走行は乱れる。ASMAXモードは「つながり続けること」だけのために設計された、ASMAX独自の通信テクノロジーです。F1 Pro / EVA R / S2、すべてのモデルに宿っています。</p>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head rv">
+    <p class="fno">01 — MESH NETWORK</p>
+    <h2>真のMeshネットワークが、<br>隊列の乱れを自動で直す。</h2>
+    <p class="s">仲間同士が網の目のようにつながるメッシュ型通信。1対1の数珠つなぎと違い、誰かが抜けてもネットワーク全体は崩れません。</p>
+  </div>
+  <div class="feature" style="padding-top:0">
+    <div class="fx">
+      <div class="netviz rv">
+        <svg viewBox="0 0 520 300" aria-label="メッシュネットワーク概念図">
+          <line class="lk" x1="90" y1="80" x2="260" y2="60"/>
+          <line class="lk" x1="260" y1="60" x2="430" y2="90"/>
+          <line class="lk" x1="90" y1="80" x2="160" y2="220"/>
+          <line class="lk" x1="260" y1="60" x2="160" y2="220"/>
+          <line class="lk" x1="260" y1="60" x2="360" y2="230"/>
+          <line class="lk" x1="430" y1="90" x2="360" y2="230"/>
+          <line class="lk" x1="160" y1="220" x2="360" y2="230"/>
+          <circle class="nd" cx="90" cy="80" r="10"/>
+          <circle class="nd" cx="260" cy="60" r="10"/>
+          <circle class="nd" cx="430" cy="90" r="10"/>
+          <circle class="nd" cx="160" cy="220" r="10"/>
+          <circle class="nd" cx="360" cy="230" r="10"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="rv">トンネル、信号、ペースの差。<br>離れても、戻れば自動で再接続。</h3>
+        <p class="rv" data-d="1">ワインディングで距離が開く。トンネルで電波が切れる。給油で一人だけ止まる — グループツーリングに「離脱」はつきものです。ASMAXのメッシュ通信は通信範囲に戻った瞬間、操作なしで自動再接続。「もしもし?聞こえる?」のやり直しから解放されます。</p>
+        <div class="stat-row rv" data-d="2">
+          <div class="st"><b>3<small>km</small></b><span>最大通信距離(EVA R)</span></div>
+          <div class="st"><b>0<small>操作</small></b><span>再接続に必要な操作</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head rv">
+    <p class="fno">02 — 3 MODES</p>
+    <h2>走り方で選べる、3つの通信モード。</h2>
+    <p class="s">ソロツーの延長も、マスツーの隊列も、イベント規模の大集団も。切り替えは「Hi Max」の一声。</p>
+  </div>
+  <div class="mode-cards">
+    <div class="mode-card rv">
+      <span class="tag">OPEN</span>
+      <p class="mx">10<small>人</small></p>
+      <b>フリーモード</b>
+      <p>オープンチャネルで自由に通話。仲間と出会ってすぐつながる、いちばん気軽なモード。「Hi Max、フリーモード」で開始。</p>
+    </div>
+    <div class="mode-card rv" data-d="1">
+      <span class="tag">ENCRYPTED</span>
+      <p class="mx">暗号化</p>
+      <b>チームモード</b>
+      <p>暗号化チャンネルで、より遠く、より安定。決まったメンバーだけの通話空間をつくる、マスツーリングの本命モード。</p>
+    </div>
+    <div class="mode-card rv" data-d="2">
+      <span class="tag">SMC 2.0</span>
+      <p class="mx">50<small>人</small></p>
+      <b>MAXモード</b>
+      <p>メッシュ範囲外でもスムーズに5G通信へ切替(SMC2.0)。最大50人同時通話で、イベントや大規模ツーリングも一つの声に。</p>
+    </div>
+  </div>
+</section>
+
+<div class="bleed">
+  <div class="ph" style="background-image:url('../assets/v3/f1-moment-3.jpg')"></div>
+  <div class="cap">
+    <p class="fno rv">03 — FOCUS ON THE RIDE</p>
+    <p class="t rv" data-d="1">技術の話は、ここまで。<br>あとは走りに集中するだけ。</p>
+    <p class="s rv" data-d="2">セットアップは専用アプリ「ASMAX WORLD」から数分で完了。あとはASMAXモードが、静かにつながりを守り続けます。</p>
+  </div>
+</div>
+
+<section class="sec wrap">
+  <div class="sec-head rv">
+    <p class="fno">04 — CROSS-BRAND</p>
+    <h2>ASMAXデバイス以外とも、つながる。</h2>
+    <p class="s">ユニバーサルペアリングに対応。チームに他社インカムのユーザーがいても、一緒に走れます。買い替えの「みんな同じメーカーじゃないと問題」も、ASMAXなら心配いりません。</p>
+  </div>
+  <div class="vchips rv" data-d="1">
+    <span class="vchip"><span class="dot"></span>他社インカム接続(ユニバーサルペアリング)</span>
+    <span class="vchip"><span class="dot"></span>ブランド間連携</span>
+    <span class="vchip"><span class="dot"></span>スマホ音声アシスタント連携</span>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="t rv">ASMAXモードを、あなたのヘルメットに。</p>
+    <p class="s rv" data-d="1">全3モデル、すべてASMAXモード搭載。公式ストア購入でメーカー保証4年。</p>
+    <div class="acts rv" data-d="2">
+      <a class="btn btn-accent en" href="../index.html#shop">SHOP NOW</a>
+      <a class="btn btn-ghost" href="app.html">アプリについて</a>
+    </div>
+  </div>
+</section>
+
+<footer></footer>
+<script src="../assets/js/atmos-sub.js"></script>
+</body>
+</html>

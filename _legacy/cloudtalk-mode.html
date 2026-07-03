@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudTalk Mode | ASMAX JAPAN</title>
+  <meta name="description" content="CloudTalkモードなら、ブランドの壁を超えて最大50人と距離無制限で通話可能。ASMAX WORLDアプリで誰でも無料で始められます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/asmax-japan-tokens.css">
+  <link rel="stylesheet" href="assets/css/shared-layout.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: rgba(255,255,255,0.07);
+      --border-mid: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #e0e0e0;
+      --muted: #8f8f8f;
+      --white: #f5f5f5;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255,107,0,0.25);
+      --cloud: #00b4d8;
+      --cloud-glow: rgba(0,180,216,0.2);
+      --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+      --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+      --container: min(1280px, calc(100vw - 40px));
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; display: block; }
+    .container { width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.82);
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: ""; width: 34px; height: 1px; background: var(--cloud);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-1: HERO
+       ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 70%, var(--bg) 100%),
+        linear-gradient(135deg, var(--cloud-glow) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.85);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-en);
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .hero h1 span {
+      display: block;
+      font-size: 0.32em;
+      letter-spacing: 0.12em;
+      color: var(--cloud);
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      margin-top: 24px;
+      max-width: 38em;
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-pill {
+      padding: 10px 20px;
+      background: rgba(0,180,216,0.1);
+      border: 1px solid rgba(0,180,216,0.25);
+      border-radius: 100px;
+      font-family: var(--font-en); font-size: 13px; font-weight: 600;
+      color: var(--white); white-space: nowrap;
+    }
+    .hero-pill small {
+      font-weight: 400; color: var(--muted); margin-left: 6px;
+    }
+
+    /* ═══════════════════════════════════════════
+       FULL PHOTO EDITORIAL
+       ═══════════════════════════════════════════ */
+    .full-photo {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    .full-photo img.section-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+    .full-photo::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0.1) 100%);
+      z-index: 1;
+    }
+    .photo-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .photo-content h2 {
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .photo-content p {
+      margin-top: 20px;
+      max-width: 34em;
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    .photo-content ul {
+      margin-top: 16px;
+      padding-left: 0;
+      list-style: none;
+      max-width: 34em;
+    }
+    .photo-content ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+    }
+    .photo-content ul li::before {
+      content: "";
+      position: absolute; left: 0; top: 11px;
+      width: 6px; height: 6px;
+      background: var(--cloud);
+      border-radius: 50%;
+    }
+
+    .full-photo.right-align::before {
+      background: linear-gradient(270deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0.1) 100%);
+    }
+    .right-align .photo-content {
+      display: flex; flex-direction: column;
+      align-items: flex-end; text-align: right;
+    }
+    .right-align .photo-content ul {
+      text-align: left;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-4: 4 STRENGTHS
+       ═══════════════════════════════════════════ */
+    .strengths-band {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 700px 300px at 20% 0%, var(--cloud-glow), transparent),
+        linear-gradient(180deg, #101010 0%, var(--bg) 100%);
+    }
+    .strengths-inner {
+      width: var(--container); margin: 0 auto; padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .strengths-copy h2 {
+      font-family: var(--font-en);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+    }
+    .strengths-copy p {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .strengths-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .strength-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 24px;
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .strength-card:hover {
+      border-color: rgba(0,180,216,0.3);
+      background: rgba(0,180,216,0.04);
+    }
+    .strength-card .card-num {
+      font-family: var(--font-en);
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.15em;
+      color: var(--cloud);
+      margin-bottom: 8px;
+    }
+    .strength-card h3 {
+      font-family: var(--font-en);
+      font-size: 16px; font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .strength-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-5: HOW IT WORKS
+       ═══════════════════════════════════════════ */
+    .how-band {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .how-heading h2 {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--white);
+    }
+    .how-heading p {
+      margin-top: 8px; font-size: 15px; color: var(--muted);
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .how-step {
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      text-align: center;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .how-step:hover {
+      border-color: rgba(0,180,216,0.3);
+      transform: translateY(-3px);
+    }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(0,180,216,0.12);
+      border: 1px solid rgba(0,180,216,0.25);
+      font-family: var(--font-en); font-size: 20px; font-weight: 900;
+      color: var(--cloud);
+      margin-bottom: 20px;
+    }
+    .how-step h3 {
+      font-family: var(--font-en); font-size: 17px; font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .how-step p {
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-6: TECH ADVANTAGE — Full Photo
+       ═══════════════════════════════════════════ */
+    .tech-immersive {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .tech-immersive img.section-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45) saturate(0.7);
+    }
+    .tech-immersive::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 100%);
+      z-index: 1;
+    }
+    .tech-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .tech-content h2 {
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 4.5vw, 3.6rem);
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .tech-card {
+      padding: 28px 24px;
+      background: rgba(10,10,10,0.55);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+    }
+    .tech-card h3 {
+      font-family: var(--font-en); font-size: 15px; font-weight: 800;
+      color: var(--cloud);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .tech-card ul {
+      padding-left: 0; list-style: none;
+    }
+    .tech-card ul li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.75;
+    }
+    .tech-card ul li::before {
+      content: "";
+      position: absolute; left: 0; top: 10px;
+      width: 5px; height: 5px;
+      background: var(--cloud);
+      border-radius: 50%;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-7: COMPATIBLE PRODUCTS
+       ═══════════════════════════════════════════ */
+    .products-band {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .products-heading h2 {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      color: var(--white);
+    }
+    .products-heading p {
+      margin-top: 8px; font-size: 15px; color: var(--muted);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      max-width: 960px;
+      margin-left: auto; margin-right: auto;
+    }
+    .product-link {
+      display: flex; flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .product-link:hover {
+      border-color: rgba(0,180,216,0.35);
+      transform: translateY(-4px);
+    }
+    .product-link-img {
+      aspect-ratio: 1/1;
+      background: #111;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .product-link-img img {
+      width: 75%; height: auto;
+      object-fit: contain;
+      mix-blend-mode: lighten;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+    }
+    .product-link-body {
+      padding: 18px 20px;
+      text-align: left;
+    }
+    .product-link-body h3 {
+      font-family: var(--font-en); font-size: 16px; font-weight: 800;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .product-link-body p {
+      font-size: 13px; color: var(--muted); margin: 0;
+    }
+    .product-link-body .cloud-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 10px;
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--cloud);
+      background: rgba(0,180,216,0.1);
+      border: 1px solid rgba(0,180,216,0.2);
+      border-radius: 100px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-8: CTA
+       ═══════════════════════════════════════════ */
+    .sec-cta {
+      padding: 100px 0;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 500px 250px at 50% 100%, var(--cloud-glow), transparent),
+        var(--bg);
+    }
+    .cta-heading {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .cta-sub {
+      margin-top: 12px;
+      font-size: 15px; color: var(--muted);
+      max-width: 36em; margin-left: auto; margin-right: auto;
+    }
+    .cta-actions {
+      margin-top: 36px;
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-app {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 18px 40px;
+      background: var(--cloud);
+      color: #fff; font-weight: 700; font-size: 15px;
+      border: none; border-radius: 8px; letter-spacing: 0.04em;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn-app:hover { background: #009bb8; transform: translateY(-2px); }
+    .btn-lineup {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 18px 32px;
+      font-size: 14px; font-weight: 600; color: var(--muted);
+      border: 1px solid var(--border-strong); border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-lineup:hover { color: var(--white); border-color: var(--white); }
+    .btn-lineup::after { content: "→"; font-size: 16px; }
+    .cta-note {
+      margin-top: 20px;
+      font-size: 12px; color: var(--muted);
+    }
+    .app-badges {
+      display: flex; justify-content: center; gap: 12px;
+      margin-top: 20px;
+    }
+    .app-badges img {
+      height: 42px; width: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── ANIMATION ── */
+    [data-animate] {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      transition-delay: var(--d, 0s);
+    }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .strengths-inner { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero-content { padding: 56px 20px; }
+      .photo-content { padding: 40px 20px; }
+      .how-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .right-align .photo-content {
+        align-items: flex-start; text-align: left;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-pills { flex-direction: column; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════
+         SEC-1: HERO
+         ═══════════════════════════════════════════ -->
+    <section class="hero">
+      <img class="hero-bg" src="https://picsum.photos/seed/cloudtalk-hero/2400/1500" alt="CloudTalk Mode — ライダーグループ通話イメージ" loading="eager">
+      <div class="hero-content" data-animate>
+        <div class="eyebrow">CloudTalk Mode</div>
+        <h1><span>Universal Communication</span>Connect<br>Everyone.</h1>
+        <p class="hero-sub">ブランドの壁を超えて、全員がつながる。<br>CloudTalkモードは、初の真にユニバーサルなライディング通信機能です。</p>
+        <div class="hero-pills">
+          <div class="hero-pill">Cross-Brand<small>他社インカム対応</small></div>
+          <div class="hero-pill">No Distance Limit<small>携帯回線で距離無制限</small></div>
+          <div class="hero-pill">Max 50<small>最大50人同時通話</small></div>
+          <div class="hero-pill">Clear Voice<small>HW最適化音声</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-2: PAIN POINTS — Full Photo
+         ═══════════════════════════════════════════ -->
+    <section class="full-photo" data-animate>
+      <img class="section-bg" src="https://picsum.photos/seed/cloudtalk-pain/2400/1500" alt="インカム互換性の問題" loading="lazy">
+      <div class="photo-content">
+        <div class="eyebrow">The Problem</div>
+        <h2>Brand<br>Barrier.</h2>
+        <p>「お使いのインカムは互換性がないため、グループに参加できません。」<br>ライダーなら誰もが経験したことがある、この不満。</p>
+        <ul>
+          <li>ライディング仲間がブランドAを使用、あなたはブランドB — 無言で走るしかない</li>
+          <li>ユニバーサルペアリングは設定に15分、それでも音質はひどい</li>
+          <li>全員が同じ高価なインカムを買えるわけではなく、グループツーリングがバラバラに</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-3: SOLUTION — Full Photo (right)
+         ═══════════════════════════════════════════ -->
+    <section class="full-photo right-align" data-animate>
+      <img class="section-bg" src="https://picsum.photos/seed/cloudtalk-solution/2400/1500" alt="CloudTalkモードで全員がつながる" loading="lazy">
+      <div class="photo-content">
+        <div class="eyebrow">The Solution</div>
+        <h2>CloudTalk<br>Mode.</h2>
+        <p>ついに、全員をつなぐコミュニケーションシステムが誕生。CloudTalkモードは単なるインカムモードではありません。ASMAX WORLDアプリを通じて、あらゆるBluetoothインカムと接続。ルームコードを共有するだけで、ブランドを問わず瞬時に全員がつながります。</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-4: 4 STRENGTHS
+         ═══════════════════════════════════════════ -->
+    <section class="strengths-band">
+      <div class="strengths-inner">
+        <div class="strengths-copy" data-animate>
+          <div class="eyebrow">Why CloudTalk</div>
+          <h2>4つの強み</h2>
+          <p>CloudTalkモードが従来のインカム通信と一線を画す、4つの技術的アドバンテージ。</p>
+        </div>
+        <div class="strengths-grid" data-animate style="--d:0.1s;">
+          <div class="strength-card">
+            <div class="card-num">01</div>
+            <h3>Cross-Brand Compatibility</h3>
+            <p>面倒なユニバーサルペアリングは不要。ASMAX WORLDアプリを介して、B+COM・SENA・Cardoなど主要Bluetoothインカムと接続。1つのルームコードで全員がつながります。</p>
+          </div>
+          <div class="strength-card">
+            <div class="card-num">02</div>
+            <h3>No Distance Limit</h3>
+            <p>従来のインカムは最大2〜6kmの通信距離に制限。CloudTalkモードなら携帯回線（4G/5G）経由で距離の制限なし。携帯電波が届く場所ならどこでも通話可能です。</p>
+          </div>
+          <div class="strength-card">
+            <div class="card-num">03</div>
+            <h3>Max 50 Riders</h3>
+            <p>最大50人が同時に通話可能。大規模ツーリングでも全員がリアルタイムで会話できます。もう先頭と最後尾で話が通じないことはありません。</p>
+          </div>
+          <div class="strength-card">
+            <div class="card-num">04</div>
+            <h3>ASMAX Hardware Optimized</h3>
+            <p>汎用の音声通話アプリとは異なり、ヘルメット装着環境に最適化。高度な風切り音抑制、カスタムオーディオ処理で、高速走行中でもクリアな音声を実現します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-5: HOW IT WORKS
+         ═══════════════════════════════════════════ -->
+    <section class="how-band">
+      <div class="container">
+        <div class="how-heading" data-animate>
+          <div class="eyebrow" style="justify-content:center;">How It Works</div>
+          <h2>3 Steps to Connect</h2>
+          <p>CloudTalkモードの使い方は驚くほどシンプル。</p>
+        </div>
+        <div class="how-grid">
+          <div class="how-step" data-animate style="--d:0.05s;">
+            <div class="step-num">1</div>
+            <h3>Download App</h3>
+            <p>ASMAX WORLDアプリを無料ダウンロード。iOS / Android 対応。インカムをスマホとBluetooth接続します。</p>
+          </div>
+          <div class="how-step" data-animate style="--d:0.1s;">
+            <div class="step-num">2</div>
+            <h3>Share Room Code</h3>
+            <p>アプリでルームを作成し、コードを仲間にシェア。相手のインカムブランドは問いません。コードを入力するだけで参加完了。</p>
+          </div>
+          <div class="how-step" data-animate style="--d:0.15s;">
+            <div class="step-num">3</div>
+            <h3>Ride Connected</h3>
+            <p>あとはライドを楽しむだけ。距離無制限・最大50人のクリアな通話が、あなたのツーリングを変えます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-6: TECH ADVANTAGE — Full Photo
+         ═══════════════════════════════════════════ -->
+    <section class="tech-immersive">
+      <img class="section-bg" src="https://picsum.photos/seed/cloudtalk-tech/2400/1500" alt="CloudTalk テクノロジー" loading="lazy">
+      <div class="tech-content" data-animate>
+        <div class="eyebrow">Technology</div>
+        <h2>Built For<br>The Road.</h2>
+        <div class="tech-grid">
+          <div class="tech-card" data-animate style="--d:0.05s;">
+            <h3>Cloud Infrastructure</h3>
+            <ul>
+              <li>専用サーバーによる信頼性と低遅延通信</li>
+              <li>自動負荷分散で安定したパフォーマンス</li>
+              <li>ヘルメット音響と高速走行に特化した最適化</li>
+              <li>グローバルネットワークで世界中で利用可能</li>
+            </ul>
+          </div>
+          <div class="tech-card" data-animate style="--d:0.1s;">
+            <h3>Hardware Optimization</h3>
+            <ul>
+              <li>ヘルメット装着環境に合わせたカスタムオーディオ処理</li>
+              <li>高度な風切り音抑制技術（ENC）</li>
+              <li>長時間ライドに対応するバッテリー最適化</li>
+              <li>40mmネオジウムスピーカーとの連携設計</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-7: COMPATIBLE PRODUCTS
+         ═══════════════════════════════════════════ -->
+    <section class="products-band">
+      <div class="container">
+        <div class="products-heading" data-animate>
+          <div class="eyebrow" style="justify-content:center;">Compatible Products</div>
+          <h2>CloudTalk 対応製品</h2>
+          <p>以下のASMAX製品はすべてCloudTalkモードに対応しています。</p>
+        </div>
+        <div class="products-grid">
+          <a href="product/detail-eva-r-unit01.html" class="product-link" data-animate style="--d:0.05s;">
+            <div class="product-link-img">
+              <img src="assets/Future 1 インカム EVA R 初号機-A パープル.jpg" alt="EVA R" loading="lazy">
+            </div>
+            <div class="product-link-body">
+              <h3>EVA R</h3>
+              <p>コラボ限定モデル — 初号機 / 2号機</p>
+              <span class="cloud-badge">CloudTalk 50</span>
+            </div>
+          </a>
+          <a href="product/detail-f1-pro.html" class="product-link" data-animate style="--d:0.1s;">
+            <div class="product-link-img">
+              <img src="assets/F1 Pro インカム シャイニーグレー.jpg" alt="F1 Pro" loading="lazy">
+            </div>
+            <div class="product-link-body">
+              <h3>F1 Pro</h3>
+              <p>全部入りフラッグシップ</p>
+              <span class="cloud-badge">CloudTalk 50</span>
+            </div>
+          </a>
+          <a href="product/detail-s2.html" class="product-link" data-animate style="--d:0.15s;">
+            <div class="product-link-img">
+              <img src="assets/S2 インカム グレー.jpg" alt="S2" loading="lazy">
+            </div>
+            <div class="product-link-body">
+              <h3>S2</h3>
+              <p>スマートエントリーモデル</p>
+              <span class="cloud-badge">CloudTalk 50</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-8: CTA
+         ═══════════════════════════════════════════ -->
+    <section class="sec-cta">
+      <div class="container" data-animate>
+        <div class="eyebrow" style="justify-content:center;">Get Started</div>
+        <h2 class="cta-heading">Start Your<br>Connected Ride.</h2>
+        <p class="cta-sub">ASMAX WORLDアプリを無料ダウンロードして、今すぐCloudTalkモードを体験しましょう。iOS App Store / Google Play で利用可能です。</p>
+        <div class="cta-actions">
+          <a class="btn-app" href="#">ASMAX WORLDアプリをダウンロード</a>
+          <a class="btn-lineup" href="index.html#lineup">対応製品を見る</a>
+        </div>
+        <p class="cta-note">※ CloudTalkモードの利用には携帯電波エリア内でのスマートフォン接続が必要です。<br>※ 通信にかかるデータ量は通話時間や参加人数により異なります。</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/shared-components.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  });
+  </script>
+
+</body>
+</html>

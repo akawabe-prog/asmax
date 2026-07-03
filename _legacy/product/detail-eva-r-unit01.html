@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVA R 初号機 — Detail | ASMAX JAPAN</title>
+  <meta name="description" content="ASMAX × EVA RACING コラボレーション。EVA R 初号機の世界観を写真で体感。Bluetooth 5.4、3km Mesh、50人CloudTalk、LED呼吸パルス搭載。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/asmax-japan-tokens.css">
+  <link rel="stylesheet" href="../assets/css/shared-layout.css">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: rgba(255,255,255,0.07);
+      --border-mid: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #e0e0e0;
+      --muted: #8f8f8f;
+      --white: #f5f5f5;
+      --accent: #ff6b00;
+      --eva: #7b2d8e;
+      --eva-glow: rgba(123,45,142,0.35);
+      --eva-accent: #00c853;
+      --font-ja: "Noto Sans JP","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+      --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+      --container: min(1280px, calc(100vw - 40px));
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; display: block; }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.82);
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: ""; width: 34px; height: 1px; background: var(--eva);
+    }
+
+    /* ── COLLAB BADGE ── */
+    .collab-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: rgba(123,45,142,0.15);
+      border: 1px solid rgba(123,45,142,0.35); border-radius: 100px;
+      font-family: var(--font-en); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--eva);
+      margin-bottom: 16px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-1: HERO — Cinematic Full Screen
+       ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 70%, var(--bg) 100%),
+        linear-gradient(135deg, var(--eva-glow) 0%, transparent 50%);
+      z-index: 1;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.85);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-en);
+      font-size: clamp(3rem, 9vw, 8rem);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .hero h1 span {
+      display: block;
+      font-size: 0.35em;
+      letter-spacing: 0.1em;
+      color: var(--eva);
+      margin-bottom: 8px;
+    }
+    .hero-sub {
+      margin-top: 24px;
+      max-width: 40em;
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-2: CONCEPT — Full Photo Editorial
+       ═══════════════════════════════════════════ */
+    .full-photo {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    .full-photo img.section-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.65);
+    }
+    .full-photo::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0.1) 100%);
+      z-index: 1;
+    }
+    .photo-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .photo-content h2 {
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .photo-content p {
+      margin-top: 20px;
+      max-width: 36em;
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    /* ── Right-aligned variant ── */
+    .full-photo.right-align::before {
+      background: linear-gradient(270deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.3) 55%, rgba(10,10,10,0.1) 100%);
+    }
+    .right-align .photo-content {
+      display: flex; flex-direction: column;
+      align-items: flex-end; text-align: right;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-3: POSTER ART + VIDEO
+       ═══════════════════════════════════════════ */
+    .poster-band {
+      border-top: 1px solid var(--border);
+      padding: 0;
+      background: #0c0c0c;
+    }
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+    .poster-visual {
+      position: relative;
+      overflow: hidden;
+    }
+    .poster-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .poster-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 48px;
+      background:
+        radial-gradient(ellipse 400px 300px at 80% 20%, var(--eva-glow), transparent),
+        #0c0c0c;
+    }
+    .poster-info h2 {
+      font-family: var(--font-en);
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .poster-info p {
+      margin-top: 16px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 32em;
+    }
+    .video-wrap {
+      margin-top: 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 16/9;
+    }
+    .video-wrap video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-4: GALLERY STRIP
+       ═══════════════════════════════════════════ */
+    .gallery-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      background: #0c0c0c;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+    .gallery-grid img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-5: TECH SPECS — Immersive Numbers
+       ═══════════════════════════════════════════ */
+    .spec-immersive {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    .spec-immersive img.section-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5) saturate(0.7);
+    }
+    .spec-immersive::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.7) 100%);
+      z-index: 1;
+    }
+    .spec-content {
+      position: relative; z-index: 2;
+      width: var(--container); margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .spec-card {
+      text-align: center;
+      padding: 28px 16px;
+      background: rgba(10,10,10,0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+    }
+    .spec-card .stat-value {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(32px, 4.5vw, 52px);
+      color: var(--white); line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+    .spec-card .stat-value span {
+      font-size: 0.45em; font-weight: 600; color: var(--eva);
+      margin-left: 3px;
+    }
+    .spec-card .stat-label {
+      margin-top: 8px;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-6: FEATURE CARDS
+       ═══════════════════════════════════════════ */
+    .sec-features {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 600px 300px at 30% 0%, var(--eva-glow), transparent),
+        linear-gradient(180deg, #101010, var(--bg));
+    }
+    .features-inner {
+      width: var(--container); margin: 0 auto; padding: 0 20px;
+    }
+    .features-heading {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .features-heading h2 {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(22px, 3vw, 32px); color: var(--white);
+    }
+    .features-heading p {
+      margin-top: 8px; font-size: 14px; color: var(--muted);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .feature-card:hover {
+      border-color: rgba(123,45,142,0.4);
+      transform: translateY(-3px);
+    }
+    .feature-index {
+      font-family: var(--font-en); font-size: 11px; font-weight: 800;
+      color: var(--eva); letter-spacing: 0.15em; margin-bottom: 12px;
+    }
+    .feature-title {
+      font-family: var(--font-en); font-size: 18px; font-weight: 800;
+      color: var(--white); line-height: 1.2; margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 14px; color: var(--muted); line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-7: DETAIL SHOTS
+       ═══════════════════════════════════════════ */
+    .detail-shots {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      background: #0c0c0c;
+    }
+    .detail-shots-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .detail-shots-grid img {
+      width: 100%; aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    /* ═══════════════════════════════════════════
+       SEC-8: CTA
+       ═══════════════════════════════════════════ */
+    .sec-cta {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background:
+        radial-gradient(ellipse 500px 250px at 50% 100%, var(--eva-glow), transparent),
+        var(--bg);
+    }
+    .cta-inner {
+      width: var(--container); margin: 0 auto; padding: 0 20px;
+    }
+    .cta-product-name {
+      font-family: var(--font-en); font-weight: 900;
+      font-size: clamp(28px, 4vw, 48px);
+      color: var(--white); line-height: 1.1;
+    }
+    .cta-price {
+      margin-top: 12px;
+      font-family: var(--font-en); font-weight: 900;
+      font-size: 32px; color: var(--white);
+    }
+    .cta-price small {
+      font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 4px;
+    }
+    .cta-actions {
+      margin-top: 32px;
+      display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-buy {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 18px 48px; background: var(--eva);
+      color: #fff; font-weight: 700; font-size: 15px;
+      border: none; border-radius: 8px; letter-spacing: 0.06em;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn-buy:hover { background: #6a2579; transform: translateY(-2px); }
+    .link-spec {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 18px 32px;
+      font-size: 14px; font-weight: 600; color: var(--muted);
+      border: 1px solid var(--border-strong); border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .link-spec:hover { color: var(--white); border-color: var(--white); }
+    .link-spec::after { content: "→"; font-size: 16px; }
+    .cta-other {
+      margin-top: 24px;
+      font-size: 14px; color: var(--muted);
+    }
+    .cta-other a {
+      color: var(--white); font-weight: 600;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s;
+    }
+    .cta-other a:hover { border-color: var(--white); }
+
+    /* ── ANIMATION ── */
+    [data-animate] {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      transition-delay: var(--d, 0s);
+    }
+    [data-animate].visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .poster-grid { grid-template-columns: 1fr; }
+      .poster-visual { min-height: 50vh; }
+      .spec-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .site-nav { display: none; }
+      .hero-content { padding: 56px 20px; }
+      .photo-content { padding: 40px 20px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .detail-shots-grid { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .right-align .photo-content {
+        align-items: flex-start; text-align: left;
+      }
+    }
+    @media (max-width: 480px) {
+      .spec-grid { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <script>window.__asmax_base = '../';</script>
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════
+         SEC-1: HERO — Cinematic
+         ═══════════════════════════════════════════ -->
+    <section class="hero">
+      <img class="hero-bg" src="https://picsum.photos/seed/eva-r-01-hero/2400/1500" alt="EVA R 初号機 — ヒーロービジュアル" loading="eager">
+      <div class="hero-content" data-animate>
+        <div class="collab-badge"><img src="../assets/ASMAX_EVA_LOGO_WHITE.svg" alt="ASMAX × EVA RACING" style="height:20px;width:auto;"></div>
+        <h1><span>Future 1 Intercom</span>EVA R<br>初号機</h1>
+        <p class="hero-sub">エヴァンゲリオンの世界観とASMAXの先端通信テクノロジーが融合。<br>ナイトランでも存在感を放つLED呼吸パルスを搭載した、日本限定アイコンモデル。</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-2: CONCEPT — Full Photo Editorial
+         ═══════════════════════════════════════════ -->
+    <section class="full-photo" data-animate>
+      <img class="section-bg" src="https://picsum.photos/seed/eva-r-01-concept/2400/1500" alt="EVA R コンセプト — コラボレーションデザイン" loading="lazy">
+      <div class="photo-content">
+        <div class="eyebrow">Evangelion × ASMAX</div>
+        <h2>二機、<br>参戦中。</h2>
+        <p>ASMAXの先端通信テクノロジーとエヴァンゲリオンの世界観が融合した、日本限定のアイコンモデル。初号機を象徴するパープルの配色パターンを採用し、ナイトランでも存在感を放つLEDカラーリングは呼吸パルス調。走るたびにエヴァの世界観を体感できます。</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-3: POSTER ART + VIDEO
+         ═══════════════════════════════════════════ -->
+    <section class="poster-band">
+      <div class="poster-grid">
+        <div class="poster-visual" data-animate>
+          <img src="../assets/画板 11-100.jpg" alt="EVA R 初号機 ポスターアート">
+        </div>
+        <div class="poster-info" data-animate style="--d:0.1s;">
+          <div class="eyebrow">Concept Movie</div>
+          <h2>Feel The<br>Pulse.</h2>
+          <p>初号機の鼓動を感じるLED呼吸パルス。闇を切り裂くパープルの光が、すべてのナイトランを特別なものに変える。</p>
+          <div class="video-wrap">
+            <video controls preload="metadata" poster="../assets/画板 11-100.jpg">
+              <source src="../assets/251113_宣伝動画_日本語.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-4: GALLERY
+         ═══════════════════════════════════════════ -->
+    <section class="gallery-strip">
+      <div class="gallery-grid">
+        <img src="https://picsum.photos/seed/eva-r-01-gallery1/1200/1500" alt="EVA R 初号機 — ディテール 1" loading="lazy" data-animate>
+        <img src="https://picsum.photos/seed/eva-r-01-gallery2/1200/1500" alt="EVA R 初号機 — ディテール 2" loading="lazy" data-animate style="--d:0.1s;">
+        <img src="https://picsum.photos/seed/eva-r-01-gallery3/1200/1500" alt="EVA R 初号機 — ディテール 3" loading="lazy" data-animate style="--d:0.2s;">
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-5: TECH SPECS — Immersive
+         ═══════════════════════════════════════════ -->
+    <section class="spec-immersive">
+      <img class="section-bg" src="https://picsum.photos/seed/eva-r-01-tech/2400/1500" alt="EVA R 初号機 — テックビジュアル" loading="lazy">
+      <div class="spec-content" data-animate>
+        <div class="eyebrow">Performance</div>
+        <h2 style="font-family:var(--font-en);font-size:clamp(2rem,4.5vw,3.6rem);font-weight:900;color:var(--white);text-transform:uppercase;line-height:0.95;">Numbers<br>Don't Lie.</h2>
+        <div class="spec-grid">
+          <div class="spec-card" data-animate style="--d:0.05s;">
+            <div class="stat-value">3<span>km</span></div>
+            <div class="stat-label">Mesh 通信距離</div>
+          </div>
+          <div class="spec-card" data-animate style="--d:0.1s;">
+            <div class="stat-value">14<span>h</span></div>
+            <div class="stat-label">連続通話時間</div>
+          </div>
+          <div class="spec-card" data-animate style="--d:0.15s;">
+            <div class="stat-value">50<span>人</span></div>
+            <div class="stat-label">CloudTalk</div>
+          </div>
+          <div class="spec-card" data-animate style="--d:0.2s;">
+            <div class="stat-value">IPX7</div>
+            <div class="stat-label">防水等級</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-6: ENGINEERING — Full Photo (right)
+         ═══════════════════════════════════════════ -->
+    <section class="full-photo right-align" data-animate>
+      <img class="section-bg" src="/Users/cjmac002/Desktop/ASMAX_ReBranding/assets/sound-engineering-new.png" alt="EVA R 初号機 — サウンドエンジニアリング" loading="lazy">
+      <div class="photo-content">
+        <div class="eyebrow">Sound Engineering</div>
+        <h2>40mm<br>Neodymium.</h2>
+        <p>大口径40mmネオジウムスピーカーと独自サウンドキャビティ構造で、低音の厚みと中高域の抜けを両立。アコースティック・チューニングで各帯域を個別最適化。風切り音の中でもクリアな音声を実現します。</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-7: FEATURES
+         ═══════════════════════════════════════════ -->
+    <section class="sec-features">
+      <div class="features-inner">
+        <div class="features-heading" data-animate>
+          <h2>Key Features</h2>
+          <p>EVA R がライドを変える4つの理由</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" data-animate>
+            <div class="feature-index">01</div>
+            <h3 class="feature-title">EVA RACING<br>Collaboration Design</h3>
+            <p class="feature-desc">初号機を象徴するパープルの配色パターンを採用。ナイトランでも存在感を放つLEDカラーリングは呼吸パルス調で、走るたびにエヴァの世界観を体感できます。</p>
+          </div>
+          <div class="feature-card" data-animate style="--d:0.06s;">
+            <div class="feature-index">02</div>
+            <h3 class="feature-title">CloudTalk<br>Max 50 Riders</h3>
+            <p class="feature-desc">携帯回線（4G/5G）経由で最大50人のリアルタイム通話。距離無制限で、B+COM・SENA・Cardoなど他社インカムとも接続可能なクロスブランド対応。</p>
+          </div>
+          <div class="feature-card" data-animate style="--d:0.12s;">
+            <div class="feature-index">03</div>
+            <h3 class="feature-title">Hi Max<br>AI Voice Assistant</h3>
+            <p class="feature-desc">「Hi Max」と話しかけるだけで完全ハンズフリー操作。オフラインAIアシスタントが走行中も安全にすべての機能をコントロール。グローブをしたままでも快適。</p>
+          </div>
+          <div class="feature-card" data-animate style="--d:0.18s;">
+            <div class="feature-index">04</div>
+            <h3 class="feature-title">Magnetic Mount<br>3-Second Attach</h3>
+            <p class="feature-desc">マグネット脱着式で、わずか3秒で着脱完了。グローブをしたままでもワンタッチで装着でき、ライド前の準備時間を大幅に短縮。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-8: DETAIL SHOTS
+         ═══════════════════════════════════════════ -->
+    <section class="detail-shots">
+      <div class="detail-shots-grid">
+        <img src="https://picsum.photos/seed/eva-r-01-detail1/1200/1200" alt="EVA R 初号機 — マグネットマウント" loading="lazy" data-animate>
+        <img src="https://picsum.photos/seed/eva-r-01-detail2/1200/1200" alt="EVA R 初号機 — スピーカーユニット" loading="lazy" data-animate style="--d:0.1s;">
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEC-9: CTA
+         ═══════════════════════════════════════════ -->
+    <section class="sec-cta">
+      <div class="cta-inner" data-animate>
+        <div class="collab-badge"><img src="../assets/ASMAX_EVA_LOGO_WHITE.svg" alt="ASMAX × EVA RACING" style="height:20px;width:auto;"></div>
+        <div class="cta-product-name">EVA R 初号機</div>
+        <div class="cta-price">¥35,000<small>税込</small></div>
+        <div class="cta-actions">
+          <a class="btn-buy" href="eva-r-unit01.html">Buy Now</a>
+          <a class="link-spec" href="eva-r-unit01.html#spec">すべてのスペックを見る</a>
+        </div>
+        <p class="cta-other">2号機モデルはこちら: <a href="detail-eva-r-unit02.html">EVA R 2号機</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../assets/js/shared-components.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  });
+  </script>
+
+</body>
+</html>

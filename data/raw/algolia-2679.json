@@ -1,0 +1,3506 @@
+{
+  "results": [
+    {
+      "hits": [
+        {
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "jan": "6976729480741",
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "img": {
+            "s": "/items/29200245_s.jpg",
+            "l": "/items/29200245_1.jpg"
+          },
+          "id": "29200245",
+          "order": 11,
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "color": {
+            "main": {
+              "value": "パープル/グリーン"
+            },
+            "base": {
+              "facet": [
+                "パープル||PUR||34||#A757A8",
+                "グリーン||GRN||38||#009A57"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "car": {},
+          "outletIds": [],
+          "name": "Future 1 インカム EVA R 初号機-B パープル/グリーン",
+          "group": {
+            "count": 0
+          },
+          "size": {},
+          "unit": "セット",
+          "makerNo": {
+            "origin": "WS10 EVA-01B",
+            "olds": [],
+            "news": []
+          },
+          "relItemIds": {
+            "count": 5
+          },
+          "genuine": {
+            "average": null
+          },
+          "objectID": "29200245",
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "outletOrigin": "",
+          "parentSetIds": [
+            "29364831",
+            "29364862",
+            "29364879"
+          ],
+          "catch": "Future 1 インカム EVA R 初号機モデル",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 31818,
+              "taxIn": 35000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 31818,
+                "taxIn": 35000
+              },
+              "vd": {
+                "taxEx": 29930,
+                "taxIn": 32923
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-30T18:21:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29200245",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "car": {},
+          "outletOrigin": "",
+          "genuine": {
+            "average": null
+          },
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "color": {
+            "main": {
+              "value": "パープル"
+            },
+            "base": {
+              "facet": [
+                "パープル||PUR||34||#A757A8"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "jan": "6976729480727",
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "catch": "Future 1 インカム EVA R 初号機モデル",
+          "name": "Future 1 インカム EVA R 初号機-A パープル",
+          "group": {
+            "count": 0
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "unit": "セット",
+          "outletIds": [],
+          "img": {
+            "s": "/items/29200238_s.jpg",
+            "l": "/items/29200238_1.jpg"
+          },
+          "objectID": "29200238",
+          "id": "29200238",
+          "order": 11,
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "size": {},
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "parentSetIds": [
+            "29364831",
+            "29364848",
+            "29364855"
+          ],
+          "makerNo": {
+            "origin": "WS10 EVA-01A",
+            "olds": [],
+            "news": []
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "relItemIds": {
+            "count": 5
+          },
+          "fit": "",
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 31818,
+              "taxIn": 35000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 31818,
+                "taxIn": 35000
+              },
+              "vd": {
+                "taxEx": 29930,
+                "taxIn": 32923
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-30T18:21:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29200238",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "relItemIds": {
+            "count": 5
+          },
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "car": {},
+          "outletIds": [],
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "color": {
+            "main": {
+              "value": "レッド/オレンジ"
+            },
+            "base": {
+              "facet": [
+                "レッド||RED||22||#C8102E",
+                "オレンジ||ORN||28||#EF810F"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "unit": "セット",
+          "parentSetIds": [
+            "29364855",
+            "29364879",
+            "29364886"
+          ],
+          "catch": "Future 1 インカム EVA R 2号機モデル",
+          "genuine": {
+            "average": null
+          },
+          "id": "29200269",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "jan": "6976729480758",
+          "makerNo": {
+            "origin": "WS10 EVA-02B",
+            "olds": [],
+            "news": []
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "outletOrigin": "",
+          "name": "Future 1 インカム EVA R 2号機-B レッド/オレンジ",
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "size": {},
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "img": {
+            "s": "/items/29200269_s.jpg",
+            "l": "/items/29200269_1.jpg"
+          },
+          "objectID": "29200269",
+          "order": 12,
+          "group": {
+            "count": 0
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 31818,
+              "taxIn": 35000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 31818,
+                "taxIn": 35000
+              },
+              "vd": {
+                "taxEx": 29930,
+                "taxIn": 32923
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-30T18:21:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29200269",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "fit": "",
+          "outletOrigin": "",
+          "order": 12,
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "color": {
+            "main": {
+              "value": "レッド"
+            },
+            "base": {
+              "facet": [
+                "レッド||RED||22||#C8102E"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "jan": "6976729480734",
+          "makerNo": {
+            "origin": "WS10 EVA-02A",
+            "olds": [],
+            "news": []
+          },
+          "relItemIds": {
+            "count": 5
+          },
+          "outletIds": [],
+          "catch": "Future 1 インカム EVA R 2号機モデル",
+          "id": "29200252",
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "unit": "セット",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "img": {
+            "s": "/items/29200252_s.jpg",
+            "l": "/items/29200252_1.jpg"
+          },
+          "genuine": {
+            "average": null
+          },
+          "objectID": "29200252",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "car": {},
+          "parentSetIds": [
+            "29364848",
+            "29364862",
+            "29364886"
+          ],
+          "name": "Future 1 インカム EVA R 2号機-A レッド",
+          "group": {
+            "count": 0
+          },
+          "size": {},
+          "altItemIds": {
+            "count": 0
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 31818,
+              "taxIn": 35000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 31818,
+                "taxIn": 35000
+              },
+              "vd": {
+                "taxEx": 29930,
+                "taxIn": 32923
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-10-30T18:21:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29200252",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "jan": "6976729480703",
+          "altItemIds": {
+            "count": 0
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "outletOrigin": "",
+          "order": 13,
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "car": {},
+          "outletIds": [],
+          "parentSetIds": [
+            "29364893"
+          ],
+          "catch": "長距離で10人通話可能なAI音声コントロールMeshインカム",
+          "genuine": {
+            "average": null
+          },
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "F1 Pro||26791010||501010||プレミアム・フル機能モデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "size": {},
+          "unit": "セット",
+          "relItemIds": {
+            "count": 1
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "img": {
+            "s": "/items/29159420_s.jpg",
+            "l": "/items/29159420_1.jpg"
+          },
+          "objectID": "29159420",
+          "name": "F1 Pro インカム シャイニーグレー",
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "F1 Pro 本体||2679-F1PRO-BODY||500010||"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "color": {
+            "main": {
+              "value": "シャイニーグレー"
+            },
+            "base": {
+              "facet": [
+                "グレー||GRY||12||#767676"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "makerNo": {
+            "origin": "08WS03AFIN017",
+            "olds": [],
+            "news": []
+          },
+          "fit": "",
+          "id": "29159420",
+          "group": {
+            "count": 0
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 29909,
+              "taxIn": 32900
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 29909,
+                "taxIn": 32900
+              },
+              "vd": {
+                "taxEx": 28420,
+                "taxIn": 31262
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-02T19:11:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29159420",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "unit": "セット",
+          "relItemIds": {
+            "count": 1
+          },
+          "outletOrigin": "",
+          "parentSetIds": [
+            "29364893"
+          ],
+          "genuine": {
+            "average": null
+          },
+          "order": 13,
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "group": {
+            "count": 0
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "jan": "6976729480567",
+          "makerNo": {
+            "origin": "08WS03AFIN033",
+            "olds": [],
+            "news": []
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "fit": "",
+          "id": "29159413",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "F1 Pro 本体||2679-F1PRO-BODY||500010||"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "car": {},
+          "catch": "長距離で10人通話可能なAI音声コントロールMeshインカム",
+          "img": {
+            "s": "/items/29159413_s.jpg",
+            "l": "/items/29159413_1.jpg"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "F1 Pro||26791010||501010||プレミアム・フル機能モデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "outletIds": [],
+          "objectID": "29159413",
+          "name": "F1 Pro インカム ステラーグレー",
+          "size": {},
+          "color": {
+            "main": {
+              "value": "ステラーグレー"
+            },
+            "base": {
+              "facet": [
+                "グレー||GRY||12||#767676"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 29909,
+              "taxIn": 32900
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 29909,
+                "taxIn": 32900
+              },
+              "vd": {
+                "taxEx": 28420,
+                "taxIn": 31262
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-02T19:11:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29159413",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "S2 本体||2679-S2-BODY||500020||"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "size": {},
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "jan": "6976729480581",
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "img": {
+            "s": "/items/29159437_s.jpg",
+            "l": "/items/29159437_1.jpg"
+          },
+          "objectID": "29159437",
+          "series": {
+            "facet": {
+              "2679": [
+                "S2||26791020||501020||スマート＆コンパクトな高コスパモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "makerNo": {
+            "origin": "08WS04AFIN017",
+            "olds": [],
+            "news": []
+          },
+          "car": {},
+          "outletOrigin": "",
+          "genuine": {
+            "average": null
+          },
+          "id": "29159437",
+          "order": 14,
+          "altItemIds": {
+            "count": 0
+          },
+          "relItemIds": {
+            "count": 0
+          },
+          "fit": "",
+          "parentSetIds": [],
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "group": {
+            "count": 0
+          },
+          "color": {
+            "main": {
+              "value": "グレー"
+            },
+            "base": {
+              "facet": [
+                "グレー||GRY||12||#767676"
+              ]
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "unit": "セット",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "outletIds": [],
+          "catch": "遠距離で8人同時通話可能なMeshインカム",
+          "name": "S2 インカム グレー",
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 14454,
+              "taxIn": 15899
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 14454,
+                "taxIn": 15899
+              },
+              "vd": {
+                "taxEx": 13740,
+                "taxIn": 15114
+              }
+            }
+          },
+          "threshold": {
+            "vd": 2
+          },
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-09-02T19:11:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29159437",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "S2 アクセサリー||2679-S2-ACCESSORY||500025||あると便利なアクセサリーや補修用の付属品(スペア)"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "jan": "6976729480666",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "catch": "ASMAXの専用補修部品です",
+          "objectID": "29208180",
+          "id": "29208180",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "car": {},
+          "outletOrigin": "",
+          "outletIds": [],
+          "img": {
+            "s": "/items/29208180_s.jpg",
+            "l": "/items/29208180_1.jpg"
+          },
+          "order": 1000,
+          "series": {
+            "facet": {
+              "2679": [
+                "S2||26791020||501020||スマート＆コンパクトな高コスパモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "size": {},
+          "unit": "セット",
+          "relItemIds": {
+            "count": 0
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "genuine": {
+            "average": null
+          },
+          "name": "S2 A/B メタルクランプ/マイク＆スピーカーセット",
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "fit": "",
+          "parentSetIds": [],
+          "group": {
+            "count": 0
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 4181,
+              "taxIn": 4599
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 4181,
+                "taxIn": 4599
+              }
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-11-22T15:21:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29208180",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "car": {},
+          "parentSetIds": [],
+          "catch": "ASMAXの専用補修部品です",
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "F1 Pro アクセサリー||2679-F1PRO-ACCESSORY||500015||あると便利なアクセサリーや補修用の付属品(スペア)"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "unit": "セット",
+          "jan": "6976729480642",
+          "outletOrigin": "",
+          "objectID": "29208173",
+          "name": "F1 Pro B マイク＆スピーカーセット",
+          "order": 1000,
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "F1 Pro||26791010||501010||プレミアム・フル機能モデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "relItemIds": {
+            "count": 1
+          },
+          "outletIds": [],
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "size": {},
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "img": {
+            "s": "/items/29208173_s.jpg",
+            "l": "/items/29208173_1.jpg"
+          },
+          "genuine": {
+            "average": null
+          },
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "id": "29208173",
+          "group": {
+            "count": 0
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 4999,
+              "taxIn": 5499
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 4999,
+                "taxIn": 5499
+              }
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-11-22T15:11:25"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29208173",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "catch": "ASMAXの専用補修部品です",
+          "group": {
+            "count": 0
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "F1 Pro||26791010||501010||プレミアム・フル機能モデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "jan": "6976729480659",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "genuine": {
+            "average": null
+          },
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "outletOrigin": "",
+          "parentSetIds": [],
+          "img": {
+            "s": "/items/29208166_s.jpg",
+            "l": "/items/29208166_1.jpg"
+          },
+          "objectID": "29208166",
+          "id": "29208166",
+          "size": {},
+          "unit": "セット",
+          "altItemIds": {
+            "count": 0
+          },
+          "relItemIds": {
+            "count": 1
+          },
+          "fit": "",
+          "car": {},
+          "outletIds": [],
+          "name": "F1 Pro A マグネットマウントセット",
+          "order": 1000,
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "F1 Pro アクセサリー||2679-F1PRO-ACCESSORY||500015||あると便利なアクセサリーや補修用の付属品(スペア)"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 4181,
+              "taxIn": 4599
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 4181,
+                "taxIn": 4599
+              }
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2025-11-22T15:31:30"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29208166",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "series": {
+            "facet": {
+              "2679": [
+                "F1 Pro||26791010||501010||プレミアム・フル機能モデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "parentSetIds": [],
+          "img": {
+            "s": "/items/29364893_s.jpg",
+            "l": "/items/29364893_1.jpg"
+          },
+          "objectID": "29364893",
+          "size": {},
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "unit": "セット(2台)",
+          "jan": "4580080499605",
+          "altItemIds": {
+            "count": 0
+          },
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "genuine": {
+            "average": null
+          },
+          "name": "【セット品】F1 Pro インカム ステラーグレー+シャイニーグレー",
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "F1 Pro 本体||2679-F1PRO-BODY||500010||"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "relItemIds": {
+            "count": 0
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "car": {},
+          "outletOrigin": "",
+          "outletIds": [],
+          "catch": "F1 Pro インカムのお得な2台セットです。",
+          "id": "29364893",
+          "order": 1100,
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "group": {
+            "count": 0
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 59818,
+              "taxIn": 65800
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 56827,
+                "taxIn": 62510
+              }
+            },
+            "set": {
+              "taxEx": 59818,
+              "taxIn": 65800
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364893",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "unit": "セット(2台)",
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "size": {},
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "jan": "4580080499599",
+          "relItemIds": {
+            "count": 4
+          },
+          "outletOrigin": "",
+          "parentSetIds": [],
+          "img": {
+            "s": "/items/29364886_s.jpg",
+            "l": "/items/29364886_1.jpg"
+          },
+          "id": "29364886",
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "outletIds": [],
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "genuine": {
+            "average": null
+          },
+          "objectID": "29364886",
+          "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+2号機-A レッド",
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "group": {
+            "count": 0
+          },
+          "car": {},
+          "order": 1100,
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364886",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "group": {
+            "count": 0
+          },
+          "size": {},
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "unit": "セット(2台)",
+          "jan": "4580080499582",
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "order": 1100,
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル",
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "fit": "",
+          "car": {},
+          "outletIds": [],
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "id": "29364879",
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "relItemIds": {
+            "count": 5
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "img": {
+            "s": "/items/29364879_s.jpg",
+            "l": "/items/29364879_1.jpg"
+          },
+          "genuine": {
+            "average": null
+          },
+          "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+初号機-B パープル/グリーン",
+          "altItemIds": {
+            "count": 0
+          },
+          "outletOrigin": "",
+          "parentSetIds": [],
+          "objectID": "29364879",
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364879",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル",
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "fit": "",
+          "car": {},
+          "genuine": {
+            "average": null
+          },
+          "objectID": "29364862",
+          "order": 1100,
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "img": {
+            "s": "/items/29364862_s.jpg",
+            "l": "/items/29364862_1.jpg"
+          },
+          "id": "29364862",
+          "group": {
+            "count": 0
+          },
+          "unit": "セット(2台)",
+          "jan": "4580080499575",
+          "outletOrigin": "",
+          "outletIds": [],
+          "parentSetIds": [],
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "size": {},
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "relItemIds": {
+            "count": 5
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "name": "【セット品】Future 1 インカム EVA R 2号機-A レッド+初号機-B パープル/グリーン",
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364862",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "objectID": "29364855",
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "fit": "",
+          "outletIds": [],
+          "parentSetIds": [],
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル",
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "jan": "4580080499568",
+          "relItemIds": {
+            "count": 5
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "id": "29364855",
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "group": {
+            "count": 0
+          },
+          "size": {},
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "car": {},
+          "name": "【セット品】Future 1 インカム EVA R 2号機-B レッド/オレンジ+初号機-A パープル",
+          "order": 1100,
+          "unit": "セット(2台)",
+          "outletOrigin": "",
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "img": {
+            "s": "/items/29364855_s.jpg",
+            "l": "/items/29364855_1.jpg"
+          },
+          "genuine": {
+            "average": null
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364855",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "jan": "4580080499551",
+          "altItemIds": {
+            "count": 0
+          },
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "parentSetIds": [],
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "img": {
+            "s": "/items/29364848_s.jpg",
+            "l": "/items/29364848_1.jpg"
+          },
+          "genuine": {
+            "average": null
+          },
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "group": {
+            "count": 0
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 2号機||2679-EVAR2||500002||Future 1 インカム EVA R 2号機モデル",
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "unit": "セット(2台)",
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "id": "29364848",
+          "name": "【セット品】Future 1 インカム EVA R 2号機-A レッド+初号機-A パープル",
+          "order": 1100,
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "fit": "",
+          "car": {},
+          "outletOrigin": "",
+          "size": {},
+          "relItemIds": {
+            "count": 5
+          },
+          "outletIds": [],
+          "objectID": "29364848",
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364848",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        },
+        {
+          "fit": "",
+          "moto": {
+            "body": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "frame": {
+              "facet": {
+                "1": {},
+                "2": {},
+                "3": {},
+                "4": {},
+                "20": {}
+              }
+            },
+            "model": {}
+          },
+          "outletOrigin": "",
+          "genuine": {
+            "average": null
+          },
+          "order": 1100,
+          "maker": {
+            "facet": "ASMAX||2679||50||次世代インカム ASMAX ― 音声で操り、仲間とつながる新しいツーリング体験",
+            "id": "2679",
+            "name": "ASMAX(アズマックス)",
+            "nameMain": "ASMAX",
+            "nameKana": "アズマックス",
+            "cd": "asmax"
+          },
+          "unit": "セット(2台)",
+          "makerNo": {
+            "origin": "",
+            "olds": [],
+            "news": []
+          },
+          "parentSetIds": [],
+          "catch": "Future 1 インカム EVA Rのお得な2台セットです。",
+          "img": {
+            "s": "/items/29364831_s.jpg",
+            "l": "/items/29364831_1.jpg"
+          },
+          "category": {
+            "facet": {
+              "lvl0": [
+                "バイク||10||10"
+              ],
+              "lvl1": [
+                "電子機器||1076||1076"
+              ],
+              "lvl2": [
+                "インカム||107615||107615"
+              ]
+            },
+            "tree": {
+              "lvl0": [
+                "moto"
+              ],
+              "lvl1": [
+                "moto > electronics"
+              ],
+              "lvl2": [
+                "moto > electronics > 107615"
+              ]
+            },
+            "class": {
+              "lvl0": [
+                "10"
+              ],
+              "lvl1": [
+                "10 > bp"
+              ]
+            },
+            "names": [
+              "電子機器",
+              "インカム"
+            ],
+            "id": "107615",
+            "name": "インカム",
+            "top": {
+              "name": "バイク"
+            }
+          },
+          "series": {
+            "facet": {
+              "2679": [
+                "Future 1||26791015||501015||ASMAX×EVARコラボモデル"
+              ]
+            },
+            "nameKana": {},
+            "nameNoHyphen": {}
+          },
+          "size": {},
+          "color": {
+            "main": {
+              "value": ""
+            },
+            "base": {
+              "facet": []
+            },
+            "maker": {
+              "facet": []
+            }
+          },
+          "jan": "4580080499544",
+          "objectID": "29364831",
+          "name": "【セット品】Future 1 インカム EVA R 初号機-A パープル+初号機-B パープル/グリーン",
+          "group": {
+            "count": 0
+          },
+          "type": {
+            "maker": {
+              "facet": {
+                "2679": [
+                  "EVA R 初号機||2679-EVAR1||500001||Future 1 インカム EVA R 初号機モデル"
+                ]
+              },
+              "nameKana": {},
+              "nameNoHyphen": {}
+            },
+            "category": {}
+          },
+          "spec": {
+            "1": {
+              "facet": {}
+            },
+            "2": {
+              "facet": {}
+            },
+            "3": {
+              "facet": {}
+            },
+            "values": []
+          },
+          "altItemIds": {
+            "count": 0
+          },
+          "relItemIds": {
+            "count": 4
+          },
+          "car": {},
+          "outletIds": [],
+          "id": "29364831",
+          "bodyMaker": {
+            "facet": {
+              "lvl0": [],
+              "lvl1": []
+            }
+          },
+          "isGenuineEstimate": false,
+          "icons": [
+            {
+              "cd": "INS",
+              "txt": "即納"
+            },
+            {
+              "cd": "PB",
+              "txt": "公式/PB"
+            },
+            {
+              "cd": "SET",
+              "txt": "SET"
+            }
+          ],
+          "promo": {},
+          "price": {
+            "list": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            },
+            "regular": {
+              "pc": {
+                "taxEx": 60454,
+                "taxIn": 66499
+              }
+            },
+            "set": {
+              "taxEx": 63636,
+              "taxIn": 70000
+            }
+          },
+          "threshold": {},
+          "status": {
+            "cd": "SE",
+            "txt": "◯在庫あり",
+            "updatedAt": "2026-05-22T16:57:55"
+          },
+          "isNotForSale": false,
+          "favorite": {
+            "id": "29364831",
+            "exclCnt": 5,
+            "item": null,
+            "site": null,
+            "isNotified": false
+          },
+          "maxQuantity": 99
+        }
+      ],
+      "nbHits": 17,
+      "hitsPerPage": 1000,
+      "page": 0,
+      "nbPages": 1,
+      "processingTimeMS": 4,
+      "processingTimingsMS": {
+        "makeLegacyExtensionRequest": {
+          "total": 0
+        },
+        "isLegacyExtensionEnabled": {
+          "total": 0
+        },
+        "normalizeText": {
+          "total": 0
+        },
+        "getAIConfig": {
+          "total": 0
+        },
+        "makeLegacyExtensionAggregateResponse": {
+          "total": 0
+        },
+        "legacyKeywordSearch": {
+          "_request": {
+            "roundTrip": 11
+          },
+          "total": 3
+        },
+        "total": 4
+      },
+      "exhaustiveNbHits": true,
+      "exhaustiveTypo": true,
+      "query": "",
+      "params": "query&facetFilters=%5B%5B%22maker.id%3A2679%22%5D%5D&hitsPerPage=1000&attributesToHighlight=%5B%5D&facets=%5B%22category.name%22%2C%22category.tree.lvl0%22%5D&x-algolia-agent=Algolia+for+JavaScript+%284.9.1%29%3B+Node.js+%2822.23.1%29",
+      "facets": {
+        "category.tree.lvl0": {
+          "moto": 17
+        }
+      },
+      "renderingContent": {},
+      "exhaustive": {
+        "facetsCount": true,
+        "nbHits": true,
+        "typo": true
+      },
+      "exhaustiveFacetsCount": true
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S2 を購入 | ASMAX JAPAN 公式ストア</title>
+<meta name="description" content="ASMAX S2「Pocket Aero」¥15,899(税込)。わずか41gの軽量スマートインカム。Bluetooth 5.4・ENC・HiFiサウンド・急速充電。公式ストア購入でメーカー保証4年。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ ASMAX SHOP — ATMOS購入画面(AEROライトテーマ) ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --font-en:"Archivo",sans-serif;--font-ja:"Noto Sans JP",sans-serif;
+  --header-h:68px;--ease:cubic-bezier(.22,.61,.2,1);
+  --bg:#f2f6f9;--bg2:#e8eef4;--ink:#10151b;--sub:#5d6b78;
+  --accent:#0e9cd8;--accent-dim:rgba(14,156,216,.1);
+  --line:rgba(10,20,30,.12);--card:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-ja);background:var(--bg);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+.en{font-family:var(--font-en)}
+.wrap{width:min(1240px,94vw);margin:0 auto}
+.eyebrow{font-family:var(--font-en);font-size:11.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
+.hd{position:fixed;inset:0 0 auto;z-index:90;mix-blend-mode:difference}
+.hd .bar{width:min(1360px,94vw);margin:0 auto;height:var(--header-h);display:flex;align-items:center;justify-content:space-between}
+.hd img{width:106px}
+.hd nav{display:flex;gap:26px;font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.12em;color:#fff}
+.hd nav a{opacity:.75}.hd nav a:hover{opacity:1}
+@media(max-width:800px){.hd nav{display:none}}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}.rv[data-d="3"]{transition-delay:.3s}
+.buy{padding:calc(var(--header-h) + 30px) 0 60px}
+.crumb{font-size:12px;color:var(--sub);margin-bottom:22px}
+.crumb a:hover{color:var(--ink)}
+.buy-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:min(4.5vw,60px);align-items:start}
+@media(max-width:920px){.buy-grid{grid-template-columns:1fr}}
+.gal-main{background:var(--card);border:1px solid var(--line);border-radius:22px;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.gal-main img{max-width:84%;max-height:84%;object-fit:contain;transition:opacity .3s var(--ease)}
+.gal-main img.swap{opacity:0}
+.gal-main.photo img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.thumbs button{width:76px;height:76px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .25s}
+.thumbs button img{max-width:82%;max-height:82%;object-fit:contain}
+.thumbs button.photo img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:cover}
+.thumbs button.on{border-color:var(--accent)}
+.p-pos{margin-bottom:8px}
+h1.p-name{font-size:clamp(28px,3.2vw,40px);font-weight:900;line-height:1.3}
+.p-name-en{font-family:var(--font-en);font-variation-settings:"wdth" 118;font-weight:800;color:var(--sub);font-size:14px;letter-spacing:.08em;margin-top:4px}
+.p-price{display:flex;align-items:baseline;gap:10px;margin:22px 0 4px}
+.p-price b{font-family:var(--font-en);font-size:clamp(30px,3vw,38px);font-weight:800}
+.p-price small{color:var(--sub);font-size:13px}
+.p-note{font-size:12px;color:var(--sub)}
+.opt-label{font-size:12.5px;font-weight:700;color:var(--sub);margin:26px 0 10px;letter-spacing:.06em}
+.opt-label b{color:var(--ink)}
+.colors{display:flex;gap:10px;flex-wrap:wrap}
+.colors button{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:9px 18px;font-size:13px;font-weight:700;color:var(--sub);transition:.25s}
+.colors button .sw{width:16px;height:16px;border-radius:50%;background:var(--c)}
+.colors button.on{border-color:var(--accent);color:var(--ink);box-shadow:0 0 0 1px var(--accent)}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;width:max-content;overflow:hidden}
+.qty button{width:44px;height:44px;font-size:18px;color:var(--sub)}
+.qty button:hover{color:var(--ink)}
+.qty output{width:44px;text-align:center;font-family:var(--font-en);font-weight:800;font-size:16px}
+.cartrow{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn-cart{flex:1;min-width:230px;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;font-weight:800;font-size:16px;letter-spacing:.04em;padding:17px 30px;border-radius:99px;transition:.3s var(--ease)}
+.btn-cart:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(14,156,216,.3)}
+.btn-cart[disabled]{opacity:.55;transform:none}
+.cart-message{display:none;font-size:13px;font-weight:700;margin-top:12px}
+.cart-message.msg-info{color:var(--sub)}.cart-message.msg-success{color:#0c9d52}.cart-message.msg-error{color:#e0344a}
+.w4{display:flex;align-items:center;gap:16px;border:1px solid var(--line);background:linear-gradient(100deg,var(--accent-dim),transparent 60%),var(--card);border-radius:16px;padding:16px 20px;margin-top:26px}
+.w4 .y{font-family:var(--font-en);font-variation-settings:"wdth" 118;font-weight:800;font-size:30px;color:var(--accent);line-height:1;white-space:nowrap}
+.w4 .y small{font-size:12px;letter-spacing:.1em}
+.w4 p{font-size:12.5px;color:var(--sub)}
+.w4 p b{color:var(--ink)}
+.trust-mini{list-style:none;display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.trust-mini li{font-size:11.5px;font-weight:700;color:var(--sub);display:flex;align-items:center;gap:6px}
+.trust-mini li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.chip-specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip-specs li{list-style:none;font-size:11.5px;font-weight:700;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:5px 13px}
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(255,255,255,.9);backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .4s var(--ease)}
+.buybar.show{transform:none}
+.buybar .in{width:min(1240px,94vw);margin:0 auto;display:flex;align-items:center;gap:16px;padding:10px 0}
+.buybar img{width:46px;height:46px;object-fit:contain;background:var(--bg2);border-radius:10px;padding:4px}
+.buybar .nm{font-size:13.5px;font-weight:800}
+.buybar .pr{font-family:var(--font-en);font-weight:800;font-size:16px;margin-left:auto}
+.buybar .btn-cart{flex:0 0 auto;min-width:0;padding:12px 26px;font-size:14px}
+@media(max-width:700px){.buybar .nm span{display:none}}
+.lp-head{text-align:center;padding:90px 0 50px}
+.lp-head .t{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.5}
+.lp-head .s{color:var(--sub);margin-top:12px;font-size:14.5px}
+.feature{padding:60px 0}
+.feature .fx{display:grid;grid-template-columns:1fr 1fr;gap:min(5vw,70px);align-items:center}
+.feature .fx.rev .vis{order:2}
+@media(max-width:880px){.feature .fx{grid-template-columns:1fr}.feature .fx.rev .vis{order:0}}
+.fno{font-family:var(--font-en);font-variation-settings:"wdth" 120;font-weight:800;font-size:13px;letter-spacing:.3em;color:var(--accent)}
+.feature h3{font-size:clamp(23px,2.6vw,34px);font-weight:900;line-height:1.5;margin:12px 0 16px}
+.feature p{color:var(--sub);font-size:15px;max-width:34em}
+.feature .vis{position:relative;border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;min-height:340px}
+.feature .vis img{width:100%;height:100%;object-fit:cover}
+.feature .vis.pad img{width:82%;height:auto;object-fit:contain}
+.feature .vis.sky{background:linear-gradient(180deg,#dfeefb,#f4f9fd)}
+.g41{font-family:var(--font-en);font-variation-settings:"wdth" 122;font-weight:800;font-size:clamp(60px,8vw,110px);line-height:1;margin:10px 0 6px}
+.g41 small{font-size:.26em;color:var(--accent);letter-spacing:.08em}
+.stat-row{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.stat-row .st b{font-family:var(--font-en);font-variation-settings:"wdth" 116;font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1}
+.stat-row .st b small{font-size:.45em;color:var(--sub);margin-left:3px}
+.stat-row .st span{display:block;font-size:12px;color:var(--sub);margin-top:6px}
+.pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill-row span{font-size:12.5px;font-weight:700;border:1px solid var(--line);background:var(--card);border-radius:99px;padding:8px 16px;color:var(--sub)}
+.vchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;max-width:34em}
+.vchip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--card);border:1px solid var(--line)}
+.vchip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.bleed{position:relative;height:70svh;min-height:420px;overflow:hidden;display:flex;align-items:flex-end;margin:70px 0}
+.bleed .ph{position:absolute;inset:-10% 0;background-size:cover;background-position:center}
+.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 40%,rgba(0,10,20,.55) 90%)}
+.bleed .cap{position:relative;z-index:2;width:min(1240px,94vw);margin:0 auto;padding-bottom:6vh;color:#fff}
+.bleed .cap .t{font-size:clamp(21px,2.6vw,34px);font-weight:900;line-height:1.5}
+.bleed .cap .s{color:rgba(255,255,255,.8);margin-top:8px;font-size:14px}
+.specs{padding:80px 0}
+.specs h2,.faq h2,.xsell h2{font-size:clamp(22px,2.6vw,32px);font-weight:900;margin-bottom:28px}
+.spec-table{width:100%;border-top:1px solid var(--line)}
+.spec-table div{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:15px 6px;border-bottom:1px solid var(--line);font-size:14px}
+.spec-table dt{color:var(--sub);font-weight:700}
+.spec-table dd{font-weight:500}
+@media(max-width:700px){.spec-table div{grid-template-columns:1fr;gap:2px}}
+.faq{padding:20px 0 80px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 6px;font-weight:700;font-size:14.5px;cursor:pointer}
+.faq summary::after{content:"+";font-family:var(--font-en);font-size:20px;color:var(--accent);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 6px 20px;color:var(--sub);font-size:14px;max-width:46em}
+.final{padding:90px 0;text-align:center;background:linear-gradient(180deg,transparent,var(--bg2))}
+.final .t{font-size:clamp(24px,3vw,38px);font-weight:900;line-height:1.5}
+.final .s{color:var(--sub);margin:14px 0 30px}
+.xsell{padding:70px 0}
+.xrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:880px){.xrow{grid-template-columns:1fr}}
+.xcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;gap:16px;align-items:center;transition:transform .3s var(--ease),border-color .3s}
+.xcard:hover{transform:translateY(-4px);border-color:var(--accent)}
+.xcard img{width:84px;height:84px;object-fit:contain;background:#fff;border-radius:12px;border:1px solid var(--line)}
+.xcard b{display:block;font-size:14px;line-height:1.5}
+.xcard i{font-style:normal;font-family:var(--font-en);font-weight:800;font-size:15px;color:var(--accent)}
+.xcard small{display:block;font-size:11px;color:var(--sub);margin-bottom:4px}
+footer{border-top:1px solid var(--line);padding:46px 0;background:#0a0c0f;color:#f2f4f6}
+footer .in{width:min(1240px,94vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer img{width:100px;opacity:.9}
+footer .cp{font-family:var(--font-en);font-size:11px;color:#9aa3ad}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="bar">
+    <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
+    <nav class="en">
+      <a href="f1-pro.html">F1 PRO</a>
+      <a href="eva-r.html">EVA R</a>
+      <a href="s2.html">S2</a>
+      <a href="../index.html#brand">BRAND</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ 購入モジュール ============ -->
+<section class="buy">
+  <div class="wrap">
+    <p class="crumb"><a href="../index.html">TOP</a> / <a href="../index.html#shop">STORE</a> / S2</p>
+    <div class="buy-grid">
+      <div class="gallery">
+        <div class="gal-main" id="galMain"><img id="galImg" src="../assets/v3/s2-45deg.webp" alt="ASMAX S2"></div>
+        <div class="thumbs" id="galThumbs">
+          <button class="on" data-src="../assets/v3/s2-45deg.webp"><img src="../assets/v3/s2-45deg.webp" alt=""></button>
+          <button data-src="../assets/v3/s2-side.webp"><img src="../assets/v3/s2-side.webp" alt=""></button>
+          <button data-src="../assets/products/29159437/main.jpg" data-photo="1"><img src="../assets/products/29159437/thumb.jpg" alt=""></button>
+          <button data-src="../assets/v3/s2-white-helmet.webp"><img src="../assets/v3/s2-white-helmet.webp" alt=""></button>
+          <button data-src="../assets/v3/s2-adv-1.jpg" data-photo="1"><img src="../assets/v3/s2-adv-1.jpg" alt=""></button>
+          <button data-src="../assets/v3/s2-adv-4.jpg" data-photo="1"><img src="../assets/v3/s2-adv-4.jpg" alt=""></button>
+        </div>
+      </div>
+      <div class="info">
+        <p class="eyebrow p-pos">POCKET AERO — LIGHTWEIGHT INTERCOM</p>
+        <h1 class="p-name">S2 インカム</h1>
+        <p class="p-name-en">ASMAX S2 — Smart IoT Helmet MESH Intercom</p>
+        <div class="p-price"><b>¥15,899</b><small>(税込・送料は決済画面で確定)</small></div>
+        <p class="p-note">日本正規品 / カスタムジャパン発送</p>
+
+        <p class="opt-label">カラー: <b>グレー</b></p>
+        <div class="colors">
+          <button class="on" style="--c:#4a4f56"><span class="sw"></span>グレー</button>
+        </div>
+
+        <p class="opt-label">数量</p>
+        <div class="qty">
+          <button id="qDown" aria-label="数量を減らす">−</button>
+          <output id="qVal">1</output>
+          <button id="qUp" aria-label="数量を増やす">＋</button>
+        </div>
+
+        <div class="cartrow">
+          <button class="btn-cart" id="addCart">カートに入れる — ¥<span id="cartPrice">15,899</span></button>
+        </div>
+        <p id="cart-message" class="cart-message"></p>
+
+        <div class="w4">
+          <p class="y en">4<small>YEARS</small></p>
+          <p><b>公式ストア購入特典:メーカー保証を2年→4年に延長。</b><br>ASMAX JAPAN(カスタムジャパン)からのご購入が対象です。</p>
+        </div>
+        <ul class="trust-mini">
+          <li>日本正規品</li><li>日本語サポート</li><li>技適取得</li><li>ASMAX WORLDアプリ対応</li>
+        </ul>
+        <ul class="chip-specs">
+          <li>41g軽量ボディ</li><li>Bluetooth 5.4</li><li>ENCノイズキャンセリング</li><li>HiFiサウンド</li><li>980mAh急速充電</li><li>音声コマンド</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 説得LP ============ -->
+<div class="lp-head wrap">
+  <p class="eyebrow rv">WHY S2</p>
+  <p class="t rv" data-d="1">「はじめてのインカム、どれがいい?」<br>その答えを、1万円台で。</p>
+  <p class="s rv" data-d="2">S2が「究極のコスパ機」と呼ばれる6つの理由。</p>
+</div>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 01 — ULTRA LIGHTWEIGHT</p>
+      <p class="g41 rv" data-d="1">41g<br><small>ULTRA LIGHTWEIGHT</small></p>
+      <h3 class="rv" data-d="1">つけていることを、忘れる。</h3>
+      <p class="rv" data-d="2">卵1個より軽い、わずか41gの軽量一体型ボディ。コンパクト設計だからヘルメットのシルエットを崩さず、長時間のライディングでも首や頬への負担を感じさせません。</p>
+    </div>
+    <div class="vis sky pad rv"><img src="../assets/v3/s2-side.webp" alt="S2 サイドビュー — 41g軽量ボディ" style="object-fit:contain"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx rev">
+    <div>
+      <p class="fno rv">REASON 02 — COST PERFORMANCE</p>
+      <h3 class="rv" data-d="1">エントリー価格に、<br>ひとつ上のチップ構成。</h3>
+      <p class="rv" data-d="2">上位機と同世代のBluetooth 5.4チップを2基搭載した、ツーチップ・クアッドコア構成。この価格帯では贅沢な設計が、接続の安定性と低消費電力を両立します。</p>
+      <div class="pill-row rv" data-d="3">
+        <span>高性能アルゴリズム</span><span>低消費電力</span><span>接続の高い安定性</span>
+      </div>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/s2-adv-6.jpg" alt="S2 装着シーン"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 03 — SOUND</p>
+      <h3 class="rv" data-d="1">この価格で、<br>ENC+HiFiサウンド。</h3>
+      <p class="rv" data-d="2">インテリジェントENC(環境ノイズキャンセリング)が走行風のノイズを抑え、HiFiスピーカーが音楽も通話もクリアに再生。「安いから音はそこそこ」という常識を裏切ります。</p>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/s2-adv-2.jpg" alt="S2 ライディング"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx rev">
+    <div>
+      <p class="fno rv">REASON 04 — FAST CHARGE</p>
+      <h3 class="rv" data-d="1">出発前の10分で、<br>約3時間ぶんの通話を。</h3>
+      <p class="rv" data-d="2">980mAhバッテリー+急速充電対応。「昨夜充電し忘れた!」という朝も、支度の10分で約3時間の通話ぶんを回復。日帰りツーリングなら余裕でカバーします。</p>
+      <div class="stat-row rv" data-d="3">
+        <div class="st"><b>980<small>mAh</small></b><span>バッテリー容量</span></div>
+        <div class="st"><b>10<small>分</small></b><span>充電で約3時間通話</span></div>
+        <div class="st"><b>41<small>g</small></b><span>軽量ボディ</span></div>
+      </div>
+    </div>
+    <div class="vis sky pad rv"><img src="../assets/v3/s2-45deg.webp" alt="S2 45度ビュー" style="object-fit:contain"></div>
+  </div>
+</section>
+
+<section class="feature wrap">
+  <div class="fx">
+    <div>
+      <p class="fno rv">REASON 05 — HANDS-FREE</p>
+      <h3 class="rv" data-d="1">エントリー機でも、<br>声で操れる。</h3>
+      <p class="rv" data-d="2">インテリジェント音声コマンド搭載で、走行中もハンズフリーで操作。メッシュインターコム対応だから、仲間とのグループツーリングにもそのまま持ち込めます。</p>
+      <div class="vchips rv" data-d="3">
+        <span class="vchip"><span class="dot"></span>音声コマンド対応</span>
+        <span class="vchip"><span class="dot"></span>MESHインターコム</span>
+        <span class="vchip"><span class="dot"></span>ハンズフリー通話</span>
+      </div>
+    </div>
+    <div class="vis rv"><img src="../assets/v3/s2-adv-5.jpg" alt="S2 グループツーリング"></div>
+  </div>
+</section>
+
+<div class="bleed">
+  <div class="ph" style="background-image:url('../assets/v3/s2-adv-3.jpg')"></div>
+  <div class="cap">
+    <p class="fno rv" style="color:#7fd7f7">REASON 06 — TRUST</p>
+    <p class="t rv" data-d="1">1万円台でも、保証は4年。</p>
+    <p class="s rv" data-d="2">ASMAX JAPAN公式ストア購入でメーカー保証が2年→4年に延長。エントリー機こそ、長く安心して。</p>
+  </div>
+</div>
+
+<!-- ============ スペック ============ -->
+<section class="specs wrap" id="specs">
+  <h2>SPECS — S2</h2>
+  <dl class="spec-table">
+    <div><dt>Bluetooth</dt><dd>5.4 ツーチップ・クアッドコア(高性能アルゴリズム / 低消費電力 / 高安定性)</dd></div>
+    <div><dt>通信方式</dt><dd>MESHインターコム + Bluetooth</dd></div>
+    <div><dt>重量</dt><dd>約41g(軽量一体型ボディ)</dd></div>
+    <div><dt>バッテリー</dt><dd>980mAh / 急速充電(10分充電で約3時間通話)</dd></div>
+    <div><dt>サウンド</dt><dd>HiFiスピーカー / ENC(環境ノイズキャンセリング)</dd></div>
+    <div><dt>操作</dt><dd>インテリジェント音声コマンド / 本体ボタン</dd></div>
+    <div><dt>アプリ</dt><dd>ASMAX WORLD対応</dd></div>
+    <div><dt>カラー</dt><dd>グレー</dd></div>
+    <div><dt>保証</dt><dd>メーカー保証4年(ASMAX JAPAN公式ストア購入特典 / 通常2年)</dd></div>
+  </dl>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq wrap">
+  <h2>よくある質問</h2>
+  <details>
+    <summary>はじめてのインカムでも使えますか?</summary>
+    <p class="a">はい。S2はエントリーモデルとして設計されており、装着も操作もシンプルです。音声コマンドにも対応しているので、走行中の操作も安心です。</p>
+  </details>
+  <details>
+    <summary>F1 ProやEVA Rと一緒に使えますか?</summary>
+    <p class="a">はい。同じASMAXファミリーとしてメッシュインターコムでつながります。仲間がF1 Proでも問題ありません。</p>
+  </details>
+  <details>
+    <summary>音楽は聴けますか?</summary>
+    <p class="a">スマートフォンとBluetooth接続して音楽再生が可能です。HiFiスピーカー+ENCでクリアに楽しめます。</p>
+  </details>
+  <details>
+    <summary>保証はどうなっていますか?</summary>
+    <p class="a">ASMAX JAPAN公式ストアでのご購入で、メーカー保証が通常2年から4年に延長されます。日本語サポート付きです。</p>
+  </details>
+</section>
+
+<!-- ============ クロスセル ============ -->
+<section class="xsell wrap">
+  <h2>あわせてチェック</h2>
+  <div class="xrow">
+    <a class="xcard rv" href="https://www.customjapan.net/item/29208180"><img src="../assets/products/29208180/thumb.jpg" alt=""><span><small>スペアパーツ</small><b>S2 A/B クランプ/マイク&スピーカー</b><i>¥4,599</i></span></a>
+    <a class="xcard rv" data-d="1" href="f1-pro.html"><img src="../assets/products/29159413/thumb.jpg" alt=""><span><small>ステップアップに</small><b>F1 Pro(フラッグシップ)</b><i>¥32,900</i></span></a>
+    <a class="xcard rv" data-d="2" href="eva-r.html"><img src="../assets/products/29200252/thumb.jpg" alt=""><span><small>公式コラボ</small><b>EVA R モデル(全4機)</b><i>¥35,000</i></span></a>
+  </div>
+</section>
+
+<!-- ============ 最終CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <p class="t rv">最初の一台は、軽くて正解。</p>
+    <p class="s rv" data-d="1">S2「Pocket Aero」¥15,899(税込)— 公式ストア購入でメーカー保証4年。</p>
+    <button class="btn-cart rv" data-d="2" style="max-width:360px;margin:0 auto" onclick="document.getElementById('addCart').click()">カートに入れる</button>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN">
+    <nav style="display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--sub)">
+      <a href="../pages/support.html">サポート</a><a href="../pages/stores.html">取扱店舗</a><a href="../pages/legal.html">特定商取引法に基づく表記</a><a href="../pages/privacy.html">プライバシー</a><a href="../pages/shipping.html">配送・返品・保証</a><a href="../pages/contact.html">お問い合わせ</a>
+    </nav>
+    <p class="cp">© ASMAX JAPAN / CUSTOM JAPAN Co., Ltd.</p>
+  </div>
+</footer>
+
+<!-- ============ 追従購入バー ============ -->
+<div class="buybar" id="buybar">
+  <div class="in">
+    <img src="../assets/products/29159437/thumb.jpg" alt="">
+    <p class="nm">S2 <span>インカム グレー</span></p>
+    <p class="pr en" id="barPrice">¥15,899</p>
+    <button class="btn-cart" onclick="document.getElementById('addCart').click()">カートに入れる</button>
+  </div>
+</div>
+
+<script type="module">
+import { initApiClient, addItemsToCart } from '../assets/js/api-client.js';
+initApiClient();
+
+const UNIT_PRICE = 15899;
+const state = { id: '29159437', qty: 1 };
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => n.toLocaleString('ja-JP');
+
+const galImg = $('galImg'), galMain = $('galMain');
+document.querySelectorAll('#galThumbs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#galThumbs button').forEach(x => x.classList.remove('on'));
+  b.classList.add('on');
+  galImg.classList.add('swap');
+  setTimeout(() => {
+    galImg.src = b.dataset.src;
+    galMain.classList.toggle('photo', !!b.dataset.photo);
+    galImg.onload = () => galImg.classList.remove('swap');
+  }, 200);
+}));
+document.querySelectorAll('#galThumbs button[data-photo]').forEach(b => b.classList.add('photo'));
+
+const syncPrice = () => { const t = UNIT_PRICE * state.qty; $('cartPrice').textContent = fmt(t); $('barPrice').textContent = '¥' + fmt(t); $('qVal').textContent = state.qty; };
+$('qUp').addEventListener('click', () => { state.qty = Math.min(5, state.qty + 1); syncPrice(); });
+$('qDown').addEventListener('click', () => { state.qty = Math.max(1, state.qty - 1); syncPrice(); });
+
+const CART_URL = 'https://www.customjapan.net/cart?site=asmax';
+function msg(text, type) { const el = $('cart-message'); el.style.display = 'block'; el.className = 'cart-message msg-' + type; el.textContent = text; }
+$('addCart').addEventListener('click', async () => {
+  const btn = $('addCart');
+  btn.disabled = true;
+  msg('カートに追加中です...', 'info');
+  try {
+    const result = await addItemsToCart([{ id: state.id, quantity: state.qty }]);
+    if (result && result.result === 'error') {
+      msg((result.errors?.[0]?.abstract) || 'カート追加に失敗しました。', 'error');
+    } else {
+      msg('カートに追加しました。カートへ移動します...', 'success');
+      window.location.href = CART_URL;
+    }
+  } catch (e) {
+    console.error('[ASMAX] add to cart failed', e);
+    msg('通信エラーのため、カート追加に失敗しました。', 'error');
+  } finally { btn.disabled = false; }
+});
+</script>
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .2 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+const buybar = document.getElementById('buybar');
+const buySec = document.querySelector('.buy');
+addEventListener('scroll', () => {
+  buybar.classList.toggle('show', scrollY > buySec.offsetTop + buySec.offsetHeight);
+}, { passive: true });
+</script>
+</body>
+</html>

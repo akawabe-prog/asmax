@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASMAX JAPAN | CONNECT YOUR EVERY ADVENTURE</title>
+  <meta name="description" content="ASMAX JAPAN 公式 - EVA R / F1 Pro / S2。日本総代理店として正規取り扱い。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #101010;
+      --surface: #161616;
+      --surface-raised: #1d1d1d;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-strong: rgba(255, 255, 255, 0.2);
+      --text: #e0e0e0;
+      --muted: #808080;
+      --accent: #ff6b00;
+      --accent-soft: rgba(255, 107, 0, 0.16);
+      --eva01: #7b2d8e;
+      --eva02: #c82828;
+      --success: #7fd19d;
+      --white: #ffffff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --container: min(1280px, calc(100vw - 40px));
+      --font-ja: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      --font-en: "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 107, 0, 0.14), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(123, 45, 142, 0.18), transparent 20%),
+        linear-gradient(180deg, #0f0f0f 0%, #090909 40%, #0a0a0a 100%);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page-shell::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent 85%);
+      pointer-events: none;
+      opacity: 0.22;
+      z-index: 0;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-family: var(--font-en);
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .section {
+      position: relative;
+      padding: 96px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading h2,
+    .hero-copy h1,
+    .cta-band h2 {
+      margin: 0;
+      font-family: var(--font-en);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+    }
+
+    .section-heading p,
+    .subcopy,
+    .lede {
+      margin: 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(10, 10, 10, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-header-inner {
+      width: var(--container);
+      min-height: 84px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+      font-family: var(--font-en);
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .logo-mark small {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .site-nav a,
+    .header-actions a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible,
+    .header-actions a:hover,
+    .header-actions a:focus-visible {
+      color: var(--white);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      margin: 0 auto;
+      background: currentColor;
+      content: "";
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle span::before {
+      transform: translateY(-6px);
+    }
+
+    .menu-toggle span::after {
+      transform: translateY(4.5px);
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] span::before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::after {
+      transform: translateY(-1.5px) rotate(-45deg);
+    }
+
+    .btn,
+    .ghost-btn,
+    .chip-link,
+    .mall-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-family: var(--font-en);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after,
+    .ghost-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .btn:hover::after,
+    .ghost-btn:hover::after {
+      opacity: 1;
+    }
+
+    .btn:hover,
+    .ghost-btn:hover,
+    .chip-link:hover,
+    .mall-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .btn {
+      background: var(--white);
+      color: #000;
+    }
+
+    .btn.accent {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 12px 40px rgba(255, 107, 0, 0.28);
+    }
+
+    .btn.accent:hover {
+      background: #ff7f24;
+      box-shadow: 0 16px 48px rgba(255, 107, 0, 0.4);
+    }
+
+    .ghost-btn {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--white);
+      border-color: var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .ghost-btn:hover {
+      border-color: var(--border-strong);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .chip-link {
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 8px;
+      border-color: var(--border);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 11px;
+    }
+
+    .hero {
+      padding: 72px 0 84px;
+      overflow: clip;
+    }
+
+    .hero--fullwidth {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 96px;
+    }
+
+    .hero--fullwidth .hero-copy {
+      max-width: 800px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      max-width: 14ch;
+    }
+
+    .hero-copy .subcopy {
+      margin-top: 24px;
+      font-size: 18px;
+      max-width: 32em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .hero-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* hero-visual removed — fullwidth hero */
+
+    .scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 52px;
+      color: var(--muted);
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator::after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-right: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+      transform: rotate(45deg);
+      opacity: 0.8;
+    }
+
+    .eva-spotlight {
+      --eva-progress: 0;
+      --eva-shift-x: 0px;
+      --eva-shift-y: 0px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
+        linear-gradient(135deg, #0d0018 0%, #19000d 45%, #1a0000 100%);
+      overflow: clip;
+      padding: 0;
+      border-top: none;
+    }
+
+    .eva-spotlight::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--eva01), transparent 30%, transparent 70%, var(--eva02));
+      filter: blur(0.5px);
+      box-shadow: 0 0 20px rgba(123, 45, 142, 0.5), 0 0 20px rgba(200, 40, 40, 0.5);
+      z-index: 2;
+    }
+
+    .eva-spotlight::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 800px 500px at calc(20% + var(--eva-shift-x)) calc(30% + var(--eva-shift-y)), rgba(123, 45, 142, 0.14), transparent),
+        radial-gradient(ellipse 800px 500px at calc(80% - var(--eva-shift-x)) calc(60% - var(--eva-shift-y)), rgba(200, 40, 40, 0.14), transparent);
+      pointer-events: none;
+      animation: eva-pulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes eva-pulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .eva-intro {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+      z-index: 1;
+      transform: translate3d(0, calc(var(--eva-progress) * -36px), 0);
+      transition: transform 0.18s linear;
+    }
+
+    .eva-heading {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eva-heading h2 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.9;
+      text-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .eva-heading .duo {
+      display: inline-flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .eva-heading .duo .unit01 {
+      color: var(--eva01);
+      transform: translateY(calc(var(--eva-progress) * -10px));
+    }
+
+    .eva-heading .duo .unit02 {
+      color: var(--eva02);
+      transform: translateY(calc(var(--eva-progress) * 10px));
+    }
+
+    .eva-heading .duo span {
+      transition: transform 0.18s linear;
+    }
+
+    .eva-grid-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eva-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .eva-card {
+      position: relative;
+      padding: 48px 40px;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: perspective(1200px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translate3d(0, var(--float-y, 0px), 0);
+      transform-style: preserve-3d;
+      will-change: transform, background;
+      transition: background 0.5s ease, transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .eva-card:last-child {
+      border-right: none;
+    }
+
+    .eva-card:hover {
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    .eva-card.unit01 {
+      /* no border override needed */
+    }
+
+    .eva-card.unit01:hover {
+      background: rgba(123, 45, 142, 0.04);
+    }
+
+    .eva-card.unit02:hover {
+      background: rgba(200, 40, 40, 0.04);
+    }
+
+    .eva-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(8px);
+    }
+
+    .eva-card.unit01::before {
+      background: radial-gradient(circle, rgba(123, 45, 142, 0.42), transparent 70%);
+    }
+
+    .eva-card.unit02::before {
+      background: radial-gradient(circle, rgba(200, 40, 40, 0.42), transparent 70%);
+    }
+
+    .eva-topline,
+    .spec-meta,
+    .product-role,
+    .voice-source,
+    .footer-title {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eva-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+    }
+
+    .eva-device {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 26px 0;
+    }
+
+    .eva-device .device-solo {
+      width: 220px;
+      height: 280px;
+      border-radius: 52px 52px 64px 64px;
+      border: 1px solid currentColor;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.02));
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .eva-device .device-solo::before,
+    .eva-device .device-solo::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.86;
+    }
+
+    .eva-device .device-solo::before {
+      width: 14px;
+      height: 14px;
+      top: 24px;
+      left: 24px;
+    }
+
+    .eva-device .device-solo::after {
+      width: 34px;
+      height: 34px;
+      right: 24px;
+      bottom: 24px;
+      box-shadow: 0 0 0 14px rgba(255, 255, 255, 0.05);
+    }
+
+    .eva-device .device-solo.unit01 {
+      color: var(--eva01);
+    }
+
+    .eva-device .device-solo.unit02 {
+      color: var(--eva02);
+    }
+
+    .eva-copy h3 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.05;
+      color: var(--white);
+      transition: letter-spacing 0.22s ease, transform 0.22s ease;
+    }
+
+    .eva-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.22s ease;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      transition: border-color 0.22s ease;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .price strong {
+      font-family: var(--font-en);
+      font-size: clamp(28px, 3vw, 36px);
+      color: var(--white);
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .eva-card.is-active .eva-copy h3 {
+      letter-spacing: 0.08em;
+      transform: translate3d(0, -2px, 0);
+    }
+
+    .eva-card.is-active .eva-copy p {
+      color: rgba(224, 224, 224, 0.92);
+    }
+
+    .eva-card.is-active .price-row {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .mini-link {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .lineup-grid,
+    .match-grid,
+    .why-grid,
+    .voice-grid,
+    .footer-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .lineup-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto auto;
+    }
+
+    .lineup-grid .product-card.featured {
+      min-height: 520px;
+    }
+
+    .lineup-grid .product-card.featured .product-visual {
+      min-height: 280px;
+    }
+
+    .lineup-grid .product-card.featured h3 {
+      font-size: 28px;
+    }
+
+    .lineup-grid .product-card.featured .product-price {
+      font-size: 30px;
+    }
+
+    .product-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 26px;
+      border-radius: 26px;
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.4s ease;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .product-card.featured {
+      border-color: rgba(255, 107, 0, 0.35);
+    }
+
+    .product-card.featured:hover {
+      border-color: rgba(255, 107, 0, 0.55);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 107, 0, 0.08);
+    }
+
+    .product-visual {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      min-height: 220px;
+      margin: 20px 0 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.04));
+    }
+
+    .product-visual .device-solo {
+      width: 120px;
+      height: 158px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .product-price {
+      margin-top: 18px;
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .product-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 920px;
+    }
+
+    th,
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      font-family: var(--font-en);
+      font-size: 12px;
+      color: var(--white);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td:first-child,
+    th:first-child {
+      position: sticky;
+      left: 0;
+      background: #141414;
+      z-index: 1;
+      min-width: 190px;
+    }
+
+    .match-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .match-card,
+    .why-card,
+    .voice-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease, border-color 0.4s ease;
+    }
+
+    .match-card:hover,
+    .why-card:hover,
+    .voice-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    .match-card strong,
+    .why-card strong {
+      display: block;
+      color: var(--white);
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .match-card p,
+    .why-card p,
+    .voice-card p,
+    .story-copy p,
+    .footer-brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .match-target {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--accent);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .why-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .why-index {
+      display: block;
+      margin-bottom: 18px;
+      color: rgba(255, 255, 255, 0.14);
+      font-family: var(--font-en);
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .story-visual {
+      min-height: 460px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255, 107, 0, 0.16), transparent 20%),
+        linear-gradient(140deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+        linear-gradient(180deg, #151515 0%, #0b0b0b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+
+    .story-visual::before,
+    .story-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .story-visual::before {
+      width: 340px;
+      height: 340px;
+      left: -40px;
+      bottom: -120px;
+    }
+
+    .story-visual::after {
+      width: 240px;
+      height: 240px;
+      right: 48px;
+      top: 52px;
+      background: rgba(255, 107, 0, 0.14);
+    }
+
+    .story-badge {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(10, 10, 10, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .story-timeline {
+      position: absolute;
+      right: 26px;
+      bottom: 24px;
+      left: 26px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .story-timeline div {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(8, 8, 8, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .story-timeline strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--white);
+      font-family: var(--font-en);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .story-timeline span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .story-copy {
+      padding: 22px 0;
+    }
+
+    .story-copy h2 {
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      margin-bottom: 22px;
+    }
+
+    .story-copy p + p {
+      margin-top: 16px;
+    }
+
+    .voice-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .voice-source {
+      display: inline-flex;
+      padding: 7px 10px;
+      margin-bottom: 16px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .voice-card strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--white);
+      font-size: 18px;
+    }
+
+    .faq-shell {
+      max-width: 840px;
+      margin: 0 auto;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      padding: 24px 28px;
+      border: none;
+      background: transparent;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-trigger span {
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .faq-icon {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      position: relative;
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 18px;
+      height: 1.5px;
+      background: var(--muted);
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-trigger[aria-expanded="true"] .faq-icon::after {
+      opacity: 0;
+    }
+
+    .faq-panel {
+      padding: 0 28px 24px;
+      color: var(--muted);
+      font-size: 14px;
+      display: none;
+    }
+
+    .faq-trigger[aria-expanded="true"] + .faq-panel {
+      display: block;
+    }
+
+    /* ── App Section ── */
+    .app-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 700px 500px at 30% 50%, rgba(255, 107, 0, 0.08), transparent),
+        linear-gradient(180deg, var(--bg) 0%, #0e0e0e 100%);
+    }
+
+    .app-section .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      min-height: 600px;
+    }
+
+    .app-copy {
+      padding: 40px 0;
+    }
+
+    .app-copy h2 {
+      margin: 0 0 20px;
+      font-family: var(--font-ja);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .app-copy .app-desc {
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 480px;
+      line-height: 1.8;
+    }
+
+    .app-badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .app-badges a {
+      display: inline-block;
+      transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease;
+    }
+
+    .app-badges a:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    .app-badges img {
+      height: 48px;
+      width: auto;
+    }
+
+    .app-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 500px;
+    }
+
+    .app-visual .app-phone {
+      position: relative;
+      width: 280px;
+      height: 560px;
+      border-radius: 40px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      overflow: hidden;
+    }
+
+    .app-visual .app-phone::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 28px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 2;
+    }
+
+    .app-phone-screen {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 56px 24px 24px;
+    }
+
+    .app-phone-screen .app-logo-placeholder {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), #ff9040);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en);
+      font-weight: 900;
+      font-size: 11px;
+      color: var(--white);
+      letter-spacing: 0.06em;
+    }
+
+    .app-phone-screen .app-ui-lines {
+      width: 100%;
+      display: grid;
+      gap: 10px;
+    }
+
+    .app-ui-line {
+      height: 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .app-ui-line:nth-child(1) { width: 80%; }
+    .app-ui-line:nth-child(2) { width: 60%; }
+    .app-ui-line:nth-child(3) { width: 90%; }
+    .app-ui-line:nth-child(4) { width: 45%; }
+
+    .app-phone-screen .app-ui-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .app-ui-control {
+      aspect-ratio: 1;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-ui-control .ctrl-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    .app-visual .app-glow {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.18), transparent 70%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    @media (max-width: 1023px) {
+      .app-section .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 0;
+      }
+
+      .app-copy {
+        order: 1;
+      }
+
+      .app-copy .app-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .app-badges {
+        justify-content: center;
+      }
+
+      .app-visual {
+        order: 2;
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .app-visual .app-phone {
+        width: 220px;
+        height: 440px;
+        border-radius: 32px;
+      }
+
+      .app-visual {
+        min-height: 340px;
+      }
+    }
+
+    .cta-band {
+      padding: 96px 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 107, 0, 0.14), transparent 30%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 28%),
+        linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    }
+
+    .cta-wrap {
+      padding: 40px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+    }
+
+    .cta-band p {
+      max-width: 680px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cta-actions,
+    .mall-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .mall-link {
+      min-height: 44px;
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .cta-meta {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .site-footer {
+      padding: 72px 0 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      align-items: start;
+    }
+
+    .footer-brand {
+      max-width: 360px;
+    }
+
+    .footer-title {
+      margin-bottom: 18px;
+      color: var(--white);
+    }
+
+    .footer-column {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .mobile-drawer {
+      display: none;
+    }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1), transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: var(--delay, 0s);
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-animate-scale] {
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+      transition-delay: var(--delay, 0s);
+    }
+
+    [data-animate-scale].is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (max-width: 1279px) {
+      .voice-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .lineup-grid .product-card.featured {
+        min-height: 460px;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .site-nav,
+      .header-actions .news-link {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-drawer {
+        display: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 10, 10, 0.94);
+      }
+
+      .mobile-drawer.open {
+        display: block;
+      }
+
+      .mobile-drawer .container {
+        padding: 18px 0 24px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .mobile-drawer a {
+        display: block;
+        padding: 12px 4px;
+        color: var(--muted);
+        font-family: var(--font-en);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .eva-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .eva-card {
+        min-height: 60vh;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .eva-card:last-child {
+        border-bottom: none;
+      }
+
+      .match-grid,
+      .why-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --container: calc(100vw - 28px);
+      }
+
+      .section,
+      .cta-band,
+      .site-footer {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
+
+      .site-header-inner {
+        min-height: 72px;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero--fullwidth {
+        min-height: 70vh;
+        padding: 80px 0 60px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.8rem, 13vw, 4.4rem);
+      }
+
+      .hero-copy .subcopy {
+        font-size: 16px;
+      }
+
+      .eva-intro {
+        min-height: 60vh;
+        padding: 80px 20px 60px;
+      }
+
+      .eva-heading h2 {
+        font-size: clamp(2.4rem, 10vw, 4rem);
+      }
+
+      .eva-card {
+        padding: 32px 20px;
+      }
+
+      .eva-device .device-solo {
+        width: 160px;
+        height: 200px;
+      }
+
+      .lineup-grid,
+      .voice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-wrap {
+        padding: 30px 20px;
+      }
+
+      .faq-trigger {
+        padding: 22px 20px;
+      }
+
+      .faq-panel {
+        padding: 0 20px 22px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN">
+          ASMAX
+          <small>Japan</small>
+        </a>
+
+        <nav class="site-nav" aria-label="グローバルナビゲーション">
+          <a href="#eva-r">EVA R</a>
+          <a href="#lineup">F1 Pro</a>
+          <a href="#lineup">S2</a>
+          <a href="/about">About</a>
+          <a href="/support">Support</a>
+          <a href="/contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="news-link" href="/news">News</a>
+          <a class="chip-link" href="/cart?site=asmax">Cart</a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="メニューを開閉">
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-drawer" id="mobile-drawer">
+        <div class="container">
+          <a href="#eva-r">EVA R</a>
+          <a href="#lineup">F1 Pro / S2</a>
+          <a href="#compare">Compare</a>
+          <a href="#support">Support</a>
+          <a href="/about">About</a>
+          <a href="/news">News</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero hero--fullwidth">
+        <div class="container">
+          <div class="hero-copy" data-animate style="--delay:0.05s;">
+            <div class="eyebrow">ASMAX JAPAN Official</div>
+            <h1>Connect Your<br>Every Adventure</h1>
+            <p class="subcopy">ライドから生まれた。ライドのために作られた。<br>日本市場向けの4機種を、ブランドの温度感そのままに。</p>
+
+            <div class="hero-actions">
+              <a class="ghost-btn" href="#eva-r">EVA R コラボを見る</a>
+            </div>
+
+            <p class="hero-note">正規品 / 日本語サポート / 2年間保証 / 30日間返品無料</p>
+
+            <a class="scroll-indicator" href="#eva-r">Scroll for EVA R</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section eva-spotlight" id="eva-r">
+        <div class="eva-intro" data-animate>
+          <div class="eva-heading">
+            <div class="eyebrow">ASMAX x Evangelion Racing</div>
+            <h2 class="duo"><span class="unit01">初号機</span><span>x</span><span class="unit02">2号機</span></h2>
+            <p class="lede" style="margin:24px auto 0; text-align:center;">二機、参戦中。ASMAX の技術とエヴァンゲリオンの世界観が融合した、日本限定のアイコンモデル。</p>
+          </div>
+        </div>
+
+        <div class="eva-grid-wrap">
+          <div class="eva-grid">
+            <article class="eva-card unit01" data-animate style="--delay:0.08s;">
+              <div>
+                <div class="eva-topline">
+                  <span>Unit-01 / 初号機</span>
+                  <span>10 Riders Bluetooth Mesh</span>
+                </div>
+                <div class="eva-device">
+                  <div class="device-solo unit01" aria-hidden="true"></div>
+                  <div class="eva-copy">
+                    <h3>Future 1 EVA R</h3>
+                    <p>10 Riders Bluetooth Mesh Intercom。初号機カラーで彩る、象徴の一台。</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="price-row">
+                  <div class="price" data-sku="eva-r-unit01">
+                    <strong data-price>¥49,205</strong>
+                    <span>税込</span>
+                  </div>
+                  <span class="spec-meta">Icon Model</span>
+                </div>
+                <div class="card-actions">
+                  <a class="btn" href="/product/eva-r-unit01/purchase">Buy Now</a>
+                  <a class="ghost-btn" href="/product/eva-r-unit01">詳しく見る</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="eva-card unit02" data-animate style="--delay:0.14s;">
+              <div>
+                <div class="eva-topline">
+                  <span>Unit-02 / 2号機</span>
+                  <span>10 Riders Bluetooth Mesh</span>
+                </div>
+                <div class="eva-device">
+                  <div class="device-solo unit02" aria-hidden="true"></div>
+                  <div class="eva-copy">
+                    <h3>Future 1 EVA R</h3>
+                    <p>10 Riders Bluetooth Mesh Intercom。加速する赤。2号機カラーが走りを加速させる。</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="price-row">
+                  <div class="price" data-sku="eva-r-unit02">
+                    <strong data-price>¥49,205</strong>
+                    <span>税込</span>
+                  </div>
+                  <span class="spec-meta">Icon Model</span>
+                </div>
+                <div class="card-actions">
+                  <a class="btn" href="/product/eva-r-unit02/purchase">Buy Now</a>
+                  <a class="ghost-btn" href="/product/eva-r-unit02">詳しく見る</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="lineup">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Japan Lineup</div>
+              <h2>取り扱い4機種</h2>
+            </div>
+            <p>ASMAX JAPAN が正規取り扱いする全モデル。</p>
+          </div>
+
+          <div class="lineup-grid">
+            <article class="product-card featured" data-animate style="--delay:0.04s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><div class="device-solo unit01" aria-hidden="true"></div></div>
+              <h3>EVA R 初号機</h3>
+              <p>EVANGELION RACING Collaboration</p>
+              <div class="product-price" data-sku="eva-r-unit01">¥49,205</div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="/product/eva-r-unit01">View Details</a>
+                <a class="btn" href="/product/eva-r-unit01/purchase">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card featured" data-animate style="--delay:0.08s;">
+              <span class="product-role">Icon</span>
+              <div class="product-visual"><div class="device-solo unit02" aria-hidden="true"></div></div>
+              <h3>EVA R 2号機</h3>
+              <p>EVANGELION RACING Collaboration</p>
+              <div class="product-price" data-sku="eva-r-unit02">¥49,205</div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="/product/eva-r-unit02">View Details</a>
+                <a class="btn" href="/product/eva-r-unit02/purchase">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card" data-animate style="--delay:0.12s;">
+              <span class="product-role">All-Rounder</span>
+              <div class="product-visual"><div class="device-solo" style="color:var(--accent);" aria-hidden="true"></div></div>
+              <h3>F1 Pro</h3>
+              <p>全部入りフラッグシップ。どのヘルメットにも。</p>
+              <div class="product-price" data-sku="f1-pro">¥41,243</div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="/product/f1-pro">View Details</a>
+                <a class="btn" href="/product/f1-pro/purchase">Buy Now</a>
+              </div>
+            </article>
+
+            <article class="product-card" data-animate style="--delay:0.16s;">
+              <span class="product-role">Entry</span>
+              <div class="product-visual"><div class="device-solo" style="color:#d8d8d8;" aria-hidden="true"></div></div>
+              <h3>S2</h3>
+              <p>はじめての一台に、ちょうどいい。</p>
+              <div class="product-price" data-sku="s2">¥22,134</div>
+              <div class="product-meta">
+                <a class="ghost-btn" href="/product/s2">View Details</a>
+                <a class="btn" href="/product/s2/purchase">Buy Now</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="compare">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Compare</div>
+              <h2>4機種、すべて並べる。</h2>
+            </div>
+            <p>ひと目で違いがわかるスペック比較。</p>
+          </div>
+
+          <div class="table-wrap" data-animate style="--delay:0.06s;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Spec</th>
+                  <th>EVA R 初号機</th>
+                  <th>EVA R 2号機</th>
+                  <th>F1 Pro</th>
+                  <th>S2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>最大接続人数</td><td>10人</td><td>10人</td><td>10人</td><td>2人</td></tr>
+                <tr><td>Bluetooth</td><td>5.3</td><td>5.3</td><td>5.3</td><td>5.3</td></tr>
+                <tr><td>Mesh対応</td><td>対応</td><td>対応</td><td>対応</td><td>-</td></tr>
+                <tr><td>CloudTalk</td><td>対応</td><td>対応</td><td>対応</td><td>-</td></tr>
+                <tr><td>通話距離</td><td>仮データ</td><td>仮データ</td><td>仮データ</td><td>仮データ</td></tr>
+                <tr><td>バッテリー</td><td>仮データ</td><td>仮データ</td><td>仮データ</td><td>仮データ</td></tr>
+                <tr><td>防水</td><td>仮データ</td><td>仮データ</td><td>仮データ</td><td>仮データ</td></tr>
+                <tr><td>重量</td><td>仮データ</td><td>仮データ</td><td>仮データ</td><td>仮データ</td></tr>
+                <tr><td>価格</td><td>¥49,205</td><td>¥49,205</td><td>¥41,243</td><td>¥22,134</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Your Match</div>
+              <h2>こんな人におすすめ</h2>
+            </div>
+            <p>目的と使い方で、あなたに合った一台を。</p>
+          </div>
+
+          <div class="match-grid">
+            <article class="match-card" data-animate style="--delay:0.05s;">
+              <strong>エヴァファン / コレクター</strong>
+              <p>限定コラボモデルで所有する喜びを。ツーリング仲間との話題にもつながる象徴的な一台。</p>
+              <div class="match-target"><a href="/product/eva-r-unit01">EVA R 初号機 / 2号機を見る</a></div>
+            </article>
+            <article class="match-card" data-animate style="--delay:0.1s;">
+              <strong>ツーリング好き / 複数人通話</strong>
+              <p>長距離ライドやグループツーリングへ。Mesh と CloudTalk を軸にした、途切れにくいコミュニケーション向け。</p>
+              <div class="match-target"><a href="/product/f1-pro">F1 Proを見る</a></div>
+            </article>
+            <article class="match-card" data-animate style="--delay:0.15s;">
+              <strong>インカム初心者 / コスパ重視</strong>
+              <p>まずは一台から始めたいライダーに。価格と必要十分な機能のバランスを重視した入口モデル。</p>
+              <div class="match-target"><a href="/product/s2">S2を見る</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Why ASMAX Japan</div>
+              <h2>日本総代理店の安心</h2>
+            </div>
+            <p>正規品だからこその安心をお届けします。</p>
+          </div>
+
+          <div class="why-grid">
+            <article class="why-card" data-animate style="--delay:0.04s;"><span class="why-index">01</span><strong>正規品保証</strong><p>ASMAX JAPAN 正規取扱品のみを販売。全品検品済みで、安心してお使いいただけます。</p></article>
+            <article class="why-card" data-animate style="--delay:0.08s;"><span class="why-index">02</span><strong>日本語サポート</strong><p>日本語対応のカスタマーサポート窓口を完備。設定・接続・トラブル、すべて日本語で対応。</p></article>
+            <article class="why-card" data-animate style="--delay:0.12s;"><span class="why-index">03</span><strong>2年間保証 / 30日返品</strong><p>グローバルと同条件の長期保証。万が一の場合も、30日間の返品ポリシーで安心。</p></article>
+            <article class="why-card" data-animate style="--delay:0.16s;"><span class="why-index">04</span><strong>技適マーク取得</strong><p>日本の電波法に適合した正規品。国内で安心してご利用いただけます。</p></article>
+            <article class="why-card" data-animate style="--delay:0.2s;"><span class="why-index">05</span><strong>日本のヘルメット対応</strong><p>Arai / SHOEI 等、国内主要メーカーのヘルメットでの装着を確認済み。</p></article>
+            <article class="why-card" data-animate style="--delay:0.24s;"><span class="why-index">06</span><strong>全国の取扱店</strong><p>オンラインだけでなく、全国の取扱店で実機の体験・購入が可能です。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container story-grid">
+          <div class="story-visual" data-animate>
+            <div class="story-badge">Born From The Ride</div>
+            <div class="story-timeline">
+              <div><strong>2004</strong><span>創業。ライダー同士のつながりを変えるためのインターコム開発を開始。</span></div>
+              <div><strong>Today</strong><span>世界中のあらゆる道で、ASMAX が仲間との通信を支え続けています。</span></div>
+            </div>
+          </div>
+
+          <div class="story-copy" data-animate style="--delay:0.08s;">
+            <div class="eyebrow">Brand Story</div>
+            <h2>Born From The Ride.</h2>
+            <p>2004年、ライダー同士のつながりを変えるために。ライダーによるライダーのためのヘルメットインターコムづくりからASMAXは始まりました。</p>
+            <p>それから20年以上。世界中のあらゆる道で、ASMAXは仲間との通信を支え続けています。日本市場でも、その哲学は変わりません。</p>
+            <div class="card-actions">
+              <a class="ghost-btn" href="/about">Read More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">Riders Voice</div>
+              <h2>日本のライダーの声</h2>
+            </div>
+            <p>ASMAXを使う日本のライダーたちの声。</p>
+          </div>
+
+          <div class="voice-grid">
+            <article class="voice-card" data-animate style="--delay:0.04s;">
+              <div class="voice-source">Instagram</div>
+              <strong>@rider_japan_01</strong>
+              <p>EVA R 初号機で箱根ツーリング。グループ10人でも接続が途切れない。見た目も最高。</p>
+            </article>
+            <article class="voice-card" data-animate style="--delay:0.08s;">
+              <div class="voice-source">YouTube</div>
+              <strong>バイク系YouTuber A</strong>
+              <p>F1 Proレビュー。SHOEIヘルメットへの取り付けから音質テストまで徹底検証しました。</p>
+            </article>
+            <article class="voice-card" data-animate style="--delay:0.12s;">
+              <div class="voice-source">Media</div>
+              <strong>バイク雑誌 B</strong>
+              <p>2026年注目のバイク用インカム。ASMAX F1 Proがグループツーリングの新定番になるか。</p>
+            </article>
+            <article class="voice-card" data-animate style="--delay:0.16s;">
+              <div class="voice-source">X</div>
+              <strong>@rider_japan_02</strong>
+              <p>S2コスパ最強。初めてのインカムにこれ買っておけば間違いない。2万円台でこの品質はすごい。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="support">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <div>
+              <div class="eyebrow">FAQ</div>
+              <h2>よくある質問</h2>
+            </div>
+            <p>お問い合わせの多いご質問にお答えします。</p>
+          </div>
+
+          <div class="faq-shell" data-animate style="--delay:0.06s;">
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="true">
+                <span>EVA Rモデルはどこで購入できますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">当サイトの各製品ページ「Buy Now」ボタンからご注文いただけます。楽天市場・Yahoo!ショッピングからもお求めいただけます。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>並行輸入品との違いは何ですか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">ASMAX JAPAN の正規取扱品は、日本語サポート・2年間保証・技適取得済みの正規品です。並行輸入品ではこれらの保証やサポートが受けられない場合があります。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>技適マークは取得していますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、ASMAX JAPAN で取り扱う全製品は技適マークを取得しており、日本国内で安心してご利用いただけます。技適番号は各製品ページに記載しています。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>Arai / SHOEI のヘルメットに取り付けられますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、Arai・SHOEI をはじめとする国内主要メーカーのヘルメットに対応しています。詳しい取り付け方法は各製品ページのインストールガイドをご覧ください。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>Bluetooth Mesh と CloudTalk の違いは?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">Bluetooth Mesh はスマートフォン不要で最大10人と直接通信できるライダー間通話です。CloudTalk はモバイルデータ通信を利用し、距離無制限で世界中のライダーと通話できます。どちらもEVA R・F1 Proに搭載しています。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>保証期間と返品ポリシーについて教えてください。</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">ASMAX JAPAN 正規取扱品はすべて購入日から2年間の製品保証が付きます。また、お届けから30日以内であれば返品を承ります。詳細は特定商取引法に基づく表記をご確認ください。</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-trigger" type="button" aria-expanded="false">
+                <span>楽天市場・Yahoo!ショッピングでも購入できますか?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-panel">はい、楽天市場・Yahoo!ショッピングでもASMAX JAPAN 正規品をお求めいただけます。各製品ページおよびページ下部のリンクからアクセスできます。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section app-section" id="app">
+        <div class="container">
+          <div class="app-copy" data-animate>
+            <div class="eyebrow">ASMAX World App</div>
+            <h2>1つのアプリで、<br>すべてを管理。</h2>
+            <p class="app-desc">LED、グループインターコム、通話、音楽EQなど、すべて指先で操作可能。スマートフォンからライドをコントロールしましょう。</p>
+            <div class="app-badges">
+              <a href="https://apps.apple.com/us/app/asmax-world/id6476167600" target="_blank" rel="noopener">
+                <img src="https://www.asmaxworld.com/cdn/shop/files/ASMAX_APP_LPGO.png?v=1774882084" alt="App Store からダウンロード">
+              </a>
+            </div>
+          </div>
+          <div class="app-visual" data-animate style="--delay:0.12s;">
+            <div class="app-phone" aria-hidden="true">
+              <div class="app-phone-screen">
+                <div class="app-logo-placeholder">ASMAX</div>
+                <div class="app-ui-lines">
+                  <div class="app-ui-line"></div>
+                  <div class="app-ui-line"></div>
+                  <div class="app-ui-line"></div>
+                  <div class="app-ui-line"></div>
+                </div>
+                <div class="app-ui-controls">
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                  <div class="app-ui-control"><span class="ctrl-dot"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="app-glow"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-wrap" data-animate>
+            <div class="eyebrow" style="justify-content:center;">Ready To Ride</div>
+            <h2>Ready to Ride?</h2>
+            <p>ASMAX JAPAN 正規取扱品を、お好みの方法でご購入いただけます。</p>
+            <div class="cta-actions">
+              <a class="btn accent" href="#lineup">オンラインで購入</a>
+              <a class="ghost-btn" href="/partner">取扱店を探す</a>
+            </div>
+            <div class="mall-links">
+              <a class="mall-link" href="#">楽天市場</a>
+              <a class="mall-link" href="#">Yahoo!ショッピング</a>
+            </div>
+            <a class="cta-meta" href="/contact">法人・メディアのお問い合わせ -></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="logo-mark" href="#top" aria-label="ASMAX JAPAN footer logo">
+              ASMAX
+              <small>Japan</small>
+            </a>
+            <p style="margin-top:16px;">日本総代理店 ASMAX JAPAN 公式サイト。正規品・日本語サポート・2年間保証。</p>
+          </div>
+
+          <div>
+            <div class="footer-title">Products</div>
+            <div class="footer-column">
+              <a href="/product/eva-r-unit01">EVA R 初号機</a>
+              <a href="/product/eva-r-unit02">EVA R 2号機</a>
+              <a href="/product/f1-pro">F1 Pro</a>
+              <a href="/product/s2">S2</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Brand</div>
+            <div class="footer-column">
+              <a href="/about">About ASMAX</a>
+              <a href="/news">News</a>
+              <a href="/partner">Partner</a>
+              <a href="/affiliate">Affiliate</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-title">Support</div>
+            <div class="footer-column">
+              <a href="/support">FAQ</a>
+              <a href="/contact">Contact</a>
+              <a href="#">User Manual</a>
+              <a href="#">ASMAXWorld App</a>
+              <a href="#">延長保証</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>Copyright 2026 ASMAX JAPAN. All rights reserved.</span>
+          <span>特定商取引法に基づく表記 / プライバシーポリシー / 利用規約</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mobileDrawer = document.getElementById("mobile-drawer");
+
+    if (menuToggle && mobileDrawer) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        mobileDrawer.classList.toggle("open", !isOpen);
+      });
+
+      mobileDrawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.setAttribute("aria-expanded", "false");
+          mobileDrawer.classList.remove("open");
+        });
+      });
+    }
+
+    document.querySelectorAll(".faq-trigger").forEach((button, index) => {
+      if (index !== 0) {
+        button.setAttribute("aria-expanded", "false");
+      }
+
+      button.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isExpanded));
+      });
+    });
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Scroll-triggered animations via IntersectionObserver
+    const animObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          animObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    document.querySelectorAll("[data-animate], [data-animate-scale]").forEach(el => {
+      animObserver.observe(el);
+    });
+
+    const evaSection = document.querySelector(".eva-spotlight");
+    const evaCards = document.querySelectorAll(".eva-card");
+
+    if (evaSection && !prefersReducedMotion) {
+      let ticking = false;
+
+      const updateEvaScene = () => {
+        const rect = evaSection.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || 1;
+        const rawProgress = (viewportHeight - rect.top) / (rect.height + viewportHeight);
+        const progress = Math.max(0, Math.min(1, rawProgress));
+        const shiftX = `${(progress - 0.5) * 14}%`;
+        const shiftY = `${(0.5 - progress) * 10}%`;
+
+        evaSection.style.setProperty("--eva-progress", progress.toFixed(3));
+        evaSection.style.setProperty("--eva-shift-x", shiftX);
+        evaSection.style.setProperty("--eva-shift-y", shiftY);
+
+        evaCards.forEach((card, index) => {
+          const floatOffset = Math.sin(progress * Math.PI + index * 0.9) * 10;
+          card.style.setProperty("--float-y", `${floatOffset}px`);
+        });
+
+        ticking = false;
+      };
+
+      const requestEvaUpdate = () => {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(updateEvaScene);
+        }
+      };
+
+      window.addEventListener("scroll", requestEvaUpdate, { passive: true });
+      window.addEventListener("resize", requestEvaUpdate);
+      requestEvaUpdate();
+
+      const evaCardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-active", entry.isIntersecting && entry.intersectionRatio > 0.55);
+        });
+      }, { threshold: [0.55, 0.75] });
+
+      evaCards.forEach((card) => {
+        evaCardObserver.observe(card);
+
+        card.addEventListener("pointermove", (event) => {
+          if (window.innerWidth <= 1023) return;
+
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width;
+          const y = (event.clientY - rect.top) / rect.height;
+          const rotateY = (x - 0.5) * 8;
+          const rotateX = (0.5 - y) * 8;
+
+          card.style.setProperty("--tilt-x", `${rotateX.toFixed(2)}deg`);
+          card.style.setProperty("--tilt-y", `${rotateY.toFixed(2)}deg`);
+        });
+
+        card.addEventListener("pointerleave", () => {
+          card.style.setProperty("--tilt-x", "0deg");
+          card.style.setProperty("--tilt-y", "0deg");
+        });
+      });
+    }
+  </script>
+</body>
+</html>

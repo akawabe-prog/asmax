@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ | ASMAX JAPAN</title>
+<meta name="description" content="ASMAX JAPANからのお知らせ。新製品、キャンペーン、イベント出展情報。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/atmos-sub.css">
+<style>
+.pickup{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:7vh}
+@media(max-width:820px){.pickup{grid-template-columns:1fr}}
+.pk{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);min-height:230px;display:flex;align-items:flex-end;background:var(--card)}
+.pk img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pk::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 30%,rgba(0,0,0,.72) 92%)}
+.pk .cap{position:relative;z-index:2;padding:22px;color:#fff}
+.pk .cap .cat{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:#7fe8fa}
+.pk .cap b{display:block;font-size:16.5px;line-height:1.5;margin-top:6px}
+</style>
+</head>
+<body>
+
+<section class="page-hero">
+  <p class="bgword">NEWS</p>
+  <div class="wrap">
+    <p class="eyebrow rv">NEWS & TOPICS</p>
+    <h1 class="rv" data-d="1">お知らせ</h1>
+    <p class="lead rv" data-d="2">新製品・キャンペーン・イベント出展など、ASMAX JAPANの最新情報をお届けします。</p>
+  </div>
+</section>
+
+<section class="sec wrap" style="padding-top:2vh">
+  <div class="pickup">
+    <a class="pk rv" href="../shop/eva-r.html">
+      <img src="../assets/v3/eva-cp-banner.webp" alt="">
+      <span class="cap"><span class="cat">PICK UP</span><b>ASMAX × EVANGELION RACING「EVA R モデル」全4機、好評発売中</b></span>
+    </a>
+    <a class="pk rv" data-d="1" href="shipping.html">
+      <img src="../assets/v3/f1-forest.jpg" alt="">
+      <span class="cap"><span class="cat">PICK UP</span><b>公式ストア購入特典 — メーカー保証が2年から4年に延長</b></span>
+    </a>
+  </div>
+
+  <div class="news-list rv" data-d="1">
+    <article class="news-item">
+      <time>2026.07</time><span class="cat">お知らせ</span>
+      <b>ASMAX JAPAN公式ストア購入特典として、メーカー保証を2年→4年に延長しました</b>
+      <p>対象は当公式ストアでご購入いただいた製品本体です。詳しくは<a href="shipping.html" style="color:var(--accent)">配送・返品・保証</a>をご覧ください。</p>
+    </article>
+    <article class="news-item">
+      <time>2026.03</time><span class="cat">イベント</span>
+      <b>東京・大阪モーターサイクルショー2026に出展しました</b>
+      <p>ブースにお立ち寄りいただいた皆さま、ありがとうございました。</p>
+    </article>
+    <article class="news-item">
+      <time>2025.11</time><span class="cat">キャンペーン</span>
+      <b>EVA R発売記念プレゼントキャンペーンを実施しました(2025.11.1〜12.31)</b>
+      <p>EVA Rモデルご購入者の中から抽選でオリジナルグッズをプレゼント。多数のご応募ありがとうございました。</p>
+    </article>
+    <article class="news-item">
+      <time>2025.11.01</time><span class="cat">新製品</span>
+      <b>ASMAX × EVANGELION RACING 公式コラボ「EVA R モデル」発売</b>
+      <p>初号機・2号機をモチーフにした全4モデル。CloudTalkで最大50人接続、Bluetooth 5.4デュアルチップ搭載。<a href="../shop/eva-r.html" style="color:var(--accent)">製品ページへ →</a></p>
+    </article>
+    <article class="news-item">
+      <time>2025</time><span class="cat">お知らせ</span>
+      <b>ASMAX JAPAN公式サイトを開設しました</b>
+      <p>カスタムジャパンによる国内総販売代理店契約のもと、日本正規品の販売と日本語サポートを開始しています。</p>
+    </article>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="t rv">最新情報は、SNSでも。</p>
+    <p class="s rv" data-d="1">Instagram / YouTube / Facebook で発信中。</p>
+    <div class="acts rv" data-d="2">
+      <a class="btn btn-ghost en" href="https://instagram.com/asmaxworld_official" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a class="btn btn-ghost en" href="https://www.youtube.com/@ASMAXWorld" target="_blank" rel="noopener">YOUTUBE</a>
+    </div>
+  </div>
+</section>
+
+<footer></footer>
+<script src="../assets/js/atmos-sub.js"></script>
+</body>
+</html>

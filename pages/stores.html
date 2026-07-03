@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>取扱店舗 — 全国の2りんかんで実物を | ASMAX JAPAN</title>
+<meta name="description" content="ASMAX製品の取扱店舗一覧。全国の2りんかん各店で実物をご覧いただけます。都道府県で検索できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/atmos-sub.css">
+<style>
+.shop-photos{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:5vh}
+@media(max-width:760px){.shop-photos{grid-template-columns:1fr}}
+.shop-photos img{width:100%;height:100%;object-fit:cover;border-radius:18px;border:1px solid var(--line)}
+.finder{margin-top:6vh}
+.finder .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:26px}
+.finder select{appearance:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:13px 44px 13px 18px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--sub) 50%),linear-gradient(135deg,var(--sub) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.finder .count{font-size:13px;color:var(--sub)}
+.finder .count b{color:var(--accent);font-family:var(--font-en);font-size:16px}
+.store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:960px){.store-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.store-grid{grid-template-columns:1fr}}
+.store{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.store .pref{font-size:10.5px;font-weight:700;color:var(--accent);letter-spacing:.08em}
+.store b{display:block;font-size:14.5px;margin:6px 0 8px;line-height:1.5}
+.store p{font-size:12.5px;color:var(--sub);line-height:1.7}
+.store .tel{font-family:var(--font-en);font-weight:700;color:var(--ink)}
+.store a.map{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--accent)}
+.morewrap{text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+
+<section class="page-hero photo">
+  <div class="ph" style="background-image:url('../assets/v3/store-2rinkan-1.jpg')"></div>
+  <div class="wrap">
+    <p class="eyebrow rv">STORES</p>
+    <h1 class="rv" data-d="1">触って、聴いて、確かめる。</h1>
+    <p class="lead rv" data-d="2" style="color:#c9d2d9">ASMAX製品は全国の2りんかん各店でお取り扱い中。実物のサイズ感、装着感、操作感を店頭でお確かめいただけます。</p>
+  </div>
+</section>
+
+<section class="sec wrap" style="padding-top:3vh">
+  <div class="shop-photos">
+    <img class="rv" src="../assets/v3/store-2rinkan-2.jpg" alt="2りんかん インカムコーナーのASMAX展示">
+    <div class="tile rv" data-d="1" style="display:flex;flex-direction:column;justify-content:center">
+      <p class="fno">IN-STORE</p>
+      <b style="font-size:19px;margin-top:10px">インカムコーナーにて展示中</b>
+      <p style="margin-top:8px">F1 Pro・EVA R・S2の実機展示。スタッフにお気軽にお声がけください。在庫状況は各店舗へお電話でご確認いただくのが確実です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap">
+  <div class="sec-head rv">
+    <p class="fno">STORE FINDER</p>
+    <h2>取扱店舗をさがす</h2>
+  </div>
+  <div class="finder rv" style="margin-top:0">
+    <div class="controls">
+      <select id="prefSel" aria-label="都道府県で絞り込み"><option value="">すべての都道府県</option></select>
+      <p class="count"><b id="cnt">0</b> 店舗</p>
+    </div>
+    <div class="store-grid" id="storeGrid"></div>
+    <div class="morewrap"><button class="btn btn-ghost" id="moreBtn">さらに表示する</button></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="t rv">近くに店舗がなくても、大丈夫。</p>
+    <p class="s rv" data-d="1">公式オンラインストアなら全国配送+メーカー保証4年。</p>
+    <div class="acts rv" data-d="2"><a class="btn btn-accent en" href="../index.html#shop">SHOP ONLINE</a></div>
+  </div>
+</section>
+
+<footer></footer>
+<script src="../assets/js/stores-data.js"></script>
+<script src="../assets/js/atmos-sub.js"></script>
+<script>
+const stores = window.ASMAX_STORES || [];
+const PAGE = 24;
+let filtered = stores, shown = 0;
+const grid = document.getElementById('storeGrid');
+const cnt = document.getElementById('cnt');
+const moreBtn = document.getElementById('moreBtn');
+const sel = document.getElementById('prefSel');
+
+// 都道府県プルダウン(データ順を保持)
+[...new Set(stores.map(s => s.pref))].forEach(p => {
+  const o = document.createElement('option'); o.value = p; o.textContent = p; sel.appendChild(o);
+});
+
+function card(s) {
+  const q = encodeURIComponent(s.name.replace(/株式会社/g, '') + ' ' + s.address);
+  return `<div class="store"><p class="pref">${s.pref}</p><b>${s.name}</b><p>${s.address}<br>TEL: <span class="tel">${s.tel}</span><br>${s.hours}</p><a class="map" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Googleマップで見る →</a></div>`;
+}
+function render(reset) {
+  if (reset) { grid.innerHTML = ''; shown = 0; }
+  const next = filtered.slice(shown, shown + PAGE);
+  grid.insertAdjacentHTML('beforeend', next.map(card).join(''));
+  shown += next.length;
+  cnt.textContent = filtered.length;
+  moreBtn.style.display = shown < filtered.length ? '' : 'none';
+}
+sel.addEventListener('change', () => { filtered = sel.value ? stores.filter(s => s.pref === sel.value) : stores; render(true); });
+moreBtn.addEventListener('click', () => render(false));
+render(true);
+</script>
+</body>
+</html>
