@@ -23,6 +23,7 @@ const FOOTER = `
       <a href="../shop/f1-pro.html">F1 Pro</a>
       <a href="../shop/eva-r.html">EVA R モデル</a>
       <a href="../shop/s2.html">S2</a>
+      <a href="products.html">全商品一覧</a>
       <a href="accessories.html">アクセサリー・セット</a>
     </div>
     <div><b>TECHNOLOGY</b>
