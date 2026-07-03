@@ -398,7 +398,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:#9aa3ad}
   <div class="in">
     <img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN">
     <nav style="display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--sub)">
-      <a href="../pages/support.html">サポート</a><a href="../pages/stores.html">取扱店舗</a><a href="../pages/legal.html">特定商取引法に基づく表記</a><a href="../pages/privacy.html">プライバシー</a><a href="../pages/shipping.html">配送・返品・保証</a><a href="../pages/contact.html">お問い合わせ</a>
+      <a href="../pages/support.html">サポート</a><a href="../pages/stores.html">取扱店舗</a><a href="../pages/legal.html">特定商取引法に基づく表記</a><a href="../pages/privacy.html">プライバシー</a><a href="../pages/terms.html">利用規約</a><a href="../pages/shipping.html">配送・返品・保証</a><a href="../pages/contact.html">お問い合わせ</a>
     </nav>
     <p class="cp">© ASMAX JAPAN / CUSTOM JAPAN Co., Ltd.</p>
   </div>
@@ -415,11 +415,43 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:#9aa3ad}
 </div>
 
 <script type="module">
-import { initApiClient, addItemsToCart } from '../assets/js/api-client.js';
+import { initApiClient, addItemsToCart, fetchItems, normalizeLiveItem } from '../assets/js/api-client.js';
 initApiClient();
 
-const UNIT_PRICE = 15899;
 const state = { id: '29159437', qty: 1 };
+
+/* ── ライブ商品情報(価格・在庫)。カラーごとに商品IDが異なるためSKU単位で照会 ── */
+const PRICES = { '29159437': 15899 };
+const LIVE = {};
+const CART_BTN_HTML = document.getElementById('addCart').innerHTML;
+function applyLive() {
+  const live = LIVE[state.id];
+  const btn = $('addCart');
+  const oos = !!(live && !live.inStock);
+  btn.disabled = oos;
+  if (oos) {
+    btn.textContent = '在庫切れ — 入荷をお待ちください';
+  } else {
+    btn.innerHTML = CART_BTN_HTML;
+    syncPrice();
+  }
+  const barBtn = document.querySelector('#buybar .btn-cart');
+  if (barBtn) { barBtn.disabled = oos; barBtn.textContent = oos ? '在庫切れ' : 'カートに入れる'; }
+}
+(async () => {
+  try {
+    const res = await fetchItems(Object.keys(PRICES));
+    const rows = Array.isArray(res) ? res : (res?.data || res?.items || []);
+    rows.forEach((it) => {
+      const n = normalizeLiveItem(it);
+      if (!n.id) return;
+      LIVE[n.id] = n;
+      if (typeof n.price === 'number') PRICES[n.id] = n.price;
+    });
+    applyLive();
+  } catch (e) { console.warn('[ASMAX] live item fetch skipped:', e); }
+})();
+
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => n.toLocaleString('ja-JP');
 
@@ -436,7 +468,7 @@ document.querySelectorAll('#galThumbs button').forEach(b => b.addEventListener('
 }));
 document.querySelectorAll('#galThumbs button[data-photo]').forEach(b => b.classList.add('photo'));
 
-const syncPrice = () => { const t = UNIT_PRICE * state.qty; $('cartPrice').textContent = fmt(t); $('barPrice').textContent = '¥' + fmt(t); $('qVal').textContent = state.qty; };
+const syncPrice = () => { const t = (PRICES[state.id] ?? 15899) * state.qty; $('cartPrice').textContent = fmt(t); $('barPrice').textContent = '¥' + fmt(t); $('qVal').textContent = state.qty; };
 $('qUp').addEventListener('click', () => { state.qty = Math.min(5, state.qty + 1); syncPrice(); });
 $('qDown').addEventListener('click', () => { state.qty = Math.max(1, state.qty - 1); syncPrice(); });
 

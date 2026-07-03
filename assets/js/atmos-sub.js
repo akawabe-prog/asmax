@@ -52,6 +52,7 @@ const FOOTER = `
     <div><b>LEGAL</b>
       <a href="legal.html">特定商取引法に基づく表記</a>
       <a href="privacy.html">プライバシーポリシー</a>
+      <a href="terms.html">ご利用規約</a>
       <a href="shipping.html">配送・返品・保証</a>
     </div>
   </nav>
