@@ -59,7 +59,8 @@ img{max-width:100%;display:block}
 .wrap{width:min(1200px,92vw);margin:0 auto}
 
 /* ============ HEADER — mix-blend で白黒ロゴが自動反転 ============ */
-.hd{position:fixed;inset:0 0 auto;z-index:90;mix-blend-mode:difference}
+.hd{position:fixed;inset:0 0 auto;z-index:90}
+.hd .brand,.hd nav>a,.nav-drop>a{mix-blend-mode:difference}
 .hd .bar{width:min(1360px,94vw);margin:0 auto;height:var(--header-h);display:flex;align-items:center;justify-content:space-between}
 .hd img{width:112px;filter:none}
 .hd nav{display:flex;gap:32px;font-family:var(--font-en);font-size:12.5px;font-weight:600;letter-spacing:.14em;color:#fff}
@@ -71,18 +72,21 @@ img{max-width:100%;display:block}
 .hd .cart-ic:hover{transform:translateY(-1px)}
 @media(max-width:860px){.hd nav{display:none}}
 
-/* ---- PRODUCTドロップダウン ---- */
+/* ---- PRODUCTドロップダウン(サムネイル版) ---- */
 .nav-drop{position:relative}
 .nav-drop>a .caret{font-size:8px;margin-left:5px;opacity:.7;display:inline-block;transition:transform .25s}
 .nav-drop:hover>a .caret,.nav-drop:focus-within>a .caret{transform:rotate(180deg)}
 .drop{position:absolute;top:100%;left:-18px;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
 .nav-drop:hover .drop,.nav-drop:focus-within .drop{opacity:1;visibility:visible;transform:none}
-.drop-in{min-width:250px;background:#0c0e12;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:10px;display:flex;flex-direction:column}
-.drop-in a{display:flex;flex-direction:column;gap:1px;padding:11px 14px;border-radius:10px;opacity:1;line-height:1.4}
-.drop-in a:hover{background:rgba(255,255,255,.08)}
+.drop-in{min-width:300px;background:rgba(10,12,16,.92);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:10px;display:flex;flex-direction:column;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.drop-in a{display:flex;align-items:center;gap:13px;padding:9px 12px;border-radius:12px;opacity:1;line-height:1.35}
+.drop-in a:hover{background:rgba(255,255,255,.09)}
+.drop-in a img{width:52px;height:52px;flex:0 0 52px;object-fit:contain;background:#fff;border-radius:10px}
+.drop-in a span{display:flex;flex-direction:column;gap:2px;flex:1}
 .drop-in a b{font-size:12.5px;letter-spacing:.08em;color:#fff}
-.drop-in a span{font-size:10px;color:rgba(255,255,255,.55);font-family:var(--font-ja);letter-spacing:.02em;font-weight:500}
-.drop-in a.all{flex-direction:row;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 10px 10px;margin-top:6px;padding-top:12px}
+.drop-in a i{font-style:normal;font-size:10px;color:rgba(255,255,255,.55);font-family:var(--font-ja);letter-spacing:.02em;font-weight:600}
+.drop-in a em{font-style:normal;font-family:var(--font-en);font-size:11.5px;font-weight:800;color:rgba(255,255,255,.75)}
+.drop-in a.all{justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 12px 12px;margin-top:6px;padding-top:13px}
 
 /* ============ 汎用モーション ============ */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -366,9 +370,9 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
       <div class="nav-drop">
         <a href="pages/products.html">PRODUCT<span class="caret">▼</span></a>
         <div class="drop"><div class="drop-in">
-          <a href="shop/f1-pro.html"><b>F1 PRO</b><span>フラッグシップ ¥32,900</span></a>
-          <a href="shop/eva-r.html"><b>EVA R MODEL</b><span>EVANGELION RACING 公式コラボ ¥35,000</span></a>
-          <a href="shop/s2.html"><b>S2</b><span>41g エントリー ¥15,899</span></a>
+          <a href="shop/f1-pro.html"><img src="assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span><em>¥32,900</em></a>
+          <a href="shop/eva-r.html"><img src="assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span><em>¥35,000</em></a>
+          <a href="shop/s2.html"><img src="assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span><em>¥15,899</em></a>
           <a class="all" href="pages/products.html"><b>全商品一覧</b><b>→</b></a>
         </div></div>
       </div>
