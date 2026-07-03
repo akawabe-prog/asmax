@@ -37,7 +37,7 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 .hd img{width:106px}
 .hd nav{display:flex;gap:26px;font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.12em;color:#fff}
 .hd nav a{opacity:.75}.hd nav a:hover{opacity:1}
-.hd .buy{border:1px solid rgba(255,255,255,.5);padding:7px 16px;border-radius:99px;opacity:1!important}
+.hd .cart-ic{display:inline-flex;align-items:center;opacity:1!important}
 @media(max-width:800px){.hd nav{display:none}}
 
 /* ---- リビール ---- */

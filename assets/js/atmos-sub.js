@@ -6,11 +6,14 @@ const HEADER = `
   <div class="bar">
     <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
     <nav class="en">
-      <a href="../shop/f1-pro.html">F1 PRO</a>
-      <a href="../shop/eva-r.html">EVA R</a>
-      <a href="../shop/s2.html">S2</a>
+      <a href="products.html">PRODUCT</a>
+      <a href="brand.html">ABOUT</a>
+      <a href="mode.html">TECHNOLOGY</a>
       <a href="support.html">SUPPORT</a>
-      <a href="../index.html#shop" class="buy">STORE</a>
+      <a href="news.html">NEWS</a>
+      <a href="stores.html">SHOP</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="https://www.customjapan.net/cart?site=asmax" class="cart-ic" aria-label="カート"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/><path d="M2.5 3.5h2.6l2.5 12h10.2l2.7-8.5H6.1"/></svg></a>
     </nav>
   </div>
 </header>`;
