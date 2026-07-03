@@ -6,7 +6,15 @@ const HEADER = `
   <div class="bar">
     <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
     <nav class="en">
-      <a href="products.html">PRODUCT</a>
+      <div class="nav-drop">
+        <a href="products.html">PRODUCT<span class="caret">▼</span></a>
+        <div class="drop"><div class="drop-in">
+          <a href="../shop/f1-pro.html"><b>F1 PRO</b><span>フラッグシップ ¥32,900</span></a>
+          <a href="../shop/eva-r.html"><b>EVA R MODEL</b><span>EVANGELION RACING 公式コラボ ¥35,000</span></a>
+          <a href="../shop/s2.html"><b>S2</b><span>41g エントリー ¥15,899</span></a>
+          <a class="all" href="products.html"><b>全商品一覧</b><b>→</b></a>
+        </div></div>
+      </div>
       <a href="brand.html">ABOUT</a>
       <a href="mode.html">TECHNOLOGY</a>
       <a href="support.html">SUPPORT</a>

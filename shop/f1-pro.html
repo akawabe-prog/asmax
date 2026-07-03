@@ -36,6 +36,19 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 .hd .cart-ic{display:inline-flex;align-items:center}
 @media(max-width:800px){.hd nav{display:none}}
 
+/* ---- PRODUCTドロップダウン ---- */
+.nav-drop{position:relative}
+.nav-drop>a .caret{font-size:8px;margin-left:5px;opacity:.7;display:inline-block;transition:transform .25s}
+.nav-drop:hover>a .caret,.nav-drop:focus-within>a .caret{transform:rotate(180deg)}
+.drop{position:absolute;top:100%;left:-18px;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s}
+.nav-drop:hover .drop,.nav-drop:focus-within .drop{opacity:1;visibility:visible;transform:none}
+.drop-in{min-width:250px;background:#0c0e12;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:10px;display:flex;flex-direction:column}
+.drop-in a{display:flex;flex-direction:column;gap:1px;padding:11px 14px;border-radius:10px;opacity:1;line-height:1.4}
+.drop-in a:hover{background:rgba(255,255,255,.08)}
+.drop-in a b{font-size:12.5px;letter-spacing:.08em;color:#fff}
+.drop-in a span{font-size:10px;color:rgba(255,255,255,.55);font-family:var(--font-ja);letter-spacing:.02em;font-weight:500}
+.drop-in a.all{flex-direction:row;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 10px 10px;margin-top:6px;padding-top:12px}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -176,7 +189,15 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub)}
   <div class="bar">
     <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
     <nav class="en">
-      <a href="../pages/products.html">PRODUCT</a>
+      <div class="nav-drop">
+        <a href="../pages/products.html">PRODUCT<span class="caret">▼</span></a>
+        <div class="drop"><div class="drop-in">
+          <a href="f1-pro.html"><b>F1 PRO</b><span>フラッグシップ ¥32,900</span></a>
+          <a href="eva-r.html"><b>EVA R MODEL</b><span>EVANGELION RACING 公式コラボ ¥35,000</span></a>
+          <a href="s2.html"><b>S2</b><span>41g エントリー ¥15,899</span></a>
+          <a class="all" href="../pages/products.html"><b>全商品一覧</b><b>→</b></a>
+        </div></div>
+      </div>
       <a href="../pages/brand.html">ABOUT</a>
       <a href="../pages/mode.html">TECHNOLOGY</a>
       <a href="../pages/support.html">SUPPORT</a>
