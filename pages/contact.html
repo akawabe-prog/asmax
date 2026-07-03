@@ -4,16 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ | ASMAX JAPAN</title>
-<meta name="description" content="ASMAX JAPANへのお問い合わせ。製品のご相談、購入前のご質問、保証・修理のご依頼は日本語サポートへ。">
+<meta name="description" content="ASMAX JAPANへのお問い合わせ。よくある質問と注意事項をご確認のうえ、Custom Japanお問い合わせ窓口へご連絡ください。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/atmos-sub.css">
 <style>
-.ch{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:4vh}
-@media(max-width:760px){.ch{grid-template-columns:1fr}}
-.ch .tile b{font-size:17px}
-.ch .tile .val{font-family:var(--font-en);font-weight:800;font-size:19px;color:var(--accent);margin:8px 0 4px;display:block}
+.pre-notes{border:1px solid var(--line);border-radius:20px;background:var(--card);padding:30px 32px}
+.pre-notes b{display:block;font-size:16px;margin-bottom:14px}
+.pre-notes ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.pre-notes li{font-size:13.5px;color:var(--sub);padding-left:20px;position:relative}
+.pre-notes li::before{content:"";position:absolute;left:4px;top:.65em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.go-cj{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;border:1px solid var(--line);border-radius:22px;background:linear-gradient(120deg,var(--accent-dim),transparent 55%),var(--card);padding:44px 30px;margin-top:5vh}
+.go-cj .t{font-size:clamp(19px,2.2vw,26px);font-weight:900;line-height:1.5}
+.go-cj .s{font-size:13.5px;color:var(--sub);max-width:38em}
 </style>
 </head>
 <body class="aero">
@@ -23,34 +27,56 @@
   <div class="wrap">
     <p class="eyebrow rv">CONTACT US</p>
     <h1 class="rv" data-d="1">お問い合わせ</h1>
-    <p class="lead rv" data-d="2">購入前のご相談から、保証・修理のご依頼まで。ASMAX JAPAN(株式会社カスタムジャパン)の日本語サポートが対応いたします。</p>
+    <p class="lead rv" data-d="2">お問い合わせは、国内正規取扱店 Custom Japan(株式会社カスタムジャパン)の窓口にて承ります。まずは下記のよくある質問と注意事項をご確認ください。</p>
   </div>
 </section>
 
 <section class="sec wrap" style="padding-top:2vh">
-  <div class="ch">
-    <div class="tile rv">
-      <span class="ic">✉</span><b>メールでのお問い合わせ</b>
-      <span class="val todo">【要確認】support@——.jp</span>
-      <p>24時間受付 / 原則 <span class="todo">【要確認】◯営業日</span> 以内にご返信します。ご注文に関するお問い合わせは注文番号を添えてください。</p>
-    </div>
-    <div class="tile rv" data-d="1">
-      <span class="ic">☎</span><b>お電話でのお問い合わせ</b>
-      <span class="val todo">【要確認】0X-XXXX-XXXX</span>
-      <p>受付時間: <span class="todo">【要確認】平日◯:00〜◯:00</span>(土日祝を除く)</p>
-    </div>
+  <div class="pre-notes rv">
+    <b>お問い合わせ前の注意事項</b>
+    <ul>
+      <li>ご注文に関するお問い合わせは、<b style="display:inline;font-size:inherit;color:var(--ink)">ご注文番号</b>を添えていただくとスムーズです。</li>
+      <li>製品の基本操作・設定は<a href="support.html#manuals" style="color:var(--accent)">取扱説明書</a>と<a href="app.html" style="color:var(--accent)">ASMAX WORLDアプリ</a>のガイドをご確認ください。</li>
+      <li>動作に関するお問い合わせの前に、アプリからの<a href="support.html#ota" style="color:var(--accent)">OTAアップデート</a>を実施し、最新ファームウェアでお試しください。</li>
+      <li>並行輸入品・中古品は、保証および日本語サポートの対象外です。</li>
+      <li>保証(公式ストア購入で4年)・返品の条件は<a href="shipping.html" style="color:var(--accent)">配送・返品・保証</a>をご確認ください。</li>
+      <li>店頭の在庫状況は、<a href="stores.html" style="color:var(--accent)">各取扱店舗</a>へ直接お問い合わせください。</li>
+    </ul>
   </div>
 
-  <div class="notice rv" data-d="1"><b>お問い合わせの前に:</b>取扱説明書・アップデート手順・FAQは<a href="support.html" style="color:var(--accent);font-weight:700">サポートページ</a>にまとまっています。お急ぎの場合はまずこちらをご確認ください。</div>
-
-  <div class="sec-head rv" style="margin-top:6vh">
-    <p class="fno">TOPICS</p>
-    <h2>よくあるお問い合わせ先</h2>
+  <div class="go-cj rv" data-d="1">
+    <p class="t">解決しない場合は、<br class="sp">Custom Japanお問い合わせ窓口へ。</p>
+    <p class="s">ASMAX JAPANの販売・サポートは株式会社カスタムジャパンが運営しています。下記ボタンからお問い合わせページへお進みください。</p>
+    <a class="btn btn-accent en" href="https://www.customjapan.net/inquiry" target="_blank" rel="noopener" style="min-width:280px">CONTACT FORM →</a>
   </div>
-  <div class="grid3">
-    <a class="tile rv" href="shipping.html"><span class="ic">🛡</span><b>保証・修理のご依頼</b><span>4年保証の条件とお手続き</span></a>
-    <a class="tile rv" data-d="1" href="shipping.html"><span class="ic">📦</span><b>返品・交換</b><span>お届けから30日以内の返品対応</span></a>
-    <a class="tile rv" data-d="2" href="stores.html"><span class="ic">🏬</span><b>店頭での購入・在庫</b><span>お近くの取扱店舗へ直接ご確認ください</span></a>
+</section>
+
+<section class="sec wrap" id="faq">
+  <div class="sec-head rv">
+    <p class="fno">FAQ</p>
+    <h2>よくある質問</h2>
+    <p class="s">お問い合わせの多くは、こちらで解決できます。</p>
+  </div>
+  <div class="faq rv">
+    <details><summary>どのモデルを選べばいいですか?</summary><p class="a">グループツーリング中心なら旗艦のF1 Pro、エヴァンゲリオン/レーシングデザインならEVA R、初めての1台・コスパ重視なら41gのS2がおすすめです。3モデルとも相互にメッシュ通信でつながります。</p></details>
+    <details><summary>他社のインカムと接続できますか?</summary><p class="a">はい。ユニバーサルペアリングに対応しており、他社製インカムとも接続できます。ASMAX同士なら自動再接続などの全機能が使えます。</p></details>
+    <details><summary>雨の日に使えますか?</summary><p class="a">F1 Pro / EVA RはIPX7相当の防水性能があり、雨天走行でも安心です。</p></details>
+    <details><summary>音声操作はネット接続が必要ですか?</summary><p class="a">不要です。「Hi Max」音声コマンドはオフラインで動作します(F1 Pro / EVA R)。</p></details>
+    <details><summary>充電器の指定はありますか?</summary><p class="a">USB Type-Cで充電します。15V以下の充電器をご使用ください。過電圧での充電は故障の原因になります。</p></details>
+    <details><summary>技適は取得していますか?</summary><p class="a">日本国内向け正規品は技適取得済みです。並行輸入品はサポート・保証の対象外となりますのでご注意ください。</p></details>
+    <details><summary>保証はどうなっていますか?</summary><p class="a">ASMAX JAPAN公式ストアでのご購入で、メーカー保証が通常2年から4年に延長されます。お手続きの際はご注文番号をご用意ください。</p></details>
+    <details><summary>返品はできますか?</summary><p class="a">お届けから30日以内・未使用未開封の商品は返品を承ります。詳細は<a href="shipping.html" style="color:var(--accent)">配送・返品・保証</a>をご覧ください。</p></details>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <p class="t rv">FAQで解決しなかったら。</p>
+    <p class="s rv" data-d="1">Custom Japanの窓口が日本語で対応します。</p>
+    <div class="acts rv" data-d="2">
+      <a class="btn btn-accent en" href="https://www.customjapan.net/inquiry" target="_blank" rel="noopener">CONTACT FORM →</a>
+      <a class="btn btn-ghost" href="support.html">サポートページへ</a>
+    </div>
   </div>
 </section>
 
