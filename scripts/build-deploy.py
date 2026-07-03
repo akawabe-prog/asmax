@@ -74,13 +74,51 @@ def verify():
             except ValueError:
                 missing.append(f"{f.relative_to(OUT)} → {u} (フォルダ外参照)")
                 continue
-            if target.exists():
+            # クリーンURL: 拡張子なしファイル or ディレクトリ参照(→index)を許容
+            if target.exists() or Path(str(target) + ".html").exists() or (target.is_dir() and (target / "index.html").exists()):
                 ok += 1
+            elif u.endswith("/") or u in ("./", "../"):
+                base = (f.parent / u).resolve()
+                if (base / "index.html").exists():
+                    ok += 1
+                else:
+                    missing.append(f"{f.relative_to(OUT)} → {u}")
             else:
                 missing.append(f"{f.relative_to(OUT)} → {u}")
     return ok, missing
 
+def clean_urls():
+    """内部リンクの .html を除去し、拡張子なしコピーを併置する(SPconnect方式)。
+    本番は拡張子なしキー配信のため、/pages/support のようなクリーンURLで到達できる。
+    """
+    html_files = sorted(OUT.rglob("*.html"))
+    # 既知ページのベース名(誤置換防止のホワイトリスト)
+    names = {p.stem for p in html_files}
+    # name.html(?/#/引用符直前)を name に。index.html はディレクトリ参照に。
+    pat = re.compile(r'(?P<path>[A-Za-z0-9_\-\./]*?)(?P<name>[A-Za-z0-9_\-]+)\.html(?=["\'?#])')
+
+    def repl(m):
+        name = m.group("name")
+        path = m.group("path")
+        if name not in names:
+            return m.group(0)
+        if path.startswith(("http", "//")):
+            return m.group(0)
+        if name == "index":
+            return (path if path else "./")
+        return path + name
+
+    targets = html_files + [OUT / "assets/js/atmos-sub.js"]
+    for f in targets:
+        s = f.read_text(encoding="utf-8")
+        s = pat.sub(repl, s)
+        f.write_text(s, encoding="utf-8")
+    # 拡張子なしコピー(同ディレクトリに併置)
+    for f in html_files:
+        shutil.copy2(f, f.with_suffix(""))
+
 build()
+clean_urls()
 ok, missing = verify()
 size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
 n = sum(1 for p in OUT.rglob("*") if p.is_file())
