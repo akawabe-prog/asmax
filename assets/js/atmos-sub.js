@@ -4,7 +4,7 @@
 const HEADER = `
 <header class="hd">
   <div class="bar">
-    <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
+    <a href="../index.html" class="brand"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
     <nav class="en">
       <div class="nav-drop">
         <a href="products.html">PRODUCT<span class="caret">▼</span></a>

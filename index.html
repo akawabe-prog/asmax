@@ -65,6 +65,8 @@ img{max-width:100%;display:block}
 .hd nav{display:flex;gap:32px;font-family:var(--font-en);font-size:12.5px;font-weight:600;letter-spacing:.14em;color:#fff}
 .hd nav a{opacity:.75;transition:opacity .25s}
 .hd nav a:hover{opacity:1}
+.hd .brand{display:flex;align-items:center;gap:12px}
+.hd .brand-sub{font-family:var(--font-ja);font-size:8.5px;line-height:1.6;letter-spacing:.08em;font-weight:600;color:#fff;opacity:.68;border-left:1px solid rgba(255,255,255,.4);padding-left:12px;white-space:nowrap}
 .hd .cart-ic{display:inline-flex;align-items:center;opacity:1!important}
 .hd .cart-ic:hover{transform:translateY(-1px)}
 @media(max-width:860px){.hd nav{display:none}}
@@ -261,6 +263,8 @@ body[data-atmos="aero"] .btn-accent,body[data-atmos="paper"] .btn-accent{color:#
 .sp-banner .t{font-size:clamp(22px,2.8vw,36px);font-weight:900;line-height:1.4}
 .sp-banner .s{color:rgba(255,255,255,.72);font-size:13.5px}
 .sp-banner .go{margin-top:14px;font-weight:800;letter-spacing:.1em;color:var(--accent)}
+.story-tease{margin:0 auto 8vh}
+.story-tease .ph{background-position:center 25%}
 
 /* ============ TECHNOLOGY BAND ============ */
 .tech-band{position:relative;overflow:hidden;padding:14vh 0}
@@ -357,7 +361,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
 <!-- ============ HEADER ============ -->
 <header class="hd">
   <div class="bar">
-    <a href="#top"><img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
+    <a href="#top" class="brand"><img src="assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
     <nav class="en">
       <div class="nav-drop">
         <a href="pages/products.html">PRODUCT<span class="caret">▼</span></a>
@@ -693,10 +697,16 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
 <!-- ============ BRAND ============ -->
 <section class="brandsec" id="brand" data-atmos-zone="night">
   <p class="bgword">ASMAX</p>
+  <a class="sp-banner story-tease rv" href="pages/brand.html">
+    <div class="ph" data-bleed style="background-image:url('assets/v3/brand-mission.jpg')"></div>
+    <div class="cap">
+      <p class="eyebrow">BRAND STORY</p>
+      <p class="t">乗ることは、<br>移動以上の意味がある。</p>
+      <p class="s">20年のワイヤレス技術から生まれた、ASMAXの物語。ミッション、テクノロジー、そしてライダーたちのコミュニティへ。</p>
+      <span class="go en">READ OUR STORY →</span>
+    </div>
+  </a>
   <div class="inner">
-    <p class="eyebrow rv">BRAND</p>
-    <h2 class="rv" data-d="1">20年の通信技術が、<br>ライダーの声を運ぶ。</h2>
-    <p class="rv" data-d="2">ASMAX(アズマックス)は、SMT技術開発20年以上のノウハウ — アウトドア通信システム、回路設計、センサー、ソフトウェア — を結集したスマートインカムブランド。専用アプリ「ASMAX WORLD」とOTAアップデートで、購入後も進化し続ける。</p>
     <div class="trust">
       <div class="t rv"><b>日本正規代理店</b><span>カスタムジャパンによる国内総販売代理店契約。日本語サポートで安心。</span></div>
       <a class="t rv" data-d="1" href="pages/shipping.html"><b>メーカー保証 最大4年</b><span>ASMAX JAPAN公式ストアでの購入なら、保証が2年から4年に延長。→</span></a>

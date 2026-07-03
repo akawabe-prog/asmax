@@ -37,6 +37,8 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 .hd img{width:106px}
 .hd nav{display:flex;gap:26px;font-family:var(--font-en);font-size:12px;font-weight:600;letter-spacing:.12em;color:#fff}
 .hd nav a{opacity:.75}.hd nav a:hover{opacity:1}
+.hd .brand{display:flex;align-items:center;gap:12px}
+.hd .brand-sub{font-family:var(--font-ja);font-size:8.5px;line-height:1.6;letter-spacing:.08em;font-weight:600;color:#fff;opacity:.68;border-left:1px solid rgba(255,255,255,.4);padding-left:12px;white-space:nowrap}
 .hd .cart-ic{display:inline-flex;align-items:center;opacity:1!important}
 @media(max-width:800px){.hd nav{display:none}}
 
