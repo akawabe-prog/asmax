@@ -56,7 +56,6 @@ button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
 .drop-in a span{display:flex;flex-direction:column;gap:2px;flex:1}
 .drop-in a b{font-size:12.5px;letter-spacing:.08em;color:#fff}
 .drop-in a i{font-style:normal;font-size:10px;color:rgba(255,255,255,.55);font-family:var(--font-ja);letter-spacing:.02em;font-weight:600}
-.drop-in a em{font-style:normal;font-family:var(--font-en);font-size:11.5px;font-weight:800;color:rgba(255,255,255,.75)}
 .drop-in a.all{justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 12px 12px;margin-top:6px;padding-top:13px}
 
 /* ---- リビール ---- */

@@ -9,9 +9,9 @@ const HEADER = `
       <div class="nav-drop">
         <a href="products.html">PRODUCT<span class="caret">▼</span></a>
         <div class="drop"><div class="drop-in">
-          <a href="../shop/f1-pro.html"><img src="../assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span><em>¥32,900</em></a>
-          <a href="../shop/eva-r.html"><img src="../assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span><em>¥35,000</em></a>
-          <a href="../shop/s2.html"><img src="../assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span><em>¥15,899</em></a>
+          <a href="../shop/f1-pro.html"><img src="../assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span></a>
+          <a href="../shop/eva-r.html"><img src="../assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span></a>
+          <a href="../shop/s2.html"><img src="../assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span></a>
           <a class="all" href="products.html"><b>全商品一覧</b><b>→</b></a>
         </div></div>
       </div>
