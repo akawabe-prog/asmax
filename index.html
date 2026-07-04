@@ -227,6 +227,12 @@ body[data-atmos="aero"] .btn-accent,body[data-atmos="paper"] .btn-accent{color:#
 .card .ja{font-size:13px;color:var(--sub)}
 .card .img{height:240px;display:flex;align-items:center;justify-content:center;margin:16px 0}
 .card .img img{max-height:100%;max-width:96%;object-fit:contain;transition:transform .5s var(--ease)}
+.card .img.slider{position:relative}
+.card .img.slider img{position:absolute;inset:0;margin:auto;opacity:0;transition:opacity .7s var(--ease),transform .5s var(--ease)}
+.card .img.slider img.on{opacity:1}
+.sl-dots{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.sl-dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:background .3s}
+.sl-dots i.on{background:var(--accent)}
 .card:hover .img img{transform:scale(1.06) rotate(-2deg)}
 .card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .card li{font-size:11.5px;font-weight:700;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
@@ -423,7 +429,11 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
         <p class="pos">FLAGSHIP</p>
         <h3>F1 Pro</h3>
         <p class="ja">グループツーリングの決定版</p>
-        <div class="img"><img src="assets/v3/card-f1.webp" alt="F1 Pro"></div>
+        <div class="img slider">
+        <img src="assets/v3/card-f1.webp" alt="F1 Pro ステラーグレー" class="on">
+        <img src="assets/v3/card-f1-b.webp" alt="F1 Pro シャイニーグレー" loading="lazy">
+        <span class="sl-dots"><i class="on"></i><i></i></span>
+      </div>
         <p class="price"><b>¥32,900</b><small>(税込) / 全2色</small></p>
         <ul><li>メッシュ通信</li><li>40mm BOX</li><li>14時間通話</li><li>IPX7</li><li>音声操作</li></ul>
         <div class="go"><span class="btn btn-accent en">SHOP</span><span class="btn btn-ghost">詳しく</span></div>
@@ -432,7 +442,13 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
         <p class="pos">COLLABORATION</p>
         <h3>EVA R</h3>
         <p class="ja">EVANGELION RACING 公式コラボ</p>
-        <div class="img"><img src="assets/v3/card-eva.webp" alt="EVA R"></div>
+        <div class="img slider">
+        <img src="assets/v3/card-eva.webp" alt="EVA R 2号機-A" class="on">
+        <img src="assets/v3/card-eva-02b.webp" alt="EVA R 2号機-B" loading="lazy">
+        <img src="assets/v3/card-eva-01a.webp" alt="EVA R 初号機-A" loading="lazy">
+        <img src="assets/v3/card-eva-01b.webp" alt="EVA R 初号機-B" loading="lazy">
+        <span class="sl-dots"><i class="on"></i><i></i><i></i><i></i></span>
+      </div>
         <p class="price"><b>¥35,000</b><small>(税込) / 全4モデル</small></p>
         <ul><li>全4モデル</li><li>CloudTalk 50人</li><li>3km通信</li><li>LEDカラー</li><li>音声操作</li></ul>
         <div class="go"><span class="btn btn-accent en">SHOP</span><span class="btn btn-ghost">詳しく</span></div>
@@ -870,6 +886,25 @@ fetch('data/instagram-tieup.json').then(r => r.json()).then(d => {
       <span class="meta"><span class="un">@${p.username}</span><span class="cap">${(p.caption || '').replace(/[<>&"]/g, '').replace(/\n+/g, ' ')}</span></span>
     </a>`).join('');
 }).catch(() => { const s = document.querySelector('.igsec'); if (s) s.style.display = 'none'; });
+
+/* --- 3.6. SHOPカードのカラースライダー(自動切替・ホバーで停止) --- */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.card .img.slider').forEach((sl) => {
+    const imgs = [...sl.querySelectorAll('img')];
+    const dots = [...sl.querySelectorAll('.sl-dots i')];
+    if (imgs.length < 2) return;
+    let i = 0, paused = false;
+    const card = sl.closest('.card');
+    card.addEventListener('mouseenter', () => { paused = true; });
+    card.addEventListener('mouseleave', () => { paused = false; });
+    setInterval(() => {
+      if (paused || document.hidden) return;
+      i = (i + 1) % imgs.length;
+      imgs.forEach((im, k) => im.classList.toggle('on', k === i));
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+    }, 2600);
+  });
+}
 
 /* --- 4. EVA R カラードット切替(ショーケース) --- */
 const evaRender = document.getElementById('evaRender');
