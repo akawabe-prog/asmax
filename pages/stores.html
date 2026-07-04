@@ -34,6 +34,10 @@
 .store .tel{font-family:var(--font-en);font-weight:700;color:var(--ink)}
 .store a.map{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--accent)}
 .morewrap{text-align:center;margin-top:30px}
+.iv-wrap{max-width:900px}
+.iv-wrap video{width:100%;border-radius:20px;border:1px solid var(--line);background:#000;display:block;aspect-ratio:16/9}
+.iv-cap{margin-top:14px;font-size:13px;font-weight:700;color:var(--sub);display:flex;align-items:center;gap:8px}
+.iv-cap::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
 </style>
 </head>
 <body>
@@ -44,6 +48,20 @@
     <p class="eyebrow rv">STORES</p>
     <h1 class="rv" data-d="1">触って、聴いて、確かめる。</h1>
     <p class="lead rv" data-d="2" style="color:#c9d2d9">ASMAX製品はナップス・バイクワールド・南海部品の全国31店舗でお取り扱い中。実物のサイズ感、装着感、操作感を店頭でお確かめいただけます。</p>
+  </div>
+</section>
+
+<section class="sec wrap" id="interview">
+  <div class="sec-head rv">
+    <p class="fno">STORE INTERVIEW</p>
+    <h2>導入店舗インタビュー</h2>
+    <p class="s">実際にASMAXを取り扱う店舗スタッフに、製品の魅力を伺いました。</p>
+  </div>
+  <div class="iv-wrap rv" data-d="1">
+    <video controls preload="none" playsinline poster="../assets/v3/interview-bikeworld-poster.jpg">
+      <source src="../assets/v3/interview-bikeworld.mp4" type="video/mp4">
+    </video>
+    <p class="iv-cap">バイクワールド 伊丹店さま</p>
   </div>
 </section>
 
