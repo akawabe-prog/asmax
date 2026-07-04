@@ -691,15 +691,13 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
   <div class="sb-in">
     <div class="sb-copy">
       <p class="eyebrow rv">STORES — NATIONWIDE NETWORK</p>
-      <p class="t rv" data-d="1">触って、聴いて、確かめる。<br>全国<b class="en hl">757</b>店舗でお取り扱い中。</p>
-      <p class="s rv" data-d="2">2りんかん・ライコランド・南海部品・レッドバロンほか、全国の販売店ネットワークで実物をお確かめいただけます。</p>
+      <p class="t rv" data-d="1">触って、聴いて、確かめる。<br>全国<b class="en hl">31</b>店舗でお取り扱い中。</p>
+      <p class="s rv" data-d="2">ナップス・バイクワールド・南海部品の店舗で、実物をお確かめいただけます。</p>
       <div class="chain-links rv" data-d="2">
-        <a href="pages/stores.html?chain=2りんかん">2りんかん</a>
-        <a href="pages/stores.html?chain=ライコランド">ライコランド</a>
+        <a href="pages/stores.html?chain=ナップス">ナップス</a>
+        <a href="pages/stores.html?chain=バイクワールド">バイクワールド</a>
         <a href="pages/stores.html?chain=南海部品">南海部品</a>
-        <a href="pages/stores.html?chain=レッドバロン">レッドバロン</a>
-        <a href="pages/stores.html?chain=バイク館">バイク館</a>
-        <a href="pages/stores.html">ほか →</a>
+        <a href="pages/stores.html">店舗一覧 →</a>
       </div>
       <div class="sb-acts rv" data-d="3">
         <a class="btn btn-accent en" href="pages/stores.html?near=1">📍 現在地から近い店舗</a>
@@ -707,8 +705,8 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
       </div>
     </div>
     <div class="sb-map rv" data-d="1">
-      <svg id="storeMap" viewBox="0 0 460 520" role="img" aria-label="全国757店舗の分布マップ"></svg>
-      <p class="sb-map-label en">757 STORES / 47 PREFECTURES</p>
+      <svg id="storeMap" viewBox="0 0 460 520" role="img" aria-label="全国31店舗の分布マップ"></svg>
+      <p class="sb-map-label en">31 STORES NATIONWIDE</p>
     </div>
   </div>
 </section>
@@ -854,7 +852,7 @@ addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => {
 addEventListener('resize', rafTick);
 rafTick();
 
-/* --- 3.4. 店舗ネットワークマップ描画(実座標757点) --- */
+/* --- 3.4. 店舗ネットワークマップ描画(実座標31点) --- */
 (() => {
   const svg = document.getElementById('storeMap');
   const dots = window.ASMAX_STORE_DOTS || [];
