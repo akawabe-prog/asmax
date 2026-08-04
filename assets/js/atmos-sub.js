@@ -4,23 +4,23 @@
 const HEADER = `
 <header class="hd">
   <div class="bar">
-    <a href="../index.html" class="brand"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
+    <a href="/" class="brand"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
     <nav class="en">
       <div class="nav-drop">
-        <a href="products.html">PRODUCT<span class="caret">▼</span></a>
+        <a href="/pages/products">PRODUCT<span class="caret">▼</span></a>
         <div class="drop"><div class="drop-in">
-          <a href="../shop/f1-pro.html"><img src="../assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span></a>
-          <a href="../shop/eva-r.html"><img src="../assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span></a>
-          <a href="../shop/s2.html"><img src="../assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span></a>
-          <a class="all" href="products.html"><b>全商品一覧</b><b>→</b></a>
+          <a href="/shop/f1-pro.html"><img src="/assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span></a>
+          <a href="/shop/eva-r.html"><img src="/assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span></a>
+          <a href="/shop/s2.html"><img src="/assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span></a>
+          <a class="all" href="/pages/products"><b>全商品一覧</b><b>→</b></a>
         </div></div>
       </div>
-      <a href="brand.html">ABOUT</a>
-      <a href="mode.html">TECHNOLOGY</a>
-      <a href="support.html">SUPPORT</a>
-      <a href="news.html">NEWS</a>
-      <a href="stores.html">SHOP</a>
-      <a href="contact.html">CONTACT</a>
+      <a href="/pages/brand">ABOUT</a>
+      <a href="/pages/mode">TECHNOLOGY</a>
+      <a href="/pages/support">SUPPORT</a>
+      <a href="/pages/news">NEWS</a>
+      <a href="/pages/stores">SHOP</a>
+      <a href="/pages/contact">CONTACT</a>
       <a href="https://www.customjapan.net/cart?site=asmax" class="cart-ic" aria-label="カート"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/><path d="M2.5 3.5h2.6l2.5 12h10.2l2.7-8.5H6.1"/></svg></a>
     </nav>
   </div>
@@ -28,32 +28,32 @@ const HEADER = `
 
 const FOOTER = `
 <div class="cols">
-  <a href="../index.html"><img src="../assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
+  <a href="/"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
   <nav class="fn">
     <div><b>PRODUCTS</b>
-      <a href="../shop/f1-pro.html">F1 Pro</a>
-      <a href="../shop/eva-r.html">EVA R モデル</a>
-      <a href="../shop/s2.html">S2</a>
-      <a href="products.html">全商品一覧</a>
-      <a href="accessories.html">アクセサリー・セット</a>
+      <a href="/shop/f1-pro.html">F1 Pro</a>
+      <a href="/shop/eva-r.html">EVA R モデル</a>
+      <a href="/shop/s2.html">S2</a>
+      <a href="/pages/products">全商品一覧</a>
+      <a href="/pages/accessories">アクセサリー・セット</a>
     </div>
     <div><b>TECHNOLOGY</b>
-      <a href="mode.html">ASMAXモード</a>
-      <a href="app.html">ASMAX WORLDアプリ</a>
-      <a href="brand.html">ブランドストーリー</a>
-      <a href="eva-r-special.html">EVA R スペシャル</a>
+      <a href="/pages/mode">ASMAXモード</a>
+      <a href="/pages/app">ASMAX WORLDアプリ</a>
+      <a href="/pages/brand">ブランドストーリー</a>
+      <a href="/pages/eva-r-special">EVA R スペシャル</a>
     </div>
     <div><b>SUPPORT</b>
-      <a href="support.html">サポート・ヘルプ</a>
-      <a href="stores.html">取扱店舗</a>
-      <a href="news.html">お知らせ</a>
-      <a href="contact.html">お問い合わせ</a>
+      <a href="/pages/support">サポート・ヘルプ</a>
+      <a href="/pages/stores">取扱店舗</a>
+      <a href="/pages/news">お知らせ</a>
+      <a href="/pages/contact">お問い合わせ</a>
     </div>
     <div><b>LEGAL</b>
-      <a href="legal.html">特定商取引法に基づく表記</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-      <a href="terms.html">ご利用規約</a>
-      <a href="shipping.html">配送・返品・保証</a>
+      <a href="/pages/legal">特定商取引法に基づく表記</a>
+      <a href="/pages/privacy">プライバシーポリシー</a>
+      <a href="/pages/terms">ご利用規約</a>
+      <a href="/pages/shipping">配送・返品・保証</a>
     </div>
   </nav>
 </div>

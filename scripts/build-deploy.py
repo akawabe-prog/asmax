@@ -63,19 +63,20 @@ def verify():
         s = f.read_text(encoding="utf-8", errors="ignore")
         for m in pat.finditer(s):
             u = next(g for g in m.groups() if g)
-            if u.startswith(("http", "//", "data:", "#", "mailto", "${")):
+            if u.startswith(("http", "//", "data:", "#", "mailto", "tel", "${")):
                 continue
             u = u.split("#")[0].split("?")[0]
             if not u:
                 continue
-            target = (f.parent / u).resolve()
+            # ルート相対(/assets/...)は OUT を起点に解決
+            target = (OUT / u.lstrip("/")).resolve() if u.startswith("/") else (f.parent / u).resolve()
             try:
                 target.relative_to(OUT.resolve())
             except ValueError:
                 missing.append(f"{f.relative_to(OUT)} → {u} (フォルダ外参照)")
                 continue
             # クリーンURL: 拡張子なしファイル or ディレクトリ参照(→index)を許容
-            if target.exists() or Path(str(target) + ".html").exists() or (target.is_dir() and (target / "index.html").exists()):
+            if target.exists() or Path(str(target) + ".html").exists() or (target.is_dir() and (target / "index.html").exists()) or (u == "/" and (OUT / "index.html").exists()):
                 ok += 1
             elif u.endswith("/") or u in ("./", "../"):
                 base = (f.parent / u).resolve()
@@ -87,42 +88,33 @@ def verify():
                 missing.append(f"{f.relative_to(OUT)} → {u}")
     return ok, missing
 
-def clean_urls():
-    """内部リンクの .html を除去し、拡張子なしコピーを併置する(SPconnect方式)。
-    本番は拡張子なしキー配信のため、/pages/support のようなクリーンURLで到達できる。
+def check_root_relative():
+    """CJ開発ガイド準拠チェック: サイト内参照がルート相対(/...)かどうか。
+    本番はDriveに.html付きで格納し、GCSアップロードのバッチが拡張子を除去するため、
+    ここでは拡張子の除去は行わない(ガイド1章)。
     """
-    html_files = sorted(OUT.rglob("*.html"))
-    # 既知ページのベース名(誤置換防止のホワイトリスト)
-    names = {p.stem for p in html_files}
-    # name.html(?/#/引用符直前)を name に。index.html はディレクトリ参照に。
-    pat = re.compile(r'(?P<path>[A-Za-z0-9_\-\./]*?)(?P<name>[A-Za-z0-9_\-]+)\.html(?=["\'?#])')
-
-    def repl(m):
-        name = m.group("name")
-        path = m.group("path")
-        if name not in names:
-            return m.group(0)
-        if path.startswith(("http", "//")):
-            return m.group(0)
-        if name == "index":
-            return (path if path else "./")
-        return path + name
-
-    targets = html_files + [OUT / "assets/js/atmos-sub.js"]
-    for f in targets:
-        s = f.read_text(encoding="utf-8")
-        s = pat.sub(repl, s)
-        f.write_text(s, encoding="utf-8")
-    # 拡張子なしコピー(同ディレクトリに併置)
-    for f in html_files:
-        shutil.copy2(f, f.with_suffix(""))
+    bad = []
+    pat = re.compile(r'(?:src|href|poster|action)=["\']([^"\']+)["\']|url\((["\']?)([^)"\']+)')
+    for f in list(OUT.rglob("*.html")) + list(OUT.rglob("*.css")) + list(OUT.rglob("*.js")):
+        for m in pat.finditer(f.read_text(encoding="utf-8", errors="ignore")):
+            u = m.group(1) or m.group(3) or ""
+            if not u or u.startswith(("http", "//", "data:", "#", "mailto", "tel", "/", "${")):
+                continue
+            bad.append(f"{f.relative_to(OUT)} → {u}")
+    return bad
 
 build()
-clean_urls()
 ok, missing = verify()
+rel = check_root_relative()
 size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
 n = sum(1 for p in OUT.rglob("*") if p.is_file())
 print(f"asmax/ 生成完了: {n}ファイル / {size/1e6:.1f}MB / 参照OK {ok}件")
+if rel:
+    print(f"⚠ ルート相対でない参照 {len(rel)}件:")
+    for r in rel[:20]:
+        print("  -", r)
+else:
+    print("全参照がルート相対 ✓ (Drive格納は.html付きのまま / GCSバッチが拡張子除去)")
 if missing:
     print("⚠ リンク切れ:")
     for m in missing:

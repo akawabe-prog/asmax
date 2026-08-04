@@ -53,6 +53,9 @@ export class ApiRequester {
       method: 'GET',
       headers: { 'x-site': ApiRequester.siteHeader },
       credentials: 'include',
+      // no-cache は必須。省くと Safari が別ログイン状態のレスポンスを使い回し、
+      // タブ復帰時に古いログイン状態・カート個数が表示される(CJ開発ガイド準拠)。
+      cache: 'no-cache',
       signal: timeoutSignal(INIT_TIMER),
     });
     if (!res.ok) throw new Error(`init failed: ${res.status}`);
