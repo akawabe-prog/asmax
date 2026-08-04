@@ -27,6 +27,8 @@ COPY_DIRS = [
 ]
 COPY_FILES = [
     "index.html",
+    "robots.txt",
+    "sitemap.xml",
     "top-v3.html",                 # 旧URL用リダイレクト
     "data/instagram-tieup.json",   # タイアップ枠(index.htmlがfetch)
     "assets/css/atmos-sub.css",
