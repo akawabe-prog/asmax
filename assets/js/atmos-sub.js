@@ -9,9 +9,9 @@ const HEADER = `
       <div class="nav-drop">
         <a href="/pages/products">PRODUCT<span class="caret">▼</span></a>
         <div class="drop"><div class="drop-in">
-          <a href="/shop/f1-pro.html"><img src="/assets/products/29159413/thumb.jpg" alt="F1 Pro"><span><b>F1 PRO</b><i>フラッグシップ</i></span></a>
-          <a href="/shop/eva-r.html"><img src="/assets/products/29200252/thumb.jpg" alt="EVA R"><span><b>EVA R MODEL</b><i>EVANGELION RACING</i></span></a>
-          <a href="/shop/s2.html"><img src="/assets/products/29159437/thumb.jpg" alt="S2"><span><b>S2</b><i>41g エントリー</i></span></a>
+          <a href="/shop/f1-pro.html"><img src="/assets/products/29159413/thumb.jpg" alt="ASMAX Pro"><span><b>ASMAX PRO</b><i>フラッグシップ</i></span></a>
+          <a href="/shop/eva-r.html"><img src="/assets/products/29200252/thumb.jpg" alt="EVA RACING MODEL"><span><b>EVA RACING MODEL</b><i>EVANGELION RACING</i></span></a>
+          <a href="/shop/s2.html"><img src="/assets/products/29159437/thumb.jpg" alt="ASMAX Standard"><span><b>ASMAX Standard</b><i>41g エントリー</i></span></a>
           <a class="all" href="/pages/products"><b>全商品一覧</b><b>→</b></a>
         </div></div>
       </div>
@@ -31,9 +31,9 @@ const FOOTER = `
   <a href="/"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"></a>
   <nav class="fn">
     <div><b>PRODUCTS</b>
-      <a href="/shop/f1-pro.html">F1 Pro</a>
-      <a href="/shop/eva-r.html">EVA R モデル</a>
-      <a href="/shop/s2.html">S2</a>
+      <a href="/shop/f1-pro.html">ASMAX Pro</a>
+      <a href="/shop/eva-r.html">EVA RACING MODEL</a>
+      <a href="/shop/s2.html">ASMAX Standard</a>
       <a href="/pages/products">全商品一覧</a>
       <a href="/pages/accessories">アクセサリー・セット</a>
     </div>
@@ -41,7 +41,7 @@ const FOOTER = `
       <a href="/pages/mode">ASMAXモード</a>
       <a href="/pages/app">ASMAX WORLDアプリ</a>
       <a href="/pages/brand">ブランドストーリー</a>
-      <a href="/pages/eva-r-special">EVA R スペシャル</a>
+      <a href="/pages/eva-r-special">EVA RACING スペシャル</a>
     </div>
     <div><b>SUPPORT</b>
       <a href="/pages/support">サポート・ヘルプ</a>
