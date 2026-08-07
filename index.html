@@ -128,9 +128,17 @@ img{max-width:100%;display:block}
 
 /* ============ HERO ============ */
 .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;will-change:transform}
-.hero::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(5,7,9,.55) 0%,rgba(5,7,9,0) 34%,rgba(5,7,9,.16) 62%,#0a0c0f 97%)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;will-change:transform;filter:saturate(1.1) contrast(1.05)}
+/* コピー面を守る暗幕: 左からの回り込み + 下部の落とし込み。映像内テロップを沈める */
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(100deg,rgba(6,8,11,.92) 0%,rgba(6,8,11,.72) 34%,rgba(6,8,11,.28) 58%,rgba(6,8,11,.05) 78%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(180deg,rgba(5,7,9,.5) 0%,rgba(5,7,9,0) 30%,rgba(5,7,9,.35) 66%,#0a0c0f 97%)}
+/* テキスト直下だけを局所的にぼかし、映像のテロップを読ませない */
+.hero .veil{position:absolute;left:0;right:0;bottom:0;height:64%;z-index:1;pointer-events:none;
+  backdrop-filter:blur(7px) brightness(.72);-webkit-backdrop-filter:blur(7px) brightness(.72);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 26%,#000 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,#000 26%,#000 100%)}
 .hero .inner{position:relative;z-index:2;width:min(1360px,94vw);margin:0 auto;padding-bottom:11vh;will-change:transform,opacity}
 .hero .eyebrow{color:#3AFFD9}
 .hero h1{font-size:clamp(44px,7.2vw,112px);color:#fff;margin:14px 0 20px}
@@ -403,14 +411,14 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
 <!-- ============ HEADER ============ -->
 <header class="hd">
   <div class="bar">
-    <a href="#top" class="brand"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
+    <a href="#top" class="brand"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" width="1000" height="200"><span class="brand-sub">国内正規取扱店<br>Custom Japan</span></a>
     <nav class="en">
       <div class="nav-drop">
         <a href="/pages/products">PRODUCT<span class="caret">▼</span></a>
         <div class="drop"><div class="drop-in">
-          <a href="/shop/f1-pro"><img src="/assets/products/29159413/thumb.jpg" alt="ASMAX Pro"><span><b>ASMAX PRO</b><i>フラッグシップ</i></span></a>
-          <a href="/shop/eva-r"><img src="/assets/products/29200252/thumb.jpg" alt="EVA RACING MODEL"><span><b>EVA RACING MODEL</b><i>EVANGELION RACING</i></span></a>
-          <a href="/shop/s2"><img src="/assets/products/29159437/thumb.jpg" alt="ASMAX Standard"><span><b>ASMAX Standard</b><i>41g エントリー</i></span></a>
+          <a href="/shop/f1-pro"><img src="/assets/products/29159413/thumb.jpg" alt="ASMAX Pro" width="200" height="200"><span><b>ASMAX PRO</b><i>フラッグシップ</i></span></a>
+          <a href="/shop/eva-r"><img src="/assets/products/29200252/thumb.jpg" alt="EVA RACING MODEL" width="200" height="200" loading="lazy" decoding="async"><span><b>EVA RACING MODEL</b><i>EVANGELION RACING</i></span></a>
+          <a href="/shop/s2"><img src="/assets/products/29159437/thumb.jpg" alt="ASMAX Standard" width="200" height="200" loading="lazy" decoding="async"><span><b>ASMAX Standard</b><i>41g エントリー</i></span></a>
           <a class="all" href="/pages/products"><b>全商品一覧</b><b>→</b></a>
         </div></div>
       </div>
@@ -428,6 +436,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
 <!-- ============ HERO ============ -->
 <section class="hero" id="top" data-atmos-zone="night">
   <video autoplay muted loop playsinline src="/assets/v3/f1pro-cg.mp4"></video>
+  <div class="veil" aria-hidden="true"></div>
   <div class="inner">
     <p class="eyebrow">ASMAX JAPAN — SMART MOTORCYCLE INTERCOM</p>
     <h1 class="h-display">
@@ -463,8 +472,8 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
         <h3>ASMAX Pro</h3>
         <p class="ja">グループツーリングの決定版</p>
         <div class="img slider">
-        <img src="/assets/v3/card-f1.webp" alt="ASMAX Pro ステラーグレー" class="on">
-        <img src="/assets/v3/card-f1-b.webp" alt="ASMAX Pro シャイニーグレー" loading="lazy">
+        <img src="/assets/v3/card-f1.webp" alt="ASMAX Pro ステラーグレー" class="on" width="1220" height="790" loading="lazy" decoding="async">
+        <img src="/assets/v3/card-f1-b.webp" alt="ASMAX Pro シャイニーグレー" loading="lazy" width="1220" height="790" decoding="async">
         <span class="sl-dots"><i class="on"></i><i></i></span>
       </div>
         <p class="price"><b>¥32,900</b><small>(税込) / 全2色</small><em class="w4chip">保証4年</em></p>
@@ -476,10 +485,10 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
         <h3>EVA RACING MODEL</h3>
         <p class="ja">EVANGELION RACING 公式コラボ</p>
         <div class="img slider">
-        <img src="/assets/v3/card-eva.webp" alt="EVA RACING MODEL 2号機-A" class="on">
-        <img src="/assets/v3/card-eva-02b.webp" alt="EVA RACING MODEL 2号機-B" loading="lazy">
-        <img src="/assets/v3/card-eva-01a.webp" alt="EVA RACING MODEL 初号機-A" loading="lazy">
-        <img src="/assets/v3/card-eva-01b.webp" alt="EVA RACING MODEL 初号機-B" loading="lazy">
+        <img src="/assets/v3/card-eva.webp" alt="EVA RACING MODEL 2号機-A" class="on" width="1220" height="790" loading="lazy" decoding="async">
+        <img src="/assets/v3/card-eva-02b.webp" alt="EVA RACING MODEL 2号機-B" loading="lazy" width="1220" height="790" decoding="async">
+        <img src="/assets/v3/card-eva-01a.webp" alt="EVA RACING MODEL 初号機-A" loading="lazy" width="1220" height="790" decoding="async">
+        <img src="/assets/v3/card-eva-01b.webp" alt="EVA RACING MODEL 初号機-B" loading="lazy" width="1220" height="790" decoding="async">
         <span class="sl-dots"><i class="on"></i><i></i><i></i><i></i></span>
       </div>
         <p class="price"><b>¥35,000</b><small>(税込) / 全4モデル</small><em class="w4chip">保証4年</em></p>
@@ -490,7 +499,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
         <p class="pos">STANDARD<span class="jps">Japan Pro Series</span></p>
         <h3>ASMAX Standard</h3>
         <p class="ja">41g、はじめてのASMAX</p>
-        <div class="img"><img src="/assets/v3/card-s2.webp" alt="ASMAX Standard"></div>
+        <div class="img"><img src="/assets/v3/card-s2.webp" alt="ASMAX Standard" width="1220" height="790" loading="lazy" decoding="async"></div>
         <p class="price"><b>¥15,899</b><small>(税込)</small><em class="w4chip">保証4年</em></p>
         <ul><li>41g軽量</li><li>HiFiサウンド</li><li>ENC</li><li>急速充電</li><li>BT5.4</li></ul>
         <div class="go"><span class="btn btn-accent en">SHOP</span><span class="btn btn-ghost">詳しく</span></div>
@@ -547,7 +556,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
       <span class="ph-cap">夜のワインディングでも、会話が途切れない。</span>
     </a>
     <div class="pshow-body">
-      <img class="render float" src="/assets/v3/f1-lit.webp" alt="ASMAX Pro">
+      <img class="render float" src="/assets/v3/f1-lit.webp" alt="ASMAX Pro" width="1600" height="1058" loading="lazy" decoding="async">
       <p class="pb-copy">グループツーリングの決定版。メッシュ通信の自動再接続、40mm BOXスピーカー、音声操作「Hi Max」。フラッグシップの機能を1台に凝縮しました。</p>
       <ul class="pb-chips"><li>メッシュ通信</li><li>14時間通話</li><li>IPX7防水</li><li>音声操作</li><li>装着で自動電源オン</li></ul>
       <div class="pb-cta">
@@ -575,7 +584,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
       <span class="ph-cap">鈴鹿を戦ったチームの、公式コラボモデル。 &copy;khara</span>
     </a>
     <div class="pshow-body">
-      <img class="render float" id="evaRender" src="/assets/v3/eva-01a.webp" alt="EVA RACING MODEL">
+      <img class="render float" id="evaRender" src="/assets/v3/eva-01a.webp" alt="EVA RACING MODEL" width="1300" height="773" loading="lazy" decoding="async">
       <p class="pb-copy">レーシングチーム「EVANGELION RACING」との公式コラボ。初号機・2号機をモチーフにした全4モデルで、性能もフラッグシップ級です。</p>
       <div class="pb-dots" role="group" aria-label="カラーバリエーション">
         <button class="on" data-img="/assets/v3/eva-01a.webp" style="--c:#7a4fd0" aria-label="初号機-A"></button>
@@ -619,7 +628,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
       <span class="ph-cap">つけていることを、忘れる。</span>
     </a>
     <div class="pshow-body">
-      <img class="render float" src="/assets/v3/s2-45deg.webp" alt="ASMAX Standard" style="width:min(52%,240px)">
+      <img class="render float" src="/assets/v3/s2-45deg.webp" alt="ASMAX Standard" style="width:min(52%,240px)" width="1500" height="1097" loading="lazy" decoding="async">
       <p class="pb-big en">41g<small>ULTRA LIGHTWEIGHT</small></p>
       <p class="pb-copy">わずか41gの軽量一体型ボディに、Bluetooth 5.4・ENC・HiFiサウンドを凝縮。はじめての一台にも、2台目の相棒にも。</p>
       <ul class="pb-chips"><li>HiFiサウンド</li><li>急速充電</li><li>ENC</li></ul>
@@ -665,14 +674,14 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
   </div>
   <div class="marquee m1" aria-hidden="true">
     <div class="track">
-      <img src="/assets/v3/f1-forest.jpg" alt=""><img src="/assets/v3/eva-model-3.jpg" alt=""><img src="/assets/v3/s2-adv-3.jpg" alt=""><img src="/assets/v3/f1-rider.jpg" alt=""><img src="/assets/v3/eva-scene-1.jpg" alt=""><img src="/assets/v3/s2-adv-1.jpg" alt="">
-      <img src="/assets/v3/f1-forest.jpg" alt=""><img src="/assets/v3/eva-model-3.jpg" alt=""><img src="/assets/v3/s2-adv-3.jpg" alt=""><img src="/assets/v3/f1-rider.jpg" alt=""><img src="/assets/v3/eva-scene-1.jpg" alt=""><img src="/assets/v3/s2-adv-1.jpg" alt="">
+      <img src="/assets/v3/f1-forest.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/eva-model-3.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-3.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/f1-rider.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/eva-scene-1.jpg" alt="" width="1600" height="2844" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-1.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async">
+      <img src="/assets/v3/f1-forest.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/eva-model-3.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-3.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/f1-rider.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/eva-scene-1.jpg" alt="" width="1600" height="2844" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-1.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async">
     </div>
   </div>
   <div class="marquee m2" aria-hidden="true">
     <div class="track">
-      <img src="/assets/v3/eva-model-4.jpg" alt=""><img src="/assets/v3/f1-night.jpg" alt=""><img src="/assets/v3/s2-adv-5.jpg" alt=""><img src="/assets/v3/eva-night-1.jpg" alt=""><img src="/assets/v3/f1-moment-2.jpg" alt=""><img src="/assets/v3/s2-adv-6.jpg" alt="">
-      <img src="/assets/v3/eva-model-4.jpg" alt=""><img src="/assets/v3/f1-night.jpg" alt=""><img src="/assets/v3/s2-adv-5.jpg" alt=""><img src="/assets/v3/eva-night-1.jpg" alt=""><img src="/assets/v3/f1-moment-2.jpg" alt=""><img src="/assets/v3/s2-adv-6.jpg" alt="">
+      <img src="/assets/v3/eva-model-4.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/f1-night.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-5.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/eva-night-1.jpg" alt="" width="1600" height="2393" loading="lazy" decoding="async"><img src="/assets/v3/f1-moment-2.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-6.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async">
+      <img src="/assets/v3/eva-model-4.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/f1-night.jpg" alt="" width="1920" height="2880" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-5.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/eva-night-1.jpg" alt="" width="1600" height="2393" loading="lazy" decoding="async"><img src="/assets/v3/f1-moment-2.jpg" alt="" width="1600" height="2400" loading="lazy" decoding="async"><img src="/assets/v3/s2-adv-6.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -704,15 +713,15 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
     </div>
     <div class="ncards">
       <a class="ncard rv" href="https://www.instagram.com/p/DaSTpu6kXvb/" target="_blank" rel="noopener">
-        <img src="/assets/v3/eva-model-4.jpg" alt="" loading="lazy">
+        <img src="/assets/v3/eva-model-4.jpg" alt="" loading="lazy" width="1600" height="2400" decoding="async">
         <div class="nc-body"><time class="en">2026.07</time><span class="cat">イベント</span><b>鈴鹿サーキットのイベントに出展決定 — 詳細はInstagramで</b></div>
       </a>
       <a class="ncard rv" data-d="1" href="/pages/shipping">
-        <img src="/assets/v3/s2-adv-4.jpg" alt="" loading="lazy">
+        <img src="/assets/v3/s2-adv-4.jpg" alt="" loading="lazy" width="1920" height="1280" decoding="async">
         <div class="nc-body"><time class="en">2026.07</time><span class="cat">お知らせ</span><b>公式ストア購入特典 — メーカー保証が2年から4年に延長</b></div>
       </a>
       <a class="ncard rv" data-d="2" href="/pages/news">
-        <img src="/assets/event-tokyo-motorcycle-show-2026.jpg" alt="" loading="lazy">
+        <img src="/assets/event-tokyo-motorcycle-show-2026.jpg" alt="" loading="lazy" width="1200" height="677" decoding="async">
         <div class="nc-body"><time class="en">2026.03</time><span class="cat">イベント</span><b>東京・大阪モーターサイクルショー2026に出展しました</b></div>
       </a>
     </div>
@@ -774,7 +783,7 @@ footer .cp{font-family:var(--font-en);font-size:11px;color:var(--sub);letter-spa
 <!-- ============ FOOTER ============ -->
 <footer data-atmos-zone="night">
   <div class="f-cols">
-    <a href="#top"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" style="filter:none"></a>
+    <a href="#top"><img src="/assets/ASMAX_LOGO_WHITE.svg" alt="ASMAX JAPAN" style="filter:none" width="1000" height="200" loading="lazy" decoding="async"></a>
     <nav class="f-nav">
       <div><b class="en">PRODUCTS</b>
         <a href="/shop/f1-pro">ASMAX Pro</a>
@@ -946,7 +955,7 @@ fetch('/data/instagram-tieup.json').then(r => r.json()).then(d => {
   if (!posts.length) { document.querySelector('.igsec').style.display = 'none'; return; }
   grid.innerHTML = posts.map(p => `
     <a class="ig-tile" href="${p.permalink}" target="_blank" rel="noopener">
-      <img src="${p.img}" alt="@${p.username} のタイアップ投稿" loading="lazy">
+      <img src="${p.img}" alt="@${p.username} のタイアップ投稿" width="720" height="900" loading="lazy" decoding="async">
       ${p.media_type === 'VIDEO' ? '<span class="vid">▶</span>' : ''}
       <span class="meta"><span class="un">@${p.username}</span><span class="cap">${(p.caption || '').replace(/[<>&"]/g, '').replace(/\n+/g, ' ')}</span></span>
     </a>`).join('');
