@@ -10,8 +10,8 @@
 }
 body{
   --bg:#0a0c0f;--bg2:#101318;--ink:#f2f4f6;--sub:#9aa3ad;
-  --accent:#26d5f2;--accent-dim:rgba(38,213,242,.14);
-  --line:rgba(255,255,255,.1);--card:#12161b;--on-accent:#04222b;
+  --accent:#3AFFD9;--accent-dim:rgba(58,255,217,.13);
+  --line:rgba(255,255,255,.1);--card:#12161b;--on-accent:#04231d;
 }
 body.eva{
   --bg:#120b10;--bg2:#1a0f15;--ink:#f6f1f2;--sub:#a89aa0;
@@ -20,7 +20,7 @@ body.eva{
 }
 body.aero{
   --bg:#f2f6f9;--bg2:#e8eef4;--ink:#10151b;--sub:#5d6b78;
-  --accent:#0e9cd8;--accent-dim:rgba(14,156,216,.1);
+  --accent:#007A63;--accent-dim:rgba(0,122,99,.1);
   --line:rgba(10,20,30,.12);--card:#ffffff;--on-accent:#ffffff;
 }
 html{scroll-behavior:smooth}
