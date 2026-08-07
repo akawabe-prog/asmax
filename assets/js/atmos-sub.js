@@ -70,6 +70,15 @@ if (foot) {
   if (document.body.dataset.lic) lic.textContent = document.body.dataset.lic; else lic.remove();
 }
 
+// リビール要素に役割クラスを自動付与
+document.querySelectorAll('.rv').forEach((el) => {
+  const HEAD = 'h1,h2,.t,.m';
+  if (el.matches('img,video,.vis,.pk,.iv-wrap,.posters,.units,.shop-photos,.eva-photos,.mosaic')) el.classList.add('is-vis');
+  else if (el.matches('.tile,.value,.mode-card,.eco-cell,.store,.p-tile,.unit,.era-row,.numbers div,.nov .tile')) el.classList.add('is-card');
+  else if (el.matches(HEAD) || el.querySelector(HEAD)) el.classList.add('is-head');
+  else if (el.matches('.bs-ch,.sec-head,.fno,.eyebrow')) el.classList.add('is-head');
+});
+
 const io = new IntersectionObserver((es) => es.forEach((e) => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
 }), { threshold: 0.18 });

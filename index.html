@@ -101,10 +101,26 @@ img{max-width:100%;display:block}
 .drop-in a.all{justify-content:space-between;border-top:1px solid rgba(255,255,255,.12);border-radius:0 0 12px 12px;margin-top:6px;padding-top:13px}
 
 /* ============ 汎用モーション ============ */
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* リビール: 役割別に速度と距離を変える(見出し=大きくゆっくり / 本文=控えめ / 画像=スケール) */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);will-change:opacity,transform}
 .rv.in{opacity:1;transform:none}
-.rv[data-d="1"]{transition-delay:.12s}.rv[data-d="2"]{transition-delay:.24s}
-.rv[data-d="3"]{transition-delay:.36s}.rv[data-d="4"]{transition-delay:.48s}
+/* 見出し・キーコピー: 深く、ゆっくり立ち上がる */
+.rv-head,.ch-head .title,.voice .kotoba,.lp-head .t,.sec-head,.bleed .cap .t,.tech-band h2,.brandsec h2{}
+.rv.is-head{transform:translateY(40px);transition-duration:1.05s}
+/* 画像・ビジュアル: フェード+微スケールで奥行きを出す */
+.rv.is-vis{transform:translateY(26px) scale(.985);transition-duration:.95s}
+.rv.is-vis.in{transform:none}
+/* カード群: 素早く、軽やかに */
+.rv.is-card{transform:translateY(18px);transition-duration:.62s}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}
+.rv[data-d="3"]{transition-delay:.3s}.rv[data-d="4"]{transition-delay:.4s}
+/* 常時アニメは画面内のときだけ動かす(モバイルの電力対策) */
+.marquee .track{animation-play-state:paused}
+.marquee.live .track{animation-play-state:running}
+.eq b{animation-play-state:paused}
+.voice.play.live .eq b{animation-play-state:running}
+.sb-map .dot.pulse{animation-play-state:paused}
+.sb-map.live .dot.pulse{animation-play-state:running}
 .eyebrow{font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--accent)}
 .chapter-no{font-family:var(--font-en);font-weight:900;font-size:clamp(70px,10vw,150px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--line);user-select:none}
 .h-display{font-family:var(--font-en);font-weight:800;line-height:1;letter-spacing:-.02em}
@@ -112,10 +128,10 @@ img{max-width:100%;display:block}
 
 /* ============ HERO ============ */
 .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:flex-end;overflow:hidden}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;will-change:transform}
 .hero::after{content:"";position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(5,7,9,.55) 0%,rgba(5,7,9,0) 34%,rgba(5,7,9,.16) 62%,#0a0c0f 97%)}
-.hero .inner{position:relative;z-index:2;width:min(1360px,94vw);margin:0 auto;padding-bottom:11vh}
+.hero .inner{position:relative;z-index:2;width:min(1360px,94vw);margin:0 auto;padding-bottom:11vh;will-change:transform,opacity}
 .hero .eyebrow{color:#3AFFD9}
 .hero h1{font-size:clamp(44px,7.2vw,112px);color:#fff;margin:14px 0 20px}
 .hero h1 .row{display:block;overflow:hidden}
@@ -814,6 +830,16 @@ function atmosTick(){
 }
 
 /* --- 2. リビール / チップ / EQ / カウンタ --- */
+/* リビール要素に役割クラスを自動付与(見出し/ビジュアル/カード) */
+(() => {
+  const HEAD = 'h1,h2,.kotoba,.ch-head .title,.t,.m,.q h2';
+  $$('.rv').forEach(el => {
+    if (el.matches('img,video,.vis,.pshow,.sp-banner,.ncard,.ig-tile,.mosaic img,.eva-photos img')) el.classList.add('is-vis');
+    else if (el.matches('.card,.tile,.tcard,.sku,.value,.mode-card,.eco-cell,.trust .t,.st')) el.classList.add('is-card');
+    else if (el.matches(HEAD) || el.querySelector(HEAD)) el.classList.add('is-head');
+  });
+})();
+
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   e.target.classList.add('in');
@@ -842,10 +868,19 @@ $$('[data-count]').forEach(el => cio.observe(el));
 
 /* --- 3. 視差(製品フロート・フルブリード写真・フィルムストリップ) --- */
 const paras = $$('[data-parallax]');
+/* ヒーロー: スクロールに応じて動画をゆっくり沈ませ、コピーを先に送る */
+const heroVideo = document.querySelector('.hero video');
+const heroInner = document.querySelector('.hero .inner');
 const bleeds = $$('[data-bleed]');
 const strips = $$('[data-strip]');
 function rafTick(){
-  const vh = innerHeight;
+  const vh = innerHeight || document.documentElement.clientHeight || 800;
+  /* ヒーロー視差(要素が画面内のときのみ計算) */
+  if (heroVideo && scrollY < vh * 1.2) {
+    const p = Math.min(scrollY / vh, 1);
+    heroVideo.style.transform = `translateY(${(p * 90).toFixed(1)}px) scale(${(1 + p * 0.06).toFixed(3)})`;
+    if (heroInner) { heroInner.style.transform = `translateY(${(p * -34).toFixed(1)}px)`; heroInner.style.opacity = (1 - p * 1.15).toFixed(2); }
+  }
   for (const el of paras){
     const r = el.getBoundingClientRect();
     const off = (r.top + r.height/2 - vh/2) * -parseFloat(el.dataset.parallax);
@@ -865,9 +900,24 @@ function rafTick(){
   atmosTick();
 }
 let raf = null;
-addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { rafTick(); raf = null; }); }, {passive:true});
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { if (!REDUCED) rafTick(); else atmosTick(); raf = null; }); }, {passive:true});
 addEventListener('resize', rafTick);
 rafTick();
+
+/* --- 3.35. 常時アニメーションを画面内でのみ再生(電力・CPU対策) --- */
+(() => {
+  const targets = [...document.querySelectorAll('.marquee, .voice, .sb-map')];
+  if (!targets.length) return;
+  const lio = new IntersectionObserver(es => es.forEach(e => {
+    e.target.classList.toggle('live', e.isIntersecting);
+  }), { rootMargin: '120px' });
+  targets.forEach(t => lio.observe(t));
+  // タブが非表示のあいだは全停止
+  document.addEventListener('visibilitychange', () => {
+    targets.forEach(t => { if (document.hidden) t.classList.remove('live'); });
+  });
+})();
 
 /* --- 3.4. 店舗ネットワークマップ描画(実座標31点) --- */
 (() => {
